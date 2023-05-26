@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		
---	File			
+--	Entity Name		tb_ExpModuleLED
+--	File			tb_ExpModuleLED.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -43,7 +43,7 @@ architecture tb of tb_ExpModuleLED is
     signal ExpLEDOE, ExpLEDLatch, ExpLEDClk : std_logic;
     signal ExpLEDData : std_logic_vector (3 downto 0);
     signal ExpLEDSelect : std_logic_vector (3 downto 0);
-	
+    
 begin
     DUT: entity work.ExpModuleLED
         port map (
@@ -75,7 +75,7 @@ begin
             Exp3LEDWrite => Exp3LEDWrite,
             Exp3LED0Write => Exp3LED0Write,
             Exp3LED1Write => Exp3LED1Write,
-			Exp3LEDRead => Exp3LEDRead,
+            Exp3LEDRead => Exp3LEDRead,
             Exp3LED0Read => Exp3LED0Read,
             Exp3LED1Read => Exp3LED1Read,
             EEPROMAccessFlag => EEPROMAccessFlag,
@@ -101,17 +101,185 @@ begin
         ExpLEDOE <= '0'; ExpLEDLatch <= '0'; ExpLEDClk <= '0'; ExpLEDData <= (others => '0'); ExpLEDSelect <= (others => '0');
         wait for 100 ns;
         
-        -- Write your tb sequence here
+        Reset <= '0';
+        wait for 100 ns;
         
-        -- An example of a tb sequence might look like this:
-        -- Reset <= '0';
-        -- wait for 100 ns;
-        -- Exp0LEDWrite <= '1';
-        -- Exp0LED0Write <= '1';
-        -- Exp0LED1Write <= '1';
-        -- wait for 100 ns;
-        -- Assert that the outputs are as expected
-        -- wait;
+        -- Test case 1
+        Exp0LEDWrite <= '1';
+        Exp0LED0Write <= '1';
+        Exp0LED1Write <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 1 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 2
+        Exp1LEDWrite <= '1';
+        Exp1LED0Write <= '1';
+        Exp1LED1Write <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 2 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 3
+        Exp2LEDWrite <= '1';
+        Exp2LED0Write <= '1';
+        Exp2LED1Write <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 3 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 4
+        Exp3LEDWrite <= '1';
+        Exp3LED0Write <= '1';
+        Exp3LED1Write <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 4 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 5
+        Exp0LEDRead <= '1';
+        Exp0LED0Read <= '1';
+        wait for 100 ns;
+        
+        assert (expLedDataOut = "1100")
+            report "Test case 5 failed: Unexpected expLedDataOut value"
+            severity error;
+        -- Test case 6
+        Exp0LEDRead <= '1';
+        Exp0LED1Read <= '1';
+        wait for 100 ns;
+        
+        assert (expLedDataOut = "1100")
+            report "Test case 6 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 7
+        Exp1LEDRead <= '1';
+        Exp1LED0Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 7 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 8
+        Exp1LEDRead <= '1';
+        Exp1LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 8 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 9
+        Exp2LEDRead <= '1';
+        Exp2LED0Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 9 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 10
+        Exp2LEDRead <= '1';
+        Exp2LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 10 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 11
+        Exp3LEDRead <= '1';
+        Exp3LED0Read <= '1';
+        wait for 100 ns;
+        
+        assert (expLedDataOut = "1100")
+            report "Test case 11 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 12
+        Exp3LEDRead <= '1';
+        Exp3LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 12 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 13
+        Exp0LEDWrite <= '1';
+        Exp0LED0Write <= '1';
+        Exp0LED1Write <= '1';
+        Exp0LEDRead <= '1';
+        Exp0LED0Read <= '1';
+        Exp0LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 13 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 14
+        Exp1LEDWrite <= '1';
+        Exp1LED0Write <= '1';
+        Exp1LED1Write <= '1';
+        Exp1LEDRead <= '1';
+        Exp1LED0Read <= '1';
+        Exp1LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 14 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 15
+        Exp2LEDWrite <= '1';
+        Exp2LED0Write <= '1';
+        Exp2LED1Write <= '1';
+        Exp2LEDRead <= '1';
+        Exp2LED0Read <= '1';
+        Exp2LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 15 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 16
+        Exp3LEDWrite <= '1';
+        Exp3LED0Write <= '1';
+        Exp3LED1Write <= '1';
+        Exp3LEDRead <= '1';
+        Exp3LED0Read <= '1';
+        Exp3LED1Read <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 16 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 17
+        EEPROMAccessFlag <= '1';
+        DiscoveryComplete <= '1';
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 17 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 18
+        SlowEnable <= '1';
+        SynchedTick <= '1';
+        wait for 100 ns;
+        
+        assert (expLedDataOut = "1100")
+            report "Test case 18 failed: Unexpected expLedDataOut value"
+            severity error;
+
+        -- Test case 19
+        ExpLEDSelect <= "0001";
+        ExpOldAP2 <= "0101";
+        wait for 100 ns;
+        assert (expLedDataOut = "1100")
+            report "Test case 19 failed: Unexpected expLedDataOut value"
+            severity error;
+        
+        -- End of test stimuli
+        wait;
     end process stimulus;
 end architecture tb;
-
