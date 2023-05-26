@@ -95,7 +95,7 @@ architecture tb of tb_ControlIO is
 	signal QA1AxisFault           : std_logic_vector (2 downto 0);
 begin
     -- Instantiate ControlIO with test signals
-    UUT: ControlIO
+    DUT: ControlIO
     port map (
         RESET                => RESET,
         H1_CLKWR             => H1_CLKWR,

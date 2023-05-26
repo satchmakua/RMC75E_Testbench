@@ -15,11 +15,21 @@
 --	Description:
 
 -- 	DUT:
+	-- ClockControl - responsible for generating various clock signals based on the input signals provided.
+	-- The ClockControl component takes inputs such as H1_PRIMARY, H1_CLKWR, RESET, DLL_RST,
+	-- and generates output clock signals like H1_CLK, H1_CLK90, SysClk, and control
+	-- signals like SysRESET, PowerUp, Enable, and SlowEnable. It also provides an output
+	-- signal DLL_LOCK to indicate whether the DLL (Delay-Locked Loop) is locked or not.
 
---	ClockControl manages different clock frequencies and outputs them with
---	different characteristics (phase lag, frequency halving).
---	It also provides additional controls and indications such
---	as reset signals, lock indications, and power-up signals.
+	-- Test Bench:
+	-- The test bench tb_ClockControl is designed to verify the functionality and
+	-- behavior of the ClockControl component. It instantiates the ClockControl
+	-- component and provides stimulus to its inputs to observe the expected behavior of the DUT.
+	-- The test bench includes a stimulus process that applies various test cases and
+	-- stimuli to the DUT inputs. It also includes assertions to
+	-- check the correctness of the DUT outputs and behavior.
+	-- The test bench ensures that all signals are defined and that the
+	-- simulation runs for a sufficient time (250 microseconds) to validate the DUT's behavior.
 
 --	Revision: 1.0
 --
@@ -30,8 +40,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.std_logic_unsigned.all;
 
 entity tb_ClockControl is
 end tb_ClockControl;
@@ -76,7 +84,7 @@ architecture tb of tb_ClockControl is
 begin
 
     -- Instantiate DUT
-    uut: ClockControl port map (
+    DUT: ClockControl port map (
         H1_PRIMARY => H1_PRIMARY,
         H1_CLKWR   => H1_CLKWR,
         H1_CLK     => H1_CLK,
@@ -105,6 +113,10 @@ begin
         H1_PRIMARY <= '1';
         H1_CLKWR <= '1';
         wait for clk_period * 10;
+        
+        -- Test Case: Assert DLL_LOCK after a delay
+        wait for clk_period * 5;
+        assert (DLL_LOCK = '1') report "DLL not locked" severity error;
 
         -- Test Case: Reset activation
         RESET <= '1';
@@ -116,6 +128,15 @@ begin
         DLL_RST <= '1';
         wait for clk_period * 5;
         DLL_RST <= '0';
+
+        -- Test Case: PowerUp signal assertion
+        wait for clk_period * 5;
+        assert (PowerUp = '1') report "PowerUp signal not asserted" severity error;
+        
+        -- Test Case: Enable and SlowEnable signals
+        wait for clk_period * 5;
+        assert (Enable = '1') report "Enable signal not asserted" severity error;
+        assert (SlowEnable = '1') report "SlowEnable signal not asserted" severity error;
 
         -- End simulation
         wait;

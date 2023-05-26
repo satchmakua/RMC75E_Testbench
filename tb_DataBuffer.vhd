@@ -28,13 +28,6 @@
 	-- The test bench generates clock signals, applies test
 	-- cases to different input signals, and verifies
 	-- the expected behavior of the DUT by using assertions.
-
-	-- The test bench includes test cases for various signals
-	-- such as SynchedTick60, ExpA#ReadCh# inputs,
-	-- WriteConversion, S2P_Addr, and S2P_Data.
-	-- These test cases aim to validate the behavior of the
-	-- DataBuffer module under different scenarios,
-	-- ensuring that the data storage and read operations are performed correctly.
 	
 --	Revision: 1.0
 --
@@ -107,7 +100,7 @@ architecture tb of tb_ExpSigRoute is
 
 begin
 
-	uut: ExpSigRoute port map (
+	DUT: ExpSigRoute port map (
 		ExpMux => ExpMux,
 		ExpSerialSelect => ExpSerialSelect,
 		ExpLEDSelect => ExpLEDSelect,

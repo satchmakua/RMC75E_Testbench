@@ -14,7 +14,7 @@
 --
 --	Description: 
 
--- The test bench, named "DiscoverID_TB," is responsible for verifying the functionality
+-- The test bench, "DiscoverID_TB," is responsible for verifying the functionality
 -- of the Design Under Test (DUT) named "DiscoverID." It provides stimulus signals,
 -- monitors the DUT's behavior, and checks for expected results.
 -- The test bench initializes signals, generates a clock,
@@ -22,7 +22,7 @@
 -- It also includes assertions to validate the DUT's outputs and stops
 -- the simulation after a specified time.
 
--- The Design Under Test (DUT), named "DiscoverID," is the entity being tested.
+-- The Design Under Test (DUT), "DiscoverID," is the entity being tested.
 -- It represents a module designed to perform the identification process in the RMC75E.
 -- The DUT has inputs such as RESET, SysClk, SlowEnable, FPGAIDRead, ControlCardIDRead,
 -- Expansion1IDRead, Expansion2IDRead, Expansion3IDRead, and Expansion4IDRead.
@@ -69,9 +69,9 @@ architecture tb of tb_DiscoverID is
 
 begin
 
-  -- Instantiate the unit under test (UUT)
+  -- Instantiate the unit under test (DUT)
   -- Update the component name and port mappings according to your design
-  UUT: entity work.DiscoverID
+  DUT: entity work.DiscoverID
     port map (
       RESET => RESET,
       SysClk => SysClk,
