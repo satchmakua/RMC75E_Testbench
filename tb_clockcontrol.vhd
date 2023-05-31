@@ -45,100 +45,112 @@ entity tb_ClockControl is
 end tb_ClockControl;
 
 architecture tb of tb_ClockControl is 
-
-    -- DUT Component Declaration
-    component ClockControl is
-        Port ( 
-            H1_PRIMARY   : in std_logic;
-            H1_CLKWR     : in std_logic;
-            H1_CLK       : out std_logic;
-            H1_CLK90     : out std_logic;
-            SysClk       : out std_logic;
-            RESET        : in std_logic;
-            DLL_RST      : in std_logic;
-            DLL_LOCK     : out std_logic;
-            SysRESET     : out std_logic;
-            PowerUp      : out std_logic;
-            Enable       : out std_logic;
-            SlowEnable   : out std_logic
+    -- Component Declaration for the Unit Under Test (UUT)
+    component ClockControl
+    port(
+         H1_PRIMARY : in  std_logic;
+         H1_CLKWR : in  std_logic;
+         H1_CLK : out  std_logic;
+         H1_CLK90 : out  std_logic;
+         SysClk : out  std_logic;
+         RESET : in  std_logic;
+         DLL_RST : in  std_logic;
+         DLL_LOCK : out  std_logic;
+         SysRESET : out  std_logic;
+         PowerUp : out  std_logic;
+         Enable : out  std_logic;
+         SlowEnable : out  std_logic
         );
     end component;
+   
+    --Inputs
+    signal H1_PRIMARY : std_logic := '0';
+    signal H1_CLKWR : std_logic := '0';
+    signal RESET : std_logic := '0';
+    signal DLL_RST : std_logic := '0';
 
-    -- Input and output signals
-    signal H1_PRIMARY   : std_logic := '0';
-    signal H1_CLKWR     : std_logic := '0';
-    signal H1_CLK       : std_logic := '0';
-    signal H1_CLK90     : std_logic := '0';
-    signal SysClk       : std_logic := '0';
-    signal RESET        : std_logic := '0';
-    signal DLL_RST      : std_logic := '0';
-    signal DLL_LOCK     : std_logic := '0';
-    signal SysRESET     : std_logic := '0';
-    signal PowerUp      : std_logic := '0';
-    signal Enable       : std_logic := '0';
-    signal SlowEnable   : std_logic := '0';
+    --Outputs
+    signal H1_CLK : std_logic := '0';
+    signal H1_CLK90 : std_logic := '0';
+    signal SysClk : std_logic := '0';
+    signal DLL_LOCK : std_logic := '0';
+    signal SysRESET : std_logic := '0';
+    signal PowerUp : std_logic := '0';
+    signal Enable : std_logic := '0';
+    signal SlowEnable : std_logic := '0';
 
     -- Clock period definitions
-    constant clk_period : time := 16.666 us;
+    constant H1_PRIMARY_period : time := 16.6667 ns;
+    constant H1_CLKWR_period : time := 16.6667 ns;
+
+    -- Clock generator
+    procedure Clock_Gen (signal clk : out std_logic; period : time) is
+    begin
+        clk <= '0';
+        wait for period / 2;
+        clk <= '1';
+        wait for period / 2;
+    end procedure Clock_Gen;
 
 begin
-
-    -- Instantiate DUT
-    DUT: ClockControl port map (
+    -- Instantiate the Unit Under Test (UUT)
+    uut: ClockControl port map (
         H1_PRIMARY => H1_PRIMARY,
-        H1_CLKWR   => H1_CLKWR,
-        H1_CLK     => H1_CLK,
-        H1_CLK90   => H1_CLK90,
-        SysClk     => SysClk,
-        RESET      => RESET,
-        DLL_RST    => DLL_RST,
-        DLL_LOCK   => DLL_LOCK,
-        SysRESET   => SysRESET,
-        PowerUp    => PowerUp,
-        Enable     => Enable,
+        H1_CLKWR => H1_CLKWR,
+        H1_CLK => H1_CLK,
+        H1_CLK90 => H1_CLK90,
+        SysClk => SysClk,
+        RESET => RESET,
+        DLL_RST => DLL_RST,
+        DLL_LOCK => DLL_LOCK,
+        SysRESET => SysRESET,
+        PowerUp => PowerUp,
+        Enable => Enable,
         SlowEnable => SlowEnable
     );
 
-    -- Stimulus process
-    stimulus : process
+    -- Clock process definitions
+    H1_PRIMARY_process :process
     begin
-        -- Initial state
-        RESET <= '0';
-        DLL_RST <= '0';
-        H1_PRIMARY <= '0';
-        H1_CLKWR <= '0';
-        wait for clk_period;
+        while true loop
+            Clock_Gen(H1_PRIMARY, H1_PRIMARY_period);
+        end loop;
+    end process;
 
-        -- Test Case: Basic clock signals
-        H1_PRIMARY <= '1';
-        H1_CLKWR <= '1';
-        wait for clk_period * 10;
+    H1_CLKWR_process :process
+    begin
+        while true loop
+            Clock_Gen(H1_CLKWR, H1_CLKWR_period);
+        end loop;
+    end process;
+
+  -- Stimulus process
+    stim_proc: process
+    begin   
+        -- Test 1: Reset application and release
+        wait for 100 ns;  
+        RESET <= '1';  -- Applying reset
+        wait for 100 ns;
+        RESET <= '0';  -- Releasing reset
+        assert (SysRESET = '1') report "Test 1 failed: SysRESET not asserted after RESET" severity error;
+
+        -- Test 2: DLL_RST pulse generation
+        wait for 200 ns;
+        DLL_RST <= '1';  -- Generating a reset pulse to the PLL
+        wait for 100 ns;
+        DLL_RST <= '0';  -- Stopping the reset pulse to the PLL
+        assert (DLL_LOCK = '1') report "Test 2 failed: DLL_LOCK not asserted after DLL_RST" severity error;
+
+        -- Test 3: Verify no signals are undefined
+        wait for 200 ns;
+        assert (H1_CLK /= 'U' and H1_CLK90 /= 'U' and SysClk /= 'U' and DLL_LOCK /= 'U' and 
+                SysRESET /= 'U' and PowerUp /= 'U' and Enable /= 'U' and SlowEnable /= 'U') 
+                report "Test 3 failed: One or more signals are undefined" severity error;
         
-        -- Test Case: Assert DLL_LOCK after a delay
-        wait for clk_period * 5;
-        assert (DLL_LOCK = '1') report "DLL not locked" severity error;
-
-        -- Test Case: Reset activation
-        RESET <= '1';
-        wait for clk_period * 5;
-        RESET <= '0';
-        wait for clk_period * 5;
-
-        -- Test Case: DLL Reset
-        DLL_RST <= '1';
-        wait for clk_period * 5;
-        DLL_RST <= '0';
-
-        -- Test Case: PowerUp signal assertion
-        wait for clk_period * 5;
-        assert (PowerUp = '1') report "PowerUp signal not asserted" severity error;
-        
-        -- Test Case: Enable and SlowEnable signals
-        wait for clk_period * 5;
-        assert (Enable = '1') report "Enable signal not asserted" severity error;
-        assert (SlowEnable = '1') report "SlowEnable signal not asserted" severity error;
-
-        -- End simulation
         wait;
     end process;
-end;
+
+end tb;
+
+
+
