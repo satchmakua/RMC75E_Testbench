@@ -3,6 +3,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.std_logic_unsigned.all;
 
+library smartfusion2;
+use smartfusion2.all;
+
 entity tb_ClockControl_v2 is
 end tb_ClockControl_v2;
 

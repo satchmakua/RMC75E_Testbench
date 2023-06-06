@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 --
---	© 2022 Delta Computer Systems, Inc.
---	Author: Dennis Ritola and David Shroyer
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Dennis Ritola and David Shroyer (Satchel Hamilton)
 --
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
@@ -12,7 +12,8 @@
 --
 --------------------------------------------------------------------------------
 --
---	Description: 
+--	Description:
+-- 
 --		Expansion Module LED Interface
 --		This interface will write LED values to the Expansion boards.
 --		Note that some of the control and data lines are multiplexed with
@@ -27,9 +28,16 @@
 --		clock and the data lines. (The clock has more and therefore may be late
 --		if the data is clocked at the end of the data bit)
 --
---	Revision: 1.2
+--	Revision: 1.3
 --
 -- File history:
+
+--		Rev 1.3 : 05/26/2023 :	Resolved the state encoding error by using an enumerated type
+--								for the state encoding logic rather than a pseudo-array of constants.
+
+--		Rev 1.3 : 05/26/2023 :	Added a ‘when others’ clause to the state machine logic
+--								that should handle any unexpected states that might arise.
+
 --		Rev 1.2 : 08/26/2022 :	Added Reset signal to keep LEDs off on power-up
 --		Rev 1.1 : 06/01/2022 :	Updated formatting
 --
@@ -109,15 +117,10 @@ architecture ExpModuleLED_arch of ExpModuleLED is
 			intExp2LED,
 			intExp3LED			: std_logic_vector (3 downto 0);	-- := X"0";
 	signal	intExpLEDOE			: std_logic;	-- := '1';
-	signal	EnableDelay				: std_logic;	-- Delay the Output eanable until the second time through the LED output state machine
+	signal	EnableDelay			: std_logic;	-- Delay the Output eanable until the second time through the LED output state machine
 
-	-- State Encoding
-	type STATE_TYPE is array (1 downto 0) of std_logic;
-	constant IdleState: 	STATE_TYPE :="00";
-	constant ShiftState: STATE_TYPE :="01";
-	constant ClearState: STATE_TYPE :="10";
-	constant EndState: 	STATE_TYPE :="11";
-
+	-- State Encoding now used an enumerated type rather than constants
+	type STATE_TYPE is (IdleState, ShiftState, ClearState, EndState);
 	signal State: STATE_TYPE; -- state can be assigned the constants defined above in "State Encoding"
 
 	constant TerminalCountValue : bit_vector := B"1000";
@@ -218,7 +221,7 @@ begin
 	end process;
 
 	-- State Machine to control the write sequence to the LED driver
-	StateMachine : process(Reset, SysClk)
+	StateMachine: process(Reset, SysClk)
 	begin
 		if Reset then
 			State <= IdleState; -- reset state
@@ -227,32 +230,30 @@ begin
 			ExpLEDLatch <= '0';
 			ShiftEnable <= '0';
 			EnableDelay <= '0';
-		elsif rising_edge(SysClk) then 
+		elsif rising_edge(SysClk) then
 			if SynchedTick = '1' then
 				State <= IdleState; -- reset state, this will reset the state machine every ms
 			elsif SlowEnable = '1' then
 				case State is
-
 					when IdleState =>
-						if StartStateMachine = '1' and DiscoveryComplete='1' and EEPROMAccessFlag='0' then
+						if StartStateMachine = '1' and DiscoveryComplete = '1' and EEPROMAccessFlag = '0' then
 							State <= ShiftState;
-							ShiftEnable <= '1';				-- enable the data shifting on detection of state transition
+							ShiftEnable <= '1'; -- enable the data shifting on detection of state transition
 						else
-							ShiftEnable <= '0';				-- disable the data shifting
-							ExpLEDLatch <= '0';				-- latch inactive (active on rising edge)
+							ShiftEnable <= '0'; -- disable the data shifting
+							ExpLEDLatch <= '0'; -- latch inactive (active on rising edge)
 						end if;
 
 					when ShiftState =>
---						if ShiftComplete = '1' then
 						if Count = TerminalCount then
 							State <= ClearState;
 							ShiftEnable <= '0';
 						else
-							ExpLEDLatch <= '0';				-- register latch is still inactive
-							ShiftEnable <= '1';				-- enable the data shifting
+							ExpLEDLatch <= '0'; -- register latch is still inactive
+							ShiftEnable <= '1'; -- enable the data shifting
 						end if;
 
-					When ClearState =>
+					when ClearState =>
 						State <= EndState;
 						if EEPROMAccessFlag = '0' then -- If the EEPROM is being accessed restart LED
 							ClearExpLEDLatch <= '1';
@@ -260,27 +261,20 @@ begin
 
 					when EndState =>
 						if EEPROMAccessFlag = '0' then
-							ExpLEDLatch <= '1';			-- Don't latch the LED data if there is an access by the Serial EEPROM Module
+							ExpLEDLatch <= '1'; -- Don't latch the LED data if there is an access by the Serial EEPROM Module
 						end if;
 						ShiftEnable <= '0';
 						ClearExpLEDLatch <= '0';
 						if DiscoveryComplete = '1' then
---							intExpLEDOE <= '0';
-
-							-- EnableDelay is set to 1 the first time through the state machine and then remains 1 forever
 							EnableDelay <= '1';
-							-- Delay setting intM_IO_OE low until the second time through the state machine because
-							--   intExpLEDOE is active before data is shifted out which means the first time through
-							--   bogus data that happens to be in the device is latched on the outputs and the LEDs
-							--   end up with random patterns momentarily.
 							intExpLEDOE <= not EnableDelay;
-
 						else
 							intExpLEDOE <= '1';
 						end if;
 						State <= IdleState;
 
---		 			when others =>	State <= IdleState;		-- default, reset state
+					when others => 
+						State <= IdleState; -- default, reset state
 				end case;
 			end if;
 		end if;

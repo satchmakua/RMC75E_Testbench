@@ -137,8 +137,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- library smartfusion2;
--- use smartfusion2.all;
+library smartfusion2;
+use smartfusion2.all;
 ----------------------------------------------------------------------
 -- Clock_Gen entity declaration
 ----------------------------------------------------------------------

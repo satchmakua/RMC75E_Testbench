@@ -41,6 +41,9 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+library smartfusion2;
+use smartfusion2.all;
+
 entity tb_ClockControl is
 end tb_ClockControl;
 
