@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_textio.all;
 use std.textio.all;
 
-library smartfusion2;
-use smartfusion2.all;
+-- library smartfusion2;
+-- use smartfusion2.all;
 
 entity tb_FCCC is
 -- This testbench doesn't need any ports as it interacts with the UUT (Unit Under Test) internally
