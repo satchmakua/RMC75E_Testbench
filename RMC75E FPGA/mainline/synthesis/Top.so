@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SynplifyOutput>
+	<result>Success</result>
+	<design>Top</design>
+	<target_verilog>C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top.vm</target_verilog>
+</SynplifyOutput>

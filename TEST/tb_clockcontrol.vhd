@@ -11,7 +11,17 @@
 --	File			tb_ClockControl.vhd
 --
 --------------------------------------------------------------------------------
+
+--	Notes: 
 --
+--		1. Ensure that the smartfusion2 library is correctly mapped to
+--     	the following path in Libero SoC via the vmap command, NOT ModelSimPro:
+--
+--	   	vmap smartfusion2 C:\Microchip\Libero_SoC_v2023.1\Designer\lib\modelsimpro\precompiled\vlog\smartfusion2
+--
+--		2. If the compiler throws an error about a mismatch in the minimum
+--	   	time resolution units, simulate with the following command: vsim -t 1fs tb_clockcontrol
+
 --	Description:
 
 -- 	DUT:

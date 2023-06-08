@@ -1,0 +1,16 @@
+Project Name: RMC75E_3
+Location: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline
+Description: Microchip FPGA for RMC75E rev 3.0
+Preferred HDL Type: VHDL
+
+#-----------------------------------------------------
+                  Device Details
+#-----------------------------------------------------
+
+Part Number    : M2GL005-VF256
+Family         : IGLOO2
+Die            : M2GL005
+Package        : 256 VF
+Speed          : STD
+Core Voltage   : 1.2
+Range          : COM

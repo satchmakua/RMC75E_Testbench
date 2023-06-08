@@ -1,0 +1,13 @@
+#--  Synopsys, Inc.
+#--  Version S-2021.09M-SP1
+#--  Project file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top_syn.prd
+#--  Written on Wed Oct 26 17:07:50 2022
+
+#
+### Watch Implementation type ###
+#
+watch_impl -all
+#
+### Watch Implementation properties ###
+#
+watch_prop -clear

@@ -1,0 +1,13 @@
+Software Version: 2022.2.0.10
+Opened 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\Top_fp\Top.pro'
+PDB file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\Top.pdb' has been loaded successfully.
+DESIGN : Top;  CHECKSUM : 4701;  PDB_VERSION : 1.9
+Info: Programming Interface selected is JTAG.
+File/Folder 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\export\RMC75E3v1_rev3v2.dat' will be overwritten.
+Successfully exported DirectC file: 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\export\RMC75E3v1_rev3v2.dat'; file programs Fabric.
+Fabric component bitstream digest: 08ea094b956ef9946bbaf0864e391909d5bc5b6ec338b55e5bcb0a404a21049b
+Entire bitstream digest: d1eda06e1e2a055ba23611f9321fb32dd5782ae0eeaad6dfd6b3d4420dc756d9
+Finished: Tue Feb 28 16:30:52 2023 (Elapsed time 00:00:02)
+
+Project saved.
+Project closed.

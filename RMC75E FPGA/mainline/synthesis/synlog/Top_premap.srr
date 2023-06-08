@@ -1,0 +1,276 @@
+# Tue Feb 28 16:27:11 2023
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Microchip Technology Pre-mapping, Version map202109actsp1, Build 056R, Built Jun 14 2022 13:56:21, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 120MB peak: 120MB)
+
+
+Done reading skeleton netlist (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 133MB)
+
+Reading constraint file: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\synthesis.fdc
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top_scck.rpt 
+See clock summary report "C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top_scck.rpt"
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 133MB peak: 135MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 133MB peak: 135MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 136MB peak: 136MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 136MB peak: 138MB)
+
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":120:2:120:3|Found instance CtrlOut_2.State with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":151:2:151:3|Found instance CtrlOut_2.OutputClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.CounterOverFlow with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.CounterOverFlowRetrigger with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.intDataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.RetPulseDelayEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.StartInterrogation with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":274:2:274:3|Found instance MDTTop_2.DelayCountEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.DataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.SendInterrogationPulse with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":178:2:178:3|Found instance MDTTop_2.TransducerSelect[6:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.Serial2ParallelData[31:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.ShiftOn with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.DelayCntEn with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":117:2:117:3|Found instance SSITop_2.DataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.intSSI_CLK with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.M_Card_ID_LOAD with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.M_Card_ID_LATCH with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.Exp_ID_LOAD with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.Exp_ID_LATCH with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":129:2:129:3|Found instance DiscID_1.DiscExpID_1.OutputClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\watchdogtimer.vhd":157:2:157:3|Found instance WDT_1.PUReg[19:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\statemachine.vhd":210:2:210:3|Found instance Analog_1.StateMach_1.EndDelay with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M3Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M3Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M2Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M2Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M1Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M1Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M0Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M0Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_CtrlAxis1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_CtrlAxis0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadMemAddr with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.IncOperationFaultCount with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intSerialMemoryDataControl with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.StartStopBit with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intFLAG_CLR with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.SecondPassRead with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadDeviceAddr with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intEEPROMAccessFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":220:1:220:2|Found instance SerMemInt_1.ReadFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":197:1:197:2|Found instance SerMemInt_1.WriteFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadWriteData with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":209:1:209:2|Found instance SerMemInt_1.ReadLatch with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":186:1:186:2|Found instance SerMemInt_1.WriteLatch with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":171:4:171:5|Found instance SerMemInt_1.intSerialMemoryClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":529:4:529:5|Found instance SerMemInt_1.OperationFaultFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":457:2:457:3|Found instance Quad_1.QuadXface_6.intHomeLat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":548:2:548:3|Found instance Quad_1.QuadXface_6.intLatch1Lat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":509:2:509:3|Found instance Quad_1.QuadXface_6.intLatch0Lat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.LearnModeEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.Latch1ArmedState[2:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.Latch0ArmedState[2:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.HomeArm with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 175MB peak: 175MB)
+
+
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 175MB peak: 176MB)
+
+@N: FX1184 |Applying syn_allowed_resources blockrams=10 on top level netlist Top 
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 179MB peak: 179MB)
+
+
+
+Clock Summary
+******************
+
+          Start                                                 Requested     Requested     Clock        Clock               Clock
+Level     Clock                                                 Frequency     Period        Type         Group               Load 
+----------------------------------------------------------------------------------------------------------------------------------
+0 -       System                                                100.0 MHz     10.000        system       system_clkgroup     0    
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          1709 
+                                                                                                                                  
+0 -       Top|H1_CLKWR                                          100.0 MHz     10.000        inferred     (multiple)          495  
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          229  
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          12   
+==================================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                                                      Clock     Source                                            Clock Pin                               Non-clock Pin     Non-clock Pin                          
+Clock                                                 Load      Pin                                               Seq Example                             Seq Example       Comb Example                           
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                0         -                                                 -                                       -                 -                                      
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     1709      ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL2(CCC)     ExpModLED_1.State[0:3].C                -                 Quad_1.QuadXface_6.un1_sysclk.I[0](inv)
+                                                                                                                                                                                                                   
+Top|H1_CLKWR                                          495       H1_CLKWR(port)                                    ExpModLED_1.intExpLEDSelect[0:15].C     -                 -                                      
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     229       ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL0(CCC)     LatCnt_1.LatencyCounter[31:0].C         -                 LatCnt_1.un1_h1_clk.I[0](inv)          
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     12        ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL1(CCC)     MDTTop_2.RisingB[3:1].C                 -                 MDTTop_2.un1_h1_clk90.I[0](inv)        
+===================================================================================================================================================================================================================
+
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\clockcontrol.vhd":187:2:187:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock which controls 1709 sequential elements including ClkCtrl_1.EnableCount[2:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":86:2:86:3|Found inferred clock Top|H1_CLKWR which controls 495 sequential elements including CtrlOut_1.ControlOutputWriteLatched0. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ticksync.vhd":73:2:73:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock which controls 229 sequential elements including TickSync_1.LatchedTickSync60. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":417:2:417:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock which controls 12 sequential elements including MDTTop_1.FallingB[3:1]. This clock has no specified timing constraint which may adversely impact design performance. 
+
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+Finished Pre Mapping Phase.
+@N: BN225 |Writing default property annotation file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top.sap.
+
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 176MB peak: 179MB)
+
+Encoding state machine State[0:5] (in view: work.MDTTopSimp_1(mdttopsimp_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   110 -> 010001
+   111 -> 100001
+Encoding state machine State[0:5] (in view: work.MDTTopSimp_0(mdttopsimp_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   110 -> 010001
+   111 -> 100001
+Encoding state machine State[0:4] (in view: work.ControlIO(controlio_arch))
+original code -> new code
+   000 -> 00001
+   001 -> 00010
+   011 -> 00100
+   110 -> 01000
+   111 -> 10000
+Encoding state machine State[0:5] (in view: work.DiscoverControlID(discovercontrolid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+Encoding state machine State[0:5] (in view: work.DiscoverExpansionID(discoverexpansionid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+Encoding state machine State[0:7] (in view: work.StateMachine(statemachine_arch))
+original code -> new code
+   000 -> 00000000
+   001 -> 00000011
+   010 -> 00000101
+   011 -> 00001001
+   100 -> 00010001
+   101 -> 00100001
+   110 -> 01000001
+   111 -> 10000001
+Encoding state machine StateMachine[0:12] (in view: work.SerialMemoryInterface(serialmemoryinterface_arch))
+original code -> new code
+   0000000000001 -> 0000000000000
+   0000000000010 -> 0000000000011
+   0000000000100 -> 0000000000101
+   0000000001000 -> 0000000001001
+   0000000010000 -> 0000000010001
+   0000000100000 -> 0000000100001
+   0000001000000 -> 0000001000001
+   0000010000000 -> 0000010000001
+   0000100000000 -> 0000100000001
+   0001000000000 -> 0001000000001
+   0010000000000 -> 0010000000001
+   0100000000000 -> 0100000000001
+   1000000000000 -> 1000000000001
+Encoding state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   0000 -> 0000
+   0001 -> 0001
+   0010 -> 0010
+   0011 -> 0011
+   0100 -> 0100
+   0101 -> 0101
+   0110 -> 0110
+   0111 -> 0111
+   1000 -> 1000
+   1001 -> 1001
+   1010 -> 1010
+   1011 -> 1011
+   1100 -> 1100
+   1101 -> 1101
+   1110 -> 1110
+   1111 -> 1111
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":152:2:152:3|There are no possible illegal states for state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":223:2:223:3|There are no possible illegal states for state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:10] (in view: work.DIO8(dio8_arch))
+original code -> new code
+   00000000001 -> 00000000001
+   00000000010 -> 00000000010
+   00000000100 -> 00000000100
+   00000001000 -> 00000001000
+   00000010000 -> 00000010000
+   00000100000 -> 00000100000
+   00001000000 -> 00001000000
+   00010000000 -> 00010000000
+   00100000000 -> 00100000000
+   01000000000 -> 01000000000
+   10000000000 -> 10000000000
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 182MB peak: 182MB)
+
+
+Finished constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 97MB peak: 185MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+# Tue Feb 28 16:27:14 2023
+
+###########################################################]
