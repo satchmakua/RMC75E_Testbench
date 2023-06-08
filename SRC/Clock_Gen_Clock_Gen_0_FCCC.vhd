@@ -1,5 +1,43 @@
 -- Version: 2022.2 2022.2.0.10
 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: SmartDesign
+--	
+--	Annotations added by Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		Clock_Gen_Clock_Gen_0_FCCC
+--	File			Clock_Gen_Clock_Gen_0_FCCC.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
+
+	-- This module provides the heartbeat of the RMC75E modular motion controller.
+	-- It is responsible for generating the raw clock signals used by the rest of the system.
+	-- These clock signals are later conditioned to the correct frequencies and phases by the clock_gen module.
+	-- The module takes several input and output ports, including LOCK,
+	-- PLL_ARST_N, PLL_POWERDOWN_N, CLK1_PAD, and outputs GL0, GL1, and GL2.
+
+	-- Various components are instantiated, such as CLKINT, INBUF, VCC, and GND.
+	-- These components handle the buffering, voltage supply, and clock generation functionalities.
+	-- The CCC component is also instantiated, which is responsible for generating clock signals with specific configurations.
+
+	-- Overall, the fccc.vhd module forms the initial stage of clock signal generation,
+	-- providing the raw clock signals that will be further processed and conditioned in subsequent modules.
+	
+--	Revision: 1.1
+--
+--	File history: Rev 1.1 : 06/08/2023 : Added module description
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 library smartfusion2;
@@ -157,6 +195,4 @@ begin
         GL1 => GL1_net, GL2 => GL2_net, GL3 => OPEN, 
         RCOSC_25_50MHZ => gnd_net, RCOSC_1MHZ => gnd_net, XTLOSC
          => gnd_net);
-    
-
 end DEF_ARCH; 

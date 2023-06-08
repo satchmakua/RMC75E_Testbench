@@ -146,7 +146,7 @@ UserTimeUnit = default
 RunLength = 100 ps
 
 ; Maximum iterations that can be run without advancing simulation time
-IterationLimit = 10000000
+IterationLimit = 5000
 
 ; Directive to license manager:
 ; vhdl          Immediately reserve a VHDL license
@@ -161,7 +161,7 @@ IterationLimit = 10000000
 
 ; Stop the simulator after a VHDL/Verilog assertion message
 ; 0 = Note  1 = Warning  2 = Error  3 = Failure  4 = Fatal
-BreakOnAssertion = 4
+BreakOnAssertion = 3
 
 ; Assertion Message Format
 ; %S - Severity Level 
@@ -300,7 +300,6 @@ ConcurrentFileLimit = 40
 ; Default is on, uncomment to turn off.
 ; NoAutoSDFCompile = 1
 
-DelayFileOpen = 1
 [lmc]
 
 [msg_system]
@@ -346,7 +345,7 @@ Project_File_P_3 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 v
 Project_File_4 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_Serial2Parallel.vhd
 Project_File_P_4 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1684970122 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 55 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_5 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/clockcontrol.vhd
-Project_File_P_5 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1665788143 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 3 dont_compile 0 cover_nosub 0 vhdl_use93 2008
+Project_File_P_5 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686261881 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 3 dont_compile 0 cover_nosub 0 vhdl_use93 2008
 Project_File_6 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_latencyCounter.vhd
 Project_File_P_6 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1684969007 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 46 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_7 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/CPUConfig.vhd
@@ -378,11 +377,11 @@ Project_File_P_19 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 
 Project_File_20 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/MDTTopSimp.vhd
 Project_File_P_20 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1668530247 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 18 dont_compile 0 cover_nosub 0 vhdl_use93 2008
 Project_File_21 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockcontrol.vhd
-Project_File_P_21 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686249788 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 31 dont_compile 0 cover_nosub 0 vhdl_use93 2008
+Project_File_P_21 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686263583 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 31 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_22 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_cpuled.vhd
 Project_File_P_22 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1685050256 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 36 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_23 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/Clock_Gen.vhd
-Project_File_P_23 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686244503 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 1 dont_compile 0 cover_nosub 0 vhdl_use93 2008
+Project_File_P_23 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686260700 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 1 dont_compile 0 cover_nosub 0 vhdl_use93 2008
 Project_File_24 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_quad.vhd
 Project_File_P_24 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1684867737 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 50 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_25 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_decode.vhd
@@ -396,7 +395,7 @@ Project_File_P_28 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 
 Project_File_29 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DiscoverControlID.vhd
 Project_File_P_29 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1667334346 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 12 dont_compile 0 cover_nosub 0 vhdl_use93 2008
 Project_File_30 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/Clock_Gen_Clock_Gen_0_FCCC.vhd
-Project_File_P_30 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1664232164 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 2 dont_compile 0 cover_nosub 0 vhdl_use93 2008
+Project_File_P_30 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1686260442 vhdl_disableopt 0 cover_excludedefault 0 vhdl_vital 0 vhdl_warn1 1 vhdl_showsource 0 vhdl_explicit 1 vhdl_warn2 1 vhdl_0InOptions {} cover_covercells 0 vhdl_warn3 1 vhdl_options {} cover_optlevel 3 voptflow 1 vhdl_warn4 1 ood 0 toggle - vhdl_warn5 1 compile_to work cover_noshort 0 compile_order 2 dont_compile 0 cover_nosub 0 vhdl_use93 2008
 Project_File_31 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_controloutput.vhd
 Project_File_P_31 = vhdl_novitalcheck 0 file_type vhdl group_id 0 cover_nofec 0 vhdl_nodebug 0 vhdl_1164 1 vhdl_noload 0 vhdl_synth 0 vhdl_enable0In 0 folder {Top Level} last_compile 1685117319 vhdl_disableopt 0 vhdl_vital 0 cover_excludedefault 0 vhdl_warn1 1 vhdl_warn2 1 vhdl_explicit 1 vhdl_showsource 0 vhdl_warn3 1 cover_covercells 0 vhdl_0InOptions {} vhdl_warn4 1 voptflow 1 cover_optlevel 3 vhdl_options {} vhdl_warn5 1 toggle - ood 0 cover_noshort 0 compile_to work compile_order 34 cover_nosub 0 dont_compile 0 vhdl_use93 2008
 Project_File_32 = C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ExpModuleLED.vhd

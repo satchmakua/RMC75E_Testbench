@@ -1,9 +1,42 @@
 ----------------------------------------------------------------------
 -- Created by SmartDesign Mon Sep 26 15:42:44 2022
 -- Version: 2022.2 2022.2.0.10
-----------------------------------------------------------------------
 
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: SmartDesign
+--	
+--	Annotations added by Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		Clock_Gen
+--	File			Clock_Gen.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
+
+	-- The clock_gen.vhd module serves as the main clock generation module that interfaces with the fccc.vhd module.
+	-- It provides the conditioned clock signals based on the raw clock signals received from fccc.vhd.
+	-- The module takes input ports such as CLK1_PAD, PLL_ARST_N, PLL_POWERDOWN_N, and outputs GL0, GL1, GL2, and LOCK.
+	-- Inside the clock_gen.vhd module, the Clock_Gen_Clock_Gen_0_FCCC
+	-- component is instantiated, which represents the fccc.vhd module.
+	-- The module includes signals such as GL0_net_0, GL1_net_0, GL2_net_0,
+	-- and LOCK_net_0, which are used for internal signal routing and synchronization.
+	-- These signals are then assigned to corresponding output ports GL0, GL1, GL2,
+	-- and LOCK to provide the conditioned clock signals to the rest of the system.
+
+	-- The clock_gen.vhd module acts as an intermediary between the raw clock signal generation
+	-- in fccc.vhd and the final clock signals required by the system.
+	
+--	Revision: 1.1
+--
+--	File history: Rev 1.1 : 06/08/2023 : Added module description
+--	File history: Rev 1.1 : 06/08/2023 : Removed extraneous auto-generated comments
+
 -- Component Description (Tcl) 
 ----------------------------------------------------------------------
 --# Exporting Component Description of Clock_Gen to TCL
@@ -131,56 +164,40 @@
 --"Y3_IS_USED:false"   }
 --# Exporting Component Description of Clock_Gen to TCL done
 
-----------------------------------------------------------------------
--- Libraries
-----------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 
 library smartfusion2;
 use smartfusion2.all;
-----------------------------------------------------------------------
--- Clock_Gen entity declaration
-----------------------------------------------------------------------
+
 entity Clock_Gen is
-    -- Port list
+
     port(
-        -- Inputs
         CLK1_PAD        : in  std_logic;
         PLL_ARST_N      : in  std_logic;
         PLL_POWERDOWN_N : in  std_logic;
-        -- Outputs
         GL0             : out std_logic;
         GL1             : out std_logic;
         GL2             : out std_logic;
         LOCK            : out std_logic
         );
 end Clock_Gen;
-----------------------------------------------------------------------
--- Clock_Gen architecture body
-----------------------------------------------------------------------
+
 architecture RTL of Clock_Gen is
-----------------------------------------------------------------------
--- Component declarations
-----------------------------------------------------------------------
--- Clock_Gen_Clock_Gen_0_FCCC   -   Actel:SgCore:FCCC:2.0.201
+
 component Clock_Gen_Clock_Gen_0_FCCC
-    -- Port list
+
     port(
-        -- Inputs
         CLK1_PAD        : in  std_logic;
         PLL_ARST_N      : in  std_logic;
         PLL_POWERDOWN_N : in  std_logic;
-        -- Outputs
         GL0             : out std_logic;
         GL1             : out std_logic;
         GL2             : out std_logic;
         LOCK            : out std_logic
         );
 end component;
-----------------------------------------------------------------------
--- Signal declarations
-----------------------------------------------------------------------
+
 signal GL0_net_0  : std_logic;
 signal GL1_net_0  : std_logic;
 signal GL2_net_0  : std_logic;
@@ -189,23 +206,16 @@ signal GL0_net_1  : std_logic;
 signal GL1_net_1  : std_logic;
 signal GL2_net_1  : std_logic;
 signal LOCK_net_1 : std_logic;
-----------------------------------------------------------------------
--- TiedOff Signals
-----------------------------------------------------------------------
+
 signal GND_net    : std_logic;
 signal PADDR_const_net_0: std_logic_vector(7 downto 2);
 signal PWDATA_const_net_0: std_logic_vector(7 downto 0);
 
 begin
-----------------------------------------------------------------------
--- Constant assignments
-----------------------------------------------------------------------
  GND_net            <= '0';
  PADDR_const_net_0  <= B"000000";
  PWDATA_const_net_0 <= B"00000000";
-----------------------------------------------------------------------
--- Top level output port assignments
-----------------------------------------------------------------------
+
  GL0_net_1  <= GL0_net_0;
  GL0        <= GL0_net_1;
  GL1_net_1  <= GL1_net_0;
@@ -214,21 +224,15 @@ begin
  GL2        <= GL2_net_1;
  LOCK_net_1 <= LOCK_net_0;
  LOCK       <= LOCK_net_1;
-----------------------------------------------------------------------
--- Component instances
-----------------------------------------------------------------------
--- Clock_Gen_0   -   Actel:SgCore:FCCC:2.0.201
+
 Clock_Gen_0 : Clock_Gen_Clock_Gen_0_FCCC
     port map( 
-        -- Inputs
         CLK1_PAD        => CLK1_PAD,
         PLL_ARST_N      => PLL_ARST_N,
         PLL_POWERDOWN_N => PLL_POWERDOWN_N,
-        -- Outputs
         GL0             => GL0_net_0,
         GL1             => GL1_net_0,
         GL2             => GL2_net_0,
         LOCK            => LOCK_net_0 
         );
-
 end RTL;

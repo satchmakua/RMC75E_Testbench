@@ -1,8 +1,10 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 --
---	© 2022 Delta Computer Systems, Inc.
+--	© 2023 Delta Computer Systems, Inc.
 --	Author: Dennis Ritola and David Shroyer
+--
+--	Additional annotations added by Satchel Hamilton
 --
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
@@ -13,11 +15,57 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+
+	-- The ClockControl module is responsible for controlling the clock signals in the system.
+	-- It interfaces with the Clock_Gen component, which generates the clock signals based on the input clock sources.
+	-- The module takes various input and output ports, including H1_PRIMARY, H1_CLKWR,
+	-- H1_CLK, H1_CLK90, SysClk, RESET, DLL_RST, DLL_LOCK, SysRESET, PowerUp, Enable, and SlowEnable.
+
+	-- Inside the ClockControl module, there are internal signals and processes that handle
+	-- the synchronization and control of clock-related operations. These include the synchronization
+	-- of the DLL lock status (DLL_LOCK_Int) and the DLL reset command (DLL_RST_sync).
+	-- The module also utilizes a one-shot pulse generator (PowerUpOneShot) to generate
+	-- initialization pulses on startup or PLL reset. The EnableCount signal is used to
+	-- generate enable pulses for clocking the logic at different frequencies.
+
+	-- The module ensures proper synchronization and control of the clock signals
+	-- based on the DLL lock status and system reset conditions.
+	-- It coordinates the generation and distribution of the
+	-- clock signals to different components within the system.
+	
+	-- Note on the commented out sections:
+	
+	-- This code refers to a previous implementation that is no longer used
+	-- in the current design with the Microchip Igloo 2 FPGA.
+	
+	-- It implements a state machine (StateMachine) that monitors the status of the DLL
+	-- (Delay-Locked Loop) and performs certain actions depending on its state.
+	-- Here's a breakdown of the commented out code:
+
+	-- The state machine (StateMachine) is a process that is sensitive
+	-- to rising edges of the H1_CLKWR signal and the system reset (RESET) signal.
+
+	-- The state machine has four states defined as follows:
+
+	-- s0_idle: Initial state after reset, where the PLL reset signal is kept low.
+	-- s1_locked: Monitors the DLL lock status and transitions to the next state if the DLL is not locked.
+	-- s2_reset: Resets the DLL for a minimum of three clock cycles.
+	-- s3_delay: Waits until the DLL is locked or a delay of 1 millisecond (at 60 MHz) is reached.
+
+	-- Inside the state machine, there are conditions and actions associated with each state:
+
+	-- In the s0_idle state, if the DLL is not locked (DLLQ1_LOCK = '0'), a reset pulse is generated to the DLL.
+	-- In the s1_locked state, if the DLL is not locked, a reset pulse is generated to the DLL.
+	-- In the s2_reset state, the state machine waits for three clock cycles before transitioning to the s3_delay state.
+	-- In the s3_delay state, the state machine waits for either the DLL to lock or a delay of 1 millisecond is reached.
+	-- If the delay expires and the DLL is still not locked, it transitions back to the s2_reset state.
+	-- If the DLL is locked, it transitions to the s1_locked state.
+
 --
---	Revision: 1.2
+--	Revision: 1.3
 --
 --	File history:
+--		Rev 1.3 : 06/08/2023 : 	Added module description
 --		Rev 1.2 : 09/01/2022 :	Clean up SysRESET signal
 --		Rev 1.1 : 06/10/2022 :	Updated formatting
 --

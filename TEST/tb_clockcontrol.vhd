@@ -24,7 +24,7 @@
 
 --	Description:
 
--- 	DUT:
+	-- DUT:
 	-- ClockControl - responsible for generating various clock signals based on the input signals provided.
 	-- The ClockControl component takes inputs such as H1_PRIMARY, H1_CLKWR, RESET, DLL_RST,
 	-- and generates output clock signals like H1_CLK, H1_CLK90, SysClk, and control
@@ -164,6 +164,7 @@ begin
     end process;
 
 end tb;
+
 
 
 
