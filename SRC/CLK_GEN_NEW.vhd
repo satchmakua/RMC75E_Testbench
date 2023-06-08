@@ -11,7 +11,9 @@
 --	File			CLK_GEN_NEW.vhd
 --
 --------------------------------------------------------------------------------
---
+
+-- Abdullah Ibrahim - "They took away time, and they gave us the clock."
+
 --	Description: 
 	-- This module generates three clock signals (GL0, GL1, GL2) from an input clock (CLK1_PAD).
 	-- The module includes a Phase Locked Loop (PLL) that can be reset (PLL_ARST_N) or powered down (PLL_POWERDOWN_N).

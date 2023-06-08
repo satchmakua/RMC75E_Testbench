@@ -1,0 +1,598 @@
+C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_discovercontrol.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_discovercontrol.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_DiscoverID
+-- Compiling architecture tb of tb_DiscoverID
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity DiscoverID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial_mem.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial_mem.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SerialMemoryInterface
+-- Compiling architecture SerialMemoryInterface_arch of SerialMemoryInterface
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial2parallel.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial2parallel.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Serial2Parallel
+-- Compiling architecture Serial2Parallel_arch of Serial2Parallel
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ram128x16bits.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ram128x16bits.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_RAM128x16
+-- Compiling architecture tb of tb_RAM128x16
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity RAM128x16
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_Serial2Parallel.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_Serial2Parallel.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_Serial2Parallel
+-- Compiling architecture tb_arch of tb_Serial2Parallel
+-- Loading entity Serial2Parallel
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_latencyCounter.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_latencyCounter.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_LatencyCounter
+-- Compiling architecture tb of tb_LatencyCounter
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity LatencyCounter
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/clockcontrol.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/clockcontrol.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package VITAL_Timing
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ClockControl
+-- Compiling architecture clockcontrol_arch of ClockControl
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/CPUConfig.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/CPUConfig.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CPUConfig
+-- Compiling architecture CPUConfig_arch of CPUConfig
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_analog.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_analog.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_analog
+-- Compiling architecture tb of tb_analog
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ticksync.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ticksync.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity TickSync
+-- Compiling architecture ticksync_arch of TickSync
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity LatencyCounter
+-- Compiling architecture LT_ARCH of LatencyCounter
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_top.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_top.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_top
+-- Compiling architecture tb of tb_top
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_disccontID.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_disccontID.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_DiscoverControlID
+-- Compiling architecture testbench of tb_DiscoverControlID
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity DiscoverControlID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/SSITop.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/SSITop.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SSITop
+-- Compiling architecture SSITop_arch of SSITop
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DIO8
+-- Compiling architecture DIO8_arch of DIO8
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity RAM128x16
+-- Compiling architecture RAM128x16_arch of RAM128x16
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_MDTTopSimp.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_MDTTopSimp.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_MDTTopSimp
+-- Compiling architecture tb of tb_MDTTopSimp
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_controlio.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_controlio.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_ControlIO
+-- Compiling architecture tb of tb_ControlIO
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_QuadXFace.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_QuadXFace.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_QuadXface
+-- Compiling architecture tb of tb_QuadXface
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ExpansionSigRoute.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ExpansionSigRoute.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ExpSigRoute
+-- Compiling architecture ExpSigRoute_arch of ExpSigRoute
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/MDTTopSimp.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/MDTTopSimp.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDTTopSimp
+-- Compiling architecture MDTTopSimp_arch of MDTTopSimp
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockcontrol.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockcontrol.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_ClockControl
+-- Compiling architecture tb of tb_ClockControl
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_cpuled.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_cpuled.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CPULED
+-- Compiling architecture testbench of tb_CPULED
+-- Loading entity CPULED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_quad.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_quad.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity tb_quad
+-- Compiling architecture tb of tb_quad
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_decode.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_decode.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_decode
+-- Compiling architecture tb of tb_decode
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DIO8.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DIO8.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_DIO8
+-- Compiling architecture tb of tb_DIO8
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DiscoverExpansion.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DiscoverExpansion.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_DiscoverExpansionID
+-- Compiling architecture tb of tb_DiscoverExpansionID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/QuadXface.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/QuadXface.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity QuadXface
+-- Compiling architecture QuadXface_arch of QuadXface
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DiscoverControlID.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DiscoverControlID.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DiscoverControlID
+-- Compiling architecture DiscoverControlID_arch of DiscoverControlID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_controloutput.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_controloutput.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CountrolOutput
+-- Compiling architecture tb of tb_CountrolOutput
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ExpModuleLED.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ExpModuleLED.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ExpModuleLED
+-- Compiling architecture ExpModuleLED_arch of ExpModuleLED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/WatchDogTimer.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/WatchDogTimer.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity WDT
+-- Compiling architecture WDT_ARCH of WDT
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/top.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/top.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Top
+-- Compiling architecture Top_arch of Top
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockgen.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockgen.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Compiling entity tb_Clock_Gen
+-- Compiling architecture test of tb_Clock_Gen
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_FCCC.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_FCCC.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Compiling entity tb_FCCC
+-- Compiling architecture test of tb_FCCC
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/statemachine.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/statemachine.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity StateMachine
+-- Compiling architecture StateMachine_arch of StateMachine
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_SSITop.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_SSITop.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_SSITop
+-- Compiling architecture tb of tb_SSITop
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity SSITop
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DiscoverExpansionID.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DiscoverExpansionID.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DiscoverExpansionID
+-- Compiling architecture DiscoverExpansionID_arch of DiscoverExpansionID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DataBuffer.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DataBuffer.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_ExpSigRoute
+-- Compiling architecture tb of tb_ExpSigRoute
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controloutput.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controloutput.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControlOutput
+-- Compiling architecture ControlOutput_arch of ControlOutput
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/analog.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/analog.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Analog
+-- Compiling architecture Analog_arch of Analog
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/Quad.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/Quad.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity Quad
+-- Compiling architecture Quad_arch of Quad
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/databuffer.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/databuffer.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DataBuffer
+-- Compiling architecture DataBuffer_arch of DataBuffer
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_mdssiroute.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_mdssiroute.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_MDTSSIRoute
+-- Compiling architecture tb of tb_MDTSSIRoute
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity MDTSSIRoute
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpModuleLED.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpModuleLED.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_ExpModuleLED
+-- Compiling architecture tb of tb_ExpModuleLED
+-- Loading entity ExpModuleLED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/mdssiroute.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/mdssiroute.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDTSSIRoute
+-- Compiling architecture MDTSSIRoute_arch of MDTSSIRoute
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/rtdexpidled.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/rtdexpidled.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity RtdExpIDLED
+-- Compiling architecture RtdExpIDLED_arch of RtdExpIDLED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_StateMachine
+-- Compiling architecture tb_arch of tb_StateMachine
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/CLK_GEN_NEW.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/CLK_GEN_NEW.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Clock_Gen
+-- Compiling architecture Behavioral of Clock_Gen
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpSigRoute.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpSigRoute.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpSigRoute.vhd(38): (vcom-1615) Existing entity 'tb_ExpSigRoute' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DataBuffer.vhd(44) will be overwritten.
+-- Compiling entity tb_ExpSigRoute
+** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ExpSigRoute.vhd(41): (vcom-1615) Existing architecture 'tb_ExpSigRoute(tb)' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_DataBuffer.vhd(47) will be overwritten.
+-- Compiling architecture tb of tb_ExpSigRoute
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/cpuled.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/cpuled.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CPULED
+-- Compiling architecture CPULED_arch of CPULED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ticksync.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ticksync.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_TickSync
+-- Compiling architecture testbench of tb_TickSync
+-- Loading entity TickSync
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_RtdExpIDLED.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_RtdExpIDLED.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_RtdExpIDLED
+-- Compiling architecture tb of tb_RtdExpIDLED
+-- Loading entity RtdExpIDLED
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_watchdogtimer.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_watchdogtimer.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_WDT
+-- Compiling architecture tb of tb_WDT
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/discovercontrol.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/discovercontrol.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DiscoverID
+-- Compiling architecture DiscoverID_arch of DiscoverID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controlio.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controlio.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControlIO
+-- Compiling architecture ControlIO_arch of ControlIO
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_new_clk_gen.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_new_clk_gen.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_new_clk_gen.vhd(29): (vcom-1615) Existing entity 'tb_Clock_Gen' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_clockgen.vhd(9) will be overwritten.
+-- Compiling entity tb_Clock_Gen
+-- Compiling architecture behavior of tb_Clock_Gen
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_CPUconfig.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_CPUconfig.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb_CPUConfig
+-- Compiling architecture testbench of tb_CPUConfig
+-- Loading entity CPUConfig
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_serial_mem.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_serial_mem.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package NUMERIC_STD_UNSIGNED
+-- Compiling entity tb_SerialMemoryInterface
+-- Compiling architecture tb_arch of tb_SerialMemoryInterface
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/decode.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/decode.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Decode
+-- Compiling architecture Decode_arch of Decode
+
+} {} {}}
