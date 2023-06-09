@@ -13,11 +13,64 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		Control Board IO and LED Interface
---
---		The LED information is clocked out to 74HCT595 devices and is 
---		clocked on the rising edge of the clock.
---
+
+--	Control Board IO and LED Interface - The LED information is
+--	clocked out to 74HCT595 devices and is locked on the rising edge of the clock.
+
+	-- The module ControlIO is an entity in VHDL that describes the interface and behavior
+	-- of a control module responsible for managing IO operations and LED status for two axes (Axis0 and Axis1).
+	-- The module takes various input signals such as RESET, H1_CLKWR, SysClk,
+	-- Enable, SynchedTick, intDATA, and several control signals for Axis0 and Axis1,
+	-- and provides output signals for control and communication with other modules.
+
+	-- The primary purpose of the ControlIO module is to control the communication and
+	-- configuration of LEDs and IO operations for Axis0 and Axis1.
+	-- It includes a state machine that orchestrates the shifting of data in and out of shift registers,
+	-- controls the timing and sequencing of operations, and manages the LED status and IO control signals.
+
+	-- The module contains the following ports:
+
+	-- Inputs:
+	-- RESET: Asynchronous reset signal.
+	-- H1_CLKWR: Clock signal for the module.
+	-- SysClk: System clock signal.
+	-- Enable: Enable signal for the module.
+	-- SynchedTick: Synchronous tick signal.
+	-- intDATA: Data input for IO operations.
+	-- Control signals for Axis0 and Axis1: These signals include signals
+	-- for LED status read/write, IO read/write, and fault signals.
+
+	-- Outputs:
+	-- controlIoDataOut: Data output for control IO operations.
+	-- M_IO_OE: Output enable signal for the shift register controlling LEDs on axis modules.
+	-- M_IO_LOAD: Control signal to select input latch or shift register for IO operations.
+	-- M_IO_LATCH: Control signal to transfer data from shift register to outputs and latch inputs.
+	-- M_IO_CLK: Clock signal for input and output data through shift registers.
+	-- M_IO_DATAOut: Data output for IO operations.
+	-- M_ENABLE: Enable signals for Axis0 and Axis1.
+	-- QA0AxisFault: Output signals for Axis0 fault status.
+	-- QA1AxisFault: Output signals for Axis1 fault status.
+	-- The architecture ControlIO_arch describes the internal implementation of the ControlIO module.
+	-- It includes several internal signals and components to manage the IO operations and LED status.
+
+	-- Key architecture components and processes:
+	-- ShiftOutRegister and ShiftInRegister are internal signals used to
+	-- store the data being shifted in and out of the shift registers.
+	-- DataBufferOut and DataBufferIn are internal signals used to buffer
+	-- the data coming in and out from the processor and the shift registers.
+	-- Count is a 4-bit signal used as a synchronous counter with count enable and asynchronous reset.
+	-- State is a 3-bit signal representing the current state of the state machine controlling the LED write sequence.
+	-- PowerUpLatch and StartStateMachine are signals used to control the state machine and manage the power-up sequence.
+	-- The StateMachine process controls the state transitions and operations
+	-- of the LED write sequence based on the current state and input signals.
+	-- The M_LED_CLK process generates the output clock for the shift registers and increments the count for the state machine.
+	-- The module also includes various assignments and calculations for control signals, LED status,
+	-- and fault signals based on the input and internal signals.
+	-- Overall, the ControlIO module provides the necessary functionality to manage the IO
+	-- operations and LED status for Axis0 and Axis1. It uses a state machine to control the
+	-- shifting of data in and out of shift registers, and it handles the timing and sequencing
+	-- of operations to ensure proper communication and configuration of LEDs and IO signals.
+
 --	Revision: 1.2
 --
 --	File history:

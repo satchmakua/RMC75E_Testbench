@@ -13,8 +13,46 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		MDT/SSI Routing
---
+
+--	MDT/SSI Routing
+
+	-- The MDTSSIRoute module describes the interface and
+	-- behavior of a routing module for the Magnetostrictive Displacement Transducer (MDT) and
+	-- Synchronous Serial Interface (SSI) clocks in the RMC75E modular motion controller.
+	-- The module takes input signals related to the SSI select, internal MDT clock,
+	-- SSI clock, and MDT interrupt, and provides output signals for the internal clocks of Axis0 and Axis1.
+
+	-- The purpose of the MDTSSIRoute module is to control the routing of clock signals
+	-- for the MDT and SSI based on the SSI select signal. It selects either the MDT internal
+	-- clock or the SSI clock for each axis based on the value of the SSI select signal.
+
+	-- The module contains the following ports:
+
+	-- Inputs:
+
+	-- SSISelect: 2-bit signal that selects the clock source for each axis.
+	-- '00' selects the MDT internal clock, and '01' selects the SSI clock.
+	-- M_AX0_SSI_CLK: Input SSI clock signal for Axis0.
+	-- M_AX1_SSI_CLK: Input SSI clock signal for Axis1.
+	-- M_AX0_MDT_INT: Input MDT interrupt signal for Axis0.
+	-- M_AX1_MDT_INT: Input MDT interrupt signal for Axis1.
+	-- Outputs:
+
+	-- M_AX0_INT_CLK: Output internal clock signal for Axis0.
+	-- M_AX1_INT_CLK: Output internal clock signal for Axis1.
+	
+	-- The architecture MDTSSIRoute_arch describes the internal implementation of the MDTSSIRoute module.
+	-- It includes two assignments that control the routing of clock signals based on the SSI select signal.
+
+	-- M_AX0_INT_CLK is assigned the value of M_AX0_MDT_INT when SSISelect(0) is '0',
+	-- indicating that the MDT internal clock is selected for Axis0. Otherwise,
+	-- it is assigned the value of M_AX0_SSI_CLK, indicating that the SSI clock is selected.
+	-- M_AX1_INT_CLK follows a similar assignment logic as M_AX0_INT_CLK, but for Axis1.
+	-- Overall, the MDTSSIRoute module provides the functionality to select the appropriate
+	-- clock source for each axis based on the SSI select signal. It enables the routing of
+	-- clock signals between the MDT internal clock and the SSI clock, allowing flexible control
+	-- over the timing and synchronization of operations within the modular motion controller.
+	
 --	Revision: 1.1
 --
 --	File history:
