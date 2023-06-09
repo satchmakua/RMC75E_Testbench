@@ -23,6 +23,57 @@
 --		pulse signals a start. At the end of the count cycle the counters will
 --		be added together.
 --
+	-- The MDTTopSimp module is a VHDL entity that represents the MDT
+	-- interface in the RMC75E modular motion controller.
+	-- This module provides a signal interface for PWM, Start/Stop, and SSI type transducers.
+
+	-- The module operates with three incoming clock signals: H1_CLK, H1_CLKWR, and H1_CLK90,
+	-- all running at a rate of 60MHz. The H1_CLK signals are 90 degrees out of phase,
+	-- allowing each clock to drive a counter when a start signal is received.
+	-- At the end of the count cycle, the counters are added together.
+
+	-- The entity MDTTopSimp has the following ports:
+	
+	-- Inputs:
+	-- SysReset: Main system reset signal.
+	-- H1_CLK: 60MHz clock for the MDT interface.
+	-- H1_CLKWR: CPU clock for reads and writes.
+	-- H1_CLK90: 60MHz clock with a 90-degree phase shift for MDT counters.
+	-- SynchedTick60: Synchronized tick signal at 60MHz.
+	-- intDATA: Input data signal (32 bits).
+	-- PositionRead: Signal indicating a position read operation.
+	-- StatusRead: Signal indicating a status read operation.
+	-- ParamWrite: Signal indicating a parameter write operation.
+	-- M_RET_DATA: Input data signal for M_RET_DATA.
+	-- SSISelect: Signal indicating the selection of SSI transducer.
+	
+	-- Outputs:
+	-- mdtSimpDataOut: Output data signal from the MDT (32 bits).
+	-- M_INT_CLK: Output internal clock signal.
+	-- SSI_DATA: Output SSI data signal.
+
+	-- The architecture MDTTopSimp_arch defines the internal implementation of the MDTTopSimp module.
+	-- It includes various signals and processes to control the MDT interface.
+
+	-- The module includes a state machine (StateMachine) that controls the count sequence of the MDT counters.
+	-- The state machine progresses through different states (s0, s1, s2, s3, s4, s5)
+	-- based on different conditions and signals.
+	-- The state machine handles the start and termination of the count cycle,
+	-- detects return pulses, and sets various internal signals accordingly.
+
+	-- The module also includes counters (CountRA, Delay) for counting clock cycles,
+	-- debounce flops for capturing rising and falling edges of the return pulse signals,
+	-- and various control signals for enabling and disabling count cycles, delaying pulses, and setting data validity.
+
+	-- The position data is calculated and stored in the MDTPosition
+	-- signal based on the count values and leading/trailing counts.
+	-- The output data signal mdtSimpDataOut is set accordingly
+	-- based on the input signals and the selection of SSI transducers.
+
+	-- Overall, the MDTTopSimp module provides the interface and control for the
+	-- MDT in the RMC75E modular motion controller, allowing communication with PWM, Start/Stop, and SSI type transducers.
+	-- It handles the counting sequence, detects pulses, and calculates position data based on the received signals.
+
 --	Revision: 1.4
 --
 --	File history:

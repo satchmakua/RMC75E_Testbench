@@ -13,7 +13,7 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		ticksync.vhd
+--		
 --		ticksync synchronizes the incoming control loop clock tick with the internal clock to make
 --		it synchronous and usable by the internal logic.
 --

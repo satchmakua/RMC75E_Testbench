@@ -13,14 +13,51 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		This module reroutes control of the CLK, LATCH, and LOAD lines for 
---		the Expansion modules. The control lines are first used to capture
---		the ID of the modules and are then used to control the LED colors
---		of the modules.
---
---		The process of reading the ID's is known as discovery. Hence, the
---		signal used to switch control to the LED's is called "DiscoveryComplete"
---
+
+	-- This module reroutes control of the CLK, LATCH, and LOAD lines for 
+	-- the Expansion modules. The control lines are first used to capture
+	-- the ID of the modules and are then used to control the LED colors
+	-- of the modules.
+
+	-- The process of reading the ID's is known as discovery. Hence, the
+	-- signal used to switch control to the LED's is called "DiscoveryComplete".
+		
+	-- It serves as a multiplexer and control logic for selecting and controlling
+	-- the clock, latch, and load signals for an external LED module based on the state of the DiscoveryComplete signal.
+
+	-- Components:
+
+	-- Inputs:
+	-- DiscoveryComplete: A control signal indicating the completion of the device discovery process.
+	-- Exp_ID_CLK: The clock signal for the internal ID module.
+	-- Exp_ID_LATCH: The latch signal for the internal ID module.
+	-- Exp_ID_LOAD: The load signal for the internal ID module.
+	-- ExpLEDOE: The output enable signal from the external LED module.
+	-- ExpLEDLatch: The latch signal from the external LED module.
+	-- ExpLEDClk: The clock signal from the external LED module.
+
+	-- Outputs:
+	-- Exp_Mxd_ID_CLK: The selected clock signal for the ID module.
+	-- Exp_Mxd_ID_LATCH: The selected latch signal for the ID module.
+	-- Exp_Mxd_ID_LOAD: The selected load signal for the ID module.
+
+	-- Architecture:
+	-- The architecture of the RtdExpIDLED module, named RtdExpIDLED_arch, consists of a process block
+	-- that controls the selection of clock, latch, and load signals based on the state of the DiscoveryComplete
+	-- signal and the signals from the external LED module.
+
+	-- During the process, if the DiscoveryComplete signal is low (0), indicating that the device
+	-- discovery process is not yet complete, the internal ID signals (Exp_ID_CLK, Exp_ID_LATCH, Exp_ID_LOAD)
+	-- are selected and assigned to the corresponding output signals (Exp_Mxd_ID_CLK, Exp_Mxd_ID_LATCH, Exp_Mxd_ID_LOAD).
+
+	-- However, if the DiscoveryComplete signal is high (1), indicating that the device discovery process is complete,
+	-- the signals from the external LED module (ExpLEDClk, ExpLEDLatch, ExpLEDOE) are selected and assigned to the
+	-- corresponding output signals (Exp_Mxd_ID_CLK, Exp_Mxd_ID_LATCH, Exp_Mxd_ID_LOAD).
+
+	-- The RtdExpIDLED module provides the necessary logic to control the selection of clock, latch,
+	-- and load signals based on the state of the DiscoveryComplete signal, allowing seamless integration
+	-- of the external LED module into the RMC75E modular motion controller.
+
 --	Revision: 1.1
 --
 --	File history:
@@ -54,7 +91,6 @@ end RtdExpIDLED;
 architecture RtdExpIDLED_arch of RtdExpIDLED is
 
 	begin
-
 	process(DiscoveryComplete, Exp_ID_CLK, Exp_ID_LATCH, Exp_ID_LOAD, ExpLEDClk, ExpLEDLatch, ExpLEDOE)
 	begin
 		if DiscoveryComplete='0' then

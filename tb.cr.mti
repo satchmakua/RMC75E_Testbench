@@ -19,16 +19,6 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Compiling entity SerialMemoryInterface
 -- Compiling architecture SerialMemoryInterface_arch of SerialMemoryInterface
 
-} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial2parallel.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/serial2parallel.vhd
-Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity Serial2Parallel
--- Compiling architecture Serial2Parallel_arch of Serial2Parallel
-
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ram128x16bits.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_ram128x16bits.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STANDARD
@@ -141,16 +131,6 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Compiling entity SSITop
 -- Compiling architecture SSITop_arch of SSITop
 
-} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd
-Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity DIO8
--- Compiling architecture DIO8_arch of DIO8
-
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STANDARD
@@ -160,6 +140,16 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity RAM128x16
 -- Compiling architecture RAM128x16_arch of RAM128x16
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/DIO8.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DIO8
+-- Compiling architecture DIO8_arch of DIO8
 
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_MDTTopSimp.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_MDTTopSimp.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
@@ -465,6 +455,16 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Compiling architecture tb of tb_ExpModuleLED
 -- Loading entity ExpModuleLED
 
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/mdssiroute.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/mdssiroute.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDTSSIRoute
+-- Compiling architecture MDTSSIRoute_arch of MDTSSIRoute
+
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/rtdexpidled.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/rtdexpidled.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STANDARD
@@ -545,6 +545,16 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity DiscoverID
 -- Compiling architecture DiscoverID_arch of DiscoverID
+
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controlio.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/controlio.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControlIO
+-- Compiling architecture ControlIO_arch of ControlIO
 
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_new_clk_gen.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_new_clk_gen.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022

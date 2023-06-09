@@ -11,10 +11,51 @@
 --	File			QuadXface.vhd
 --
 --------------------------------------------------------------------------------
---
---	Description: 
---		
---
+
+--	Description:
+
+	-- The QuadXface module is a crucial component of the RMC75E modular motion controller.
+	-- It is responsible for interfacing with quadrature encoder signals and
+	-- performing various operations related to motion control.
+	-- The module features several input ports, including H1_CLKWR, SysClk,
+	-- SynchedTick, intDATA, CountRead, LEDStatusRead, LEDStatusWrite, InputRead,
+	-- HomeRead, Latch0Read, Latch1Read, Home, RegistrationX, RegistrationY, LineFault,
+	-- A, B, and Index. These input ports facilitate the interaction between the module
+	-- and external components, allowing for the transfer of control signals and data.
+
+	-- The main functionality of the QuadXface module can be summarized as follows:
+
+	-- 1.	Quadrature Encoding: The module processes the input signals A and B,
+		-- which represent the quadrature encoder channels. It detects changes in the
+		-- state of these signals and determines the direction of rotation (positive or negative).
+		
+	-- 2.	Counting: The module maintains a 16-bit count value, referred to as QuadCount,
+		-- which keeps track of the position or displacement based on the quadrature encoder input.
+		-- It increments or decrements this count value based on the detected direction of rotation.
+		
+	-- 3.	Status Management: The module handles various status indicators and flags related to the motion control operations.
+		-- These include ZBreak, ABreak, BBreak, AccumOverflow, and IllegalTransition, which provide information on fault conditions,
+		-- count overflow, and illegal state transitions.
+		
+	-- 4.	Edge Detection: The module detects rising and falling edges of specific input signals, such as Home and Index.
+		-- It generates corresponding edge events, such as RisingHomeEvent, FallingHomeEvent, IndexEvent, IndexHomeEvent,
+		-- and IndexNotHomeEvent, based on the configured edge modes and homing arming conditions.
+		
+	-- 5.	Latch Capture: The module captures the current count value (QuadCount)
+		-- when specific latch triggers are activated. These triggers include RisingLatch0Event,
+		-- FallingLatch0Event, and RisingLatch1Event, which capture the count
+		-- value on rising or falling edges of latch inputs. The captured values are stored in Latch0Reg and Latch1Reg, respectively.
+		
+	-- 6.	Home and Registration Control: The module supports homing operations by monitoring the Home input signal.
+		-- It also handles registration inputs (RegistrationX and RegistrationY) for position reference purposes.
+		
+	-- 7.	Configuration and Communication: The module allows for configuration and communication
+		-- through input ports such as LEDStatusRead, LEDStatusWrite, InputRead, and intDATA.
+		-- These inputs enable the configuration of parameters related to polarity, arming, edge modes, and other control settings.
+		-- The QuadXface module plays a vital role in the overall functionality of the RMC75E modular
+		-- motion controller by providing essential features for quadrature encoding, counting,
+		-- status management, edge detection, latch capture, and control configuration.
+
 --	Revision: 1.1
 --
 --	File history:

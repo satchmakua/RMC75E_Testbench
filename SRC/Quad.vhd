@@ -13,6 +13,87 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
+	-- The given VHDL module is part of the source code
+	-- for the RMC75E modular motion controller.
+	-- The module defines an entity with various input and output ports. 
+
+	-- Inputs:
+	-- H1_CLKWR: Clock signal.
+	-- SysClk: System clock signal.
+	-- SynchedTick: Synchronized tick signal.
+	-- intDATA: 32-bit input data signal.
+	-- Exp0QuadCountRead, Exp1QuadCountRead, Exp2QuadCountRead, Exp3QuadCountRead:
+	-- Signals to initiate the count read operation for each respective quadrature interface.
+	-- Exp0QuadLEDStatusRead, Exp1QuadLEDStatusRead, Exp2QuadLEDStatusRead, Exp3QuadLEDStatusRead:
+	-- Signals to read the LED status for each respective quadrature interface.
+	-- Exp0QuadLEDStatusWrite, Exp1QuadLEDStatusWrite, Exp2QuadLEDStatusWrite, Exp3QuadLEDStatusWrite:
+	-- Signals to write the LED status for each respective quadrature interface.
+	-- Exp0QuadInputRead, Exp1QuadInputRead, Exp2QuadInputRead, Exp3QuadInputRead:
+	-- Signals to read the input for each respective quadrature interface.
+	-- Exp0QuadHomeRead, Exp1QuadHomeRead, Exp2QuadHomeRead, Exp3QuadHomeRead:
+	-- Signals to read the home position for each respective quadrature interface.
+	-- Exp0QuadLatch0Read, Exp0QuadLatch1Read, Exp1QuadLatch0Read, Exp1QuadLatch1Read,
+	-- Exp2QuadLatch0Read, Exp2QuadLatch1Read, Exp3QuadLatch0Read, Exp3QuadLatch1Read:
+	-- Signals to read the latch values for each respective quadrature interface.
+	-- Exp0Quad_A, Exp0Quad_B, Exp1Quad_A, Exp1Quad_B, Exp2Quad_A, Exp2Quad_B,
+	-- Exp3Quad_A, Exp3Quad_B: Signals representing the quadrature input signals for each respective quadrature interface.
+	-- Exp0Quad_Reg, Exp1Quad_Reg, Exp2Quad_Reg, Exp3Quad_Reg:
+	-- Signals representing the quadrature home position for each respective quadrature interface.
+	-- Exp0Quad_FaultA, Exp0Quad_FaultB, Exp1Quad_FaultA, Exp1Quad_FaultB, Exp2Quad_FaultA, Exp2Quad_FaultB,
+	-- Exp3Quad_FaultA, Exp3Quad_FaultB: Signals representing the fault status for each respective quadrature interface.
+	-- QA0CountRead, QA1CountRead: Signals to initiate the count read operation for each respective axis.
+	-- QA0LEDStatusRead, QA1LEDStatusRead: Signals to read the LED status for each respective axis.
+	-- QA0LEDStatusWrite, QA1LEDStatusWrite: Signals to write the LED status for each respective axis.
+	-- QA0InputRead, QA1InputRead: Signals to read the input for each respective axis.
+	-- QA0HomeRead, QA1HomeRead: Signals to read the home position for each respective axis.
+	-- QA0Latch0Read, QA0Latch1Read, QA1Latch0Read, QA1Latch1Read: 
+	-- Signals to read the latch values for each respective axis.
+	-- QA0_SigA, QA0_SigB, QA0_SigZ, QA0_Home, QA0_RegX_PosLmt, QA1_SigA,
+	-- QA1_SigB, QA1_SigZ, QA1_Home, QA1_RegX_PosLmt, QA1_RegY_NegLmt:
+	-- Signals representing various control and status signals for each respective axis.
+	-- QA0AxisFault, QA1AxisFault:
+	-- 3-bit signals representing the fault status for each respective axis.
+
+	-- Outputs:
+	-- Exp0QuadDataOut, Exp1QuadDataOut, Exp2QuadDataOut, Exp3QuadDataOut: 32-bit output data signals for each respective quadrature interface.
+	-- QuadA0DataOut, QuadA1DataOut: 32-bit output data signals for each respective axis.
+
+	-- Internal Signals:
+	-- Exp0_LineFault, Exp1_LineFault, Exp2_LineFault, Exp3_LineFault:
+	-- 3-bit internal signals representing the line fault status for each respective quadrature interface.
+	-- The architecture section of the module contains multiple instances of a component called "QuadXface."
+	-- Each instance represents a quadrature interface or axis and is responsible
+	-- for processing the respective signals and generating the output data.
+
+	-- The QuadXface component has the following ports:
+
+	-- H1_CLKWR: Clock signal.
+	-- SysClk: System clock signal.
+	-- SynchedTick: Synchronized tick signal.
+	-- intDATA: 32-bit input data signal.
+	-- QuadDataOut: 32-bit output data signal.
+	-- CountRead: Signal to initiate the count read operation.
+	-- LEDStatusRead: Signal to read the LED status.
+	-- LEDStatusWrite: Signal to write the LED status.
+	-- InputRead: Signal to read the input.
+	-- HomeRead: Signal to read the home position.
+	-- Latch0Read: Signal to read the first latch value.
+	-- Latch1Read: Signal to read the second latch value.
+	-- Home: Signal representing the home position.
+	-- RegistrationX: Signal representing the X-axis registration.
+	-- RegistrationY: Signal representing the Y-axis registration.
+	-- LineFault: 3-bit signal representing the line fault status.
+	-- A, B: Signals representing the quadrature input signals.
+	-- Index: Signal representing the quadrature index signal.
+	-- The QuadXface components are instantiated for each quadrature interface and axis,
+	-- and their ports are connected to the corresponding signals from the Quad entity.
+	-- The instantiation maps the signals to the appropriate inputs and outputs of the QuadXface components.
+
+	-- Overall, the Quad module serves as a wrapper for multiple QuadXface components,
+	-- enabling the processing of quadrature signals and generating output data for multiple
+	-- quadrature interfaces and axes in the RMC75E motion controller.
+
 --		
 --
 --	Revision: 1.1

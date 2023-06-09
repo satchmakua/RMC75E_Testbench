@@ -13,8 +13,57 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
---
+
+	-- The Serial2Parallel module is a component of the source code for the RMC75E modular motion controller.
+	-- It serves as a serial-to-parallel converter and data distributor for various input signals.
+	-- The module takes serial input data and converts it into parallel
+	-- format for multiple output channels based on the control signals.
+
+	-- Components:
+
+	-- Inputs:
+	-- SysClk: The system clock signal.
+	-- SynchedTick: The synchronized tick signal.
+	-- CtrlAxisData: Two-bit control axis data input.
+	-- ExpA_DATA: Eight-bit data input for expansion module A.
+	-- Serial2ParallelEN: The enable signal for the Serial2Parallel module.
+	-- Serial2ParallelCLR: The clear signal for resetting the internal data registers.
+	-- S2P_Addr: Four-bit address input for selecting the output channel.
+	-- Outputs:
+	-- S2P_Data: Sixteen-bit parallel data output.
+	-- Architecture:
+
+	-- The architecture of the Serial2Parallel module, named Serial2Parallel_arch, consists of internal
+	-- signals and a process block for data conversion and distribution.
+
+	-- Internal Signals:
+	-- S2P_M0Ch0_Data: Sixteen-bit data for Module 0, Channel 0.
+	-- S2P_M0Ch1_Data: Sixteen-bit data for Module 0, Channel 1.
+	-- S2P_M1Ch0_Data: Sixteen-bit data for Module 1, Channel 0.
+	-- S2P_M1Ch1_Data: Sixteen-bit data for Module 1, Channel 1.
+	-- S2P_M2Ch0_Data: Sixteen-bit data for Module 2, Channel 0.
+	-- S2P_M2Ch1_Data: Sixteen-bit data for Module 2, Channel 1.
+	-- S2P_M3Ch0_Data: Sixteen-bit data for Module 3, Channel 0.
+	-- S2P_M3Ch1_Data: Sixteen-bit data for Module 3, Channel 1.
+	-- S2P_CtrlAxis0_Data: Sixteen-bit data for Control Axis 0.
+	-- S2P_CtrlAxis1_Data: Sixteen-bit data for Control Axis 1.
+	
+	-- The Serial2Parallel module includes a process block that performs
+	-- the following operations based on the rising edge of the SysClk signal:
+
+	-- When SynchedTick or Serial2ParallelCLR is high, indicating a reset condition, all internal data registers are cleared to 0.
+
+	-- When Serial2ParallelEN is high, the module enables the data conversion and distribution process.
+	-- The input data is shifted into the respective internal data registers for each output channel,
+	-- expanding the serial input data into 16-bit parallel words.
+
+	-- The S2P_Data output is determined based on the S2P_Addr input.
+	-- The selected output channel's data is assigned to the S2P_Data output.
+
+	-- The Serial2Parallel module provides the functionality of converting serial input data into
+	-- parallel format and distributing it to the appropriate output channels based on control signals.
+	-- This module facilitates efficient data handling and distribution within the RMC75E modular motion controller.
+
 --	Revision: 1.1
 --
 --	File history:
