@@ -14,6 +14,11 @@
 --
 --	Description: 
 
+-- This module serves as the test bench for the MDTTopSimp module
+-- in the RMC75E modular motion controller.
+-- It provides a platform to verify the functionality of the MDTTopSimp module
+-- by simulating various input scenarios and monitoring the corresponding output signals.
+
 --	Revision: 1.0
 --
 --	File history:
