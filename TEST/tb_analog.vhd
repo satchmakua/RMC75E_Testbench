@@ -33,9 +33,10 @@
 	-- by checking certain signals' values at the end of the simulation duration.
 --
 --
---	Revision: 1.0
+--	Revision: 1.1
 --
 --	File history:
+--		Rev 1.1 : 06/13/2023 :	Fixed some erroneous signal declarations
 --	
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

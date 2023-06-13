@@ -12,7 +12,19 @@
 --
 --------------------------------------------------------------------------------
 --
---	Description: 
+--	Description:
+
+	 -- The tb_SSITop entity represents a testbench for the SSITop module in the RMC75E modular motion controller.
+	 -- It provides a simulated environment to test the functionality and behavior of
+	 -- the SSITop module by generating stimuli and observing the module's responses.
+	 -- The testbench instantiates the SSITop component and connects
+	 -- the necessary signals to its ports for communication.
+	 -- It includes a clock generation process to generate the required clock signals for the module.
+	 -- The stimulus process generates various input stimuli by
+	 -- toggling different control signals and updating the input data.
+	 -- These stimuli simulate different scenarios to verify the behavior and functionality of the SSITop module.
+	 -- The testbench is designed to run for a specific duration and can be extended
+	 -- with additional tests for exhaustive verification of the module.
 
 --	Revision: 1.0
 --

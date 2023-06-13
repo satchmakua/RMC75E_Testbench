@@ -12,7 +12,17 @@
 --
 --------------------------------------------------------------------------------
 --
---	Description: 
+--	Description:
+
+	 -- Description: The tb_quad entity represents a testbench for the Quad module in the RMC75E modular motion controller.
+	 -- It provides a simulated environment to test the functionality and behavior of
+	 -- the Quad module by generating stimuli and observing the module's responses.
+	 -- The testbench instantiates the Quad component and connects the necessary signals to its ports for communication.
+	 -- It includes a clock process that generates the H1_CLKWR signal with a specified period.
+	 -- The stimulus process generates various input stimuli by toggling different control signals and updating the input data.
+	 -- These stimuli simulate different scenarios to verify the behavior and functionality of the Quad module.
+	 -- Additional stimuli can be added to the stimulus process as needed for thorough testing.
+	 -- The testbench is designed to run indefinitely until manually stopped.
 
 --	Revision: 1.0
 --

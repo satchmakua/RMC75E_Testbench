@@ -13,9 +13,9 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		MDT Interface
---		The MDT Interface will provide a signal interface to 
---		PWM, Start/Stop and SSI type transducers. 
+
+--		MDT Interface:
+--		The MDT Interface provides a signal interface to SPWM, Start/Stop and SSI type transducers. 
 --
 --		Currently, the incoming clock rate is 60MHz for all three clocks coming 
 --		into the design. The SysClk0-90 are 90 degrees out of phase. This means
@@ -23,8 +23,6 @@
 --		pulse signals a start. At the end of the count cycle the counters will
 --		be added together.
 --
-	-- The MDTTopSimp module is a VHDL entity that represents the MDT
-	-- interface in the RMC75E modular motion controller.
 	-- This module provides a signal interface for PWM, Start/Stop, and SSI type transducers.
 
 	-- The module operates with three incoming clock signals: H1_CLK, H1_CLKWR, and H1_CLK90,
@@ -97,8 +95,8 @@ entity MDTTopSimp is
 	Port (
 		SysReset		: in std_logic;		-- Main system Reset signal
 		H1_CLK			: in std_logic;		-- 60 MHz clock for MDT interface
-		H1_CLKWR		: in std_logic;		-- CPU clock forn read and writes
-		H1_CLK90		: in std_logic;		-- 60 MHz clock with 90 degree pahse shift for MDT coun
+		H1_CLKWR		: in std_logic;		-- CPU clock for read and writes
+		H1_CLK90		: in std_logic;		-- 60 MHz clock with 90 degree phase shift for MDT count
 		SynchedTick60	: in std_logic;
 		intDATA			: in std_logic_vector(31 downto 0);
 		mdtSimpDataOut	: out std_logic_vector(31 downto 0);

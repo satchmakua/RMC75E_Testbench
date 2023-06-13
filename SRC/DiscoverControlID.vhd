@@ -13,7 +13,10 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+--		The entity "DiscoverControlID" represents a module in the source code
+--		for the RMC75E modular motion controller.
+--		The module is implemented in the VHDL language and is responsible for
+--		controlling the discovery of the control ID for the motion controller.
 --
 --	Revision: 1.3
 --

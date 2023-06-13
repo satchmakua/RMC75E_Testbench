@@ -12,7 +12,16 @@
 --
 --------------------------------------------------------------------------------
 --
---	Description: 
+--	Description:
+
+	 -- The tb_QuadXface entity represents a testbench for the QuadXface
+	 -- module in the RMC75E modular motion controller.
+	 -- It provides a simulated environment to test the functionality and behavior
+	 -- of the QuadXface module by generating stimuli and observing the module's responses.
+	 -- The testbench instantiates the QuadXface component and connects the necessary signals
+	 -- to its ports for communication. It includes a process that initializes
+	 -- the signals, applies clock signals, and performs various test
+	 -- scenarios to verify the functionality of the QuadXface module.
 
 --	Revision: 1.0
 --
