@@ -177,7 +177,7 @@ architecture MDTTopSimp_arch of MDTTopSimp is
 	signal	RisingACountEnablePipe,
 			RisingACountDisablePipe		: std_logic;	-- := '0';
 	signal	Edge						: std_logic_vector ( 2 downto 0);	-- := "000";
-	signal	intM_INT_CLK				: std_logic;	-- := '1';
+	signal	intM_INT_CLK				: std_logic:= '1';
 
 begin
 

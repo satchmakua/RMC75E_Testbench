@@ -1,108 +1,173 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
---	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
---
---  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
---  Board:          RMC75E Rev 3.0
---
---	Entity Name		tb_MDTTopSimp
---	File			tb_MDTTopSimp.vhd
---
---------------------------------------------------------------------------------
---
---	Description: 
-
-	-- This module serves as the test bench for the MDTTopSimp module.
-	-- It provides a platform to verify the functionality of the MDTTopSimp module
-	-- by simulating various input scenarios and monitoring the corresponding output signals.
-
---	Revision: 1.0
---
---	File history:
---	
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity tb_MDTTopSimp is
 end tb_MDTTopSimp;
 
-architecture tb of tb_MDTTopSimp is
+architecture testbench of tb_MDTTopSimp is
+  component MDTTopSimp is
+    Port (
+      SysReset       : in std_logic;
+      H1_CLK         : in std_logic;
+      H1_CLKWR       : in std_logic;
+      H1_CLK90       : in std_logic;
+      SynchedTick60  : in std_logic;
+      intDATA        : in std_logic_vector(31 downto 0);
+      mdtSimpDataOut : out std_logic_vector(31 downto 0);
+      PositionRead   : in std_logic;
+      StatusRead     : in std_logic;
+      ParamWrite     : in std_logic;
+      M_INT_CLK      : out std_logic;
+      M_RET_DATA     : in std_logic;
+      SSI_DATA       : out std_logic;
+      SSISelect      : in std_logic
+    );
+  end component;
 
-component MDTTopSimp_arch
-	port(
-		H1_CLK : in std_logic;
-		H1_CLK90 : in std_logic;
-		M_RET_DATA : in std_logic;
-		SynchedTick60 : in std_logic;
-		intDataValid : in std_logic;
-		RisingACountEnablePipe : in std_logic;
-		RisingACountDisablePipe : in std_logic;
-		LeadingCountDecode : in std_logic_vector(1 downto 0);
-		TrailingCountDecode : in std_logic_vector(1 downto 0);
-		CountRA : in std_logic_vector(17 downto 0);
-		MDTPosition : out std_logic_vector(19 downto 0);
-		LeadingCount : out std_logic_vector(1 downto 0);
-		TrailingCount : out std_logic_vector(1 downto 0);
-		Edge : out std_logic_vector(2 downto 0);
-		RisingB : out std_logic_vector(3 downto 1);
-		FallingA : out std_logic_vector(3 downto 1);
-		FallingB : out std_logic_vector(3 downto 1)
-	);
-end component;
+  signal SysReset_tb     : std_logic := '1';
+  signal H1_CLK_tb       : std_logic := '0';
+  signal H1_CLKWR_tb     : std_logic := '0';
+  signal H1_CLK90_tb     : std_logic := '0';
+  signal SynchedTick60_tb: std_logic := '0';
+  signal intDATA_tb      : std_logic_vector(31 downto 0) := (others => '0');
+  signal mdtSimpDataOut_tb: std_logic_vector(31 downto 0);
+  signal PositionRead_tb : std_logic := '0';
+  signal StatusRead_tb   : std_logic := '0';
+  signal ParamWrite_tb   : std_logic := '0';
+  signal M_INT_CLK_tb    : std_logic;
+  signal M_RET_DATA_tb   : std_logic := '0';
+  signal SSI_DATA_tb     : std_logic;
+  signal SSISelect_tb    : std_logic := '0';
+  signal DelayCountEnable: std_logic := '0';
+  signal MDTSelect_tb    : std_logic_vector(0 to 1) := (others => '0');
 
--- Stimulus signals
-signal H1_CLK, H1_CLK90, M_RET_DATA, SynchedTick60, intDataValid, RisingACountEnablePipe, RisingACountDisablePipe : std_logic := '0';
-signal LeadingCountDecode, TrailingCountDecode : std_logic_vector(1 downto 0) := (others => '0');
-signal CountRA : std_logic_vector(17 downto 0) := (others => '0');
+  constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
+  constant num_cycles : integer := 60000; -- This gives a simulation time of around 1000us.
 
 begin
+  dut: MDTTopSimp
+    Port map (
+      SysReset       => SysReset_tb,
+      H1_CLK         => H1_CLK_tb,
+      H1_CLKWR       => H1_CLKWR_tb,
+      H1_CLK90       => H1_CLK90_tb,
+      SynchedTick60  => SynchedTick60_tb,
+      intDATA        => intDATA_tb,
+      mdtSimpDataOut => mdtSimpDataOut_tb,
+      PositionRead   => PositionRead_tb,
+      StatusRead     => StatusRead_tb,
+      ParamWrite     => ParamWrite_tb,
+      M_INT_CLK      => M_INT_CLK_tb,
+      M_RET_DATA     => M_RET_DATA_tb,
+      SSI_DATA       => SSI_DATA_tb,
+      SSISelect      => SSISelect_tb
+    );
 
-	DUT: MDTTopSimp_arch 
-		port map(
-			H1_CLK => H1_CLK,
-			H1_CLK90 => H1_CLK90,
-			M_RET_DATA => M_RET_DATA,
-			SynchedTick60 => SynchedTick60,
-			intDataValid => intDataValid,
-			RisingACountEnablePipe => RisingACountEnablePipe,
-			RisingACountDisablePipe => RisingACountDisablePipe,
-			LeadingCountDecode => LeadingCountDecode,
-			TrailingCountDecode => TrailingCountDecode,
-			CountRA => CountRA
-		);
-	
-	-- Stimulus process
-	stim_proc: process
-	begin
-        -- Initialize all signals
-        H1_CLK <= '0';
-        H1_CLK90 <= '0';
-        M_RET_DATA <= '0';
-        SynchedTick60 <= '0';
-        intDataValid <= '0';
-        RisingACountEnablePipe <= '0';
-        RisingACountDisablePipe <= '0';
-        LeadingCountDecode <= "00";
-        TrailingCountDecode <= "00";
-        CountRA <= (others => '0');
-		wait for 10 ns;
-        
-        -- Start of test scenarios
-        H1_CLK <= '1'; wait for 10 ns; H1_CLK <= '0'; wait for 10 ns; -- Toggle H1_CLK
-        H1_CLK90 <= '1'; wait for 10 ns; H1_CLK90 <= '0'; wait for 10 ns; -- Toggle H1_CLK90
-        M_RET_DATA <= '1'; wait for 10 ns; -- Set M_RET_DATA
-        SynchedTick60 <= '1'; wait for 10 ns; -- Set SynchedTick60
-        intDataValid <= '1'; wait for 10 ns; -- Set intDataValid
-        RisingACountEnablePipe <= '1'; wait for 10 ns; -- Set RisingACountEnablePipe
-        RisingACountDisablePipe <= '1'; wait for 10 ns; -- Set RisingACountDisablePipe
-        LeadingCountDecode <= "11"; wait for 10 ns; -- Set LeadingCountDecode
-        TrailingCountDecode <= "10"; wait for 10 ns; -- Set TrailingCountDecode
-        CountRA <= "111111111111111111"; wait for 10 ns; -- Set CountRA
-	end process;
+  -- Generate H1_CLK_tb
+  clk_gen: process
+  begin
+    wait for H1_CLK_PERIOD / 2;
+    H1_CLK_tb <= not H1_CLK_tb;
+  end process clk_gen;
 
-end architecture tb;
+  -- Generate H1_CLKWR_tb
+  clkwr_gen: process
+  begin
+    wait for H1_CLK_PERIOD / 4;
+    while true loop
+      wait for H1_CLK_PERIOD / 2;
+      H1_CLKWR_tb <= not H1_CLKWR_tb;
+    end loop;
+  end process clkwr_gen;
+
+  -- Generate H1_CLK90_tb
+  clk90_gen: process
+  begin
+    wait for H1_CLK_PERIOD / 4;
+    while true loop
+      wait for H1_CLK_PERIOD / 2;
+      H1_CLK90_tb <= not H1_CLK90_tb;
+    end loop;
+  end process clk90_gen;
+
+  -- System initialization
+  reset_gen: process
+  begin
+    wait for 20 * H1_CLK_PERIOD;
+    SysReset_tb <= '0';
+    wait for 10 * H1_CLK_PERIOD; -- Wait before starting SynchedTick60
+    SynchedTick60_tb <= '1'; -- Start SynchedTick60 after the sysreset signal goes from high to low.
+    wait for 8 us;
+    SynchedTick60_tb <= '0'; -- Make SynchedTick60 one clock cycle long
+    wait;
+  end process reset_gen;
+
+  signal_gen: process
+  begin
+    for i in 1 to num_cycles loop
+      wait until rising_edge(H1_CLK_tb);
+
+      if i = 2 then
+        MDTSelect_tb <= "01"; -- set MDTSelect_tb to "01" to enable transducer selection
+      end if;
+
+      if i = 5 then
+        ParamWrite_tb <= '1'; -- Set ParamWrite_tb high for one cycle of H1_CLKWR_tb
+        intDATA_tb(1 downto 0) <= "11"; -- set intDATA_tb(1 downto 0) to "11" (PWMXducer)
+      elsif i = 6 then
+        ParamWrite_tb <= '0';
+        intDATA_tb(1 downto 0) <= (others => '0');
+      end if;
+
+      -- Simulate counter overflow condition
+      if i = 200 then
+        M_RET_DATA_tb <= '1'; -- Simulate CounterOverFlowRetrigger condition
+      elsif i = 210 then
+        M_RET_DATA_tb <= '0';
+      end if;
+
+      -- Generate a long pulse on M_RET_DATA_tb, starting around 1 us and lasting about 8 us
+      if i >= 60 and i <= 480 then
+        M_RET_DATA_tb <= '1';
+      else
+        M_RET_DATA_tb <= '0';
+      end if;
+
+      -- Delay the MDTSelect signal by one clock cycle
+      MDTSelect_tb <= '0' & MDTSelect_tb(0);
+      
+      -- Generate DelayCountEnable signal based on conditions in the DUT code
+      if SynchedTick60_tb = '1' or (DelayCountEnable = '1' and MDTSelect_tb(1) = '0') then
+        DelayCountEnable <= '1';
+      else
+        DelayCountEnable <= '0';
+      end if;
+
+      -- Assign DelayCountEnable to M_INT_CLK_tb
+      M_INT_CLK_tb <= DelayCountEnable;
+
+    end loop;
+    wait;
+  end process signal_gen;
+
+  -- Add assert checks to ensure the signals are valid
+  assert_chk: process
+  begin
+    for i in 1 to num_cycles loop
+      wait until rising_edge(H1_CLK_tb);
+
+      -- Checking for undefined states
+      assert (SysReset_tb /= 'U' and H1_CLK_tb /= 'U' and H1_CLKWR_tb /= 'U' and H1_CLK90_tb /= 'U' and 
+              SynchedTick60_tb /= 'U' and intDATA_tb /= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU") 
+      report "Uninitialized signal found" severity failure;
+
+      if i = num_cycles then
+        assert false report "Simulation finished successfully" severity note;
+      end if;
+
+    end loop;
+    wait;
+  end process assert_chk;
+
+end testbench;
