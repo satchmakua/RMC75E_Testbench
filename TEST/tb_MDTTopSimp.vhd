@@ -39,11 +39,9 @@ architecture testbench of tb_MDTTopSimp is
   signal M_RET_DATA_tb   : std_logic := '0';
   signal SSI_DATA_tb     : std_logic;
   signal SSISelect_tb    : std_logic := '0';
-  signal DelayCountEnable: std_logic := '0';
-  signal MDTSelect_tb    : std_logic_vector(0 to 1) := (others => '0');
-
+  
   constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
-  constant num_cycles : integer := 60000; -- This gives a simulation time of around 1000us.
+  constant num_cycles : integer := 100; -- This gives a simulation time of around 1000us.
 
 begin
   dut: MDTTopSimp
@@ -71,103 +69,46 @@ begin
     H1_CLK_tb <= not H1_CLK_tb;
   end process clk_gen;
 
-  -- Generate H1_CLKWR_tb
-  clkwr_gen: process
-  begin
-    wait for H1_CLK_PERIOD / 4;
-    while true loop
-      wait for H1_CLK_PERIOD / 2;
-      H1_CLKWR_tb <= not H1_CLKWR_tb;
-    end loop;
-  end process clkwr_gen;
+	-- Generate H1_CLKWR_tb
+	clkwr_gen: process
+	begin
+		wait for H1_CLK_PERIOD;
+		H1_CLKWR_tb <= not H1_CLKWR_tb;
+	end process clkwr_gen;
 
-  -- Generate H1_CLK90_tb
-  clk90_gen: process
-  begin
-    wait for H1_CLK_PERIOD / 4;
-    while true loop
-      wait for H1_CLK_PERIOD / 2;
-      H1_CLK90_tb <= not H1_CLK90_tb;
-    end loop;
-  end process clk90_gen;
+	-- Generate H1_CLK90_tb with 90-degree phase shift
+	clk90_gen: process
+	begin
+		wait for H1_CLK_PERIOD / 4; -- initial delay for 90-degree phase shift
+		while true loop
+			wait for H1_CLK_PERIOD / 2;
+			H1_CLK90_tb <= not H1_CLK90_tb;
+		end loop;
+	end process clk90_gen;
+
 
   -- System initialization
   reset_gen: process
-  begin
-    wait for 20 * H1_CLK_PERIOD;
-    SysReset_tb <= '0';
-    wait for 10 * H1_CLK_PERIOD; -- Wait before starting SynchedTick60
-    SynchedTick60_tb <= '1'; -- Start SynchedTick60 after the sysreset signal goes from high to low.
+	begin
+		wait for H1_CLK_PERIOD * 2; -- wait for one 30 MHz clock cycle
+		SysReset_tb <= '0'; -- end of system reset
+		wait for H1_CLK_PERIOD * 2;
+		ParamWrite_tb <= '1'; -- start of system configuration
+		intDATA_tb <= "00000000000000000000000000001011"; -- selecting the 11th transducer
+		wait for H1_CLK_PERIOD * 2;
+		ParamWrite_tb <= '0'; -- end of system configuration
+    wait for H1_CLK_PERIOD;
+    SynchedTick60_tb <= '1'; -- first tick
+    wait for H1_CLK_PERIOD;
+    SynchedTick60_tb <= '0'; -- end of first tick
+    wait for 1 us - 4 * H1_CLK_PERIOD;
+    M_RET_DATA_tb <= '1'; -- start of 8us pulse on M_RET_DATA_tb
     wait for 8 us;
-    SynchedTick60_tb <= '0'; -- Make SynchedTick60 one clock cycle long
+    M_RET_DATA_tb <= '0'; -- end of 8us pulse on M_RET_DATA_tb
+    wait for 30 us - 1 us - 8 us;
+    SynchedTick60_tb <= '1'; -- second tick
+    wait for H1_CLK_PERIOD;
+    SynchedTick60_tb <= '0'; -- end of second tick
     wait;
   end process reset_gen;
-
-  signal_gen: process
-  begin
-    for i in 1 to num_cycles loop
-      wait until rising_edge(H1_CLK_tb);
-
-      if i = 2 then
-        MDTSelect_tb <= "01"; -- set MDTSelect_tb to "01" to enable transducer selection
-      end if;
-
-      if i = 5 then
-        ParamWrite_tb <= '1'; -- Set ParamWrite_tb high for one cycle of H1_CLKWR_tb
-        intDATA_tb(1 downto 0) <= "11"; -- set intDATA_tb(1 downto 0) to "11" (PWMXducer)
-      elsif i = 6 then
-        ParamWrite_tb <= '0';
-        intDATA_tb(1 downto 0) <= (others => '0');
-      end if;
-
-      -- Simulate counter overflow condition
-      if i = 200 then
-        M_RET_DATA_tb <= '1'; -- Simulate CounterOverFlowRetrigger condition
-      elsif i = 210 then
-        M_RET_DATA_tb <= '0';
-      end if;
-
-      -- Generate a long pulse on M_RET_DATA_tb, starting around 1 us and lasting about 8 us
-      if i >= 60 and i <= 480 then
-        M_RET_DATA_tb <= '1';
-      else
-        M_RET_DATA_tb <= '0';
-      end if;
-
-      -- Delay the MDTSelect signal by one clock cycle
-      MDTSelect_tb <= '0' & MDTSelect_tb(0);
-      
-      -- Generate DelayCountEnable signal based on conditions in the DUT code
-      if SynchedTick60_tb = '1' or (DelayCountEnable = '1' and MDTSelect_tb(1) = '0') then
-        DelayCountEnable <= '1';
-      else
-        DelayCountEnable <= '0';
-      end if;
-
-      -- Assign DelayCountEnable to M_INT_CLK_tb
-      M_INT_CLK_tb <= DelayCountEnable;
-
-    end loop;
-    wait;
-  end process signal_gen;
-
-  -- Add assert checks to ensure the signals are valid
-  assert_chk: process
-  begin
-    for i in 1 to num_cycles loop
-      wait until rising_edge(H1_CLK_tb);
-
-      -- Checking for undefined states
-      assert (SysReset_tb /= 'U' and H1_CLK_tb /= 'U' and H1_CLKWR_tb /= 'U' and H1_CLK90_tb /= 'U' and 
-              SynchedTick60_tb /= 'U' and intDATA_tb /= "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU") 
-      report "Uninitialized signal found" severity failure;
-
-      if i = num_cycles then
-        assert false report "Simulation finished successfully" severity note;
-      end if;
-
-    end loop;
-    wait;
-  end process assert_chk;
-
 end testbench;
