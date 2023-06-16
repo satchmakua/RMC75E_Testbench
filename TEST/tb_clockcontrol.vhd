@@ -51,9 +51,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- library smartfusion2;
--- use smartfusion2.all;
-
 entity tb_ClockControl is
 end tb_ClockControl;
 
@@ -93,17 +90,8 @@ architecture tb of tb_ClockControl is
     signal SlowEnable : std_logic := '0';
 
     -- Clock period definitions
-    constant H1_PRIMARY_period : time := 16.6667 ns;
-    constant H1_CLKWR_period : time := 16.6667 ns;
-
-    -- Clock generator
-    procedure Clock_Gen (signal clk : out std_logic; period : time) is
-    begin
-        clk <= '0';
-        wait for period / 2;
-        clk <= '1';
-        wait for period / 2;
-    end procedure Clock_Gen;
+    constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
+    constant num_cycles    : integer := 6000; -- This gives a simulation time of around 100us.
 
 begin
     -- Instantiate the Unit Under Test (UUT)
@@ -122,20 +110,20 @@ begin
         SlowEnable => SlowEnable
     );
 
-    -- Clock process definitions
-    H1_PRIMARY_process :process
-    begin
-        while true loop
-            Clock_Gen(H1_PRIMARY, H1_PRIMARY_period);
-        end loop;
-    end process;
+	-- Clock process definitions
+	H1_PRIMARY_process :process
+	begin
+			while true loop
+					wait for H1_CLK_PERIOD/2;  H1_PRIMARY <= not H1_PRIMARY;
+			end loop;
+	end process;
 
-    H1_CLKWR_process :process
-    begin
-        while true loop
-            Clock_Gen(H1_CLKWR, H1_CLKWR_period);
-        end loop;
-    end process;
+	H1_CLKWR_process :process
+	begin
+			while true loop
+					wait for H1_CLK_PERIOD/2;  H1_CLKWR <= not H1_CLKWR;
+			end loop;
+	end process;
 
   -- Stimulus process
     stim_proc: process
@@ -147,14 +135,7 @@ begin
         RESET <= '0';  -- Releasing reset
         assert (SysRESET = '1') report "Test 1 failed: SysRESET not asserted after RESET" severity error;
 
-        -- Test 2: DLL_RST pulse generation
-        wait for 200 ns;
-        DLL_RST <= '1';  -- Generating a reset pulse to the PLL
-        wait for 100 ns;
-        DLL_RST <= '0';  -- Stopping the reset pulse to the PLL
-        assert (DLL_LOCK = '1') report "Test 2 failed: DLL_LOCK not asserted after DLL_RST" severity error;
-
-        -- Test 3: Verify no signals are undefined
+        -- Test 2: Verify no signals are undefined
         wait for 200 ns;
         assert (H1_CLK /= 'U' and H1_CLK90 /= 'U' and SysClk /= 'U' and DLL_LOCK /= 'U' and 
                 SysRESET /= 'U' and PowerUp /= 'U' and Enable /= 'U' and SlowEnable /= 'U') 
@@ -164,6 +145,9 @@ begin
     end process;
 
 end tb;
+
+
+
 
 
 

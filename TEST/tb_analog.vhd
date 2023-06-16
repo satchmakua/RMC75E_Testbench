@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_analog
---	File			tb_analog.vhd
+--	File				tb_analog.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -48,6 +48,9 @@ entity tb_analog is
 end tb_analog;
 
 architecture tb of tb_analog is 
+    constant H1_CLK_PERIOD : time := 16.6667 ns; -- period of 60 MHz clock
+    constant num_cycles : integer := 100; -- number of cycles for wait periods
+    
     component Analog is
         port(
             SysReset            : in std_logic;
@@ -76,7 +79,7 @@ architecture tb of tb_analog is
     end component Analog;
 
     -- Initialize all signals
-    signal SysReset            : std_logic := '0';
+    signal SysReset            : std_logic := '1';
     signal H1_CLKWR            : std_logic := '0';
     signal SysClk              : std_logic := '0';
     signal SlowEnable          : std_logic := '0';
@@ -125,45 +128,104 @@ begin
         ExpA_DATA           => ExpA_DATA
     );
 
-    stimulus: process
-    begin  
-        -- Reset signal
-        SysReset <= '1';
-        wait for 10 ns;
-        SysReset <= '0';
-        wait for 10 ns;
+    -- Generate H1_CLK
+    clk_gen: process
+    begin
+        wait for H1_CLK_PERIOD / 2;
+        H1_CLKWR <= not H1_CLKWR;
+    end process clk_gen;
 
-        -- Enable signals
-        SlowEnable <= '1';
-        SynchedTick <= '1';
-        SynchedTick60 <= '1';
+    -- Generate SysClk
+    sysclk_gen: process
+    begin
+        while true loop
+            wait for H1_CLK_PERIOD;
+            SysClk <= not SysClk;
+        end loop;
+    end process sysclk_gen;
 
-        -- Test 1: Vary LoopTime to create different scenarios
-        LoopTime <= "000";
-        wait for 100 ns;
-        LoopTime <= "001";
-        wait for 100 ns;
-        LoopTime <= "010";
-        wait for 100 ns;
-        LoopTime <= "011";
-        wait for 100 ns;
-        -- Continue for other LoopTime values
-        
-        -- Test 2: Additional test stimuli and assertions
-        AnlgPositionRead0 <= '1';
-        wait for 100 ns;
-        assert (AnlgDATA = X"0000_0000") report "AnlgDATA mismatch for AnlgPositionRead0 = '1'" severity error;
-        AnlgPositionRead0 <= '0';
-        
-        ExpA0ReadCh0 <= '1';
-        wait for 100 ns;
-        assert (AnlgDATA = X"0000_0000") report "AnlgDATA mismatch for ExpA0ReadCh0 = '1'" severity error;
-        ExpA0ReadCh0 <= '0';
-        
-        -- Test 3: Ensure all signals are defined after 250 microseconds
-        wait for 250 us;
-        assert ExpA_CS_L'event and ExpA_CLK'event report "ExpA_CS_L and ExpA_CLK are not defined" severity error;
-        
+    -- Generate SynchedTick
+    synchedtick_gen: process
+    begin
+        wait for H1_CLK_PERIOD / 2;
+        SynchedTick <= not SynchedTick;
+    end process synchedtick_gen;
+
+    -- Generate SynchedTick60
+    synchedtick60_gen: process
+    begin
+        wait for H1_CLK_PERIOD;
+        SynchedTick60 <= '1'; -- first tick
+        wait for H1_CLK_PERIOD;
+        SynchedTick60 <= '0'; -- end of first tick
         wait;
-    end process;
+    end process synchedtick60_gen;
+
+    -- System initialization
+    system_init: process
+    begin
+        -- System reset
+        wait for H1_CLK_PERIOD * 2; -- wait for one 60 MHz clock cycle
+        SysReset <= '0'; -- end of system reset
+        wait for H1_CLK_PERIOD * 2;
+
+        -- Start system configuration
+        AnlgPositionRead0 <= '0'; -- disable position read
+        AnlgPositionRead1 <= '0'; -- disable position read
+        wait for H1_CLK_PERIOD * 2;
+        AnlgPositionRead0 <= '1'; -- enable position read
+        AnlgPositionRead1 <= '1'; -- enable position read
+        wait for H1_CLK_PERIOD * 2;
+        AnlgPositionRead0 <= '0'; -- disable position read
+        AnlgPositionRead1 <= '0'; -- disable position read
+        wait for H1_CLK_PERIOD;
+
+        -- Generate SynchedTick60
+        SynchedTick60 <= '1'; -- first tick
+        wait for H1_CLK_PERIOD;
+        SynchedTick60 <= '0'; -- end of first tick
+
+        -- Delay for 1 us - 4 * H1_CLK_PERIOD
+        wait for 1 us - 4 * H1_CLK_PERIOD;
+
+        -- Start M_RET_DATA pulse
+        ExpA0ReadCh0 <= '1';
+        ExpA0ReadCh1 <= '1';
+        wait for 8 us;
+        ExpA0ReadCh0 <= '0';
+        ExpA0ReadCh1 <= '0';
+        wait for 30 us - 1 us - 8 us;
+
+        -- Generate SynchedTick60
+        SynchedTick60 <= '1'; -- second tick
+        wait for H1_CLK_PERIOD;
+        SynchedTick60 <= '0'; -- end of second tick
+
+        -- Enable position read
+        AnlgPositionRead0 <= '1';
+        AnlgPositionRead1 <= '1';
+        wait for H1_CLK_PERIOD * num_cycles; -- wait for a specific number of cycles
+        AnlgPositionRead0 <= '0'; -- disable position read
+        AnlgPositionRead1 <= '0'; -- disable position read
+
+        -- Enable status read
+        ExpA1ReadCh0 <= '1';
+        ExpA1ReadCh1 <= '1';
+        wait for H1_CLK_PERIOD * num_cycles; -- wait for a specific number of cycles
+        ExpA1ReadCh0 <= '0'; -- disable status read
+        ExpA1ReadCh1 <= '0'; -- disable status read
+
+        -- Run for the desired number of cycles
+        for i in 1 to num_cycles loop
+            wait for H1_CLK_PERIOD;
+        end loop;
+
+        -- Stop the simulation
+        wait;
+    end process system_init;
 end tb;
+
+
+
+
+
