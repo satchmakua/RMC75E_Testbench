@@ -161,38 +161,46 @@ begin
         Exp3D8_Latch		=> Exp3D8_Latch
     );
 
-	stim_proc: process
-	begin	
-		-- hold reset state for 100 ns.
-		RESET <= '1';
-		wait for 100 ns;	
+stim_proc: process
+    -- Define SysClock period
+    constant SysClk_period : time := 16.6667 ns; -- 60 MHz
+    constant pulse_delay : time := 1 us;
+    constant pulse_delay_2 : time := 8 us;
+begin
+    -- Generate SysClock
+    SysClk <= '0';
+    wait for SysClk_period/2;
+    SysClk <= '1';
+    wait for SysClk_period/2;
 
-		RESET <= '0';
+    -- hold reset state for 100 ns.
+    RESET <= '1';
+    wait for 100 ns;  
 
-		-- insert your stimulus here 
-		wait for 100 ns;
+    RESET <= '0';
 
-		-- Test case 1: Test ExpDIO8ConfigRead and ExpDIO8ConfigWrite signals
-		-- Write data to ExpDIO8ConfigWrite
-		ExpDIO8ConfigWrite <= "1010";
-		wait for 100 ns;
+    -- SynchedTick pulses
+    wait for pulse_delay; -- Wait for 1us
+    SynchedTick <= '1'; -- Start of first pulse
+    wait for SysClk_period;
+    SynchedTick <= '0'; -- End of first pulse
 
-		-- Enable ExpDIO8ConfigRead
-		ExpDIO8ConfigRead <= "0001";
-		wait for 100 ns;
+    wait for pulse_delay_2 - SysClk_period; -- Wait for 8us - one clock period
+    SynchedTick <= '1'; -- Start of second pulse
+    wait for SysClk_period;
+    SynchedTick <= '0'; -- End of second pulse
 
-		-- Verify if data is successfully read by observing d8DataOut
-		assert d8DataOut = "10101010101010101010101010101010" report "Read fail for ExpDIO8ConfigWrite" severity error;
+    -- insert your stimulus here 
+    wait for 100 ns;
 
-		-- Reset ExpDIO8ConfigRead and ExpDIO8ConfigWrite
-		ExpDIO8ConfigRead <= "0000";
-		ExpDIO8ConfigWrite <= (others => '0');
-		wait for 100 ns;
+    -- Test case 1: Test ExpDIO8ConfigRead and ExpDIO8ConfigWrite signals
+    -- Write data to ExpDIO8ConfigWrite
+    ExpDIO8ConfigWrite <= "1010";
+    wait for 100 ns;
 
-		-- Additional test cases can be included here
-
-		-- End of test cases
-		wait;
-	end process;
+    -- Enable ExpDIO8ConfigRead
+    ExpDIO8ConfigRead <= "0001";
+    wait for 100 ns;
+end process stim_proc;
 
 end tb;

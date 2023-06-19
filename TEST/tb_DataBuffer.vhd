@@ -38,118 +38,121 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity tb_ExpSigRoute is
-end tb_ExpSigRoute;
+entity tb_DataBuffer is
+end tb_DataBuffer;
 
-architecture tb of tb_ExpSigRoute is 
+architecture test of tb_DataBuffer is
 
-	component ExpSigRoute is
-		Port ( 
-			ExpMux					: in std_logic_vector (1 downto 0);
-			ExpSerialSelect			: in std_logic;
-			ExpLEDSelect			: in std_logic;
-			ExpLEDData				: in std_logic;
-			ExpData					: inout std_logic_vector (5 downto 0);
-			ExpA_CS_L				: in std_logic;
-			ExpA_CLK				: in std_logic;
-			ExpA_DATA				: out std_logic_vector(1 downto 0);
-			SerialMemoryDataIn		: out std_logic;
-			SerialMemoryDataOut		: in std_logic;
-			SerialMemoryDataControl	: in std_logic;
-			SerialMemoryClk			: in std_logic;
-			ExpD8_DataIn			: out std_logic;
-			ExpD8_Clk				: in std_logic;
-			ExpD8_DataOut			: in std_logic;
-			ExpD8_OE				: in std_logic;
-			ExpD8_Load				: in std_logic;
-			ExpD8_Latch				: in std_logic;
-			ExpQ1_A					: out std_logic;
-			ExpQ1_B					: out std_logic;
-			ExpQ1_Reg				: out std_logic;
-			ExpQ1_FaultA			: out std_logic;
-			ExpQ1_FaultB			: out std_logic
-		);
-	end component;
+    constant PERIOD : time := 16.6667 ns; -- this is the period of the clock
+    constant NUM_CYCLES : natural := 100; -- number of cycles to run the test bench
 
-	signal ExpMux					: std_logic_vector (1 downto 0) := (others => '0');
-	signal ExpSerialSelect			: std_logic := '0';
-	signal ExpLEDSelect				: std_logic := '0';
-	signal ExpLEDData				: std_logic := '0';
-	signal ExpData					: std_logic_vector (5 downto 0) := (others => '0');
-	signal ExpA_CS_L				: std_logic := '0';
-	signal ExpA_CLK					: std_logic := '0';
-	signal ExpA_DATA				: std_logic_vector(1 downto 0) := (others => '0');
-	signal SerialMemoryDataIn		: std_logic := '0';
-	signal SerialMemoryDataOut		: std_logic := '0';
-	signal SerialMemoryDataControl	: std_logic := '0';
-	signal SerialMemoryClk			: std_logic := '0';
-	signal ExpD8_DataIn				: std_logic := '0';
-	signal ExpD8_Clk				: std_logic := '0';
-	signal ExpD8_DataOut			: std_logic := '0';
-	signal ExpD8_OE					: std_logic := '0';
-	signal ExpD8_Load				: std_logic := '0';
-	signal ExpD8_Latch				: std_logic := '0';
-	signal ExpQ1_A					: std_logic := '0';
-	signal ExpQ1_B					: std_logic := '0';
-	signal ExpQ1_Reg				: std_logic := '0';
-	signal ExpQ1_FaultA				: std_logic := '0';
-	signal ExpQ1_FaultB				: std_logic := '0';
+    signal H1_CLKWR: std_logic := '0';
+    signal SysClk: std_logic := '0';
+    signal SynchedTick: std_logic := '0';
+    signal SynchedTick60: std_logic := '0';
+    signal AnlgPositionRead0: std_logic := '0';
+    signal AnlgPositionRead1: std_logic := '0';
+    signal ExpA0ReadCh0: std_logic := '0';
+    signal ExpA0ReadCh1: std_logic := '0';
+    signal ExpA1ReadCh0: std_logic := '0';
+    signal ExpA1ReadCh1: std_logic := '0';
+    signal ExpA2ReadCh0: std_logic := '0';
+    signal ExpA2ReadCh1: std_logic := '0';
+    signal ExpA3ReadCh0: std_logic := '0';
+    signal ExpA3ReadCh1: std_logic := '0';
+    signal WriteConversion: std_logic := '0';
+    signal S2P_Addr: std_logic_vector(3 downto 0);
+    signal S2P_Data: std_logic_vector(15 downto 0);
+    signal DataOut: std_logic_vector(15 downto 0);
 
 begin
+    uut: entity work.DataBuffer
+    port map(
+        H1_CLKWR => H1_CLKWR,
+        SysClk => SysClk,
+        SynchedTick => SynchedTick,
+        SynchedTick60 => SynchedTick60,
+        AnlgPositionRead0 => AnlgPositionRead0,
+        AnlgPositionRead1 => AnlgPositionRead1,
+        ExpA0ReadCh0 => ExpA0ReadCh0,
+        ExpA0ReadCh1 => ExpA0ReadCh1,
+        ExpA1ReadCh0 => ExpA1ReadCh0,
+        ExpA1ReadCh1 => ExpA1ReadCh1,
+        ExpA2ReadCh0 => ExpA2ReadCh0,
+        ExpA2ReadCh1 => ExpA2ReadCh1,
+        ExpA3ReadCh0 => ExpA3ReadCh0,
+        ExpA3ReadCh1 => ExpA3ReadCh1,
+        WriteConversion => WriteConversion,
+        S2P_Addr => S2P_Addr,
+        S2P_Data => S2P_Data,
+        DataOut => DataOut
+    );
 
-	DUT: ExpSigRoute port map (
-		ExpMux => ExpMux,
-		ExpSerialSelect => ExpSerialSelect,
-		ExpLEDSelect => ExpLEDSelect,
-		ExpLEDData => ExpLEDData,
-		ExpData => ExpData,
-		ExpA_CS_L => ExpA_CS_L,
-		ExpA_CLK => ExpA_CLK,
-		ExpA_DATA => ExpA_DATA,
-		SerialMemoryDataIn => SerialMemoryDataIn,
-		SerialMemoryDataOut => SerialMemoryDataOut,
-		SerialMemoryDataControl => SerialMemoryDataControl,
-		SerialMemoryClk => SerialMemoryClk,
-		ExpD8_DataIn => ExpD8_DataIn,
-		ExpD8_Clk => ExpD8_Clk,
-		ExpD8_DataOut => ExpD8_DataOut,
-		ExpD8_OE => ExpD8_OE,
-		ExpD8_Load => ExpD8_Load,
-		ExpD8_Latch => ExpD8_Latch,
-		ExpQ1_A => ExpQ1_A,
-		ExpQ1_B => ExpQ1_B,
-		ExpQ1_Reg => ExpQ1_Reg,
-		ExpQ1_FaultA => ExpQ1_FaultA,
-		ExpQ1_FaultB => ExpQ1_FaultB
-	);
+    clk_gen: process
+    begin
+        while true loop
+            H1_CLKWR <= not H1_CLKWR;
+            wait for PERIOD/2;
+        end loop;
+    end process clk_gen;
 
-	stim_proc: process
-	begin	
-		-- Test scenario 1: No valid module, expect tied to '1', '0', or 'Z'
-		ExpMux <= "00"; ExpSerialSelect <= '0'; ExpLEDSelect <= '0'; ExpLEDData <= '0';
-		wait for 10 ns;
-		
-		-- Test scenario 2: Analog input logic module with serial select
-		ExpMux <= "01"; ExpSerialSelect <= '1'; ExpA_CS_L <= '0'; ExpA_CLK <= '1';
-		wait for 10 ns;
-		
-		-- Test scenario 3: DIO input logic module
-		ExpMux <= "10"; ExpLEDSelect <= '1'; ExpLEDData <= '1'; ExpD8_OE <= '1'; ExpD8_Load <= '1';
-		wait for 10 ns;
+    SysClk_proc: process
+    begin
+        while true loop
+            SysClk <= not SysClk;
+            wait for PERIOD;
+        end loop;
+    end process SysClk_proc;
 
-		-- Test scenario 4: ExpData with both the AP2 and the DIO8 modules
-		ExpMux <= "11"; ExpSerialSelect <= '0'; ExpLEDSelect <= '0'; ExpLEDData <= '1'; 
-		wait for 10 ns;
-		
-		-- Test scenario 5: Random combination of inputs
-		ExpMux <= "01"; ExpSerialSelect <= '1'; ExpLEDSelect <= '0'; ExpLEDData <= '0'; ExpA_CS_L <= '1'; ExpA_CLK <= '0';
-		wait for 10 ns;
+	stimulus: process
+	begin
+			-- Initial conditions
+			SynchedTick <= '0';
+			SynchedTick60 <= '0';
+			AnlgPositionRead0 <= '0';
+			AnlgPositionRead1 <= '0';
+			ExpA0ReadCh0 <= '0';
+			ExpA0ReadCh1 <= '0';
+			ExpA1ReadCh0 <= '0';
+			ExpA1ReadCh1 <= '0';
+			ExpA2ReadCh0 <= '0';
+			ExpA2ReadCh1 <= '0';
+			ExpA3ReadCh0 <= '0';
+			ExpA3ReadCh1 <= '0';
+			WriteConversion <= '0';
+			S2P_Addr <= "0000";
+			S2P_Data <= "0000000000000000";
 
-		wait;
-	end process;
+			-- Start of test scenarios, add test logic here
 
-end tb;
+			-- Test case: Writing to the RAM128x16 module
+			SynchedTick <= '1'; -- Set SynchedTick high to enable write operation
+			WriteConversion <= '1'; -- Assert WriteConversion to trigger the write operation
+			S2P_Data <= "0101010101010101"; -- Set the desired data to be written
+			wait for 1 us; -- Wait for 1 us to allow the write operation to complete
+			SynchedTick <= '0'; -- De-assert SynchedTick to complete the write operation
+			wait for 8 us; -- Wait for additional 8 us to ensure the write operation has finished
+
+			-- Ensure S2P_Addr becomes defined
+			S2P_Addr <= "1111";
+
+			-- Ensure DataOut becomes defined
+			DataOut <= (others => '0');
+
+			-- Ensure all signals become defined
+			wait for NUM_CYCLES * PERIOD;
+
+			-- Repeat for more test cases
+
+			wait;
+	end process stimulus;
+
+end test;
+
+
+
+
+
 

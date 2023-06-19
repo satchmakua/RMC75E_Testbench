@@ -45,6 +45,8 @@ entity tb_DiscoverID is
 end tb_DiscoverID;
 
 architecture tb of tb_DiscoverID is
+  constant CLK_PERIOD : time := 16.6667 ns; -- For 60 MHz clock
+
   signal RESET          : std_logic;
   signal SysClk         : std_logic;
   signal SlowEnable     : std_logic;
@@ -68,7 +70,6 @@ architecture tb of tb_DiscoverID is
   -- Add necessary component declarations and signal mappings here
 
 begin
-
   -- Instantiate the unit under test (DUT)
   -- Update the component name and port mappings according to your design
   DUT: entity work.DiscoverID
@@ -120,18 +121,21 @@ begin
     Exp2Mux <= (others => '0');
     Exp3Mux <= (others => '0');
 
-    -- Wait for reset to complete
-    wait for 10 ns;
+    -- Wait for half a period before reset
+    wait for CLK_PERIOD / 2;
     RESET <= '0';
 
     -- Generate clock
-    SysClk <= not SysClk after 5 ns;
+    loop
+      wait for CLK_PERIOD / 2;
+      SysClk <= not SysClk;
+    end loop;
 
     -- Add test stimuli, assertions, and wait statements here
 
     -- End simulation after a certain time
-    wait for 100 ns;
-    if Now > 200 ns then
+    wait for 100 * CLK_PERIOD;
+    if Now > 200 * CLK_PERIOD then
       assert false report "Simulation time expired" severity failure;
     end if;
 
@@ -141,3 +145,4 @@ begin
   end process tb_process;
 
 end tb;
+

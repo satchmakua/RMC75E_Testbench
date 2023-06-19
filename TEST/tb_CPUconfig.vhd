@@ -35,6 +35,9 @@ entity tb_CPUConfig is
 end tb_CPUConfig;
 
 architecture testbench of tb_CPUConfig is
+    constant H1_PRIMARY_clk_period : time := 16.6667 ns; 
+    constant num_cycles : integer := 15_000; 
+    
     signal RESET, SysRESET, H1_CLKWR, H1_PRIMARY, CPUConfigWrite, HALT_DRIVE_L, DLL_LOCK, ENET_Build : std_logic := '0';
     signal intDATA : std_logic_vector(31 downto 0) := (others => '0');
     signal cpuConfigDataOut : std_logic_vector(31 downto 0);
@@ -61,44 +64,47 @@ begin
 
     clk_stimulus: process
     begin
-        wait for 10 ns; H1_CLKWR <= not H1_CLKWR; 
-        wait for 10 ns; H1_PRIMARY <= not H1_PRIMARY; 
+        wait for H1_PRIMARY_clk_period / 2; H1_CLKWR <= not H1_CLKWR; 
+        wait for H1_PRIMARY_clk_period / 2; H1_PRIMARY <= not H1_PRIMARY; 
     end process;
     
     process
     begin
         -- Reset sequence
         RESET <= '1'; 
-        wait for 50 ns;
+        wait for H1_PRIMARY_clk_period;
         RESET <= '0'; 
-        wait for 50 ns;
-        
-        -- Test sequence 1: CPUConfigWrite is 0
-        CPUConfigWrite <= '0';
-        HALT_DRIVE_L <= '0';
-        intDATA <= (others => '0');
-        wait for 100 ns; 
+        wait for H1_PRIMARY_clk_period;
 
-        -- Test sequence 2: CPUConfigWrite is 1, intDATA is "000.."
-        CPUConfigWrite <= '1';
-        HALT_DRIVE_L <= '1';
-        intDATA(6 downto 0) <= "0010000";
-        wait for 100 ns;
+        for i in 1 to num_cycles loop
+            -- Test sequence 1: CPUConfigWrite is 0
+            CPUConfigWrite <= '0';
+            HALT_DRIVE_L <= '0';
+            intDATA <= (others => '0');
+            wait for H1_PRIMARY_clk_period * 6; 
 
-        -- Test sequence 3: CPUConfigWrite is 1, intDATA is "000.."
-        intDATA(6 downto 0) <= "0100000";
-        wait for 100 ns;
-        
-        -- Test sequence 4: CPUConfigWrite is 1, intDATA is "000.."
-        intDATA(6 downto 0) <= "1000000";
-        wait for 100 ns;
-        
-        -- Test sequence 5: CPUConfigWrite is 1, intDATA is "000.."
-        intDATA(6 downto 0) <= "1110000";
-        wait for 100 ns;
+            -- Test sequence 2: CPUConfigWrite is 1, intDATA is "000.."
+            CPUConfigWrite <= '1';
+            HALT_DRIVE_L <= '1';
+            intDATA(6 downto 0) <= "0010000";
+            wait for H1_PRIMARY_clk_period * 6;
+
+            -- Test sequence 3: CPUConfigWrite is 1, intDATA is "000.."
+            intDATA(6 downto 0) <= "0100000";
+            wait for H1_PRIMARY_clk_period * 6;
+            
+            -- Test sequence 4: CPUConfigWrite is 1, intDATA is "000.."
+            intDATA(6 downto 0) <= "1000000";
+            wait for H1_PRIMARY_clk_period * 6;
+            
+            -- Test sequence 5: CPUConfigWrite is 1, intDATA is "000.."
+            intDATA(6 downto 0) <= "1110000";
+            wait for H1_PRIMARY_clk_period * 6;
+        end loop;
         
         -- End of testbench
         assert false report "End of testbench" severity note;
         wait;
     end process;
 end testbench;
+

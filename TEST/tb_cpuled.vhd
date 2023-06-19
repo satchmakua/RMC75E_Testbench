@@ -36,6 +36,9 @@ entity tb_CPULED is
 end tb_CPULED;
 
 architecture testbench of tb_CPULED is
+    constant H1_PRIMARY_clk_period : time := 16.6667 ns; -- ~60MHz
+    constant num_cycles : integer := 6_000; -- 100 us divided by clk_period of 16.6667 ns 
+
     signal RESET, H1_CLKWR, CPULEDWrite : std_logic := '0';
     signal intDATA : std_logic_vector(31 downto 0) := (others => '0');
     signal cpuLedDataOut : std_logic_vector(31 downto 0);
@@ -54,41 +57,44 @@ begin
 
     clk_stimulus: process
     begin
-        wait for 10 ns; H1_CLKWR <= not H1_CLKWR; 
+        wait for H1_PRIMARY_clk_period / 2; H1_CLKWR <= not H1_CLKWR; 
     end process;
     
     process
     begin
         -- Reset sequence
         RESET <= '1'; 
-        wait for 50 ns;
+        wait for H1_PRIMARY_clk_period * 3;
         RESET <= '0'; 
-        wait for 50 ns;
+        wait for H1_PRIMARY_clk_period * 3;
         
-        -- Test sequence 1: CPULEDWrite is 0
-        CPULEDWrite <= '0';
-        intDATA(1 downto 0) <= "00";
-        wait for 100 ns; 
+        for i in 1 to num_cycles loop
+            -- Test sequence 1: CPULEDWrite is 0
+            CPULEDWrite <= '0';
+            intDATA(1 downto 0) <= "00";
+            wait for H1_PRIMARY_clk_period * 6; 
 
-        -- Test sequence 2: CPULEDWrite is 1, intDATA is "00"
-        CPULEDWrite <= '1';
-        intDATA(1 downto 0) <= "00";
-        wait for 100 ns;
+            -- Test sequence 2: CPULEDWrite is 1, intDATA is "00"
+            CPULEDWrite <= '1';
+            intDATA(1 downto 0) <= "00";
+            wait for H1_PRIMARY_clk_period * 6;
 
-        -- Test sequence 3: CPULEDWrite is 1, intDATA is "01"
-        intDATA(1 downto 0) <= "01";
-        wait for 100 ns;
-        
-        -- Test sequence 4: CPULEDWrite is 1, intDATA is "10"
-        intDATA(1 downto 0) <= "10";
-        wait for 100 ns;
-        
-        -- Test sequence 5: CPULEDWrite is 1, intDATA is "11"
-        intDATA(1 downto 0) <= "11";
-        wait for 100 ns;
+            -- Test sequence 3: CPULEDWrite is 1, intDATA is "01"
+            intDATA(1 downto 0) <= "01";
+            wait for H1_PRIMARY_clk_period * 6;
+            
+            -- Test sequence 4: CPULEDWrite is 1, intDATA is "10"
+            intDATA(1 downto 0) <= "10";
+            wait for H1_PRIMARY_clk_period * 6;
+            
+            -- Test sequence 5: CPULEDWrite is 1, intDATA is "11"
+            intDATA(1 downto 0) <= "11";
+            wait for H1_PRIMARY_clk_period * 6;
+        end loop;
         
         -- End of testbench
         assert false report "End of testbench" severity note;
         wait;
     end process;
 end testbench;
+

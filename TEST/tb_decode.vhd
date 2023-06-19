@@ -58,7 +58,7 @@ architecture tb of tb_decode is
     end component;
 
 	-- Clock signal period
-	constant CLK_PERIOD: time := 16.666 ns;
+	constant CLK_PERIOD: time := 16.6667 ns;
 	
     -- Test inputs
     signal ADDR: std_logic_vector(11 downto 0);
@@ -167,63 +167,63 @@ begin
     RD_L <= '0'; WR_L <= '0'; CS_L <= '0';
     MDTPresent <= '0'; ANLGPresent <= '0'; QUADPresent <= '0';
     Exp0Mux <= "00"; Exp1Mux <= "00"; Exp2Mux <= "00"; Exp3Mux <= "00";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 0
     ADDR <= "000000000001";
     RD_L <= '1'; WR_L <= '1'; CS_L <= '1';
     MDTPresent <= '1'; ANLGPresent <= '1'; QUADPresent <= '1';
     Exp0Mux <= "01"; Exp1Mux <= "01"; Exp2Mux <= "01"; Exp3Mux <= "01";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
 	-- Stimuli 1
     ADDR <= "000000000011";
     RD_L <= '1'; WR_L <= '0'; CS_L <= '1';
     MDTPresent <= '1'; ANLGPresent <= '0'; QUADPresent <= '1';
     Exp0Mux <= "10"; Exp1Mux <= "00"; Exp2Mux <= "11"; Exp3Mux <= "01";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 2
     ADDR <= "000000000100";
     RD_L <= '1'; WR_L <= '1'; CS_L <= '0';
     MDTPresent <= '0'; ANLGPresent <= '1'; QUADPresent <= '0';
     Exp0Mux <= "01"; Exp1Mux <= "10"; Exp2Mux <= "00"; Exp3Mux <= "11";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 3
     ADDR <= "000000000101";
     RD_L <= '0'; WR_L <= '0'; CS_L <= '0';
     MDTPresent <= '1'; ANLGPresent <= '1'; QUADPresent <= '1';
     Exp0Mux <= "00"; Exp1Mux <= "00"; Exp2Mux <= "00"; Exp3Mux <= "00";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 4
     ADDR <= "000000000110";
     RD_L <= '1'; WR_L <= '1'; CS_L <= '1';
     MDTPresent <= '0'; ANLGPresent <= '0'; QUADPresent <= '0';
     Exp0Mux <= "11"; Exp1Mux <= "11"; Exp2Mux <= "11"; Exp3Mux <= "11";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 5
     ADDR <= "000000000111";
     RD_L <= '0'; WR_L <= '0'; CS_L <= '0';
     MDTPresent <= '1'; ANLGPresent <= '1'; QUADPresent <= '1';
     Exp0Mux <= "01"; Exp1Mux <= "10"; Exp2Mux <= "00"; Exp3Mux <= "11";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 6
     ADDR <= "000000001000";
     RD_L <= '1'; WR_L <= '1'; CS_L <= '1';
     MDTPresent <= '0'; ANLGPresent <= '0'; QUADPresent <= '0';
     Exp0Mux <= "00"; Exp1Mux <= "00"; Exp2Mux <= "00"; Exp3Mux <= "00";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     -- Stimuli 7
     ADDR <= "000000001001";
     RD_L <= '0'; WR_L <= '1'; CS_L <= '0';
     MDTPresent <= '1'; ANLGPresent <= '0'; QUADPresent <= '1';
     Exp0Mux <= "11"; Exp1Mux <= "01"; Exp2Mux <= "10"; Exp3Mux <= "00";
-    wait for 100 ns;
+    wait for 6 * CLK_PERIOD;
 
     wait;
 end process;

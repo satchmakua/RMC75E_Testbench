@@ -155,55 +155,99 @@ begin
     wait;
   end process reset_gen;
 	
-	-- Test Cases
-	test_cases: process(H1_CLK_tb)
-	begin
-		if rising_edge(H1_CLK_tb) then
-			if SysReset_tb = '1' then
-				-- Check each signal. If it's uninitialized, report that fact.
-				if H1_CLK_tb = 'U' then
-					report "Test Case Failed: H1_CLK_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if H1_CLKWR_tb = 'U' then
-					report "Test Case Failed: H1_CLKWR_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if H1_CLK90_tb = 'U' then
-					report "Test Case Failed: H1_CLK90_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if SynchedTick60_tb = 'U' then
-					report "Test Case Failed: SynchedTick60_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
+test_cases: process(H1_CLK_tb)
+begin
+  if rising_edge(H1_CLK_tb) then
+    if SysReset_tb = '1' then
+      -- Check each signal. If it's uninitialized, report that fact.
+      if H1_CLK_tb = 'U' then
+        report "Test Case Failed: H1_CLK_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if H1_CLKWR_tb = 'U' then
+        report "Test Case Failed: H1_CLKWR_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if H1_CLK90_tb = 'U' then
+        report "Test Case Failed: H1_CLK90_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if SynchedTick60_tb = 'U' then
+        report "Test Case Failed: SynchedTick60_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
 
-				-- Check the intDATA_tb vector individually.
-				for i in intDATA_tb'range loop
-					if intDATA_tb(i) = 'U' then
-						report "Test Case Failed: intDATA_tb element at index " & integer'image(i) & " is uninitialized when SysReset is continuously high" severity error;
-					end if;
-				end loop;
+      -- Check the intDATA_tb vector individually.
+      for i in intDATA_tb'range loop
+        if intDATA_tb(i) = 'U' then
+          report "Test Case Failed: intDATA_tb element at index " & integer'image(i) & " is uninitialized when SysReset is continuously high" severity error;
+        end if;
+      end loop;
 
-				if PositionRead_tb = 'U' then
-					report "Test Case Failed: PositionRead_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if StatusRead_tb = 'U' then
-					report "Test Case Failed: StatusRead_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if ParamWrite_tb = 'U' then
-					report "Test Case Failed: ParamWrite_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if M_INT_CLK_tb = 'U' then
-					report "Test Case Failed: M_INT_CLK_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if M_RET_DATA_tb = 'U' then
-					report "Test Case Failed: M_RET_DATA_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if SSI_DATA_tb = 'U' then
-					report "Test Case Failed: SSI_DATA_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-				if SSISelect_tb = 'U' then
-					report "Test Case Failed: SSISelect_tb is uninitialized when SysReset is continuously high" severity error;
-				end if;
-			end if;
-		end if;
-	end process test_cases;
+      if PositionRead_tb = 'U' then
+        report "Test Case Failed: PositionRead_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if StatusRead_tb = 'U' then
+        report "Test Case Failed: StatusRead_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if ParamWrite_tb = 'U' then
+        report "Test Case Failed: ParamWrite_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if M_INT_CLK_tb = 'U' then
+        report "Test Case Failed: M_INT_CLK_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if M_RET_DATA_tb = 'U' then
+        report "Test Case Failed: M_RET_DATA_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if SSI_DATA_tb = 'U' then
+        report "Test Case Failed: SSI_DATA_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+      if SSISelect_tb = 'U' then
+        report "Test Case Failed: SSISelect_tb is uninitialized when SysReset is continuously high" severity error;
+      end if;
+    end if;
+    
+    if SysReset_tb = '0' then
+      -- Check each signal. If it's uninitialized, report that fact.
+      if H1_CLK_tb = 'U' then
+        report "Test Case Failed: H1_CLK_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if H1_CLKWR_tb = 'U' then
+        report "Test Case Failed: H1_CLKWR_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if H1_CLK90_tb = 'U' then
+        report "Test Case Failed: H1_CLK90_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if SynchedTick60_tb = 'U' then
+        report "Test Case Failed: SynchedTick60_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+
+      -- Check the intDATA_tb vector individually.
+      for i in intDATA_tb'range loop
+        if intDATA_tb(i) = 'U' then
+          report "Test Case Failed: intDATA_tb element at index " & integer'image(i) & " is uninitialized when SysReset is continuously low" severity error;
+        end if;
+      end loop;
+
+      if PositionRead_tb = 'U' then
+        report "Test Case Failed: PositionRead_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if StatusRead_tb = 'U' then
+        report "Test Case Failed: StatusRead_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if ParamWrite_tb = 'U' then
+        report "Test Case Failed: ParamWrite_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if M_INT_CLK_tb = 'U' then
+        report "Test Case Failed: M_INT_CLK_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if M_RET_DATA_tb = 'U' then
+        report "Test Case Failed: M_RET_DATA_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if SSI_DATA_tb = 'U' then
+        report "Test Case Failed: SSI_DATA_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+      if SSISelect_tb = 'U' then
+        report "Test Case Failed: SSISelect_tb is uninitialized when SysReset is continuously low" severity error;
+      end if;
+    end if;
+  end if;
+end process test_cases;
 
 end testbench;

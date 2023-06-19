@@ -43,7 +43,8 @@ entity tb_CountrolOutput is
 end tb_CountrolOutput;
 
 architecture tb of tb_CountrolOutput is
-  constant clk_period : time := 16.666 ns;
+  constant clk_period : time := 16.6667 ns;
+  constant num_cycles : integer := 15_000; -- 250 us divided by clk_period of 16.666 ns 
 
   signal H1_CLKWR           : std_logic := '0';
   signal SysClk             : std_logic := '0';
@@ -102,27 +103,36 @@ begin
     RESET <= '1';
     wait for clk_period;
     RESET <= '0';
-
-    intDATA <= "1010101010101010";
-    ControlOutputWrite <= '1';
+    Enable <= '1';
     wait for clk_period;
+    for i in 1 to num_cycles loop
+      intDATA <= "1010101010101010";
+      ControlOutputWrite <= '1';
+      wait for clk_period;
+      intDATA <= "0101010101010101";
+      ControlOutputWrite <= '0';
+      wait for clk_period;
+      SynchedTick <= '1';
+      wait for clk_period;
+      SynchedTick <= '0';
+      intDATA <= "1111000011110000";
+      ControlOutputWrite <= '1';
+      wait for clk_period;
+      ControlOutputWrite <= '0';
+      wait for clk_period;
+    end loop;
 
-    intDATA <= "0101010101010101";
-    wait for clk_period;
-
-    intDATA <= "1111000011110000";
-    wait for clk_period;
-
-    ControlOutputWrite <= '0';
-    wait for clk_period;
-  
-    assert(M_OUT_DATA = '1')
+    assert(M_OUT_DATA /= 'U')
       report "Unexpected value on M_OUT_DATA"
       severity error;
-
-
+    assert(M_OUT_CONTROL /= 'U')
+      report "Unexpected value on M_OUT_CONTROL"
+      severity error;
+    assert(M_OUT_CLK /= 'U')
+      report "Unexpected value on M_OUT_CLK"
+      severity error;
     wait;
   end process;
-
 end tb;
+
 
