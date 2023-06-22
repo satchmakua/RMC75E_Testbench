@@ -19,7 +19,7 @@
 	-- It tests for different lengths of the LOOPTICK signal from 1 to 4 cycles,
 	-- including testing the behavior of the module when a system reset (SysReset) is issued while LOOPTICK is active.
 	
---	Revision: 1.2
+--	Revision: 1.1
 --
 --	File history:
 --	Rev 1.1 : 06/12/2023 :	Added the VHDL 'report' statements to act as test labels.

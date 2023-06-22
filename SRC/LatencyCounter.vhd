@@ -13,7 +13,11 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+	-- LatencyCounter is responsible for receiving clock and control signals, 
+	-- and providing an output data based on its internal latency calculations.
+	-- The module accepts three inputs: a 60MHz clock signal (H1_CLK), a control signal to 
+	-- synchronize the operation (SynchedTick), and a signal to read the latency count (LatencyCounterRead). 
+	-- The output of this module is a 32-bit data output (latencyDataOut) representing the latency calculation.
 --
 --	Revision: 1.1
 --

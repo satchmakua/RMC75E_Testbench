@@ -1,285 +1,251 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
---	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
---
---  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
---  Board:          RMC75E Rev 3.0
---
---	Entity Name		tb_ExpModuleLED
---	File			tb_ExpModuleLED.vhd
---
---------------------------------------------------------------------------------
---
---	Description: 
-
---	Revision: 1.0
---
---	File history:
---	
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
 
 entity tb_ExpModuleLED is
 end tb_ExpModuleLED;
 
 architecture tb of tb_ExpModuleLED is
-    signal Reset : std_logic;
-    signal H1_CLKWR, SysClk, SlowEnable, SynchedTick : std_logic;
-    signal intDATA : std_logic_vector (31 downto 0);
-    signal Exp0LEDWrite, Exp0LED0Write, Exp0LED1Write, Exp0LEDRead, Exp0LED0Read, Exp0LED1Read : std_logic;
-    signal Exp1LEDWrite, Exp1LED0Write, Exp1LED1Write, Exp1LEDRead, Exp1LED0Read, Exp1LED1Read : std_logic;
-    signal Exp2LEDWrite, Exp2LED0Write, Exp2LED1Write, Exp2LEDRead, Exp2LED0Read, Exp2LED1Read : std_logic;
-    signal Exp3LEDWrite, Exp3LED0Write, Exp3LED1Write, Exp3LEDRead, Exp3LED0Read, Exp3LED1Read : std_logic;
-    signal EEPROMAccessFlag, DiscoveryComplete : std_logic;
-    signal ExpOldAP2 : std_logic_vector (3 downto 0);
-    signal expLedDataOut : std_logic_vector(3 downto 0);
-    signal ExpLEDOE, ExpLEDLatch, ExpLEDClk : std_logic;
-    signal ExpLEDData : std_logic_vector (3 downto 0);
-    signal ExpLEDSelect : std_logic_vector (3 downto 0);
-    
+  -- Component declaration
+  component ExpModuleLED is
+    port (
+      Reset           : in std_logic;
+      H1_CLKWR        : in std_logic;
+      SysClk          : in std_logic;
+      SlowEnable      : in std_logic;
+      SynchedTick     : in std_logic;
+      intDATA         : in std_logic_vector (31 downto 0);
+      expLedDataOut   : out std_logic_vector(3 downto 0);
+      Exp0LEDWrite    : in std_logic;
+      Exp0LED0Write   : in std_logic;
+      Exp0LED1Write   : in std_logic;
+      Exp0LEDRead     : in std_logic;
+      Exp0LED0Read    : in std_logic;
+      Exp0LED1Read    : in std_logic;
+      Exp1LEDWrite    : in std_logic;
+      Exp1LED0Write   : in std_logic;
+      Exp1LED1Write   : in std_logic;
+      Exp1LEDRead     : in std_logic;
+      Exp1LED0Read    : in std_logic;
+      Exp1LED1Read    : in std_logic;
+      Exp2LEDWrite    : in std_logic;
+      Exp2LED0Write   : in std_logic;
+      Exp2LED1Write   : in std_logic;
+      Exp2LEDRead     : in std_logic;
+      Exp2LED0Read    : in std_logic;
+      Exp2LED1Read    : in std_logic;
+      Exp3LEDWrite    : in std_logic;
+      Exp3LED0Write   : in std_logic;
+      Exp3LED1Write   : in std_logic;
+      Exp3LEDRead     : in std_logic;
+      Exp3LED0Read    : in std_logic;
+      Exp3LED1Read    : in std_logic;
+      EEPROMAccessFlag: in std_logic;
+      DiscoveryComplete: in std_logic;
+      ExpLEDOE        : out std_logic;
+      ExpLEDLatch     : out std_logic;
+      ExpLEDClk       : out std_logic;
+      ExpLEDData      : out std_logic_vector (3 downto 0);
+      ExpLEDSelect    : out std_logic_vector (3 downto 0);
+      ExpOldAP2       : in std_logic_vector (3 downto 0)
+    );
+  end component;
+
+  -- Inputs
+  signal Reset           : std_logic := '0';
+  signal H1_CLKWR        : std_logic := '0';
+  signal SysClk          : std_logic := '0';
+  signal SlowEnable      : std_logic := '0';
+  signal SynchedTick     : std_logic := '0';
+  signal intDATA         : std_logic_vector (31 downto 0) := (others => '0');
+  signal Exp0LEDWrite    : std_logic := '0';
+  signal Exp0LED0Write   : std_logic := '0';
+  signal Exp0LED1Write   : std_logic := '0';
+  signal Exp0LEDRead     : std_logic := '0';
+  signal Exp0LED0Read    : std_logic := '0';
+  signal Exp0LED1Read    : std_logic := '0';
+  signal Exp1LEDWrite    : std_logic := '0';
+  signal Exp1LED0Write   : std_logic := '0';
+  signal Exp1LED1Write   : std_logic := '0';
+  signal Exp1LEDRead     : std_logic := '0';
+  signal Exp1LED0Read    : std_logic := '0';
+  signal Exp1LED1Read    : std_logic := '0';
+  signal Exp2LEDWrite    : std_logic := '0';
+  signal Exp2LED0Write   : std_logic := '0';
+  signal Exp2LED1Write   : std_logic := '0';
+  signal Exp2LEDRead     : std_logic := '0';
+  signal Exp2LED0Read    : std_logic := '0';
+  signal Exp2LED1Read    : std_logic := '0';
+  signal Exp3LEDWrite    : std_logic := '0';
+  signal Exp3LED0Write   : std_logic := '0';
+  signal Exp3LED1Write   : std_logic := '0';
+  signal Exp3LEDRead     : std_logic := '0';
+  signal Exp3LED0Read    : std_logic := '0';
+  signal Exp3LED1Read    : std_logic := '0';
+  signal EEPROMAccessFlag: std_logic := '0';
+  signal DiscoveryComplete: std_logic := '0';
+  signal ExpOldAP2       : std_logic_vector (3 downto 0) := (others => '0');
+
+  -- Outputs
+  signal expLedDataOut   : std_logic_vector (3 downto 0);
+  signal ExpLEDOE        : std_logic;
+  signal ExpLEDLatch     : std_logic;
+  signal ExpLEDClk       : std_logic;
+  signal ExpLEDData      : std_logic_vector (3 downto 0);
+  signal ExpLEDSelect    : std_logic_vector (3 downto 0);
+
+  -- Clock period definitions
+  constant SysClk_period : time := 10 ns;
+  constant H1_CLKWR_period : time := 20 ns;
+
 begin
-    DUT: entity work.ExpModuleLED
-        port map (
-            Reset => Reset,
-            H1_CLKWR => H1_CLKWR,
-            SysClk => SysClk,
-            SlowEnable => SlowEnable,
-            SynchedTick => SynchedTick,
-            intDATA => intDATA,
-            expLedDataOut => expLedDataOut,
-            Exp0LEDWrite => Exp0LEDWrite,
-            Exp0LED0Write => Exp0LED0Write,
-            Exp0LED1Write => Exp0LED1Write,
-            Exp0LEDRead => Exp0LEDRead,
-            Exp0LED0Read => Exp0LED0Read,
-            Exp0LED1Read => Exp0LED1Read,
-            Exp1LEDWrite => Exp1LEDWrite,
-            Exp1LED0Write => Exp1LED0Write,
-            Exp1LED1Write => Exp1LED1Write,
-            Exp1LEDRead => Exp1LEDRead,
-            Exp1LED0Read => Exp1LED0Read,
-            Exp1LED1Read => Exp1LED1Read,
-            Exp2LEDWrite => Exp2LEDWrite,
-            Exp2LED0Write => Exp2LED0Write,
-            Exp2LED1Write => Exp2LED1Write,
-            Exp2LEDRead => Exp2LEDRead,
-            Exp2LED0Read => Exp2LED0Read,
-            Exp2LED1Read => Exp2LED1Read,
-            Exp3LEDWrite => Exp3LEDWrite,
-            Exp3LED0Write => Exp3LED0Write,
-            Exp3LED1Write => Exp3LED1Write,
-            Exp3LEDRead => Exp3LEDRead,
-            Exp3LED0Read => Exp3LED0Read,
-            Exp3LED1Read => Exp3LED1Read,
-            EEPROMAccessFlag => EEPROMAccessFlag,
-            DiscoveryComplete => DiscoveryComplete,
-            ExpOldAP2 => ExpOldAP2,
-            ExpLEDOE => ExpLEDOE,
-            ExpLEDLatch => ExpLEDLatch,
-            ExpLEDClk => ExpLEDClk,
-            ExpLEDData => ExpLEDData,
-            ExpLEDSelect => ExpLEDSelect
-        );
+  -- Instantiate the unit under test (UUT)
+  uut: ExpModuleLED port map (
+    Reset           => Reset,
+    H1_CLKWR        => H1_CLKWR,
+    SysClk          => SysClk,
+    SlowEnable      => SlowEnable,
+    SynchedTick     => SynchedTick,
+    intDATA         => intDATA,
+    expLedDataOut   => expLedDataOut,
+    Exp0LEDWrite    => Exp0LEDWrite,
+    Exp0LED0Write   => Exp0LED0Write,
+    Exp0LED1Write   => Exp0LED1Write,
+    Exp0LEDRead     => Exp0LEDRead,
+    Exp0LED0Read    => Exp0LED0Read,
+    Exp0LED1Read    => Exp0LED1Read,
+    Exp1LEDWrite    => Exp1LEDWrite,
+    Exp1LED0Write   => Exp1LED0Write,
+    Exp1LED1Write   => Exp1LED1Write,
+    Exp1LEDRead     => Exp1LEDRead,
+    Exp1LED0Read    => Exp1LED0Read,
+    Exp1LED1Read    => Exp1LED1Read,
+    Exp2LEDWrite    => Exp2LEDWrite,
+    Exp2LED0Write   => Exp2LED0Write,
+    Exp2LED1Write   => Exp2LED1Write,
+    Exp2LEDRead     => Exp2LEDRead,
+    Exp2LED0Read    => Exp2LED0Read,
+    Exp2LED1Read    => Exp2LED1Read,
+    Exp3LEDWrite    => Exp3LEDWrite,
+    Exp3LED0Write   => Exp3LED0Write,
+    Exp3LED1Write   => Exp3LED1Write,
+    Exp3LEDRead     => Exp3LEDRead,
+    Exp3LED0Read    => Exp3LED0Read,
+    Exp3LED1Read    => Exp3LED1Read,
+    EEPROMAccessFlag=> EEPROMAccessFlag,
+    DiscoveryComplete=> DiscoveryComplete,
+    ExpLEDOE        => ExpLEDOE,
+    ExpLEDLatch     => ExpLEDLatch,
+    ExpLEDClk       => ExpLEDClk,
+    ExpLEDData      => ExpLEDData,
+    ExpLEDSelect    => ExpLEDSelect,
+    ExpOldAP2       => ExpOldAP2
+  );
 
-    stimulus: process
-    begin
-        -- Initialize signals
-        Reset <= '1'; H1_CLKWR <= '0'; SysClk <= '0'; SlowEnable <= '0'; SynchedTick <= '0';
-        intDATA <= (others => '0');
-        Exp0LEDWrite <= '0'; Exp0LED0Write <= '0'; Exp0LED1Write <= '0'; Exp0LEDRead <= '0'; Exp0LED0Read <= '0'; Exp0LED1Read <= '0';
-        Exp1LEDWrite <= '0'; Exp1LED0Write <= '0'; Exp1LED1Write <= '0'; Exp1LEDRead <= '0'; Exp1LED0Read <= '0'; Exp1LED1Read <= '0';
-        Exp2LEDWrite <= '0'; Exp2LED0Write <= '0'; Exp2LED1Write <= '0'; Exp2LEDRead <= '0'; Exp2LED0Read <= '0'; Exp2LED1Read <= '0';
-        Exp3LEDWrite <= '0'; Exp3LED0Write <= '0'; Exp3LED1Write <= '0'; Exp3LEDRead <= '0'; Exp3LED0Read <= '0'; Exp3LED1Read <= '0';
-        EEPROMAccessFlag <= '0'; DiscoveryComplete <= '0'; ExpOldAP2 <= (others => '0');
-        ExpLEDOE <= '0'; ExpLEDLatch <= '0'; ExpLEDClk <= '0'; ExpLEDData <= (others => '0'); ExpLEDSelect <= (others => '0');
-        wait for 100 ns;
-        
-        Reset <= '0';
-        wait for 100 ns;
-        
-        -- Test case 1
-        Exp0LEDWrite <= '1';
-        Exp0LED0Write <= '1';
-        Exp0LED1Write <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 1 failed: Unexpected expLedDataOut value"
-            severity error;
+  -- Clock process definitions
+  clk_process: process
+  begin
+    SysClk <= '0';
+    wait for SysClk_period/2;
+    SysClk <= '1';
+    wait for SysClk_period/2;
+  end process;
 
-        -- Test case 2
-        Exp1LEDWrite <= '1';
-        Exp1LED0Write <= '1';
-        Exp1LED1Write <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 2 failed: Unexpected expLedDataOut value"
-            severity error;
+  H1_CLKWR_process: process
+  begin
+    H1_CLKWR <= '0';
+    wait for H1_CLKWR_period/2;
+    H1_CLKWR <= '1';
+    wait for H1_CLKWR_period/2;
+  end process;
 
-        -- Test case 3
-        Exp2LEDWrite <= '1';
-        Exp2LED0Write <= '1';
-        Exp2LED1Write <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 3 failed: Unexpected expLedDataOut value"
-            severity error;
+  -- Stimulus process
+  stim_proc: process
+  begin
+    -- Initialize inputs
+    Reset <= '1';
+    wait for 20 ns;
+    Reset <= '0';
 
-        -- Test case 4
-        Exp3LEDWrite <= '1';
-        Exp3LED0Write <= '1';
-        Exp3LED1Write <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 4 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Wait for discovery completion
+    wait for 50 ns;
+    DiscoveryComplete <= '1';
 
-        -- Test case 5
-        Exp0LEDRead <= '1';
-        Exp0LED0Read <= '1';
-        wait for 100 ns;
-        
-        assert (expLedDataOut = "1100")
-            report "Test case 5 failed: Unexpected expLedDataOut value"
-            severity error;
-        -- Test case 6
-        Exp0LEDRead <= '1';
-        Exp0LED1Read <= '1';
-        wait for 100 ns;
-        
-        assert (expLedDataOut = "1100")
-            report "Test case 6 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Enable LED writes and provide data
+    Exp0LEDWrite <= '1';
+    Exp0LED0Write <= '1';
+    Exp0LED1Write <= '1';
+    Exp0LEDRead <= '0';
+    Exp0LED0Read <= '0';
+    Exp0LED1Read <= '0';
+    intDATA <= "11001100000000000000000000000000";
+    wait for 10 ns;
 
-        -- Test case 7
-        Exp1LEDRead <= '1';
-        Exp1LED0Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 7 failed: Unexpected expLedDataOut value"
-            severity error;
+    Exp1LEDWrite <= '1';
+    Exp1LED0Write <= '1';
+    Exp1LED1Write <= '1';
+    Exp1LEDRead <= '0';
+    Exp1LED0Read <= '0';
+    Exp1LED1Read <= '0';
+    intDATA <= "11000000000000000000000000000000";
+    wait for 10 ns;
 
-        -- Test case 8
-        Exp1LEDRead <= '1';
-        Exp1LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 8 failed: Unexpected expLedDataOut value"
-            severity error;
+    Exp2LEDWrite <= '1';
+    Exp2LED0Write <= '1';
+    Exp2LED1Write <= '1';
+    Exp2LEDRead <= '0';
+    Exp2LED0Read <= '0';
+    Exp2LED1Read <= '0';
+    intDATA <= "11001100000000000000000000000000";
+    wait for 10 ns;
 
-        -- Test case 9
-        Exp2LEDRead <= '1';
-        Exp2LED0Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 9 failed: Unexpected expLedDataOut value"
-            severity error;
+    Exp3LEDWrite <= '1';
+    Exp3LED0Write <= '1';
+    Exp3LED1Write <= '1';
+    Exp3LEDRead <= '0';
+    Exp3LED0Read <= '0';
+    Exp3LED1Read <= '0';
+    intDATA <= "11000000000000000000000000000000";
+    wait for 10 ns;
 
-        -- Test case 10
-        Exp2LEDRead <= '1';
-        Exp2LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 10 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Wait for some time
+    wait for 100 ns;
 
-        -- Test case 11
-        Exp3LEDRead <= '1';
-        Exp3LED0Read <= '1';
-        wait for 100 ns;
-        
-        assert (expLedDataOut = "1100")
-            report "Test case 11 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Disable LED writes
+    Exp0LEDWrite <= '0';
+    Exp0LED0Write <= '0';
+    Exp0LED1Write <= '0';
+    Exp1LEDWrite <= '0';
+    Exp1LED0Write <= '0';
+    Exp1LED1Write <= '0';
+    Exp2LEDWrite <= '0';
+    Exp2LED0Write <= '0';
+    Exp2LED1Write <= '0';
+    Exp3LEDWrite <= '0';
+    Exp3LED0Write <= '0';
+    Exp3LED1Write <= '0';
 
-        -- Test case 12
-        Exp3LEDRead <= '1';
-        Exp3LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 12 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Read LED data
+    Exp0LEDRead <= '1';
+    Exp0LED0Read <= '1';
+    Exp0LED1Read <= '1';
+    Exp1LEDRead <= '1';
+    Exp1LED0Read <= '1';
+    Exp1LED1Read <= '1';
+    Exp2LEDRead <= '1';
+    Exp2LED0Read <= '1';
+    Exp2LED1Read <= '1';
+    Exp3LEDRead <= '1';
+    Exp3LED0Read <= '1';
+    Exp3LED1Read <= '1';
+    wait for 10 ns;
 
-        -- Test case 13
-        Exp0LEDWrite <= '1';
-        Exp0LED0Write <= '1';
-        Exp0LED1Write <= '1';
-        Exp0LEDRead <= '1';
-        Exp0LED0Read <= '1';
-        Exp0LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 13 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- Wait for some time
+    wait for 100 ns;
 
-        -- Test case 14
-        Exp1LEDWrite <= '1';
-        Exp1LED0Write <= '1';
-        Exp1LED1Write <= '1';
-        Exp1LEDRead <= '1';
-        Exp1LED0Read <= '1';
-        Exp1LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 14 failed: Unexpected expLedDataOut value"
-            severity error;
+    -- End of simulation
+    wait;
+  end process;
 
-        -- Test case 15
-        Exp2LEDWrite <= '1';
-        Exp2LED0Write <= '1';
-        Exp2LED1Write <= '1';
-        Exp2LEDRead <= '1';
-        Exp2LED0Read <= '1';
-        Exp2LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 15 failed: Unexpected expLedDataOut value"
-            severity error;
-
-        -- Test case 16
-        Exp3LEDWrite <= '1';
-        Exp3LED0Write <= '1';
-        Exp3LED1Write <= '1';
-        Exp3LEDRead <= '1';
-        Exp3LED0Read <= '1';
-        Exp3LED1Read <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 16 failed: Unexpected expLedDataOut value"
-            severity error;
-
-        -- Test case 17
-        EEPROMAccessFlag <= '1';
-        DiscoveryComplete <= '1';
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 17 failed: Unexpected expLedDataOut value"
-            severity error;
-
-        -- Test case 18
-        SlowEnable <= '1';
-        SynchedTick <= '1';
-        wait for 100 ns;
-        
-        assert (expLedDataOut = "1100")
-            report "Test case 18 failed: Unexpected expLedDataOut value"
-            severity error;
-
-        -- Test case 19
-        ExpLEDSelect <= "0001";
-        ExpOldAP2 <= "0101";
-        wait for 100 ns;
-        assert (expLedDataOut = "1100")
-            report "Test case 19 failed: Unexpected expLedDataOut value"
-            severity error;
-        
-        -- End of test stimuli
-        wait;
-    end process stimulus;
-end architecture tb;
+end tb;

@@ -39,99 +39,72 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
 
 entity tb_DiscoverExpansionID is
 end tb_DiscoverExpansionID;
 
 architecture tb of tb_DiscoverExpansionID is
-    component DiscoverExpansionID
-        Port ( 
-            RESET            : in std_logic;
-            SysClk           : in std_logic;
-            SlowEnable       : in std_logic;
-            ExpansionID0     : inout std_logic_vector(16 downto 0);
-            ExpansionID1     : inout std_logic_vector(16 downto 0);
-            ExpansionID2     : inout std_logic_vector(16 downto 0);
-            ExpansionID3     : inout std_logic_vector(16 downto 0);
-            Exp_ID_CLK       : out std_logic;
-            Exp_ID_DATA      : in std_logic;
-            Exp_ID_LATCH     : out std_logic;
-            Exp_ID_LOAD      : out std_logic
-        );
-    end component;
+  constant CLK_PERIOD : time := 16.6667 ns; -- For 60 MHz clock
+  constant SLOW_CLK_PERIOD : time := 2*CLK_PERIOD; -- For 30 MHz clock
 
-    -- Testbench Signals
-    signal tb_RESET, tb_SysClk, tb_SlowEnable, tb_Exp_ID_DATA : std_logic := '0';
-    signal tb_ExpansionID0, tb_ExpansionID1, tb_ExpansionID2, tb_ExpansionID3 : std_logic_vector(16 downto 0);
-    signal tb_Exp_ID_CLK, tb_Exp_ID_LATCH, tb_Exp_ID_LOAD : std_logic;
+  signal RESET           : std_logic := '0';
+  signal SysClk          : std_logic := '0';
+  signal SlowEnable      : std_logic := '0';
+  signal ExpansionID0    : std_logic_vector(16 downto 0) := (others => '0');
+  signal ExpansionID1    : std_logic_vector(16 downto 0) := (others => '0');
+  signal ExpansionID2    : std_logic_vector(16 downto 0) := (others => '0');
+  signal ExpansionID3    : std_logic_vector(16 downto 0) := (others => '0');
+  signal Exp_ID_CLK      : std_logic;
+  signal Exp_ID_DATA     : std_logic := '0';
+  signal Exp_ID_LATCH    : std_logic;
+  signal Exp_ID_LOAD     : std_logic;
 
 begin
+  -- Instantiate the unit under test (DUT)
+  DUT: entity work.DiscoverExpansionID
+    port map (
+      RESET => RESET,
+      SysClk => SysClk,
+      SlowEnable => SlowEnable,
+      ExpansionID0 => ExpansionID0,
+      ExpansionID1 => ExpansionID1,
+      ExpansionID2 => ExpansionID2,
+      ExpansionID3 => ExpansionID3,
+      Exp_ID_CLK => Exp_ID_CLK,
+      Exp_ID_DATA => Exp_ID_DATA,
+      Exp_ID_LATCH => Exp_ID_LATCH,
+      Exp_ID_LOAD => Exp_ID_LOAD
+    );
 
-    DUT: DiscoverExpansionID
-        port map(
-            RESET         => tb_RESET,
-            SysClk        => tb_SysClk,
-            SlowEnable    => tb_SlowEnable,
-            ExpansionID0  => tb_ExpansionID0,
-            ExpansionID1  => tb_ExpansionID1,
-            ExpansionID2  => tb_ExpansionID2,
-            ExpansionID3  => tb_ExpansionID3,
-            Exp_ID_CLK    => tb_Exp_ID_CLK,
-            Exp_ID_DATA   => tb_Exp_ID_DATA,
-            Exp_ID_LATCH  => tb_Exp_ID_LATCH,
-            Exp_ID_LOAD   => tb_Exp_ID_LOAD
-        );
+  -- Clock generation for SysClk
+  clk_process: process
+  begin
+    wait for CLK_PERIOD / 2;
+    SysClk <= not SysClk;
+  end process;
 
-    -- Testbench Process
-    stim_proc: process
-    begin
-        tb_RESET <= '1';
-        wait for 100 ns;
+  -- Clock generation for SlowEnable
+  slow_clk_process: process
+  begin
+    wait for SLOW_CLK_PERIOD / 2;
+    SlowEnable <= not SlowEnable;
+  end process;
 
-        tb_RESET <= '0';
-        wait for 100 ns;
+  -- Test bench process
+  tb_process: process
+  begin
+    -- Reset sequence
+    RESET <= '1';
+    wait for CLK_PERIOD;
+    RESET <= '0';
 
-        tb_SlowEnable <= '1';
-        wait for 100 ns;
+    -- Define your own test sequences with appropriate timing
 
-        tb_SlowEnable <= '0';
-        wait for 100 ns;
+    -- End of testbench
+    assert false report "End of testbench" severity note;
+    wait;
+  end process tb_process;
 
-        tb_Exp_ID_DATA <= '1';
-        wait for 100 ns;
+end tb;
 
-        tb_Exp_ID_DATA <= '0';
-        wait for 100 ns;
 
-        tb_SlowEnable <= '1';
-        wait for 100 ns;
-
-        tb_SlowEnable <= '0';
-        wait for 100 ns;
-
-        tb_RESET <= '1';
-        wait for 100 ns;
-
-        tb_RESET <= '0';
-        wait for 100 ns;
-
-        tb_Exp_ID_DATA <= '1';
-        wait for 100 ns;
-
-        tb_Exp_ID_DATA <= '0';
-        wait;
-
-    end process;
-
-    -- Clock Generation
-    clk_proc :process
-    begin
-        tb_SysClk <= '0';
-        wait for 10 ns;
-        tb_SysClk <= '1';
-        wait for 10 ns;
-    end process;
-
-end architecture tb;

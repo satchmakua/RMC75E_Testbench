@@ -37,6 +37,9 @@ entity tb_QuadXface is
 end tb_QuadXface;
 
 architecture tb of tb_QuadXface is
+    constant H1_CLK_PERIOD : time := 16.6667 ns;
+    constant H1_CLKWR_PERIOD : time := H1_CLK_PERIOD * 2;
+
     -- Define the component based on the entity
     component QuadXface is
         Port (
@@ -108,69 +111,103 @@ begin
             Index           => Index
         );
         
-	process
-	begin
-		-- Initialization
-		H1_CLKWR <= '0';
-		SysClk <= '0';
-		SynchedTick <= '0';
-		intDATA <= (others => '0');
-		CountRead <= '0';
-		LEDStatusRead <= '0';
-		LEDStatusWrite <= '0';
-		InputRead <= '0';
-		HomeRead <= '0';
-		Latch0Read <= '0';
-		Latch1Read <= '0';
-		Home <= '0';
-		RegistrationX <= '0';
-		RegistrationY <= '0';
-		LineFault <= (others => '0');
-		A <= '0';
-		B <= '0';
-		Index <= '0';
-		wait for 10 ns;
+    -- Clock process
+    sysclk_gen: process
+    begin
+        wait for H1_CLK_PERIOD;
+        while true loop
+            SysClk <= '0';
+            wait for H1_CLK_PERIOD;
+            SysClk <= '1';
+            wait for H1_CLK_PERIOD;
+        end loop;
+    end process sysclk_gen;
+    
+    -- Clock process
+    h1_clkwr_gen: process
+    begin
+        wait for H1_CLKWR_PERIOD;
+        while true loop
+            H1_CLKWR <= '0';
+            wait for H1_CLKWR_PERIOD;
+            H1_CLKWR <= '1';
+            wait for H1_CLKWR_PERIOD;
+        end loop;
+    end process h1_clkwr_gen;
+    
+    stimulus_process: process
+    begin
+        -- Wait for initial reset period
+        wait for H1_CLKWR_PERIOD;
+        
+        -- Set SynchedTick to send pulses at 1 us and 8 us
+        SynchedTick <= '0';
+        wait for 1 us;
+        SynchedTick <= '1';
+        wait for H1_CLKWR_PERIOD;
+        SynchedTick <= '0';
+        wait for H1_CLKWR_PERIOD;
+        wait for 7 us;
+        SynchedTick <= '1';
+        wait for H1_CLKWR_PERIOD;
+        SynchedTick <= '0';
+        wait for H1_CLKWR_PERIOD;
 
-		-- Apply clock signal
-		for i in 1 to 200 loop
-			SysClk <= not SysClk;
-			wait for 10 ns; -- assuming a 100MHz clock
-		end loop;
+        -- Apply stimulus
+        loop
+            intDATA <= (others => '0');
+            CountRead <= '0';
+            LEDStatusRead <= '0';
+            LEDStatusWrite <= '0';
+            InputRead <= '0';
+            HomeRead <= '0';
+            Latch0Read <= '0';
+            Latch1Read <= '0';
+            Home <= '0';
+            RegistrationX <= '0';
+            RegistrationY <= '0';
+            LineFault <= (others => '0');
+            A <= '0';
+            B <= '0';
+            Index <= '0';
+            wait for H1_CLK_PERIOD;
 
-		-- Scenario 1: Enable LEDStatusWrite while keeping other signals in default state
-		LEDStatusWrite <= '1';
-		wait for 20 ns;
-		LEDStatusWrite <= '0';
-		wait for 20 ns;
+            -- Scenario 1: Enable LEDStatusWrite while keeping other signals in default state
+            LEDStatusWrite <= '1';
+            wait for 2 * H1_CLK_PERIOD;
+            LEDStatusWrite <= '0';
+            wait for 2 * H1_CLK_PERIOD;
 
-		-- Scenario 2: Write some data to intDATA
-		intDATA <= X"ABCD1234";
-		wait for 20 ns;
-		intDATA <= (others => '0');
-		wait for 20 ns;
+            -- Scenario 2: Write some data to intDATA
+            intDATA <= X"ABCD1234";
+            wait for 2 * H1_CLK_PERIOD;
+            intDATA <= (others => '0');
+            wait for 2 * H1_CLK_PERIOD;
 
-		-- Scenario 3: Set Index and B signals, to simulate some event
-		B <= '1';
-		Index <= '1';
-		wait for 20 ns;
-		B <= '0';
-		Index <= '0';
-		wait for 20 ns;
+            -- Scenario 3: Set Index and B signals, to simulate some event
+            B <= '1';
+            Index <= '1';
+            wait for 2 * H1_CLK_PERIOD;
+            B <= '0';
+            Index <= '0';
+            wait for 2 * H1_CLK_PERIOD;
 
-		-- Scenario 4: Enable CountRead, HomeRead, Latch0Read, Latch1Read and observe QuadDataOut
-		CountRead <= '1';
-		HomeRead <= '1';
-		Latch0Read <= '1';
-		Latch1Read <= '1';
-		wait for 20 ns;
-		CountRead <= '0';
-		HomeRead <= '0';
-		Latch0Read <= '0';
-		Latch1Read <= '0';
-		wait for 20 ns;
+            -- Scenario 4: Enable CountRead, HomeRead, Latch0Read, Latch1Read and observe QuadDataOut
+            CountRead <= '1';
+            HomeRead <= '1';
+            Latch0Read <= '1';
+            Latch1Read <= '1';
+            wait for 2 * H1_CLK_PERIOD;
+            CountRead <= '0';
+            HomeRead <= '0';
+            Latch0Read <= '0';
+            Latch1Read <= '0';
+            wait for 2 * H1_CLK_PERIOD;
 
-		assert false report "End of Test" severity failure;
-	end process;
+            assert false report "End of Test" severity note;
+        end loop;
 
+    end process stimulus_process;
 end tb;
+
 
