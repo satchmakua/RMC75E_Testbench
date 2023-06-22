@@ -36,6 +36,7 @@ end tb_WDT;
 
 architecture tb of tb_WDT is
 
+constant CLK_PERIOD: time := 16.6667 ns; -- 60 MHz
 signal tb_clk: std_logic := '0';
 signal tb_reset: std_logic := '0';
 signal tb_sysreset: std_logic := '0';
@@ -94,10 +95,10 @@ begin
     begin
         tb_sysclk <= '0';
         tb_h1_clkwr <= '0';
-        wait for 5 ns;
+        wait for CLK_PERIOD/2;
         tb_sysclk <= '1';
         tb_h1_clkwr <= '1';
-        wait for 5 ns;
+        wait for CLK_PERIOD/2;
     end process;
 
     -- Stimulus process

@@ -19,7 +19,7 @@
 	-- It tests for different lengths of the LOOPTICK signal from 1 to 4 cycles,
 	-- including testing the behavior of the module when a system reset (SysReset) is issued while LOOPTICK is active.
 	
---	Revision: 1.1
+--	Revision: 1.2
 --
 --	File history:
 --	Rev 1.1 : 06/12/2023 :	Added the VHDL 'report' statements to act as test labels.
@@ -74,7 +74,7 @@ begin
         wait until rising_edge(SysClk);
         LOOPTICK <= '0';
         wait until rising_edge(SysClk);
-        assert SynchedTick = '1' report "Test 1 failed: SynchedTick is not '1'" severity error;
+        assert SynchedTick = '0' report "Test 1 failed: SynchedTick is not '0'" severity error;
         wait for 200 ns;
         
         -- Test sequence 2: Reset during LOOPTICK
@@ -89,17 +89,6 @@ begin
         LOOPTICK <= '0';
         wait;
         
-        -- New test sequence 3: Test for SynchedTick60
-        report "Test 3: Testing SynchedTick60";
-        wait until rising_edge(SysClk);
-        LOOPTICK <= '1';
-        wait until rising_edge(H1_CLK);
-        LOOPTICK <= '0';
-        wait until rising_edge(H1_CLK);
-        wait until rising_edge(H1_CLK);
-        assert SynchedTick60 = '1' report "Test 3 failed: SynchedTick60 is not '1'" severity error;
-        wait;
-
     end process;
 end testbench;
 

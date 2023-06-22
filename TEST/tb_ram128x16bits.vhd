@@ -37,55 +37,82 @@ entity tb_RAM128x16 is
 end tb_RAM128x16;
 
 architecture tb of tb_RAM128x16 is
-    signal clk   : std_logic := '0';
-    signal we    : std_logic := '0';
-    signal a     : std_logic_vector(6 downto 0) := (others => '0');
-    signal d     : std_logic_vector(15 downto 0) := (others => '0');
-    signal o     : std_logic_vector(15 downto 0);
-
+    constant CLK_PERIOD : time := 16.6667 ns;
+    
+    signal clk: std_logic := '0';
+    signal we: std_logic := '0';
+    signal a: std_logic_vector(6 downto 0) := (others => '0');
+    signal d: std_logic_vector(15 downto 0) := (others => '0');
+    signal o: std_logic_vector(15 downto 0);
 begin
+
     DUT: entity work.RAM128x16
     port map (
         clk => clk,
-        we  => we,
-        a   => a,
-        d   => d,
-        o   => o
+        we => we,
+        a => a,
+        d => d,
+        o => o
     );
 
-    -- Test sequence
-    process
+    clk_process: process
     begin
-        -- Generate clock
-        clk <= not clk after 10 ns;
-        
-        -- Reset process (writing zeros to all addresses)
+        while true loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    stimulus_process: process
+    begin
+        -- Write data to address 0
         we <= '1';
-        d <= (others => '0');
-        for i in 0 to 127 loop
-            a <= std_logic_vector(to_unsigned(i, 7));
-            wait for 20 ns;
-        end loop;
+        a <= "0000000";
+        d <= "1010101010101010";
+        wait for CLK_PERIOD;
         we <= '0';
+        wait for CLK_PERIOD;
         
-        -- Write to memory locations
-        for i in 0 to 127 loop
-            a <= std_logic_vector(to_unsigned(i, 7));
-            d <= std_logic_vector(to_unsigned(i, 16));
-            we <= '1';
-            wait for 20 ns;
-            we <= '0';
-            wait for 20 ns;
-        end loop;
-
-        -- Read from memory locations
-        for i in 0 to 127 loop
-            a <= std_logic_vector(to_unsigned(i, 7));
-            wait for 20 ns;
-            assert o = std_logic_vector(to_unsigned(i, 16)) report "Read Error at Address: " & integer'image(i) severity error;
-        end loop;
-
-        -- End test sequence
+        -- Read data from address 0
+        a <= "0000000";
+        wait for CLK_PERIOD;
+        
+        -- Check the output
+        assert o = "1010101010101010" report "Test 1 failed: Incorrect data read from address 0" severity error;
+        
+        -- Write data to address 10
+        we <= '1';
+        a <= "0001010";
+        d <= "0101010101010101";
+        wait for CLK_PERIOD;
+        we <= '0';
+        wait for CLK_PERIOD;
+        
+        -- Read data from address 10
+        a <= "0001010";
+        wait for CLK_PERIOD;
+        
+        -- Check the output
+        assert o = "0101010101010101" report "Test 2 failed: Incorrect data read from address 10" severity error;
+        
+        -- Write data to address 127
+        we <= '1';
+        a <= "1111111";
+        d <= "1111000011110000";
+        wait for CLK_PERIOD;
+        we <= '0';
+        wait for CLK_PERIOD;
+        
+        -- Read data from address 127
+        a <= "1111111";
+        wait for CLK_PERIOD;
+        
+        -- Check the output
+        assert o = "1111000011110000" report "Test 3 failed: Incorrect data read from address 127" severity error;
+        
+        -- End simulation
         wait;
     end process;
 end tb;

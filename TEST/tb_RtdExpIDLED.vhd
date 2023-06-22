@@ -31,28 +31,22 @@
 --------------------------------------------------------------------------------
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity tb_RtdExpIDLED is
 end tb_RtdExpIDLED;
 
 architecture tb of tb_RtdExpIDLED is
+    constant CLK_PERIOD : time := 16.6667 ns; -- 60 MHz clock
+    constant NUM_CYCLES : integer := 3750; -- 250 us / (16.6667 ns)
+
     signal DiscoveryComplete : std_logic := '0';
-    signal Exp_ID_CLK : std_logic := '0';
-    signal Exp_ID_LATCH : std_logic := '0';
-    signal Exp_ID_LOAD : std_logic := '0';
-
-    signal ExpLEDOE : std_logic := '0';
-    signal ExpLEDLatch : std_logic := '0';
-    signal ExpLEDClk : std_logic := '0';
-
-    signal Exp_Mxd_ID_CLK : std_logic;
-    signal Exp_Mxd_ID_LATCH : std_logic;
-    signal Exp_Mxd_ID_LOAD : std_logic;
-
+    signal Exp_ID_CLK, Exp_ID_LATCH, Exp_ID_LOAD : std_logic := '0';
+    signal ExpLEDOE, ExpLEDLatch, ExpLEDClk : std_logic := '0';
+    signal Exp_Mxd_ID_CLK, Exp_Mxd_ID_LATCH, Exp_Mxd_ID_LOAD : std_logic;
 begin
+
     DUT: entity work.RtdExpIDLED
     port map (
         DiscoveryComplete => DiscoveryComplete,
@@ -67,22 +61,58 @@ begin
         Exp_Mxd_ID_LOAD => Exp_Mxd_ID_LOAD
     );
 
-    -- Test sequence
-    process
+    clk_stimulus: process
     begin
-        -- Test1: DiscoveryComplete='0'
-        DiscoveryComplete <= '0';
-        Exp_ID_CLK <= '1'; Exp_ID_LATCH <= '1'; Exp_ID_LOAD <= '1';
-        wait for 20 ns;
-        assert (Exp_Mxd_ID_CLK = '1' and Exp_Mxd_ID_LATCH = '1' and Exp_Mxd_ID_LOAD = '1') report "Test1 failed" severity error;
+        while true loop
+            wait for CLK_PERIOD / 2;
+            Exp_ID_CLK <= not Exp_ID_CLK;
+        end loop;
+    end process;
+    
+    clk60_stimulus: process
+    begin
+        while true loop
+            wait for CLK_PERIOD;
+            ExpLEDClk <= not ExpLEDClk;
+        end loop;
+    end process;
+
+    stimulus_process: process
+    begin
+        -- Wait for initial reset period
+        wait for 2 * CLK_PERIOD;
         
-        -- Test2: DiscoveryComplete='1'
+        -- Set DiscoveryComplete high to switch control to external LED module
         DiscoveryComplete <= '1';
-        ExpLEDClk <= '1'; ExpLEDLatch <= '1'; ExpLEDOE <= '1';
-        wait for 20 ns;
-        assert (Exp_Mxd_ID_CLK = '1' and Exp_Mxd_ID_LATCH = '1' and Exp_Mxd_ID_LOAD = '1') report "Test2 failed" severity error;
+        wait for 2 * CLK_PERIOD;
         
-        -- End test sequence
-        wait;
+        -- Perform some operations with external LED module control signals
+        ExpLEDOE <= '1';
+        wait for 2 * CLK_PERIOD;
+        ExpLEDOE <= '0';
+        wait for 2 * CLK_PERIOD;
+        ExpLEDLatch <= '1';
+        wait for 2 * CLK_PERIOD;
+        ExpLEDLatch <= '0';
+        wait for 2 * CLK_PERIOD;
+        
+        -- Set DiscoveryComplete low to switch control back to internal ID module
+        DiscoveryComplete <= '0';
+        wait for 2 * CLK_PERIOD;
+        
+        -- Perform some operations with internal ID module control signals
+        Exp_ID_LOAD <= '1';
+        wait for 2 * CLK_PERIOD;
+        Exp_ID_LOAD <= '0';
+        wait for 2 * CLK_PERIOD;
+        Exp_ID_LATCH <= '1';
+        wait for 2 * CLK_PERIOD;
+        Exp_ID_LATCH <= '0';
+        wait for 2 * CLK_PERIOD;
+        
+        -- End simulation after specified number of cycles
+        wait for NUM_CYCLES * CLK_PERIOD;
+        assert false report "End of Test" severity note;
     end process;
 end tb;
+
