@@ -1,118 +1,134 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
---	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
---
---  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
---  Board:          RMC75E Rev 3.0
---
---	Entity Name		tb_SSITop
---	File			tb_SSITop.vhd
---
---------------------------------------------------------------------------------
---
---	Description:
-
-	 -- The tb_SSITop entity represents a testbench for the SSITop module in the RMC75E modular motion controller.
-	 -- It provides a simulated environment to test the functionality and behavior of
-	 -- the SSITop module by generating stimuli and observing the module's responses.
-	 -- The testbench instantiates the SSITop component and connects
-	 -- the necessary signals to its ports for communication.
-	 -- It includes a clock generation process to generate the required clock signals for the module.
-	 -- The stimulus process generates various input stimuli by
-	 -- toggling different control signals and updating the input data.
-	 -- These stimuli simulate different scenarios to verify the behavior and functionality of the SSITop module.
-	 -- The testbench is designed to run for a specific duration and can be extended
-	 -- with additional tests for exhaustive verification of the module.
-
---	Revision: 1.0
---
---	File history:
---	
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity tb_SSITop is
 end tb_SSITop;
 
 architecture tb of tb_SSITop is
-    -- constants for clock period
-    constant H1_CLKWR_PERIOD: time := 16 ns; -- 60MHz
-    constant SYS_CLK_PERIOD: time := 33 ns; -- 30MHz
-    constant ENABLE_PERIOD: time := 133 ns; -- 7.5MHz
-    constant SLOW_ENABLE_PERIOD: time := 266 ns; -- 3.75MHz
 
-    signal H1_CLKWR: std_logic := '0';
-    signal SysClk: std_logic := '0';
-    signal Enable: std_logic := '0';
-    signal SlowEnable: std_logic := '0';
-    signal SynchedTick: std_logic := '0';
-    signal intDATA: std_logic_vector(31 downto 0);
-    signal ssiDataOut: std_logic_vector(31 downto 0);
-    signal PositionRead: std_logic := '0';
-    signal StatusRead: std_logic := '0';
-    signal ParamWrite1: std_logic := '0';
-    signal ParamWrite2: std_logic := '0';
-    signal SSI_CLK: std_logic;
-    signal SSI_DATA: std_logic := '0';
-    signal SSISelect: std_logic;
+    -- Clock period definitions
+    constant H1_CLK_period : time := 16.6667 ns;
+    constant SysClk_period : time := 33.3333 ns;
+    constant num_cycles : integer := 100;
+
+    -- Signals declaration for all SSITop inputs and outputs
+    signal SysClk_tb : std_logic := '0';
+    signal SSI_CLK_tb : std_logic := '1';
+    signal PositionRead_tb : std_logic := '0';
+    signal SSISelect_tb : std_logic := '0';
+    signal StatusRead_tb : std_logic := '0';
+    signal SSI_DATA_tb : std_logic := '0';
+    signal ParamWrite1_tb : std_logic := '0';
+    signal ParamWrite2_tb : std_logic := '0';
+    signal Enable_tb : std_logic := '0';
+    signal SynchedTick_tb : std_logic := '0';
+    signal H1_CLKWR_tb : std_logic := '0';
+    signal intData_tb : std_logic_vector(31 downto 0) := (others => '0');
+    signal ssiDataOut_tb : std_logic_vector(31 downto 0);
+    signal SlowEnable_tb : std_logic := '0'; -- added as it seems to be required by the entity
 
 begin
-    -- Instance of the SSITop module
+
     uut: entity work.SSITop
-        port map (
-            H1_CLKWR => H1_CLKWR,
-            SysClk => SysClk,
-            Enable => Enable,
-            SlowEnable => SlowEnable,
-            SynchedTick => SynchedTick,
-            intDATA => intDATA,
-            ssiDataOut => ssiDataOut,
-            PositionRead => PositionRead,
-            StatusRead => StatusRead,
-            ParamWrite1 => ParamWrite1,
-            ParamWrite2 => ParamWrite2,
-            SSI_CLK => SSI_CLK,
-            SSI_DATA => SSI_DATA,
-            SSISelect => SSISelect
-        );
-
-    -- Clock generation
-    H1_CLKWR <= not H1_CLKWR after H1_CLKWR_PERIOD / 2;
-    SysClk <= not SysClk after SYS_CLK_PERIOD / 2;
-    Enable <= not Enable after ENABLE_PERIOD / 2;
-    SlowEnable <= not SlowEnable after SLOW_ENABLE_PERIOD / 2;
+    port map (
+        SysClk => SysClk_tb,
+        SSI_CLK => SSI_CLK_tb,
+        PositionRead => PositionRead_tb,
+        SSISelect => SSISelect_tb,
+        StatusRead => StatusRead_tb,
+        SSI_DATA => SSI_DATA_tb,
+        ParamWrite1 => ParamWrite1_tb,
+        ParamWrite2 => ParamWrite2_tb,
+        Enable => Enable_tb,
+        SynchedTick => SynchedTick_tb,
+        H1_CLKWR => H1_CLKWR_tb,
+        intData => intData_tb,
+        ssiDataOut => ssiDataOut_tb,
+        SlowEnable => SlowEnable_tb 
+    );
     
-    -- Stimulus process
-    stimulus: process
+    -- Clock process definitions
+    H1_CLKWR_process : process
     begin
-        wait for 100 ns;
-        PositionRead <= '1';
-        wait for 100 ns;
-        PositionRead <= '0';
-        wait for 100 ns;
-        StatusRead <= '1';
-        wait for 100 ns;
-        StatusRead <= '0';
-        wait for 100 ns;
-        ParamWrite1 <= '1';
-        intDATA <= (others => '0');
-        wait for 100 ns;
-        ParamWrite1 <= '0';
-        wait for 100 ns;
-        ParamWrite2 <= '1';
-        intDATA <= (others => '0');
-        wait for 100 ns;
-        ParamWrite2 <= '0';
-
-        -- Exhaustive tests would continue here for all possible input combinations
-
-        wait; -- Stop the process for simulation
+        H1_CLKWR_tb <= '0';
+        wait for H1_CLK_period/2;
+        H1_CLKWR_tb <= '1';
+        wait for H1_CLK_period/2;
     end process;
 
+    SysClk_process : process
+    begin
+        SysClk_tb <= '0';
+        wait for SysClk_period/2;
+        SysClk_tb <= '1';
+        wait for SysClk_period/2;
+    end process;
+
+    -- Enable signal process definition
+    Enable_process : process
+    begin
+        Enable_tb <= '0';
+        wait for 4 * SysClk_period;
+        Enable_tb <= '1';
+        wait for 4 * SysClk_period;
+    end process;
+
+    -- SlowEnable signal process definition
+    SlowEnable_process : process
+    begin
+        SlowEnable_tb <= '0';
+        wait for 8 * SysClk_period;
+        SlowEnable_tb <= '1';
+        wait for 8 * SysClk_period;
+    end process;
+
+    init_gen: process
+    begin
+        wait for SysClk_period; -- wait for one 30 MHz clock cycle
+        ParamWrite1_tb <= '1'; -- start of system configuration
+        intData_tb(31 downto 0) <= "00000000000000000000100000000110";
+        wait for SysClk_period;
+        ParamWrite1_tb <= '0';
+        wait for SysClk_period;
+        
+        ParamWrite2_tb <= '1';
+        intData_tb(31 downto 0) <= "00000000000000100000000000000000";
+        wait for SysClk_period;
+        ParamWrite2_tb <= '0';
+        wait for SysClk_period;
+        
+        SynchedTick_tb <= '1'; -- first tick
+        wait for SysClk_period;
+        SynchedTick_tb <= '0';
+        wait for 1 us - 4 * H1_CLK_PERIOD;
+        
+        
+        
+        SSI_DATA_tb <= '1'; -- start of 8us pulse on SSI_DATA_tb
+        wait for 8 us;
+        wait for H1_CLK_PERIOD;
+        SSI_DATA_tb <= '0'; -- end of 8us pulse on SSI_DATA_tb
+        wait for 30 us - 1 us - 8 us;
+				
+				-- Begin SSI Read Cycle
+        wait for 1 us;
+        SynchedTick_tb <= '1'; -- second tick
+        wait for H1_CLK_PERIOD;
+				SynchedTick_tb <= '0'; -- second tick
+        PositionRead_tb <= '1'; -- PositionRead active after the second SynchedTick
+        wait for H1_CLK_PERIOD;
+        PositionRead_tb <= '0';
+        StatusRead_tb <= '1';
+				wait for H1_CLK_PERIOD;
+        wait for 30 us - 1 us - 2 * H1_CLK_PERIOD;
+        
+        -- Run for the desired number of cycles
+        for i in 1 to num_cycles loop
+            wait for H1_CLK_PERIOD;
+        end loop;
+
+        -- Stop the simulation
+        wait;
+    end process init_gen;
 end tb;

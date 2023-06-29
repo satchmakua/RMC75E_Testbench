@@ -96,7 +96,7 @@ architecture SSITop_arch of SSITop is
 	signal	CycleCounter	: std_logic_vector (5 downto 0);	-- := "000000";
 	signal	CycleCountMatch,
 			ClkOn,
-			SequenceOn		: std_logic;	-- := '0';
+			SequenceOn		: std_logic:= '0';
 	signal	ToggleEn,
 			CheckDataDelay	: std_logic;	-- := '0';
 	signal	ShiftOn,
@@ -205,7 +205,6 @@ begin
 			if CheckDataLo then
 				DataLineLo <= SSI_DATA;
 			end if;
-
 
 			-- when the StartRead comes by; start the "machine"
 			SequenceOn <= (SequenceOn and (not CheckDataLo)) or StartRead;

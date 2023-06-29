@@ -35,9 +35,9 @@ use IEEE.std_logic_arith.all;
 
 entity SerialMemoryInterface is
 	port (
-		SysReset				: in std_logic;			-- System Reset or PLL not locked
-		H1_CLK					: in std_logic;
-		SysClk					: in std_logic;
+		SysReset				: in std_logic;	-- System Reset or PLL not locked
+		H1_CLK					: in std_logic; -- 60Mhz clock
+		SysClk					: in std_logic; -- 30Mhz system clock
 		SlowEnable				: in std_logic;
 		intDATA					: in std_logic_vector(31 downto 0);
 		serialMemDataOut		: out std_logic_vector(31 downto 0);

@@ -1,48 +1,3 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
---	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
---
---  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
---  Board:          RMC75E Rev 3.0
---
---	Entity Name		tb_SerialMemoryInterface
---	File			tb_serial_mem.vhd
---
---------------------------------------------------------------------------------
---
---	Description: 
-
-	-- DUT (Design Under Test) - Serial Memory Interface:
-
-	-- The Serial Memory Interface is a module designed to interface with a serial EEPROM device.
-	-- It facilitates the clocking in and out of data from the EEPROM.
-	-- The module includes a state machine that controls the serial
-	-- communication process with the EEPROM. It supports read and write operations,
-	-- manages device and memory addresses, and handles various control signals.
-	-- The module is designed to operate with a system clock and provides outputs
-	-- such as serial data, clock, and control signals.
-
-	-- Test Bench - Serial Memory Interface:
-
-	-- The test bench for the Serial Memory Interface module is designed to verify
-	-- the functionality and robustness of the DUT. It instantiates the
-	-- Serial Memory Interface module and provides stimulus to its inputs
-	-- to simulate different scenarios. The test bench initializes the
-	-- DUT with appropriate values, applies test vectors, and
-	-- monitors the DUT's outputs. It includes processes to generate clock signals,
-	-- control inputs, and stimuli for read and write operations.
-	-- The test bench captures and analyzes the DUT's responses to ensure correct
-	-- behavior and verify the expected functionality of the Serial Memory Interface module.
-	
---	Revision: 1.0
---
---	File history:
---	
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -78,10 +33,13 @@ architecture tb_arch of tb_SerialMemoryInterface is
 
     -- Signals
     signal SysReset, H1_CLK, SysClk, SlowEnable, SerialMemXfaceWrite, SerialMemoryDataIn : std_logic;
-	signal SerialMemoryDataOut, SerialMemoryDataControl, SerialMemoryClk : std_logic;
+    signal SerialMemoryDataOut, SerialMemoryDataControl, SerialMemoryClk : std_logic;
     signal intDATA, serialMemDataOut : std_logic_vector(31 downto 0);
     signal Exp0SerialSelect, Exp1SerialSelect, Exp2SerialSelect, Exp3SerialSelect : std_logic;
     signal EEPROMAccessFlag, M_SPROM_CLK, M_SPROM_DATA : std_logic;
+    
+    constant H1_CLK_PERIOD : time := 1 ns / 60; -- 60 MHz
+    constant SYS_CLK_PERIOD : time := 1 ns / 30; -- 30 MHz
 
 begin
 
@@ -108,13 +66,44 @@ begin
         M_SPROM_DATA => M_SPROM_DATA
     );
 
+		-- Clock generators
+		process
+		begin
+				H1_CLK <= '0';
+				SysClk <= '0';
+				wait for H1_CLK_PERIOD / 2;
+				H1_CLK <= '1';
+				wait for H1_CLK_PERIOD / 2;
+				H1_CLK <= '0';
+				wait for H1_CLK_PERIOD / 2;
+				H1_CLK <= '1';
+				wait for H1_CLK_PERIOD / 2;
+				
+				wait for SYS_CLK_PERIOD / 2;
+				SysClk <= '1';
+				wait for SYS_CLK_PERIOD / 2;
+				SysClk <= '0';
+				wait for SYS_CLK_PERIOD / 2;
+				SysClk <= '1';
+				wait for SYS_CLK_PERIOD / 2;
+				
+				-- Repeat the pattern
+				while now < 10 ms loop
+						wait for H1_CLK_PERIOD;
+						H1_CLK <= not H1_CLK;
+						wait for SYS_CLK_PERIOD;
+						SysClk <= not SysClk;
+				end loop;
+				H1_CLK <= 'X';
+				SysClk <= 'X';
+				wait;
+		end process;
+
     -- Stimulus process
     process
     begin
         -- Initialize inputs
         SysReset <= '1';
-        H1_CLK <= '0';
-        SysClk <= '0';
         SlowEnable <= '0';
         intDATA <= (others => '0');
         SerialMemXfaceWrite <= '0';
@@ -122,7 +111,10 @@ begin
 
         -- Wait for reset to complete
         wait for 10 ns;
+
+        -- Release reset
         SysReset <= '0';
+        wait for 10 ns;
 
         -- Test scenario 1: Write operation
         -- Write data 32'hABCD1234 to the EEPROM
@@ -162,21 +154,20 @@ begin
         wait for 10 ns;
         wait for 20 ns;
 
-		-- Test scenario 5: Continuous Write and Read operations
-		-- Perform multiple write and read operations
-		for i in 0 to 9 loop
-			-- Write data i to the EEPROM
-			SerialMemXfaceWrite <= '1';
-			intDATA <= std_logic_vector(unsigned(to_unsigned(i, intDATA'length)));
-			wait for 10 ns;
-			SerialMemXfaceWrite <= '0';
-			wait for 20 ns;
-			-- Read data from the EEPROM
-			SerialMemXfaceWrite <= '0';
-			wait for 10 ns;
-			wait for 20 ns;
-		end loop;
-
+        -- Test scenario 5: Continuous Write and Read operations
+        -- Perform multiple write and read operations
+        for i in 0 to 9 loop
+            -- Write data i to the EEPROM
+            SerialMemXfaceWrite <= '1';
+            intDATA <= std_logic_vector(unsigned(to_unsigned(i, intDATA'length)));
+            wait for 10 ns;
+            SerialMemXfaceWrite <= '0';
+            wait for 20 ns;
+            -- Read data from the EEPROM
+            SerialMemXfaceWrite <= '0';
+            wait for 10 ns;
+            wait for 20 ns;
+        end loop;
 
         -- Additional test scenarios here...
 
@@ -185,5 +176,3 @@ begin
     end process;
 
 end tb_arch;
-
-
