@@ -59,51 +59,51 @@ architecture SSITop_arch of SSITop is
 	constant SSIGrayAnalogXducer : std_logic_vector (3 downto 0) := To_StdLogicVector(SSIGrayAnalogValue);
 
 	-- SSI internal signal declarations
-	signal	SSIDataLatch		 : std_logic_vector (31 downto 0);	-- := X"0000_0000";
+	signal	SSIDataLatch		 : std_logic_vector (31 downto 0):= X"0000_0000";
 	signal	CheckDataLo,
-			CheckDataHi			: std_logic;	-- := '0';
-	signal	Shift				: std_logic;	-- := '0';
-	signal	StartRead			: std_logic;	-- := '0';
+			CheckDataHi			: std_logic:= '0';
+	signal	Shift				: std_logic:= '0';
+	signal	StartRead			: std_logic:= '0';
 
 	-- Local Parameter Storage
-	signal	TransducerSelect	: std_logic_vector (4 downto 0);	-- := "00000";
-	signal	DataLength			: std_logic_vector (5 downto 0);	-- := "000000";
-	signal	ClockRate			: std_logic_vector (1 downto 0);	-- := "00";
-	signal	DelayTerminalCount	: std_logic_vector (15 downto 0);	-- := X"0000";
-	signal	HalfPeriod			: std_logic_vector (5 downto 0);	-- := "000000";
+	signal	TransducerSelect	: std_logic_vector (4 downto 0):= "00000";
+	signal	DataLength			: std_logic_vector (5 downto 0):= "000000";
+	signal	ClockRate			: std_logic_vector (1 downto 0):= "00";
+	signal	DelayTerminalCount	: std_logic_vector (15 downto 0); --:= X"0000";
+	signal	HalfPeriod			: std_logic_vector (5 downto 0):= "000000";
 
 	-- mode signal declarations
 	signal	SSIBinaryAnalog,
-			SSIGrayAnalog		: std_logic;	-- := '0';
+			SSIGrayAnalog		: std_logic:= '0';
 	signal	NoXducer,
-			DataValid			: std_logic;	-- := '0';
-	signal	intDataValid		: std_logic;	-- := '0';
+			DataValid			: std_logic:= '0';
+	signal	intDataValid		: std_logic:= '0';
 	signal	SSIRead,
-			SSIRead1			: std_logic;	-- := '0';
+			SSIRead1			: std_logic:= '0';
 
 	-- Start Delay signals
-	signal	DelayCntEn			: std_logic;	-- := '0';
-	signal	DelayCounter		: std_logic_vector (15 downto 0);	-- := X"0000";
+	signal	DelayCntEn			: std_logic:= '0';
+	signal	DelayCounter		: std_logic_vector (15 downto 0); --:= X"0000";
 
 	-- SSI Xface signals
-	signal	Serial2ParallelData		: std_logic_vector (31 downto 0);	-- := X"0000_0000";
+	signal	Serial2ParallelData		: std_logic_vector (31 downto 0):= X"0000_0000";
 	signal	MuxDataOut,
 			DataLineHi,
-			DatalineLo				: std_logic;	-- := '0';
+			DatalineLo				: std_logic:= '0';
 
 	-- SSI controller signals
-	signal	ShiftCounter	: std_logic_vector (5 downto 0);	-- := "000000";
-	signal	CycleCounter	: std_logic_vector (5 downto 0);	-- := "000000";
+	signal	ShiftCounter	: std_logic_vector (5 downto 0):= "000000";
+	signal	CycleCounter	: std_logic_vector (5 downto 0):= "000000";
 	signal	CycleCountMatch,
 			ClkOn,
 			SequenceOn		: std_logic:= '0';
 	signal	ToggleEn,
-			CheckDataDelay	: std_logic;	-- := '0';
+			CheckDataDelay	: std_logic:= '0';
 	signal	ShiftOn,
 			PreTurnShiftOff,
-			TurnShiftOff	: std_logic;	-- := '0';
-	signal	intSSI_CLK		: std_logic;	-- := '1';
-	signal	LineBreakDelay	: std_logic;	-- := '0';
+			TurnShiftOff	: std_logic:= '0';
+	signal	intSSI_CLK		: std_logic:= '1';
+	signal	LineBreakDelay	: std_logic:= '0';
 
 begin
 
@@ -205,6 +205,7 @@ begin
 			if CheckDataLo then
 				DataLineLo <= SSI_DATA;
 			end if;
+
 
 			-- when the StartRead comes by; start the "machine"
 			SequenceOn <= (SequenceOn and (not CheckDataLo)) or StartRead;

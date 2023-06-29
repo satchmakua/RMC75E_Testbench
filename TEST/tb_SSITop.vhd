@@ -26,7 +26,7 @@ architecture tb of tb_SSITop is
     signal H1_CLKWR_tb : std_logic := '0';
     signal intData_tb : std_logic_vector(31 downto 0) := (others => '0');
     signal ssiDataOut_tb : std_logic_vector(31 downto 0);
-    signal SlowEnable_tb : std_logic := '0'; -- added as it seems to be required by the entity
+    signal SlowEnable_tb : std_logic := '0'; 
 
 begin
 
@@ -90,18 +90,20 @@ begin
         intData_tb(31 downto 0) <= "00000000000000000000100000000110";
         wait for SysClk_period;
         ParamWrite1_tb <= '0';
-        wait for SysClk_period;
+        wait for 2 us;
         
+				
+				SynchedTick_tb <= '1'; -- first tick
+        wait for SysClk_period;
+        SynchedTick_tb <= '0';
+        wait for 1 us - 4 * H1_CLK_PERIOD;
+				
+				
         ParamWrite2_tb <= '1';
         intData_tb(31 downto 0) <= "00000000000000100000000000000000";
         wait for SysClk_period;
         ParamWrite2_tb <= '0';
         wait for SysClk_period;
-        
-        SynchedTick_tb <= '1'; -- first tick
-        wait for SysClk_period;
-        SynchedTick_tb <= '0';
-        wait for 1 us - 4 * H1_CLK_PERIOD;
         
         
         
@@ -115,14 +117,18 @@ begin
         wait for 1 us;
         SynchedTick_tb <= '1'; -- second tick
         wait for H1_CLK_PERIOD;
-				SynchedTick_tb <= '0'; -- second tick
+				SynchedTick_tb <= '0';
+				
         PositionRead_tb <= '1'; -- PositionRead active after the second SynchedTick
-        wait for H1_CLK_PERIOD;
+        wait for 10 us;
         PositionRead_tb <= '0';
+				
         StatusRead_tb <= '1';
-				wait for H1_CLK_PERIOD;
-        wait for 30 us - 1 us - 2 * H1_CLK_PERIOD;
-        
+        wait for 10 us;
+				StatusRead_tb <= '0';
+				
+        wait for 10 us;
+				
         -- Run for the desired number of cycles
         for i in 1 to num_cycles loop
             wait for H1_CLK_PERIOD;
