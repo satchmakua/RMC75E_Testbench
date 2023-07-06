@@ -1,29 +1,3 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
--- © 2023 Delta Computer Systems, Inc.
-
--- Author: Satchel Hamilton
--- Design: RMC75E Rev 3.n (Replace Xilinx with Microchip)
-
--- Board: RMC75E Rev 3.0
--- Entity Name tb_SSITop
-
--- File tb_SSITop.vhd
---
--- Description:
-
--- Test bench for the Synchronous Serial Interface (SSI) Top module.
--- The SSI Top provides a signal interface to Synchronous Serial Interface type linear and
--- rotary transducers. The test bench stimulates the SSI Top module and checks its outputs to
--- ensure they are behaving as expected. It generates the necessary signals such as system clock,
--- SSI clock, and control signals to mimic the operation of the module in the real system.
--- The stimuli are applied to the SSI Top inputs and the outputs are observed for correctness.
-
--- Revision: 1.0
-
--- File history:
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -55,13 +29,9 @@ architecture tb of tb_SSITop is
     signal SlowEnable_tb : std_logic := '0';
 
     -- Define a procedure to encapsulate the synched tick code
-    procedure tick_sequence(signal SSI_DATA : out std_logic; signal SynchedTick : out std_logic; signal PositionRead : out std_logic; signal StatusRead : out std_logic) is
+    procedure tick_sequence(signal SynchedTick : out std_logic; signal PositionRead : out std_logic; signal StatusRead : out std_logic) is
     begin
-        SSI_DATA <= '1'; 
-        wait for 8 us;
-        SSI_DATA <= '0';
-        wait for 22 us;
-        
+	
         SynchedTick <= '1'; 
         wait for SysClk_period;
         SynchedTick <= '0';
@@ -74,6 +44,21 @@ architecture tb of tb_SSITop is
         wait for 10 us;
         StatusRead <= '0';
     end procedure tick_sequence;
+
+    procedure write_data(signal SSI_DATA : out std_logic) is
+    begin
+        wait until rising_edge(SSI_CLK_tb);
+        
+        SSI_DATA <= '0'; -- Write a zero during the last negative pulse
+        
+        for i in 0 to 6 loop
+            wait until falling_edge(SSI_CLK_tb);
+            SSI_DATA <= '1'; -- Write a bit during each negative pulse
+        end loop;
+        
+        wait until falling_edge(SSI_CLK_tb);
+        SSI_DATA <= '0'; -- Write a zero during the last negative pulse
+    end procedure write_data;
 
 begin
 
@@ -95,14 +80,13 @@ begin
         SlowEnable => SlowEnable_tb 
     );
     
-    -- Clock process definitions
     H1_CLKWR_process : process
     begin
-        H1_CLKWR_tb <= '0';
-        wait for H1_CLK_period/2;
-        H1_CLKWR_tb <= '1';
-        wait for H1_CLK_period/2;
-    end process;
+    H1_CLKWR_tb <= '0';
+    wait for H1_CLK_period/2;
+    H1_CLKWR_tb <= '1';
+    wait for H1_CLK_period/2;
+    end process H1_CLKWR_process;
 
     SysClk_process : process
     begin
@@ -110,61 +94,56 @@ begin
         wait for SysClk_period/2;
         SysClk_tb <= '1';
         wait for SysClk_period/2;
-    end process;
+    end process SysClk_process;
 
-    -- Enable signal process definition
     Enable_process : process
     begin
         Enable_tb <= '0';
         wait for 4 * SysClk_period;
         Enable_tb <= '1';
         wait for 4 * SysClk_period;
-    end process;
+    end process Enable_process;
 
-    -- SlowEnable signal process definition
     SlowEnable_process : process
     begin
         SlowEnable_tb <= '0';
         wait for 8 * SysClk_period;
         SlowEnable_tb <= '1';
         wait for 8 * SysClk_period;
-    end process;
+    end process SlowEnable_process;
 
-    init_gen: process
+    init_gen : process
     begin
-		
-        wait for SysClk_period; -- wait for one 30 MHz clock cycle
-				
-				SynchedTick_tb <= '1'; -- first tick syncs system
+        wait for SysClk_period;
+
+        SynchedTick_tb <= '1';
         wait for SysClk_period;
         SynchedTick_tb <= '0';
         wait for SysClk_period;
-				
-        ParamWrite1_tb <= '1'; -- start of system configuration
+
+        ParamWrite1_tb <= '1';
         intData_tb(31 downto 0) <= "00000000000000000000100000000110";
         wait for SysClk_period;
         ParamWrite1_tb <= '0';
         wait for SysClk_period;
-				
+
         ParamWrite2_tb <= '1';
         intData_tb(31 downto 0) <= "00000000000000100000000000000010";
         wait for SysClk_period;
         ParamWrite2_tb <= '0';
         wait for SysClk_period;
 
-        -- Loop that calls the defined procedure
         for i in 1 to 5 loop
-            tick_sequence(SSI_DATA_tb, SynchedTick_tb, PositionRead_tb, StatusRead_tb); 
+						write_data(SSI_DATA_tb);
+            tick_sequence(SynchedTick_tb, PositionRead_tb, StatusRead_tb);
         end loop;
-        
+
         wait for 10 us;
 
-        -- Run for the desired number of cycles
         for i in 1 to num_cycles loop
             wait for H1_CLK_period;
         end loop;
 
-        -- Stop the simulation
         wait;
     end process init_gen;
 end tb;
