@@ -101,7 +101,7 @@ architecture SSITop_arch of SSITop is
 			CheckDataDelay	: std_logic; --:= '0';
 	signal	ShiftOn,
 			PreTurnShiftOff,
-			TurnShiftOff	: std_logic:= '0';
+			TurnShiftOff	: std_logic:= '1';
 	signal	intSSI_CLK		: std_logic;	-- := '1';
 	signal	LineBreakDelay	: std_logic;	-- := '0';
 

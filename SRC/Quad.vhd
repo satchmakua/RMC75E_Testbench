@@ -14,10 +14,6 @@
 --
 --	Description: 
 
-	-- The given VHDL module is part of the source code
-	-- for the RMC75E modular motion controller.
-	-- The module defines an entity with various input and output ports. 
-
 	-- Inputs:
 	-- H1_CLKWR: Clock signal.
 	-- SysClk: System clock signal.

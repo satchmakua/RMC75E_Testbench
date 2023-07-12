@@ -1,28 +1,32 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 --
--- © 2023 Delta Computer Systems, Inc.
-
--- Author: Satchel Hamilton
--- Design: RMC75E Rev 3.n (Replace Xilinx with Microchip)
-
--- Board: RMC75E Rev 3.0
--- Entity Name tb_SSITop
-
--- File tb_SSITop.vhd
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Satchel Hamilton
 --
--- Description:
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		tb_SSITop
+--	File					tb_SSITOP.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
 
--- Test bench for the Synchronous Serial Interface (SSI) Top module.
--- The SSI Top provides a signal interface to Synchronous Serial Interface type linear and
--- rotary transducers. The test bench stimulates the SSI Top module and checks its outputs to
--- ensure they are behaving as expected. It generates the necessary signals such as system clock,
--- SSI clock, and control signals to mimic the operation of the module in the real system.
--- The stimuli are applied to the SSI Top inputs and the outputs are observed for correctness.
+	-- This module serves as the test bench for the SSITop module.
+	-- It provides a platform to verify the functionality of the SSITop module
+	-- by simulating various input scenarios and monitoring the corresponding output signals.
 
--- Revision: 1.0
-
--- File history:
+	-- Note that ShiftOn can be intialized to either 1 / 0, 
+	-- but must be given an initial value within the source code.
+	
+--	Revision: 1.0
+--
+--	File history:
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -53,27 +57,6 @@ architecture tb of tb_SSITop is
     signal intData_tb : std_logic_vector(31 downto 0) := (others => '0');
     signal ssiDataOut_tb : std_logic_vector(31 downto 0);
     signal SlowEnable_tb : std_logic := '0';
-
-    -- Define a procedure to encapsulate the synched tick code
-    procedure tick_sequence(signal SSI_DATA : out std_logic; signal SynchedTick : out std_logic; signal PositionRead : out std_logic; signal StatusRead : out std_logic) is
-    begin
-        SSI_DATA <= '1'; 
-        wait for 8 us;
-        SSI_DATA <= '0';
-        wait for 22 us;
-        
-        SynchedTick <= '1'; 
-        wait for SysClk_period;
-        SynchedTick <= '0';
-        
-        PositionRead <= '1';
-        wait for 10 us;
-        PositionRead <= '0';
-        
-        StatusRead <= '1';
-        wait for 10 us;
-        StatusRead <= '0';
-    end procedure tick_sequence;
 
 begin
 
@@ -154,17 +137,54 @@ begin
 
         -- Loop that calls the defined procedure
         for i in 1 to 5 loop
-            tick_sequence(SSI_DATA_tb, SynchedTick_tb, PositionRead_tb, StatusRead_tb); 
+				
+						wait for 30 us;
+						SynchedTick_tb <= '1'; 
+						wait for SysClk_period;
+						SynchedTick_tb <= '0';
+						
+						PositionRead_tb <= '1';
+						
+						-- start of 8-bit vector write to SSI_DATA '01011010'
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '0';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '1';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '0';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '1';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '1';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '0';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '1';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '0';
+							
+						wait until rising_edge(SSI_CLK_tb);
+						wait for 2 ns;
+							SSI_DATA_tb <= '0'; -- last pulse gets a zero
+							
+						PositionRead_tb <= '0';
+							
         end loop;
-        
         wait for 10 us;
-
-        -- Run for the desired number of cycles
-        for i in 1 to num_cycles loop
-            wait for H1_CLK_period;
-        end loop;
-
-        -- Stop the simulation
-        wait;
     end process init_gen;
 end tb;

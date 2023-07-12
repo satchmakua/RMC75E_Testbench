@@ -1,347 +1,337 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
---
---	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
---
---  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
---  Board:          RMC75E Rev 3.0
---
---	Entity Name		tb_quad_v2
---	File			tb_quad_v2.vhd
---
---------------------------------------------------------------------------------
---
---	Description:
-
-	 -- Description: The tb_quad_v2 entity represents a testbench for the Quad module in the RMC75E modular motion controller.
-	 -- It provides a simulated environment to test the functionality and behavior of
-	 -- the Quad module by generating stimuli and observing the module's responses.
-	 -- The testbench instantiates the Quad component and connects the necessary signals to its ports for communication.
-	 -- It includes a clock process that generates the H1_CLKWR signal with a specified period.
-	 -- The stimulus process generates various input stimuli by toggling different control signals and updating the input data.
-	 -- These stimuli simulate different scenarios to verify the behavior and functionality of the Quad module.
-	 -- Additional stimuli can be added to the stimulus process as needed for thorough testing.
-	 -- The testbench is designed to run indefinitely until manually stopped.
-
---	Revision: 1.0
---
---	File history:
---	
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_SIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD_UNSIGNED.ALL;
+use IEEE.MATH_REAL.ALL;
 
 entity tb_quad_v2 is
 end tb_quad_v2;
-
+	
 architecture tb of tb_quad_v2 is
-    -- Component declaration
+
+	-- Component declaration
     component Quad is
         Port (
-            H1_CLKWR: in std_logic;
-            SysClk: in std_logic;
-            SynchedTick: in std_logic;
-            intDATA: in std_logic_vector(31 downto 0);
-            Exp0QuadDataOut: out std_logic_vector(31 downto 0);
-            Exp1QuadDataOut: out std_logic_vector(31 downto 0);
-            Exp2QuadDataOut: out std_logic_vector(31 downto 0);
-            Exp3QuadDataOut: out std_logic_vector(31 downto 0);
-            QuadA0DataOut: out std_logic_vector(31 downto 0);
-            QuadA1DataOut: out std_logic_vector(31 downto 0);
-            Exp0QuadCountRead: in std_logic;
-            Exp0QuadLEDStatusRead: in std_logic;
-            Exp0QuadLEDStatusWrite: in std_logic;
-            Exp0QuadInputRead: in std_logic;
-            Exp0QuadHomeRead: in std_logic;
-            Exp0QuadLatch0Read: in std_logic;
-            Exp0QuadLatch1Read: in std_logic;
-            Exp1QuadCountRead: in std_logic;
-            Exp1QuadLEDStatusRead: in std_logic;
-            Exp1QuadLEDStatusWrite: in std_logic;
-            Exp1QuadInputRead: in std_logic;
-            Exp1QuadHomeRead: in std_logic;
-            Exp1QuadLatch0Read: in std_logic;
-            Exp1QuadLatch1Read: in std_logic;
-            Exp2QuadCountRead: in std_logic;
-            Exp2QuadLEDStatusRead: in std_logic;
-            Exp2QuadLEDStatusWrite: in std_logic;
-            Exp2QuadInputRead: in std_logic;
-            Exp2QuadHomeRead: in std_logic;
-            Exp2QuadLatch0Read: in std_logic;
-            Exp2QuadLatch1Read: in std_logic;
-            Exp3QuadCountRead: in std_logic;
-            Exp3QuadLEDStatusRead: in std_logic;
-            Exp3QuadLEDStatusWrite: in std_logic;
-            Exp3QuadInputRead: in std_logic;
-            Exp3QuadHomeRead: in std_logic;
-            Exp3QuadLatch0Read: in std_logic;
-            Exp3QuadLatch1Read: in std_logic;
-            Exp0Quad_A: in std_logic;
-            Exp0Quad_B: in std_logic;
-            Exp0Quad_Reg: in std_logic;
-            Exp0Quad_FaultA: in std_logic;
-            Exp0Quad_FaultB: in std_logic;
-            Exp1Quad_A: in std_logic;
-            Exp1Quad_B: in std_logic;
-            Exp1Quad_Reg: in std_logic;
-            Exp1Quad_FaultA: in std_logic;
-            Exp1Quad_FaultB: in std_logic;
-            Exp2Quad_A: in std_logic;
-            Exp2Quad_B: in std_logic;
-            Exp2Quad_Reg: in std_logic;
-            Exp2Quad_FaultA: in std_logic;
-            Exp2Quad_FaultB: in std_logic;
-            Exp3Quad_A: in std_logic;
-            Exp3Quad_B: in std_logic;
-            Exp3Quad_Reg: in std_logic;
-            Exp3Quad_FaultA: in std_logic;
-            Exp3Quad_FaultB: in std_logic;
-            QA0CountRead: in std_logic;
-            QA0LEDStatusRead: in std_logic;
-            QA0LEDStatusWrite: in std_logic;
-            QA0InputRead: in std_logic;
-            QA0HomeRead: in std_logic;
-            QA0Latch0Read: in std_logic;
-            QA0Latch1Read: in std_logic;
-            QA1CountRead: in std_logic;
-            QA1LEDStatusRead: in std_logic;
-            QA1LEDStatusWrite: in std_logic;
-            QA1InputRead: in std_logic;
-            QA1HomeRead: in std_logic;
-            QA1Latch0Read: in std_logic;
-            QA1Latch1Read: in std_logic;
-            QA0_SigA: in std_logic;
-            QA0_SigB: in std_logic;
-            QA0_SigZ: in std_logic;
-            QA0_Home: in std_logic;
-            QA0_RegX_PosLmt: in std_logic;
-            QA0_RegY_NegLmt: in std_logic;
-            QA1_SigA: in std_logic;
-            QA1_SigB: in std_logic;
-            QA1_SigZ: in std_logic;
-            QA1_Home: in std_logic;
-            QA1_RegX_PosLmt: in std_logic;
-            QA1_RegY_NegLmt: in std_logic;
-            QA0AxisFault: in std_logic_vector(2 downto 0);
-            QA1AxisFault: in std_logic_vector(2 downto 0)
+            H1_CLKWR                : in std_logic;
+            SysClk                  : in std_logic;
+            SynchedTick             : in std_logic;
+            intDATA                 : in std_logic_vector(31 downto 0);
+            Exp0QuadDataOut         : out std_logic_vector(31 downto 0);
+            Exp1QuadDataOut         : out std_logic_vector(31 downto 0);
+            Exp2QuadDataOut         : out std_logic_vector(31 downto 0);
+            Exp3QuadDataOut         : out std_logic_vector(31 downto 0);
+            QuadA0DataOut           : out std_logic_vector(31 downto 0);
+            QuadA1DataOut           : out std_logic_vector(31 downto 0);
+            Exp0QuadCountRead       : in std_logic;
+            Exp0QuadLEDStatusRead   : in std_logic;
+            Exp0QuadLEDStatusWrite  : in std_logic;
+            Exp0QuadInputRead       : in std_logic;
+            Exp0QuadHomeRead        : in std_logic;
+            Exp0QuadLatch0Read      : in std_logic;
+            Exp0QuadLatch1Read      : in std_logic;
+            Exp1QuadCountRead       : in std_logic;
+            Exp1QuadLEDStatusRead   : in std_logic;
+            Exp1QuadLEDStatusWrite  : in std_logic;
+            Exp1QuadInputRead       : in std_logic;
+            Exp1QuadHomeRead        : in std_logic;
+            Exp1QuadLatch0Read      : in std_logic;
+            Exp1QuadLatch1Read      : in std_logic;
+            Exp2QuadCountRead       : in std_logic;
+            Exp2QuadLEDStatusRead   : in std_logic;
+            Exp2QuadLEDStatusWrite  : in std_logic;
+            Exp2QuadInputRead       : in std_logic;
+            Exp2QuadHomeRead        : in std_logic;
+            Exp2QuadLatch0Read      : in std_logic;
+            Exp2QuadLatch1Read      : in std_logic;
+            Exp3QuadCountRead       : in std_logic;
+            Exp3QuadLEDStatusRead   : in std_logic;
+            Exp3QuadLEDStatusWrite  : in std_logic;
+            Exp3QuadInputRead       : in std_logic;
+            Exp3QuadHomeRead        : in std_logic;
+            Exp3QuadLatch0Read      : in std_logic;
+            Exp3QuadLatch1Read      : in std_logic;
+            Exp0Quad_A              : in std_logic;
+            Exp0Quad_B              : in std_logic;
+            Exp0Quad_Reg            : in std_logic;
+            Exp0Quad_FaultA         : in std_logic;
+            Exp0Quad_FaultB         : in std_logic;
+            Exp1Quad_A              : in std_logic;
+            Exp1Quad_B              : in std_logic;
+            Exp1Quad_Reg            : in std_logic;
+            Exp1Quad_FaultA         : in std_logic;
+            Exp1Quad_FaultB         : in std_logic;
+            Exp2Quad_A              : in std_logic;
+            Exp2Quad_B              : in std_logic;
+            Exp2Quad_Reg            : in std_logic;
+            Exp2Quad_FaultA         : in std_logic;
+            Exp2Quad_FaultB         : in std_logic;
+            Exp3Quad_A              : in std_logic;
+            Exp3Quad_B              : in std_logic;
+            Exp3Quad_Reg            : in std_logic;
+            Exp3Quad_FaultA         : in std_logic;
+            Exp3Quad_FaultB         : in std_logic;
+            QA0CountRead            : in std_logic;
+            QA0LEDStatusRead        : in std_logic;
+            QA0LEDStatusWrite       : in std_logic;
+            QA0InputRead            : in std_logic;
+            QA0HomeRead             : in std_logic;
+            QA0Latch0Read           : in std_logic;
+            QA0Latch1Read           : in std_logic;
+            QA1CountRead            : in std_logic;
+            QA1LEDStatusRead        : in std_logic;
+            QA1LEDStatusWrite       : in std_logic;
+            QA1InputRead            : in std_logic;
+            QA1HomeRead             : in std_logic;
+            QA1Latch0Read           : in std_logic;
+            QA1Latch1Read           : in std_logic;
+            QA0_SigA                : in std_logic;
+            QA0_SigB                : in std_logic;
+            QA0_SigZ                : in std_logic;
+            QA0_Home                : in std_logic;
+            QA0_RegX_PosLmt         : in std_logic;
+            QA0_RegY_NegLmt         : in std_logic;
+            QA1_SigA                : in std_logic;
+            QA1_SigB                : in std_logic;
+            QA1_SigZ                : in std_logic;
+            QA1_Home                : in std_logic;
+            QA1_RegX_PosLmt         : in std_logic;
+            QA1_RegY_NegLmt         : in std_logic;
+            QA0AxisFault            : in std_logic_vector(2 downto 0);
+            QA1AxisFault            : in std_logic_vector(2 downto 0)
         );
     end component;
 
-    -- Test inputs
-    signal H1_CLKWR: std_logic;
-    signal SysClk: std_logic;
-    signal SynchedTick: std_logic;
-    signal intDATA: std_logic_vector(31 downto 0);
-    signal Exp0QuadCountRead: std_logic;
-    signal Exp0QuadLEDStatusRead: std_logic;
-    signal Exp0QuadLEDStatusWrite: std_logic;
-    signal Exp0QuadInputRead: std_logic;
-    signal Exp0QuadHomeRead: std_logic;
-    signal Exp0QuadLatch0Read: std_logic;
-    signal Exp0QuadLatch1Read: std_logic;
-    signal Exp1QuadCountRead: std_logic;
-    signal Exp1QuadLEDStatusRead: std_logic;
-    signal Exp1QuadLEDStatusWrite: std_logic;
-    signal Exp1QuadInputRead: std_logic;
-    signal Exp1QuadHomeRead: std_logic;
-    signal Exp1QuadLatch0Read: std_logic;
-    signal Exp1QuadLatch1Read: std_logic;
-    signal Exp2QuadCountRead: std_logic;
-    signal Exp2QuadLEDStatusRead: std_logic;
-    signal Exp2QuadLEDStatusWrite: std_logic;
-    signal Exp2QuadInputRead: std_logic;
-    signal Exp2QuadHomeRead: std_logic;
-    signal Exp2QuadLatch0Read: std_logic;
-    signal Exp2QuadLatch1Read: std_logic;
-    signal Exp3QuadCountRead: std_logic;
-    signal Exp3QuadLEDStatusRead: std_logic;
-    signal Exp3QuadLEDStatusWrite: std_logic;
-    signal Exp3QuadInputRead: std_logic;
-    signal Exp3QuadHomeRead: std_logic;
-    signal Exp3QuadLatch0Read: std_logic;
-    signal Exp3QuadLatch1Read: std_logic;
-    signal Exp0Quad_A: std_logic;
-    signal Exp0Quad_B: std_logic;
-    signal Exp0Quad_Reg: std_logic;
-    signal Exp0Quad_FaultA: std_logic;
-    signal Exp0Quad_FaultB: std_logic;
-    signal Exp1Quad_A: std_logic;
-    signal Exp1Quad_B: std_logic;
-    signal Exp1Quad_Reg: std_logic;
-    signal Exp1Quad_FaultA: std_logic;
-    signal Exp1Quad_FaultB: std_logic;
-    signal Exp2Quad_A: std_logic;
-    signal Exp2Quad_B: std_logic;
-    signal Exp2Quad_Reg: std_logic;
-    signal Exp2Quad_FaultA: std_logic;
-    signal Exp2Quad_FaultB: std_logic;
-    signal Exp3Quad_A: std_logic;
-    signal Exp3Quad_B: std_logic;
-    signal Exp3Quad_Reg: std_logic;
-    signal Exp3Quad_FaultA: std_logic;
-    signal Exp3Quad_FaultB: std_logic;
-    signal QA0CountRead: std_logic;
-    signal QA0LEDStatusRead: std_logic;
-    signal QA0LEDStatusWrite: std_logic;
-    signal QA0InputRead: std_logic;
-    signal QA0HomeRead: std_logic;
-    signal QA0Latch0Read: std_logic;
-    signal QA0Latch1Read: std_logic;
-    signal QA1CountRead: std_logic;
-    signal QA1LEDStatusRead: std_logic;
-    signal QA1LEDStatusWrite: std_logic;
-    signal QA1InputRead: std_logic;
-    signal QA1HomeRead: std_logic;
-    signal QA1Latch0Read: std_logic;
-    signal QA1Latch1Read: std_logic;
-    signal QA0_SigA: std_logic;
-    signal QA0_SigB: std_logic;
-    signal QA0_SigZ: std_logic;
-    signal QA0_Home: std_logic;
-    signal QA0_RegX_PosLmt: std_logic;
-    signal QA0_RegY_NegLmt: std_logic;
-    signal QA1_SigA: std_logic;
-    signal QA1_SigB: std_logic;
-    signal QA1_SigZ: std_logic;
-    signal QA1_Home: std_logic;
-    signal QA1_RegX_PosLmt: std_logic;
-    signal QA1_RegY_NegLmt: std_logic;
-    signal QA0AxisFault: std_logic_vector(2 downto 0);
-    signal QA1AxisFault: std_logic_vector(2 downto 0);
+    -- Component declaration for QuadXface
+    component QuadXface is
+        -- Component ports declaration
+        ...
+    end component;
 
-    -- Test outputs
-    signal Exp0QuadDataOut: std_logic_vector(31 downto 0);
-    signal Exp1QuadDataOut: std_logic_vector(31 downto 0);
-    signal Exp2QuadDataOut: std_logic_vector(31 downto 0);
-    signal Exp3QuadDataOut: std_logic_vector(31 downto 0);
-    signal QuadA0DataOut: std_logic_vector(31 downto 0);
-    signal QuadA1DataOut: std_logic_vector(31 downto 0);
+    -- Clock period definitions
+    constant H1_CLK_period : time := 16.6667 ns;
+    constant SysClk_period : time := 33.3333 ns;
+		
+		-- Quad Signals 
+    signal H1_CLKWR              : std_logic := '0';
+    signal SysClk                : std_logic := '0';
+    signal SynchedTick           : std_logic := '0';
+    signal intDATA               : std_logic_vector(31 downto 0) := (others => '0');
+    signal Exp0QuadDataOut       : std_logic_vector(31 downto 0);
+    signal Exp1QuadDataOut       : std_logic_vector(31 downto 0);
+    signal Exp2QuadDataOut       : std_logic_vector(31 downto 0);
+    signal Exp3QuadDataOut       : std_logic_vector(31 downto 0);
+    signal QuadA0DataOut         : std_logic_vector(31 downto 0);
+    signal QuadA1DataOut         : std_logic_vector(31 downto 0);
+    signal Exp0QuadCountRead     : std_logic := '0';
+    signal Exp0QuadLEDStatusRead : std_logic := '0';
+    signal Exp0QuadLEDStatusWrite: std_logic := '0';
+    signal Exp0QuadInputRead     : std_logic := '0';
+    signal Exp0QuadHomeRead      : std_logic := '0';
+    signal Exp0QuadLatch0Read    : std_logic := '0';
+    signal Exp0QuadLatch1Read    : std_logic := '0';
+    signal Exp1QuadCountRead     : std_logic := '0';
+    signal Exp1QuadLEDStatusRead : std_logic := '0';
+    signal Exp1QuadLEDStatusWrite: std_logic := '0';
+    signal Exp1QuadInputRead     : std_logic := '0';
+    signal Exp1QuadHomeRead      : std_logic := '0';
+    signal Exp1QuadLatch0Read    : std_logic := '0';
+    signal Exp1QuadLatch1Read    : std_logic := '0';
+    signal Exp2QuadCountRead     : std_logic := '0';
+    signal Exp2QuadLEDStatusRead : std_logic := '0';
+    signal Exp2QuadLEDStatusWrite: std_logic := '0';
+    signal Exp2QuadInputRead     : std_logic := '0';
+    signal Exp2QuadHomeRead      : std_logic := '0';
+    signal Exp2QuadLatch0Read    : std_logic := '0';
+    signal Exp2QuadLatch1Read    : std_logic := '0';
+    signal Exp3QuadCountRead     : std_logic := '0';
+    signal Exp3QuadLEDStatusRead : std_logic := '0';
+    signal Exp3QuadLEDStatusWrite: std_logic := '0';
+    signal Exp3QuadInputRead     : std_logic := '0';
+    signal Exp3QuadHomeRead      : std_logic := '0';
+    signal Exp3QuadLatch0Read    : std_logic := '0';
+    signal Exp3QuadLatch1Read    : std_logic := '0';
+    signal Exp0Quad_A            : std_logic := '0';
+    signal Exp0Quad_B            : std_logic := '0';
+    signal Exp0Quad_Reg          : std_logic := '0';
+    signal Exp0Quad_FaultA       : std_logic := '0';
+    signal Exp0Quad_FaultB       : std_logic := '0';
+    signal Exp1Quad_A            : std_logic := '0';
+    signal Exp1Quad_B            : std_logic := '0';
+    signal Exp1Quad_Reg          : std_logic := '0';
+    signal Exp1Quad_FaultA       : std_logic := '0';
+    signal Exp1Quad_FaultB       : std_logic := '0';
+    signal Exp2Quad_A            : std_logic := '0';
+    signal Exp2Quad_B            : std_logic := '0';
+    signal Exp2Quad_Reg          : std_logic := '0';
+    signal Exp2Quad_FaultA       : std_logic := '0';
+    signal Exp2Quad_FaultB       : std_logic := '0';
+    signal Exp3Quad_A            : std_logic := '0';
+    signal Exp3Quad_B            : std_logic := '0';
+    signal Exp3Quad_Reg          : std_logic := '0';
+    signal Exp3Quad_FaultA       : std_logic := '0';
+    signal Exp3Quad_FaultB       : std_logic := '0';
+    signal QA0CountRead          : std_logic := '0';
+    signal QA0LEDStatusRead      : std_logic := '0';
+    signal QA0LEDStatusWrite     : std_logic := '0';
+    signal QA0InputRead          : std_logic := '0';
+    signal QA0HomeRead           : std_logic := '0';
+    signal QA0Latch0Read         : std_logic := '0';
+    signal QA0Latch1Read         : std_logic := '0';
+    signal QA1CountRead          : std_logic := '0';
+    signal QA1LEDStatusRead      : std_logic := '0';
+    signal QA1LEDStatusWrite     : std_logic := '0';
+    signal QA1InputRead          : std_logic := '0';
+    signal QA1HomeRead           : std_logic := '0';
+    signal QA1Latch0Read         : std_logic := '0';
+    signal QA1Latch1Read         : std_logic := '0';
+    signal QA0_SigA              : std_logic := '0';
+    signal QA0_SigB              : std_logic := '0';
+    signal QA0_SigZ              : std_logic := '0';
+    signal QA0_Home              : std_logic := '0';
+    signal QA0_RegX_PosLmt       : std_logic := '0';
+    signal QA0_RegY_NegLmt       : std_logic := '0';
+    signal QA1_SigA              : std_logic := '0';
+    signal QA1_SigB              : std_logic := '0';
+    signal QA1_SigZ              : std_logic := '0';
+    signal QA1_Home              : std_logic := '0';
+    signal QA1_RegX_PosLmt       : std_logic := '0';
+    signal QA1_RegY_NegLmt       : std_logic := '0';
+    signal QA0AxisFault          : std_logic_vector(2 downto 0) := (others => '0');
+    signal QA1AxisFault          : std_logic_vector(2 downto 0) := (others => '0');
+		
+		 -- QuadXface signals
+    signal QuadDataOut         : std_logic_vector(31 downto 0):= (others => '0');
+    signal CountRead           : std_logic := '0';
+    signal LEDStatusRead       : std_logic := '0';
+    signal LEDStatusWrite      : std_logic := '0';
+    signal InputRead           : std_logic := '0';
+    signal HomeRead            : std_logic := '0';
+    signal Latch0Read          : std_logic := '0';
+    signal Latch1Read          : std_logic := '0';
+    signal Home                : std_logic := '0';
+    signal RegistrationX       : std_logic := '0';
+    signal RegistrationY       : std_logic := '0';
+    signal LineFault           : std_logic_vector(2 downto 0):= (others => '0');
+    signal A                   : std_logic := '0';
+    signal B                   : std_logic := '0';
+    signal Index               : std_logic:= '0';
 
 begin
-    -- DUT instantiation
-    DUT: Quad
-        port map (
-            H1_CLKWR => H1_CLKWR,
-            SysClk => SysClk,
-            SynchedTick => SynchedTick,
-            intDATA => intDATA,
-            Exp0QuadDataOut => Exp0QuadDataOut,
-            Exp1QuadDataOut => Exp1QuadDataOut,
-            Exp2QuadDataOut => Exp2QuadDataOut,
-            Exp3QuadDataOut => Exp3QuadDataOut,
-            QuadA0DataOut => QuadA0DataOut,
-            QuadA1DataOut => QuadA1DataOut,
-            Exp0QuadCountRead => Exp0QuadCountRead,
-            Exp0QuadLEDStatusRead => Exp0QuadLEDStatusRead,
-            Exp0QuadLEDStatusWrite => Exp0QuadLEDStatusWrite,
-            Exp0QuadInputRead => Exp0QuadInputRead,
-            Exp0QuadHomeRead => Exp0QuadHomeRead,
-            Exp0QuadLatch0Read => Exp0QuadLatch0Read,
-            Exp0QuadLatch1Read => Exp0QuadLatch1Read,
-            Exp1QuadCountRead => Exp1QuadCountRead,
-            Exp1QuadLEDStatusRead => Exp1QuadLEDStatusRead,
-            Exp1QuadLEDStatusWrite => Exp1QuadLEDStatusWrite,
-            Exp1QuadInputRead => Exp1QuadInputRead,
-            Exp1QuadHomeRead => Exp1QuadHomeRead,
-            Exp1QuadLatch0Read => Exp1QuadLatch0Read,
-            Exp1QuadLatch1Read => Exp1QuadLatch1Read,
-            Exp2QuadCountRead => Exp2QuadCountRead,
-            Exp2QuadLEDStatusRead => Exp2QuadLEDStatusRead,
-            Exp2QuadLEDStatusWrite => Exp2QuadLEDStatusWrite,
-            Exp2QuadInputRead => Exp2QuadInputRead,
-            Exp2QuadHomeRead => Exp2QuadHomeRead,
-            Exp2QuadLatch0Read => Exp2QuadLatch0Read,
-            Exp2QuadLatch1Read => Exp2QuadLatch1Read,
-            Exp3QuadCountRead => Exp3QuadCountRead,
-            Exp3QuadLEDStatusRead => Exp3QuadLEDStatusRead,
-            Exp3QuadLEDStatusWrite => Exp3QuadLEDStatusWrite,
-            Exp3QuadInputRead => Exp3QuadInputRead,
-            Exp3QuadHomeRead => Exp3QuadHomeRead,
-            Exp3QuadLatch0Read => Exp3QuadLatch0Read,
-            Exp3QuadLatch1Read => Exp3QuadLatch1Read,
-            Exp0Quad_A => Exp0Quad_A,
-            Exp0Quad_B => Exp0Quad_B,
-            Exp0Quad_Reg => Exp0Quad_Reg,
-            Exp0Quad_FaultA => Exp0Quad_FaultA,
-            Exp0Quad_FaultB => Exp0Quad_FaultB,
-            Exp1Quad_A => Exp1Quad_A,
-            Exp1Quad_B => Exp1Quad_B,
-            Exp1Quad_Reg => Exp1Quad_Reg,
-            Exp1Quad_FaultA => Exp1Quad_FaultA,
-            Exp1Quad_FaultB => Exp1Quad_FaultB,
-            Exp2Quad_A => Exp2Quad_A,
-            Exp2Quad_B => Exp2Quad_B,
-            Exp2Quad_Reg => Exp2Quad_Reg,
-            Exp2Quad_FaultA => Exp2Quad_FaultA,
-            Exp2Quad_FaultB => Exp2Quad_FaultB,
-            Exp3Quad_A => Exp3Quad_A,
-            Exp3Quad_B => Exp3Quad_B,
-            Exp3Quad_Reg => Exp3Quad_Reg,
-            Exp3Quad_FaultA => Exp3Quad_FaultA,
-            Exp3Quad_FaultB => Exp3Quad_FaultB,
-            QA0CountRead => QA0CountRead,
-            QA0LEDStatusRead => QA0LEDStatusRead,
-            QA0LEDStatusWrite => QA0LEDStatusWrite,
-            QA0InputRead => QA0InputRead,
-            QA0HomeRead => QA0HomeRead,
-            QA0Latch0Read => QA0Latch0Read,
-            QA0Latch1Read => QA0Latch1Read,
-            QA1CountRead => QA1CountRead,
-            QA1LEDStatusRead => QA1LEDStatusRead,
-            QA1LEDStatusWrite => QA1LEDStatusWrite,
-            QA1InputRead => QA1InputRead,
-            QA1HomeRead => QA1HomeRead,
-            QA1Latch0Read => QA1Latch0Read,
-            QA1Latch1Read => QA1Latch1Read,
-            QA0_SigA => QA0_SigA,
-            QA0_SigB => QA0_SigB,
-            QA0_SigZ => QA0_SigZ,
-            QA0_Home => QA0_Home,
-            QA0_RegX_PosLmt => QA0_RegX_PosLmt,
-            QA0_RegY_NegLmt => QA0_RegY_NegLmt,
-            QA1_SigA => QA1_SigA,
-            QA1_SigB => QA1_SigB,
-            QA1_SigZ => QA1_SigZ,
-            QA1_Home => QA1_Home,
-            QA1_RegX_PosLmt => QA1_RegX_PosLmt,
-            QA1_RegY_NegLmt => QA1_RegY_NegLmt,
-            QA0AxisFault => QA0AxisFault,
-            QA1AxisFault => QA1AxisFault
-        );
 
-	-- Clock process
-    process
+    -- Clock processes definitions
+
+    H1_CLKWR_process : process
     begin
         H1_CLKWR <= '0';
-        wait for 10 ns;
-        
-        loop
-            wait for 5 ns;
-            H1_CLKWR <= '1';
-            wait for 5 ns;
-            H1_CLKWR <= '0';
-        end loop;
+        wait for H1_CLK_period/2;
+        H1_CLKWR <= '1';
+        wait for H1_CLK_period/2;
     end process;
 
-    -- Stimulus process
-    process
+    SysClk_process : process
     begin
-        -- Add stimulus here
-        
-        -- Example stimulus for Exp0QuadInputRead
-        Exp0QuadInputRead <= '1';
-        wait for 10 ns;
-        Exp0QuadInputRead <= '0';
-        wait for 20 ns;
-        
-        -- Add more stimulus here
-        
-        wait;
+        SysClk <= '0';
+        wait for SysClk_period/2;
+        SysClk <= '1';
+        wait for SysClk_period/2;
     end process;
 
-end tb;
+    A_proc: process
+    begin
+        A <= '0';
+        wait for 30*SysClk_period;
+        A <= '1';
+        wait for 30*SysClk_period;
+    end process A_proc;
+
+    B_proc: process
+    begin
+        B <= '0';
+        wait for 45*SysClk_period;
+        while true loop
+            wait for 30*SysClk_period;
+            B <= not B;
+        end loop;
+    end process B_proc;
+
+    -- Instantiate QuadXface
+    uut_xf: QuadXface
+        port map (
+            H1_CLKWR        => H1_CLKWR,
+            SysClk          => SysClk,
+            SynchedTick     => SynchedTick,
+            intDATA         => intDATA,
+            QuadDataOut     => QuadDataOut,
+            CountRead       => CountRead,
+            LEDStatusRead   => LEDStatusRead,
+            LEDStatusWrite  => LEDStatusWrite,
+            InputRead       => InputRead,
+            HomeRead        => HomeRead,
+            Latch0Read      => Latch0Read,
+            Latch1Read      => Latch1Read,
+            Home            => Home,
+            RegistrationX   => RegistrationX,
+            RegistrationY   => RegistrationY,
+            LineFault       => LineFault,
+            A               => A,
+            B               => B,
+            Index           => Index
+        );
+
+    -- Generate statements for multiple Quad instantiations
+
+    constant NUM_QUADS : natural := 4;  -- Number of quad instantiations
+
+    generate
+		-- Generate Quad instances
+		gen_quad : for i in 0 to NUM_QUADS - 1 generate
+				-- Signals for each Quad instance
+				signal ExpQuadDataOut : std_logic_vector(31 downto 0);
+				signal QuadADataOut : std_logic_vector(31 downto 0);
+				signal ExpQuadCountRead : std_logic := '0';
+				signal ExpQuadLEDStatusRead : std_logic := '0';
+				signal ExpQuadLEDStatusWrite : std_logic := '0';
+				signal ExpQuadInputRead : std_logic := '0';
+				signal ExpQuadHomeRead : std_logic := '0';
+				signal ExpQuadLatch0Read : std_logic := '0';
+				signal ExpQuadLatch1Read : std_logic := '0';
+				signal ExpQuad_A : std_logic := '0';
+				signal ExpQuad_B : std_logic := '0';
+				signal ExpQuad_Reg : std_logic := '0';
+				signal ExpQuad_FaultA : std_logic := '0';
+				signal ExpQuad_FaultB : std_logic := '0';
+				signal QuadCountRead : std_logic := '0';
+				signal QuadLEDStatusRead : std_logic := '0';
+				signal QuadLEDStatusWrite : std_logic := '0';
+				signal QuadInputRead : std_logic := '0';
+				signal QuadHomeRead : std_logic := '0';
+				signal QuadLatch0Read : std_logic := '0';
+				signal QuadLatch1Read : std_logic := '0';
+				signal Quad_A : std_logic := '0';
+				signal Quad_B : std_logic := '0';
+				signal Quad_Reg : std_logic := '0';
+				signal Quad_FaultA : std_logic := '0';
+				signal Quad_FaultB : std_logic := '0';
+
+				begin
+				-- Instantiate Quad
+				uut_quad : Quad
+						port map (
+								H1_CLKWR                => H1_CLKWR,
+								SysClk                  => SysClk,
+								SynchedTick             => SynchedTick,
+								intDATA                 => intDATA,
+								ExpQuadDataOut          => ExpQuadDataOut,
+								QuadADataOut            => QuadADataOut,
+								ExpQuadCountRead        => ExpQuadCountRead,
+								ExpQuadLEDStatusRead    => ExpQuadLEDStatusRead,
+								ExpQuadLEDStatusWrite   => ExpQuadLEDStatusWrite,
+								ExpQuadInputRead        => ExpQuadInputRead,
+								ExpQuadHomeRead         => ExpQuadHomeRead,
+								ExpQuadLatch0Read       => ExpQuadLatch0Read,
+								ExpQuadLatch1Read       => ExpQuadLatch1Read,
+								ExpQuad_A               => ExpQuad_A,
+								ExpQuad_B               => ExpQuad_B,
+								ExpQuad_Reg             => ExpQuad_Reg,
+								ExpQuad_FaultA          => ExpQuad_FaultA,
+								ExpQuad_FaultB          => ExpQuad
