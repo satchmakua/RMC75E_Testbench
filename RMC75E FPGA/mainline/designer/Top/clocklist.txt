@@ -1,0 +1,6 @@
+"ClkCtrl_1/clk_1/Clock_Gen_0/GL0",16.667,"ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL0","ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL0"
+"ClkCtrl_1/clk_1/Clock_Gen_0/GL1",16.667,"ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL1","ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL1"
+"ClkCtrl_1/clk_1/Clock_Gen_0/GL2",33.334,"ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL2","ClkCtrl_1/clk_1/Clock_Gen_0/CCC_INST/INST_CCC_IP:GL2"
+"WriteClk60MHz",16.667,"H1_CLKWR","H1_CLKWR"
+"MainClockIn60MHz",16.667,"H1_CLK_IN","H1_CLK_IN"
+"Clk_30M",33.334,"ClkCtrl_1/clk_1/Clock_Gen_0/GL2_INST/U0_RGB1:YL","ClkCtrl_1/clk_1/Clock_Gen_0/GL2_INST/U0_RGB1:YL"

@@ -1,0 +1,131 @@
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys HDL compiler and linker, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+Modified Files: 1
+FID:  path (prevtimestamp, timestamp)
+38       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd (2023-02-28 15:48:18, 2023-02-28 16:26:40)
+
+*******************************************************************
+Modules that may have changed as a result of file changes: 1
+MID:  lib.cell.view
+48       work.serialmemoryinterface.serialmemoryinterface_arch may have changed because the following files changed:
+                        C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd (2023-02-28 15:48:18, 2023-02-28 16:26:40) <-- (architecture and entity definition)
+
+*******************************************************************
+Unmodified files: 41
+FID:  path (timestamp)
+45       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd (2022-06-23 05:48:46)
+46       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\arith.vhd (2022-06-23 05:48:48)
+47       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\location.map (2022-06-23 05:48:48)
+48       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\numeric.vhd (2022-06-23 05:48:48)
+49       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\signed.vhd (2022-06-23 05:48:48)
+50       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\std.vhd (2022-06-23 05:48:48)
+51       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\std1164.vhd (2022-06-23 05:48:48)
+52       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\std_textio.vhd (2022-06-23 05:48:48)
+53       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\unsigned.vhd (2022-06-23 05:48:48)
+54       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd\hyperents.vhd (2022-06-23 05:48:48)
+55       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd\snps_haps_pkg.vhd (2022-06-23 05:48:48)
+56       C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd\umr_capim.vhd (2022-06-23 05:48:48)
+12       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd (2022-09-26 15:42:44)
+13       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd (2022-09-26 15:42:44)
+14       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd (2022-10-28 11:12:23)
+15       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd (2022-10-11 10:18:10)
+16       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd (2022-11-01 13:25:46)
+17       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd (2022-11-01 13:27:14)
+18       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd (2022-10-28 11:12:16)
+19       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd (2022-06-01 17:23:58)
+20       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd (2022-06-02 12:15:59)
+21       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd (2022-11-15 08:37:27)
+22       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd (2022-06-10 10:37:41)
+23       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd (2022-06-10 10:38:04)
+24       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd (2022-11-14 16:38:17)
+25       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd (2022-10-28 11:34:51)
+26       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd (2023-02-07 16:07:49)
+27       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd (2022-10-14 15:55:43)
+28       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd (2022-10-28 11:12:20)
+29       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd (2022-06-10 10:38:09)
+30       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd (2022-08-31 12:08:58)
+31       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd (2022-06-10 10:37:56)
+32       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd (2022-10-27 15:15:27)
+33       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd (2023-02-28 14:44:39)
+34       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd (2022-06-02 07:27:12)
+35       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd (2022-06-02 13:14:27)
+36       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd (2022-06-02 10:50:13)
+37       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd (2022-06-06 17:00:03)
+42       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd (2023-02-07 16:03:31)
+43       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd (2022-11-15 08:35:27)
+44       C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd (2023-02-28 14:47:24)
+
+*******************************************************************
+Unchanged modules: 58
+MID:  lib.cell.view
+0        work.analog.analog_arch
+1        work.analog.vhdl
+2        work.clock_gen.rtl
+3        work.clock_gen.vhdl
+4        work.clock_gen_clock_gen_0_fccc.def_arch
+5        work.clock_gen_clock_gen_0_fccc.vhdl
+6        work.clockcontrol.clockcontrol_arch
+7        work.clockcontrol.vhdl
+8        work.controlio.controlio_arch
+9        work.controlio.vhdl
+10       work.controloutput.controloutput_arch
+11       work.controloutput.vhdl
+12       work.cpuconfig.cpuconfig_arch
+13       work.cpuconfig.vhdl
+14       work.cpuled.cpuled_arch
+15       work.cpuled.vhdl
+16       work.databuffer.databuffer_arch
+17       work.databuffer.vhdl
+18       work.decode.decode_arch
+19       work.decode.vhdl
+20       work.dio8.dio8_arch
+21       work.dio8.vhdl
+22       work.discovercontrolid.discovercontrolid_arch
+23       work.discovercontrolid.vhdl
+24       work.discoverexpansionid.discoverexpansionid_arch
+25       work.discoverexpansionid.vhdl
+26       work.discoverid.discoverid_arch
+27       work.discoverid.vhdl
+28       work.expmoduleled.expmoduleled_arch
+29       work.expmoduleled.vhdl
+30       work.expsigroute.expsigroute_arch
+31       work.expsigroute.vhdl
+32       work.latencycounter.lt_arch
+33       work.latencycounter.vhdl
+34       work.mdtssiroute.mdtssiroute_arch
+35       work.mdtssiroute.vhdl
+36       work.mdttopsimp.mdttopsimp_arch
+37       work.mdttopsimp.vhdl
+38       work.quad.quad_arch
+39       work.quad.vhdl
+40       work.quadxface.quadxface_arch
+41       work.quadxface.vhdl
+42       work.ram128x16.ram128x16_arch
+43       work.ram128x16.vhdl
+44       work.rtdexpidled.rtdexpidled_arch
+45       work.rtdexpidled.vhdl
+46       work.serial2parallel.serial2parallel_arch
+47       work.serial2parallel.vhdl
+54       work.ssitop.ssitop_arch
+55       work.ssitop.vhdl
+58       work.statemachine.statemachine_arch
+59       work.statemachine.vhdl
+60       work.ticksync.ticksync_arch
+61       work.ticksync.vhdl
+62       work.top.top_arch
+63       work.top.vhdl
+64       work.wdt.vhdl
+65       work.wdt.wdt_arch

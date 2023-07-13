@@ -1,0 +1,103 @@
+Software Version: 11.7.3.8
+creating folder: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\FlashPro\RMC75E_3v0
+Driver : 3.0.0 build 1
+programmer '73721' : FlashPro4
+Created new project
+'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\FlashPro\RMC75E_3v0\RMC75E_3v0.pro'
+PDB file
+'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\Top_fp\projectData\Top.pdb' has
+been loaded successfully.
+DESIGN : Top;  CHECKSUM : 983A;  PDB_VERSION : 1.9
+programmer '73721' : Scan Chain...
+programmer '73721' : Scan Chain PASSED.
+programmer '73721' : Executing action PROGRAM
+programmer '73721' : Family: Igloo2
+programmer '73721' : Product:      M2GL005
+programmer '73721' : EXPORT ISC_ENABLE_RESULT[32] = 007a6644
+programmer '73721' : EXPORT CRCERR: [1] = 0
+programmer '73721' : EXPORT EDCERR: [1] = 0
+programmer '73721' : TEMPGRADE: ROOM
+programmer '73721' : EXPORT VPPRANGE: [3] = 2
+programmer '73721' : VPPRANGE: HIGH
+programmer '73721' : EXPORT TEMP: [8] = 66
+programmer '73721' : EXPORT VPP: [8] = 7a
+programmer '73721' : Programming FPGA Array...
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT DSN[128] = 1f9a2c64c46434473775705cf372f53f
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT CERTIFICATE_OF_COMPLIANCE[1824] =
+df757d41d2bac086633a7eee41f2e1c65ecc48a2cbd0135b8daf0ff8d26ebec20000000000000000000000000000000\
+000000000000000000000000000000000a108187905caf447b9a05e42101b6192d4ba85e34faa056e88b252bc13df8d\
+b100021f9a2c64c46434473775705cf372f53fcabc223d9703e92fdfde884c7c3a5e693797ffb50076b4e0d08f90c76\
+a060c8400000000000000000000000000000000000000000000000000000000000000005d32483689ecd157863f4273\
+2bb70faae28da10567ea64bebe8840d316d4d61300011f9a2c64c46434473775705cf372f53f
+programmer '73721' : Finished: Wed Aug 10 11:00:40 2022 (Elapsed time 00:00:18)
+programmer '73721' : Executing action PROGRAM PASSED.
+
+                        o - o - o - o - o - o
+
+programmer '73721' : Scan Chain...
+programmer '73721' : Scan Chain PASSED.
+programmer '73721' : Executing action PROGRAM
+programmer '73721' : Family: Igloo2
+programmer '73721' : Product:      M2GL005
+programmer '73721' : EXPORT ISC_ENABLE_RESULT[32] = 00766544
+programmer '73721' : EXPORT CRCERR: [1] = 0
+programmer '73721' : EXPORT EDCERR: [1] = 0
+programmer '73721' : TEMPGRADE: ROOM
+programmer '73721' : EXPORT VPPRANGE: [3] = 2
+programmer '73721' : VPPRANGE: HIGH
+programmer '73721' : EXPORT TEMP: [8] = 65
+programmer '73721' : EXPORT VPP: [8] = 76
+programmer '73721' : Programming FPGA Array...
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT DSN[128] = 36efa9b060fe01d5938407203d21941c
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT CERTIFICATE_OF_COMPLIANCE[1824] =
+b0dd2c347481beeb6e6c0442fc3bfe237ca9375baedf0539ca322de15b9db7210000000000000000000000000000000\
+000000000000000000000000000000000a108187905caf447b9a05e42101b6192d4ba85e34faa056e88b252bc13df8d\
+b1000236efa9b060fe01d5938407203d21941cd1f0368e3a8e4622ea9a50d78e42c4e0de3e94ecfccd4703ca175b29a\
+fcabdd000000000000000000000000000000000000000000000000000000000000000005d32483689ecd157863f4273\
+2bb70faae28da10567ea64bebe8840d316d4d613000136efa9b060fe01d5938407203d21941c
+programmer '73721' : Finished: Wed Aug 10 11:05:31 2022 (Elapsed time 00:00:17)
+programmer '73721' : Executing action PROGRAM PASSED.
+
+                        o - o - o - o - o - o
+
+programmer '73721' : Scan Chain...
+programmer '73721' : Scan Chain PASSED.
+programmer '73721' : Executing action PROGRAM
+programmer '73721' : Family: Igloo2
+programmer '73721' : Product:      M2GL005
+programmer '73721' : EXPORT ISC_ENABLE_RESULT[32] = 00796744
+programmer '73721' : EXPORT CRCERR: [1] = 0
+programmer '73721' : EXPORT EDCERR: [1] = 0
+programmer '73721' : TEMPGRADE: ROOM
+programmer '73721' : EXPORT VPPRANGE: [3] = 2
+programmer '73721' : VPPRANGE: HIGH
+programmer '73721' : EXPORT TEMP: [8] = 67
+programmer '73721' : EXPORT VPP: [8] = 79
+programmer '73721' : Programming FPGA Array...
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT DSN[128] = 8ff2adb61fca0b148f9f266a07c806a5
+programmer '73721' :
+===================================================================================
+programmer '73721' : EXPORT CERTIFICATE_OF_COMPLIANCE[1824] =
+ab288b454090fc56f430cb90bb2813c811eb393ad03acd27a272d89ba2a1315d0000000000000000000000000000000\
+000000000000000000000000000000000a108187905caf447b9a05e42101b6192d4ba85e34faa056e88b252bc13df8d\
+b100028ff2adb61fca0b148f9f266a07c806a54dcdb3145f22688ac1131965790097320f215db9edd11436e978e2b11\
+0597a3b00000000000000000000000000000000000000000000000000000000000000005d32483689ecd157863f4273\
+2bb70faae28da10567ea64bebe8840d316d4d61300018ff2adb61fca0b148f9f266a07c806a5
+programmer '73721' : Finished: Wed Aug 10 11:08:09 2022 (Elapsed time 00:00:18)
+programmer '73721' : Executing action PROGRAM PASSED.
+
+                        o - o - o - o - o - o
+
+creating folder: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\FlashPro\RMC75E_3v0\projectData
+Project saved.
+Project closed.

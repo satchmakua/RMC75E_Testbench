@@ -1,0 +1,499 @@
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys HDL Compiler, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys VHDL Compiler, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+@N:"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":55:7:55:9|Top entity is set to Top.
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd changed - recompiling
+File C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd changed - recompiling
+File C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\signed.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd changed - recompiling
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd'.
+VHDL syntax check successful!
+@N: CD231 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":55:7:55:9|Synthesizing work.top.top_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":44:7:44:18|Synthesizing work.expmoduleled.expmoduleled_arch.
+Post processing for work.expmoduleled.expmoduleled_arch
+Running optimization stage 1 on ExpModuleLED .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":292:2:292:3|Feedback mux created for signal Count[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":152:2:152:3|Feedback mux created for signal intExpLEDSelect[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on ExpModuleLED (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd":31:7:31:20|Synthesizing work.latencycounter.lt_arch.
+Post processing for work.latencycounter.lt_arch
+Running optimization stage 1 on LatencyCounter .......
+Finished optimization stage 1 on LatencyCounter (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd":31:7:31:10|Synthesizing work.quad.quad_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd":31:7:31:15|Synthesizing work.quadxface.quadxface_arch.
+Post processing for work.quadxface.quadxface_arch
+Running optimization stage 1 on QuadXface .......
+Finished optimization stage 1 on QuadXface (CPU Time 0h:00m:00s, Memory Used current: 103MB peak: 104MB)
+Post processing for work.quad.quad_arch
+Running optimization stage 1 on Quad .......
+Finished optimization stage 1 on Quad (CPU Time 0h:00m:00s, Memory Used current: 103MB peak: 104MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":37:7:37:10|Synthesizing work.dio8.dio8_arch.
+@N: CD231 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":79:17:79:18|Using onehot encoding for type state_type. For example, enumeration idlestate is mapped to "10000000000".
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":372:5:372:18|OTHERS clause is not synthesized.
+Post processing for work.dio8.dio8_arch
+Running optimization stage 1 on DIO8 .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal InputShiftRegister[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal Counter[4:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal OutputShiftRegister[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal intExpD8_Clk. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal IntWrite. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on DIO8 (CPU Time 0h:00m:00s, Memory Used current: 104MB peak: 105MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":36:7:36:27|Synthesizing work.serialmemoryinterface.serialmemoryinterface_arch.
+@N: CD231 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":85:17:85:18|Using onehot encoding for type state_type. For example, enumeration idlestate is mapped to "1000000000000".
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":430:13:430:26|OTHERS clause is not synthesized.
+Post processing for work.serialmemoryinterface.serialmemoryinterface_arch
+Running optimization stage 1 on SerialMemoryInterface .......
+Finished optimization stage 1 on SerialMemoryInterface (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 105MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd":30:7:30:12|Synthesizing work.analog.analog_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd":30:7:30:16|Synthesizing work.databuffer.databuffer_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd":31:7:31:15|Synthesizing work.ram128x16.ram128x16_arch.
+Post processing for work.ram128x16.ram128x16_arch
+Running optimization stage 1 on RAM128x16 .......
+@N: CL134 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd":45:8:45:10|Found RAM ram, depth=128, width=16
+Finished optimization stage 1 on RAM128x16 (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 105MB)
+Post processing for work.databuffer.databuffer_arch
+Running optimization stage 1 on DataBuffer .......
+Finished optimization stage 1 on DataBuffer (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 106MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd":30:7:30:21|Synthesizing work.serial2parallel.serial2parallel_arch.
+Post processing for work.serial2parallel.serial2parallel_arch
+Running optimization stage 1 on Serial2Parallel .......
+Finished optimization stage 1 on Serial2Parallel (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 106MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":39:7:39:18|Synthesizing work.statemachine.statemachine_arch.
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":201:5:201:18|OTHERS clause is not synthesized.
+Post processing for work.statemachine.statemachine_arch
+Running optimization stage 1 on StateMachine .......
+Finished optimization stage 1 on StateMachine (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Post processing for work.analog.analog_arch
+Running optimization stage 1 on Analog .......
+Finished optimization stage 1 on Analog (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd":30:7:30:17|Synthesizing work.expsigroute.expsigroute_arch.
+Post processing for work.expsigroute.expsigroute_arch
+Running optimization stage 1 on ExpSigRoute .......
+Finished optimization stage 1 on ExpSigRoute (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":39:7:39:9|Synthesizing work.wdt.wdt_arch.
+Post processing for work.wdt.wdt_arch
+Running optimization stage 1 on WDT .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal DriveHaltStatus. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal LoadWDTCount1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTCounterLoad. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Feedback mux created for signal PUReg[19:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WDTDelay[15:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal AccessKeyReg1[3:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGA_RstReq. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGAResetStatus. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal PreClearKey. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGAProgDOut[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WriteEndLatch. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WriteEnd. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal ClearKey. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTKick1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTKick. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal LoadWDTCount. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Feedback mux created for signal Res_Sync. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL111 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|All reachable assignments to ExternalResetStatus are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@N: CL189 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Register bit Res_Sync is always 0.
+Finished optimization stage 1 on WDT (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":31:7:31:15|Synthesizing work.cpuconfig.cpuconfig_arch.
+Post processing for work.cpuconfig.cpuconfig_arch
+Running optimization stage 1 on CPUConfig .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":68:2:68:3|Feedback mux created for signal intLoopTime[2:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on CPUConfig (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd":37:7:37:12|Synthesizing work.cpuled.cpuled_arch.
+Post processing for work.cpuled.cpuled_arch
+Running optimization stage 1 on CPULED .......
+Finished optimization stage 1 on CPULED (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd":37:7:37:17|Synthesizing work.rtdexpidled.rtdexpidled_arch.
+Post processing for work.rtdexpidled.rtdexpidled_arch
+Running optimization stage 1 on RtdExpIDLED .......
+Finished optimization stage 1 on RtdExpIDLED (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd":52:7:52:16|Synthesizing work.discoverid.discoverid_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd":37:7:37:25|Synthesizing work.discoverexpansionid.discoverexpansionid_arch.
+Post processing for work.discoverexpansionid.discoverexpansionid_arch
+Running optimization stage 1 on DiscoverExpansionID .......
+Finished optimization stage 1 on DiscoverExpansionID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":38:7:38:23|Synthesizing work.discovercontrolid.discovercontrolid_arch.
+Post processing for work.discovercontrolid.discovercontrolid_arch
+Running optimization stage 1 on DiscoverControlID .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal Count[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal ShiftComplete. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal OutputClock. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on DiscoverControlID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+Post processing for work.discoverid.discoverid_arch
+Running optimization stage 1 on DiscoverID .......
+Finished optimization stage 1 on DiscoverID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":36:7:36:15|Synthesizing work.controlio.controlio_arch.
+Post processing for work.controlio.controlio_arch
+Running optimization stage 1 on ControlIO .......
+@W: CL169 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":167:2:167:3|Pruning unused register PowerUpLatch_2. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on ControlIO (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":34:7:34:12|Synthesizing work.ssitop.ssitop_arch.
+@W: CD638 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":90:8:90:17|Signal muxdataout is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.ssitop.ssitop_arch
+Running optimization stage 1 on SSITop .......
+Finished optimization stage 1 on SSITop (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":45:7:45:16|Synthesizing work.mdttopsimp.mdttopsimp_arch.
+Post processing for work.mdttopsimp.mdttopsimp_arch
+Running optimization stage 1 on MDTTopSimp .......
+Finished optimization stage 1 on MDTTopSimp (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd":31:7:31:17|Synthesizing work.mdtssiroute.mdtssiroute_arch.
+Post processing for work.mdtssiroute.mdtssiroute_arch
+Running optimization stage 1 on MDTSSIRoute .......
+Finished optimization stage 1 on MDTSSIRoute (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd":38:7:38:19|Synthesizing work.controloutput.controloutput_arch.
+Post processing for work.controloutput.controloutput_arch
+Running optimization stage 1 on ControlOutput .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd":86:2:86:3|Feedback mux created for signal ControlOutputWriteLatched0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on ControlOutput (CPU Time 0h:00m:00s, Memory Used current: 109MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd":34:7:34:12|Synthesizing work.decode.decode_arch.
+Post processing for work.decode.decode_arch
+Running optimization stage 1 on Decode .......
+Finished optimization stage 1 on Decode (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":34:7:34:14|Synthesizing work.ticksync.ticksync_arch.
+Post processing for work.ticksync.ticksync_arch
+Running optimization stage 1 on TickSync .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":73:2:73:3|Feedback mux created for signal LatchedTickSync60. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":57:2:57:3|Feedback mux created for signal LatchedTickSync. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on TickSync (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":40:7:40:18|Synthesizing work.clockcontrol.clockcontrol_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd":145:7:145:15|Synthesizing work.clock_gen.rtl.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd":8:7:8:32|Synthesizing work.clock_gen_clock_gen_0_fccc.def_arch.
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":403:10:403:14|Synthesizing smartfusion2.inbuf.syn_black_box.
+Post processing for smartfusion2.inbuf.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":798:10:798:12|Synthesizing smartfusion2.ccc.syn_black_box.
+Post processing for smartfusion2.ccc.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":562:10:562:15|Synthesizing smartfusion2.clkint.syn_black_box.
+Post processing for smartfusion2.clkint.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":576:10:576:12|Synthesizing smartfusion2.gnd.syn_black_box.
+Post processing for smartfusion2.gnd.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":582:10:582:12|Synthesizing smartfusion2.vcc.syn_black_box.
+Post processing for smartfusion2.vcc.syn_black_box
+Post processing for work.clock_gen_clock_gen_0_fccc.def_arch
+Running optimization stage 1 on Clock_Gen_Clock_Gen_0_FCCC .......
+Finished optimization stage 1 on Clock_Gen_Clock_Gen_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+Post processing for work.clock_gen.rtl
+Running optimization stage 1 on Clock_Gen .......
+Finished optimization stage 1 on Clock_Gen (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+Post processing for work.clockcontrol.clockcontrol_arch
+Running optimization stage 1 on ClockControl .......
+Finished optimization stage 1 on ClockControl (CPU Time 0h:00m:00s, Memory Used current: 111MB peak: 111MB)
+Post processing for work.top.top_arch
+Running optimization stage 1 on Top .......
+Finished optimization stage 1 on Top (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Clock_Gen_Clock_Gen_0_FCCC .......
+Finished optimization stage 2 on Clock_Gen_Clock_Gen_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Clock_Gen .......
+Finished optimization stage 2 on Clock_Gen (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on ClockControl .......
+@N: CL159 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":43:2:43:9|Input H1_CLKWR is unused.
+Finished optimization stage 2 on ClockControl (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on TickSync .......
+Finished optimization stage 2 on TickSync (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Decode .......
+Finished optimization stage 2 on Decode (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on ControlOutput .......
+Finished optimization stage 2 on ControlOutput (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on MDTSSIRoute .......
+Finished optimization stage 2 on MDTSSIRoute (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on MDTTopSimp .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":196:2:196:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   110
+   111
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":52:2:52:8|Input port bits 31 to 7 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on MDTTopSimp (CPU Time 0h:00m:00s, Memory Used current: 112MB peak: 116MB)
+Running optimization stage 2 on SSITop .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":41:2:41:8|Input port bits 31 to 22 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on SSITop (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on ControlIO .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":184:2:184:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   011
+   110
+   111
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":43:2:43:8|Input port bits 26 to 1 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on ControlIO (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverControlID .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":77:2:77:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+Finished optimization stage 2 on DiscoverControlID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverExpansionID .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd":79:2:79:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+Finished optimization stage 2 on DiscoverExpansionID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverID .......
+Finished optimization stage 2 on DiscoverID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on RtdExpIDLED .......
+Finished optimization stage 2 on RtdExpIDLED (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on CPULED .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd":41:2:41:8|Input port bits 31 to 2 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on CPULED (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on CPUConfig .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bits 31 to 7 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL247 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bit 3 of intdata(31 downto 0) is unused 
+@W: CL247 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bit 1 of intdata(31 downto 0) is unused 
+@N: CL159 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":45:2:45:11|Input ENET_Build is unused.
+Finished optimization stage 2 on CPUConfig (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on WDT .......
+Finished optimization stage 2 on WDT (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on ExpSigRoute .......
+Finished optimization stage 2 on ExpSigRoute (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on StateMachine .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":134:2:134:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+Finished optimization stage 2 on StateMachine (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on Serial2Parallel .......
+Finished optimization stage 2 on Serial2Parallel (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on RAM128x16 .......
+Finished optimization stage 2 on RAM128x16 (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DataBuffer .......
+Finished optimization stage 2 on DataBuffer (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on Analog .......
+Finished optimization stage 2 on Analog (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on SerialMemoryInterface .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":265:4:265:5|Trying to extract state machine for register StateMachine.
+Extracted state machine for register StateMachine
+State machine has 13 reachable states with original encodings of:
+   0000000000001
+   0000000000010
+   0000000000100
+   0000000001000
+   0000000010000
+   0000000100000
+   0000001000000
+   0000010000000
+   0000100000000
+   0001000000000
+   0010000000000
+   0100000000000
+   1000000000000
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":42:2:42:8|Input port bits 31 to 25 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":42:2:42:8|Input port bits 13 to 8 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on SerialMemoryInterface (CPU Time 0h:00m:00s, Memory Used current: 115MB peak: 116MB)
+Running optimization stage 2 on DIO8 .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 11 reachable states with original encodings of:
+   00000000001
+   00000000010
+   00000000100
+   00000001000
+   00000010000
+   00000100000
+   00001000000
+   00010000000
+   00100000000
+   01000000000
+   10000000000
+Finished optimization stage 2 on DIO8 (CPU Time 0h:00m:00s, Memory Used current: 115MB peak: 121MB)
+Running optimization stage 2 on QuadXface .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd":36:2:36:8|Input port bits 31 to 16 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on QuadXface (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on Quad .......
+Finished optimization stage 2 on Quad (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on LatencyCounter .......
+Finished optimization stage 2 on LatencyCounter (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on ExpModuleLED .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":152:2:152:3|Trying to extract state machine for register intExpLEDSelect.
+Extracted state machine for register intExpLEDSelect
+State machine has 16 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1000
+   1001
+   1010
+   1011
+   1100
+   1101
+   1110
+   1111
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":223:2:223:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":51:2:51:8|Input port bits 27 to 0 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on ExpModuleLED (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on Top .......
+Finished optimization stage 2 on Top (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\layer0.rt.csv
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 117MB peak: 121MB)
+
+Process took 0h:00m:20s realtime, 0h:00m:20s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\layer0.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 96MB peak: 96MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 24MB peak: 25MB)
+
+Process took 0h:00m:21s realtime, 0h:00m:20s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]

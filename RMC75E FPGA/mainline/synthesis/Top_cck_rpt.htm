@@ -1,0 +1,269 @@
+<html><body><samp><pre>
+<!@TC:1677630434>
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DGS-P3660
+
+Implementation : synthesis
+
+# Written on Tue Feb 28 16:27:14 2023
+
+##### DESIGN INFO #######################################################
+
+Top View:                "Top"
+Constraint File(s):      "C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\synthesis.fdc"
+
+
+
+
+##### SUMMARY ############################################################
+
+Found 0 issues in 0 out of 0 constraints
+
+
+##### DETAILS ############################################################
+
+
+
+<a name=clockRelationships64></a>Clock Relationships</a>
+*******************
+
+Starting                                              Ending                                                |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     |     10.000           |     No paths         |     No paths         |     No paths                         
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     |     10.000           |     10.000           |     5.000            |     5.000                            
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     Top|H1_CLKWR                                          |     Diff grp         |     No paths         |     No paths         |     No paths                         
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     |     Diff grp         |     No paths         |     Diff grp         |     No paths                         
+Top|H1_CLKWR                                          Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+Top|H1_CLKWR                                          Top|H1_CLKWR                                          |     10.000           |     No paths         |     No paths         |     No paths                         
+Top|H1_CLKWR                                          Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     No paths                         
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     Top|H1_CLKWR                                          |     Diff grp         |     No paths         |     No paths         |     No paths                         
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     |     10.000           |     10.000           |     No paths         |     5.000                            
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     |     Diff grp         |     No paths         |     No paths         |     Diff grp                         
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     |     10.000           |     10.000           |     No paths         |     No paths                         
+=======================================================================================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+<a name=UnconstrainedStartEndPointsCCK65></a>Unconstrained Start/End Points</a>
+******************************
+
+p:CPUStatLEDDrive[0]
+p:CPUStatLEDDrive[1]
+p:CS_L
+p:DATA[0] (bidir end point)
+p:DATA[0] (bidir start point)
+p:DATA[1] (bidir end point)
+p:DATA[1] (bidir start point)
+p:DATA[2] (bidir end point)
+p:DATA[2] (bidir start point)
+p:DATA[3] (bidir end point)
+p:DATA[3] (bidir start point)
+p:DATA[4] (bidir end point)
+p:DATA[4] (bidir start point)
+p:DATA[5] (bidir end point)
+p:DATA[5] (bidir start point)
+p:DATA[6] (bidir end point)
+p:DATA[6] (bidir start point)
+p:DATA[7] (bidir end point)
+p:DATA[7] (bidir start point)
+p:DATA[8] (bidir end point)
+p:DATA[8] (bidir start point)
+p:DATA[9] (bidir end point)
+p:DATA[9] (bidir start point)
+p:DATA[10] (bidir end point)
+p:DATA[10] (bidir start point)
+p:DATA[11] (bidir end point)
+p:DATA[11] (bidir start point)
+p:DATA[12] (bidir end point)
+p:DATA[12] (bidir start point)
+p:DATA[13] (bidir end point)
+p:DATA[13] (bidir start point)
+p:DATA[14] (bidir end point)
+p:DATA[14] (bidir start point)
+p:DATA[15] (bidir end point)
+p:DATA[15] (bidir start point)
+p:DATA[16] (bidir end point)
+p:DATA[16] (bidir start point)
+p:DATA[17] (bidir end point)
+p:DATA[17] (bidir start point)
+p:DATA[18] (bidir end point)
+p:DATA[18] (bidir start point)
+p:DATA[19] (bidir end point)
+p:DATA[19] (bidir start point)
+p:DATA[20] (bidir end point)
+p:DATA[20] (bidir start point)
+p:DATA[21] (bidir end point)
+p:DATA[21] (bidir start point)
+p:DATA[22] (bidir end point)
+p:DATA[22] (bidir start point)
+p:DATA[23] (bidir end point)
+p:DATA[23] (bidir start point)
+p:DATA[24] (bidir end point)
+p:DATA[24] (bidir start point)
+p:DATA[25] (bidir end point)
+p:DATA[25] (bidir start point)
+p:DATA[26] (bidir end point)
+p:DATA[26] (bidir start point)
+p:DATA[27] (bidir end point)
+p:DATA[27] (bidir start point)
+p:DATA[28] (bidir end point)
+p:DATA[28] (bidir start point)
+p:DATA[29] (bidir end point)
+p:DATA[29] (bidir start point)
+p:DATA[30] (bidir end point)
+p:DATA[30] (bidir start point)
+p:DATA[31] (bidir end point)
+p:DATA[31] (bidir start point)
+p:Debug0
+p:Debug1
+p:Debug2
+p:Exp0Data[0] (bidir end point)
+p:Exp0Data[0] (bidir start point)
+p:Exp0Data[1] (bidir end point)
+p:Exp0Data[1] (bidir start point)
+p:Exp0Data[2] (bidir end point)
+p:Exp0Data[2] (bidir start point)
+p:Exp0Data[3] (bidir end point)
+p:Exp0Data[3] (bidir start point)
+p:Exp0Data[4] (bidir end point)
+p:Exp0Data[4] (bidir start point)
+p:Exp0Data[5]
+p:Exp1Data[0] (bidir end point)
+p:Exp1Data[0] (bidir start point)
+p:Exp1Data[1] (bidir end point)
+p:Exp1Data[1] (bidir start point)
+p:Exp1Data[2] (bidir end point)
+p:Exp1Data[2] (bidir start point)
+p:Exp1Data[3] (bidir end point)
+p:Exp1Data[3] (bidir start point)
+p:Exp1Data[4] (bidir end point)
+p:Exp1Data[4] (bidir start point)
+p:Exp1Data[5]
+p:Exp2Data[0] (bidir end point)
+p:Exp2Data[0] (bidir start point)
+p:Exp2Data[1] (bidir end point)
+p:Exp2Data[1] (bidir start point)
+p:Exp2Data[2] (bidir end point)
+p:Exp2Data[2] (bidir start point)
+p:Exp2Data[3] (bidir end point)
+p:Exp2Data[3] (bidir start point)
+p:Exp2Data[4] (bidir end point)
+p:Exp2Data[4] (bidir start point)
+p:Exp2Data[5]
+p:Exp3Data[0] (bidir end point)
+p:Exp3Data[0] (bidir start point)
+p:Exp3Data[1] (bidir end point)
+p:Exp3Data[1] (bidir start point)
+p:Exp3Data[2] (bidir end point)
+p:Exp3Data[2] (bidir start point)
+p:Exp3Data[3] (bidir end point)
+p:Exp3Data[3] (bidir start point)
+p:Exp3Data[4] (bidir end point)
+p:Exp3Data[4] (bidir start point)
+p:Exp3Data[5]
+p:Exp_ID_DATA
+p:Exp_Mxd_ID_CLK
+p:Exp_Mxd_ID_LATCH
+p:Exp_Mxd_ID_LOAD
+p:ExtADDR[2]
+p:ExtADDR[3]
+p:ExtADDR[4]
+p:ExtADDR[5]
+p:ExtADDR[6]
+p:ExtADDR[7]
+p:ExtADDR[8]
+p:ExtADDR[9]
+p:ExtADDR[10]
+p:ExtADDR[11]
+p:FPGA_Test
+p:H1_CLK_IN
+p:HALT_DRIVE_L
+p:LOOPTICK
+p:M_AX0_0
+p:M_AX0_RET_DATA
+p:M_AX1_INT_CLK
+p:M_AX1_RET_DATA
+p:M_Card_ID_CLK
+p:M_Card_ID_DATA
+p:M_Card_ID_LATCH
+p:M_Card_ID_LOAD
+p:M_DRV_EN_L
+p:M_ENABLE[0]
+p:M_ENABLE[1]
+p:M_FAULT[0]
+p:M_FAULT[1]
+p:M_IO_CLK
+p:M_IO_DATAIn
+p:M_IO_DATAOut
+p:M_IO_LATCH
+p:M_IO_LOAD
+p:M_IO_OE
+p:M_MUXED_ADC_CS_QA0_SIGA (bidir end point)
+p:M_MUXED_ADC_CS_QA0_SIGA (bidir start point)
+p:M_MUXED_ADC_DATA0_QA0_SIGB
+p:M_MUXED_ADC_DATA1_QA1_SIGA
+p:M_OUT0_CLK
+p:M_OUT0_CONTROL
+p:M_OUT0_DATA
+p:M_OUT1_CLK
+p:M_OUT1_CONTROL
+p:M_OUT1_DATA
+p:M_SPROM_CLK
+p:M_SPROM_DATA (bidir end point)
+p:M_SPROM_DATA (bidir start point)
+p:QA0_Home
+p:QA0_RegX_PosLmt
+p:QA0_RegY_NegLmt
+p:QA0_SigZ
+p:QA1_Home
+p:QA1_RegX_PosLmt
+p:QA1_RegY_NegLmt
+p:QA1_SigB
+p:QA1_SigZ
+p:RD_L
+p:RESET
+p:TestClock
+p:WD_RST_L
+p:WD_TICKLE
+p:WR_L
+p:X_Reserved0
+p:X_Reserved1
+
+
+<a name=InapplicableconstraintsCCK66></a>Inapplicable constraints</a>
+************************
+
+(none)
+
+
+<a name=ApplicableConstraintsWithIssuesCCK67></a>Applicable constraints with issues</a>
+**********************************
+
+(none)
+
+
+<a name=ConstraintsWithMatchingWildcardExpressionsCCK68></a>Constraints with matching wildcard expressions</a>
+**********************************************
+
+(none)
+
+
+<a name=LibraryReportCCK69></a>Library Report</a>
+**************
+
+
+# End of Constraint Checker Report
+
+</pre></samp></body></html>

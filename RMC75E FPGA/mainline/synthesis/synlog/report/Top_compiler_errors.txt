@@ -1,0 +1,3 @@
+@E: CD415 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":447:4:447:10|Expecting keyword if
+@E: Parse errors encountered - exiting
+

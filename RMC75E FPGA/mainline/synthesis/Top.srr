@@ -1,0 +1,1688 @@
+#Build: Synplify Pro (R) S-2021.09M-SP1, Build 150R, Jun 14 2022
+#install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+#OS: Windows 10 or later
+#Hostname: DGS-P3660
+
+# Tue Feb 28 16:26:48 2023
+
+#Implementation: synthesis
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys HDL Compiler, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys VHDL Compiler, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+@N:"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":55:7:55:9|Top entity is set to Top.
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd changed - recompiling
+File C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd changed - recompiling
+File C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\signed.vhd changed - recompiling
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd changed - recompiling
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd'.
+VHDL syntax check successful!
+@N: CD231 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\vhd2008\std1164.vhd":889:16:889:17|Using onehot encoding for type mvl9plus. For example, enumeration 'U' is mapped to "1000000000".
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":55:7:55:9|Synthesizing work.top.top_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":44:7:44:18|Synthesizing work.expmoduleled.expmoduleled_arch.
+Post processing for work.expmoduleled.expmoduleled_arch
+Running optimization stage 1 on ExpModuleLED .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":292:2:292:3|Feedback mux created for signal Count[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":152:2:152:3|Feedback mux created for signal intExpLEDSelect[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on ExpModuleLED (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd":31:7:31:20|Synthesizing work.latencycounter.lt_arch.
+Post processing for work.latencycounter.lt_arch
+Running optimization stage 1 on LatencyCounter .......
+Finished optimization stage 1 on LatencyCounter (CPU Time 0h:00m:00s, Memory Used current: 101MB peak: 102MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd":31:7:31:10|Synthesizing work.quad.quad_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd":31:7:31:15|Synthesizing work.quadxface.quadxface_arch.
+Post processing for work.quadxface.quadxface_arch
+Running optimization stage 1 on QuadXface .......
+Finished optimization stage 1 on QuadXface (CPU Time 0h:00m:00s, Memory Used current: 103MB peak: 104MB)
+Post processing for work.quad.quad_arch
+Running optimization stage 1 on Quad .......
+Finished optimization stage 1 on Quad (CPU Time 0h:00m:00s, Memory Used current: 103MB peak: 104MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":37:7:37:10|Synthesizing work.dio8.dio8_arch.
+@N: CD231 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":79:17:79:18|Using onehot encoding for type state_type. For example, enumeration idlestate is mapped to "10000000000".
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":372:5:372:18|OTHERS clause is not synthesized.
+Post processing for work.dio8.dio8_arch
+Running optimization stage 1 on DIO8 .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal InputShiftRegister[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal Counter[4:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal OutputShiftRegister[15:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal intExpD8_Clk. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Feedback mux created for signal IntWrite. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on DIO8 (CPU Time 0h:00m:00s, Memory Used current: 104MB peak: 105MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":36:7:36:27|Synthesizing work.serialmemoryinterface.serialmemoryinterface_arch.
+@N: CD231 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":85:17:85:18|Using onehot encoding for type state_type. For example, enumeration idlestate is mapped to "1000000000000".
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":430:13:430:26|OTHERS clause is not synthesized.
+Post processing for work.serialmemoryinterface.serialmemoryinterface_arch
+Running optimization stage 1 on SerialMemoryInterface .......
+Finished optimization stage 1 on SerialMemoryInterface (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 105MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd":30:7:30:12|Synthesizing work.analog.analog_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd":30:7:30:16|Synthesizing work.databuffer.databuffer_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd":31:7:31:15|Synthesizing work.ram128x16.ram128x16_arch.
+Post processing for work.ram128x16.ram128x16_arch
+Running optimization stage 1 on RAM128x16 .......
+@N: CL134 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd":45:8:45:10|Found RAM ram, depth=128, width=16
+Finished optimization stage 1 on RAM128x16 (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 105MB)
+Post processing for work.databuffer.databuffer_arch
+Running optimization stage 1 on DataBuffer .......
+Finished optimization stage 1 on DataBuffer (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 106MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd":30:7:30:21|Synthesizing work.serial2parallel.serial2parallel_arch.
+Post processing for work.serial2parallel.serial2parallel_arch
+Running optimization stage 1 on Serial2Parallel .......
+Finished optimization stage 1 on Serial2Parallel (CPU Time 0h:00m:00s, Memory Used current: 105MB peak: 106MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":39:7:39:18|Synthesizing work.statemachine.statemachine_arch.
+@N: CD604 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":201:5:201:18|OTHERS clause is not synthesized.
+Post processing for work.statemachine.statemachine_arch
+Running optimization stage 1 on StateMachine .......
+Finished optimization stage 1 on StateMachine (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+Post processing for work.analog.analog_arch
+Running optimization stage 1 on Analog .......
+Finished optimization stage 1 on Analog (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd":30:7:30:17|Synthesizing work.expsigroute.expsigroute_arch.
+Post processing for work.expsigroute.expsigroute_arch
+Running optimization stage 1 on ExpSigRoute .......
+Finished optimization stage 1 on ExpSigRoute (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":39:7:39:9|Synthesizing work.wdt.wdt_arch.
+Post processing for work.wdt.wdt_arch
+Running optimization stage 1 on WDT .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal DriveHaltStatus. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal LoadWDTCount1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTCounterLoad. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Feedback mux created for signal PUReg[19:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WDTDelay[15:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal AccessKeyReg1[3:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGA_RstReq. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGAResetStatus. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal PreClearKey. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal FPGAProgDOut[31:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WriteEndLatch. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal WriteEnd. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|Feedback mux created for signal ClearKey. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTKick1. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal WDTKick. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":105:2:105:3|Feedback mux created for signal LoadWDTCount. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Feedback mux created for signal Res_Sync. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@W: CL111 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":187:2:187:3|All reachable assignments to ExternalResetStatus are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@N: CL189 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd":157:2:157:3|Register bit Res_Sync is always 0.
+Finished optimization stage 1 on WDT (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":31:7:31:15|Synthesizing work.cpuconfig.cpuconfig_arch.
+Post processing for work.cpuconfig.cpuconfig_arch
+Running optimization stage 1 on CPUConfig .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":68:2:68:3|Feedback mux created for signal intLoopTime[2:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on CPUConfig (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd":37:7:37:12|Synthesizing work.cpuled.cpuled_arch.
+Post processing for work.cpuled.cpuled_arch
+Running optimization stage 1 on CPULED .......
+Finished optimization stage 1 on CPULED (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd":37:7:37:17|Synthesizing work.rtdexpidled.rtdexpidled_arch.
+Post processing for work.rtdexpidled.rtdexpidled_arch
+Running optimization stage 1 on RtdExpIDLED .......
+Finished optimization stage 1 on RtdExpIDLED (CPU Time 0h:00m:00s, Memory Used current: 106MB peak: 107MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd":52:7:52:16|Synthesizing work.discoverid.discoverid_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd":37:7:37:25|Synthesizing work.discoverexpansionid.discoverexpansionid_arch.
+Post processing for work.discoverexpansionid.discoverexpansionid_arch
+Running optimization stage 1 on DiscoverExpansionID .......
+Finished optimization stage 1 on DiscoverExpansionID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":38:7:38:23|Synthesizing work.discovercontrolid.discovercontrolid_arch.
+Post processing for work.discovercontrolid.discovercontrolid_arch
+Running optimization stage 1 on DiscoverControlID .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal Count[3:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal ShiftComplete. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":137:3:137:4|Feedback mux created for signal OutputClock. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on DiscoverControlID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+Post processing for work.discoverid.discoverid_arch
+Running optimization stage 1 on DiscoverID .......
+Finished optimization stage 1 on DiscoverID (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":36:7:36:15|Synthesizing work.controlio.controlio_arch.
+Post processing for work.controlio.controlio_arch
+Running optimization stage 1 on ControlIO .......
+@W: CL169 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":167:2:167:3|Pruning unused register PowerUpLatch_2. Make sure that there are no unused intermediate registers.
+Finished optimization stage 1 on ControlIO (CPU Time 0h:00m:00s, Memory Used current: 107MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":34:7:34:12|Synthesizing work.ssitop.ssitop_arch.
+@W: CD638 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":90:8:90:17|Signal muxdataout is undriven. Either assign the signal a value or remove the signal declaration.
+Post processing for work.ssitop.ssitop_arch
+Running optimization stage 1 on SSITop .......
+Finished optimization stage 1 on SSITop (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 108MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":45:7:45:16|Synthesizing work.mdttopsimp.mdttopsimp_arch.
+Post processing for work.mdttopsimp.mdttopsimp_arch
+Running optimization stage 1 on MDTTopSimp .......
+Finished optimization stage 1 on MDTTopSimp (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd":31:7:31:17|Synthesizing work.mdtssiroute.mdtssiroute_arch.
+Post processing for work.mdtssiroute.mdtssiroute_arch
+Running optimization stage 1 on MDTSSIRoute .......
+Finished optimization stage 1 on MDTSSIRoute (CPU Time 0h:00m:00s, Memory Used current: 108MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd":38:7:38:19|Synthesizing work.controloutput.controloutput_arch.
+Post processing for work.controloutput.controloutput_arch
+Running optimization stage 1 on ControlOutput .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd":86:2:86:3|Feedback mux created for signal ControlOutputWriteLatched0. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on ControlOutput (CPU Time 0h:00m:00s, Memory Used current: 109MB peak: 109MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd":34:7:34:12|Synthesizing work.decode.decode_arch.
+Post processing for work.decode.decode_arch
+Running optimization stage 1 on Decode .......
+Finished optimization stage 1 on Decode (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":34:7:34:14|Synthesizing work.ticksync.ticksync_arch.
+Post processing for work.ticksync.ticksync_arch
+Running optimization stage 1 on TickSync .......
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":73:2:73:3|Feedback mux created for signal LatchedTickSync60. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+@A: CL282 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd":57:2:57:3|Feedback mux created for signal LatchedTickSync. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
+Finished optimization stage 1 on TickSync (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":40:7:40:18|Synthesizing work.clockcontrol.clockcontrol_arch.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen.vhd":145:7:145:15|Synthesizing work.clock_gen.rtl.
+@N: CD630 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\component\work\Clock_Gen\Clock_Gen_0\Clock_Gen_Clock_Gen_0_FCCC.vhd":8:7:8:32|Synthesizing work.clock_gen_clock_gen_0_fccc.def_arch.
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":403:10:403:14|Synthesizing smartfusion2.inbuf.syn_black_box.
+Post processing for smartfusion2.inbuf.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":798:10:798:12|Synthesizing smartfusion2.ccc.syn_black_box.
+Post processing for smartfusion2.ccc.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":562:10:562:15|Synthesizing smartfusion2.clkint.syn_black_box.
+Post processing for smartfusion2.clkint.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":576:10:576:12|Synthesizing smartfusion2.gnd.syn_black_box.
+Post processing for smartfusion2.gnd.syn_black_box
+@N: CD630 :"C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\lib\generic\smartfusion2.vhd":582:10:582:12|Synthesizing smartfusion2.vcc.syn_black_box.
+Post processing for smartfusion2.vcc.syn_black_box
+Post processing for work.clock_gen_clock_gen_0_fccc.def_arch
+Running optimization stage 1 on Clock_Gen_Clock_Gen_0_FCCC .......
+Finished optimization stage 1 on Clock_Gen_Clock_Gen_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+Post processing for work.clock_gen.rtl
+Running optimization stage 1 on Clock_Gen .......
+Finished optimization stage 1 on Clock_Gen (CPU Time 0h:00m:00s, Memory Used current: 110MB peak: 111MB)
+Post processing for work.clockcontrol.clockcontrol_arch
+Running optimization stage 1 on ClockControl .......
+Finished optimization stage 1 on ClockControl (CPU Time 0h:00m:00s, Memory Used current: 111MB peak: 111MB)
+Post processing for work.top.top_arch
+Running optimization stage 1 on Top .......
+Finished optimization stage 1 on Top (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Clock_Gen_Clock_Gen_0_FCCC .......
+Finished optimization stage 2 on Clock_Gen_Clock_Gen_0_FCCC (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Clock_Gen .......
+Finished optimization stage 2 on Clock_Gen (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on ClockControl .......
+@N: CL159 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":43:2:43:9|Input H1_CLKWR is unused.
+Finished optimization stage 2 on ClockControl (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on TickSync .......
+Finished optimization stage 2 on TickSync (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on Decode .......
+Finished optimization stage 2 on Decode (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 115MB)
+Running optimization stage 2 on ControlOutput .......
+Finished optimization stage 2 on ControlOutput (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on MDTSSIRoute .......
+Finished optimization stage 2 on MDTSSIRoute (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on MDTTopSimp .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":196:2:196:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   110
+   111
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd":52:2:52:8|Input port bits 31 to 7 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on MDTTopSimp (CPU Time 0h:00m:00s, Memory Used current: 112MB peak: 116MB)
+Running optimization stage 2 on SSITop .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd":41:2:41:8|Input port bits 31 to 22 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on SSITop (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on ControlIO .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":184:2:184:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 5 reachable states with original encodings of:
+   000
+   001
+   011
+   110
+   111
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd":43:2:43:8|Input port bits 26 to 1 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on ControlIO (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverControlID .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd":77:2:77:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+Finished optimization stage 2 on DiscoverControlID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverExpansionID .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd":79:2:79:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 6 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+Finished optimization stage 2 on DiscoverExpansionID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DiscoverID .......
+Finished optimization stage 2 on DiscoverID (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on RtdExpIDLED .......
+Finished optimization stage 2 on RtdExpIDLED (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on CPULED .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd":41:2:41:8|Input port bits 31 to 2 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on CPULED (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on CPUConfig .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bits 31 to 7 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL247 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bit 3 of intdata(31 downto 0) is unused 
+@W: CL247 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":37:2:37:8|Input port bit 1 of intdata(31 downto 0) is unused 
+@N: CL159 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd":45:2:45:11|Input ENET_Build is unused.
+Finished optimization stage 2 on CPUConfig (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on WDT .......
+Finished optimization stage 2 on WDT (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on ExpSigRoute .......
+Finished optimization stage 2 on ExpSigRoute (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on StateMachine .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd":134:2:134:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 8 reachable states with original encodings of:
+   000
+   001
+   010
+   011
+   100
+   101
+   110
+   111
+Finished optimization stage 2 on StateMachine (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on Serial2Parallel .......
+Finished optimization stage 2 on Serial2Parallel (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on RAM128x16 .......
+Finished optimization stage 2 on RAM128x16 (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on DataBuffer .......
+Finished optimization stage 2 on DataBuffer (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on Analog .......
+Finished optimization stage 2 on Analog (CPU Time 0h:00m:00s, Memory Used current: 114MB peak: 116MB)
+Running optimization stage 2 on SerialMemoryInterface .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":265:4:265:5|Trying to extract state machine for register StateMachine.
+Extracted state machine for register StateMachine
+State machine has 13 reachable states with original encodings of:
+   0000000000001
+   0000000000010
+   0000000000100
+   0000000001000
+   0000000010000
+   0000000100000
+   0000001000000
+   0000010000000
+   0000100000000
+   0001000000000
+   0010000000000
+   0100000000000
+   1000000000000
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":42:2:42:8|Input port bits 31 to 25 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd":42:2:42:8|Input port bits 13 to 8 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on SerialMemoryInterface (CPU Time 0h:00m:00s, Memory Used current: 115MB peak: 116MB)
+Running optimization stage 2 on DIO8 .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd":253:2:253:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 11 reachable states with original encodings of:
+   00000000001
+   00000000010
+   00000000100
+   00000001000
+   00000010000
+   00000100000
+   00001000000
+   00010000000
+   00100000000
+   01000000000
+   10000000000
+Finished optimization stage 2 on DIO8 (CPU Time 0h:00m:00s, Memory Used current: 115MB peak: 121MB)
+Running optimization stage 2 on QuadXface .......
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd":36:2:36:8|Input port bits 31 to 16 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on QuadXface (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on Quad .......
+Finished optimization stage 2 on Quad (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on LatencyCounter .......
+Finished optimization stage 2 on LatencyCounter (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on ExpModuleLED .......
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":152:2:152:3|Trying to extract state machine for register intExpLEDSelect.
+Extracted state machine for register intExpLEDSelect
+State machine has 16 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+   0111
+   1000
+   1001
+   1010
+   1011
+   1100
+   1101
+   1110
+   1111
+@N: CL201 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":223:2:223:3|Trying to extract state machine for register State.
+Extracted state machine for register State
+State machine has 4 reachable states with original encodings of:
+   00
+   01
+   10
+   11
+@W: CL246 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd":51:2:51:8|Input port bits 27 to 0 of intdata(31 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on ExpModuleLED (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+Running optimization stage 2 on Top .......
+Finished optimization stage 2 on Top (CPU Time 0h:00m:00s, Memory Used current: 116MB peak: 121MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\layer0.rt.csv
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 117MB peak: 121MB)
+
+Process took 0h:00m:20s realtime, 0h:00m:20s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\layer0.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 96MB peak: 96MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:20s; CPU Time elapsed 0h:00m:20s; Memory used current: 24MB peak: 25MB)
+
+Process took 0h:00m:21s realtime, 0h:00m:20s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:09 2023
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 10 or later
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Synopsys Netlist Linker, Version comp202109synp2, Build 152R, Built Jun 14 2022 11:35:28, @
+
+@N|Running in 64-bit mode
+File C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_comp.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 97MB peak: 98MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Tue Feb 28 16:27:11 2023
+
+###########################################################]
+Premap Report
+
+# Tue Feb 28 16:27:11 2023
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Microchip Technology Pre-mapping, Version map202109actsp1, Build 056R, Built Jun 14 2022 13:56:21, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 120MB peak: 120MB)
+
+
+Done reading skeleton netlist (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 133MB)
+
+Reading constraint file: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\synthesis.fdc
+@L: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top_scck.rpt 
+See clock summary report "C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top_scck.rpt"
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 133MB peak: 135MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 133MB peak: 135MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 136MB peak: 136MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 136MB peak: 138MB)
+
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":120:2:120:3|Found instance CtrlOut_2.State with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":151:2:151:3|Found instance CtrlOut_2.OutputClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.CounterOverFlow with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.CounterOverFlowRetrigger with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.intDataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.RetPulseDelayEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.StartInterrogation with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":274:2:274:3|Found instance MDTTop_2.DelayCountEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":146:2:146:3|Found instance MDTTop_2.DataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":196:2:196:3|Found instance MDTTop_2.SendInterrogationPulse with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":178:2:178:3|Found instance MDTTop_2.TransducerSelect[6:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.Serial2ParallelData[31:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.ShiftOn with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.DelayCntEn with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":117:2:117:3|Found instance SSITop_2.DataValid with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found instance SSITop_2.intSSI_CLK with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.M_Card_ID_LOAD with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.M_Card_ID_LATCH with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discovercontrolid.vhd":77:2:77:3|Found instance DiscID_1.DiscCtrlID_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.Exp_ID_LOAD with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.Exp_ID_LATCH with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":79:2:79:3|Found instance DiscID_1.DiscExpID_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":129:2:129:3|Found instance DiscID_1.DiscExpID_1.OutputClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\watchdogtimer.vhd":157:2:157:3|Found instance WDT_1.PUReg[19:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\statemachine.vhd":210:2:210:3|Found instance Analog_1.StateMach_1.EndDelay with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M3Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M3Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M2Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M2Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M1Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M1Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M0Ch1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_M0Ch0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_CtrlAxis1_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial2parallel.vhd":74:2:74:3|Found instance Analog_1.Ser2Par_1.S2P_CtrlAxis0_Data[15:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.ShiftEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadMemAddr with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.IncOperationFaultCount with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intSerialMemoryDataControl with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.StartStopBit with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intFLAG_CLR with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.SecondPassRead with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadDeviceAddr with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.intEEPROMAccessFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":220:1:220:2|Found instance SerMemInt_1.ReadFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":197:1:197:2|Found instance SerMemInt_1.WriteFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":265:4:265:5|Found instance SerMemInt_1.LoadWriteData with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":209:1:209:2|Found instance SerMemInt_1.ReadLatch with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":186:1:186:2|Found instance SerMemInt_1.WriteLatch with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":171:4:171:5|Found instance SerMemInt_1.intSerialMemoryClock with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":529:4:529:5|Found instance SerMemInt_1.OperationFaultFlag with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":457:2:457:3|Found instance Quad_1.QuadXface_6.intHomeLat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":548:2:548:3|Found instance Quad_1.QuadXface_6.intLatch1Lat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":509:2:509:3|Found instance Quad_1.QuadXface_6.intLatch0Lat with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.LearnModeEnable with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.Latch1ArmedState[2:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.Latch0ArmedState[2:0] with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+@N: FX1171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":191:2:191:3|Found instance Quad_1.QuadXface_6.HomeArm with reset/set having higher priority than enable. Selected technology supports register with enable having higher priority than reset/set. Adding glue logic to resolve priority. 
+
+Starting HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 175MB peak: 175MB)
+
+
+Finished HSTDM IP insertion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 175MB peak: 176MB)
+
+@N: FX1184 |Applying syn_allowed_resources blockrams=10 on top level netlist Top 
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 179MB peak: 179MB)
+
+
+
+Clock Summary
+******************
+
+          Start                                                 Requested     Requested     Clock        Clock               Clock
+Level     Clock                                                 Frequency     Period        Type         Group               Load 
+----------------------------------------------------------------------------------------------------------------------------------
+0 -       System                                                100.0 MHz     10.000        system       system_clkgroup     0    
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          1709 
+                                                                                                                                  
+0 -       Top|H1_CLKWR                                          100.0 MHz     10.000        inferred     (multiple)          495  
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          229  
+                                                                                                                                  
+0 -       Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     100.0 MHz     10.000        inferred     (multiple)          12   
+==================================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                                                      Clock     Source                                            Clock Pin                               Non-clock Pin     Non-clock Pin                          
+Clock                                                 Load      Pin                                               Seq Example                             Seq Example       Comb Example                           
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                0         -                                                 -                                       -                 -                                      
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     1709      ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL2(CCC)     ExpModLED_1.State[0:3].C                -                 Quad_1.QuadXface_6.un1_sysclk.I[0](inv)
+                                                                                                                                                                                                                   
+Top|H1_CLKWR                                          495       H1_CLKWR(port)                                    ExpModLED_1.intExpLEDSelect[0:15].C     -                 -                                      
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     229       ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL0(CCC)     LatCnt_1.LatencyCounter[31:0].C         -                 LatCnt_1.un1_h1_clk.I[0](inv)          
+                                                                                                                                                                                                                   
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     12        ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST.GL1(CCC)     MDTTop_2.RisingB[3:1].C                 -                 MDTTop_2.un1_h1_clk90.I[0](inv)        
+===================================================================================================================================================================================================================
+
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\clockcontrol.vhd":187:2:187:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock which controls 1709 sequential elements including ClkCtrl_1.EnableCount[2:0]. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":86:2:86:3|Found inferred clock Top|H1_CLKWR which controls 495 sequential elements including CtrlOut_1.ControlOutputWriteLatched0. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ticksync.vhd":73:2:73:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock which controls 229 sequential elements including TickSync_1.LatchedTickSync60. This clock has no specified timing constraint which may adversely impact design performance. 
+@W: MT530 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":417:2:417:3|Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock which controls 12 sequential elements including MDTTop_1.FallingB[3:1]. This clock has no specified timing constraint which may adversely impact design performance. 
+
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+Finished Pre Mapping Phase.
+@N: BN225 |Writing default property annotation file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\Top.sap.
+
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 176MB peak: 179MB)
+
+Encoding state machine State[0:5] (in view: work.MDTTopSimp_1(mdttopsimp_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   110 -> 010001
+   111 -> 100001
+Encoding state machine State[0:5] (in view: work.MDTTopSimp_0(mdttopsimp_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   110 -> 010001
+   111 -> 100001
+Encoding state machine State[0:4] (in view: work.ControlIO(controlio_arch))
+original code -> new code
+   000 -> 00001
+   001 -> 00010
+   011 -> 00100
+   110 -> 01000
+   111 -> 10000
+Encoding state machine State[0:5] (in view: work.DiscoverControlID(discovercontrolid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+Encoding state machine State[0:5] (in view: work.DiscoverExpansionID(discoverexpansionid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+Encoding state machine State[0:7] (in view: work.StateMachine(statemachine_arch))
+original code -> new code
+   000 -> 00000000
+   001 -> 00000011
+   010 -> 00000101
+   011 -> 00001001
+   100 -> 00010001
+   101 -> 00100001
+   110 -> 01000001
+   111 -> 10000001
+Encoding state machine StateMachine[0:12] (in view: work.SerialMemoryInterface(serialmemoryinterface_arch))
+original code -> new code
+   0000000000001 -> 0000000000000
+   0000000000010 -> 0000000000011
+   0000000000100 -> 0000000000101
+   0000000001000 -> 0000000001001
+   0000000010000 -> 0000000010001
+   0000000100000 -> 0000000100001
+   0000001000000 -> 0000001000001
+   0000010000000 -> 0000010000001
+   0000100000000 -> 0000100000001
+   0001000000000 -> 0001000000001
+   0010000000000 -> 0010000000001
+   0100000000000 -> 0100000000001
+   1000000000000 -> 1000000000001
+Encoding state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   0000 -> 0000
+   0001 -> 0001
+   0010 -> 0010
+   0011 -> 0011
+   0100 -> 0100
+   0101 -> 0101
+   0110 -> 0110
+   0111 -> 0111
+   1000 -> 1000
+   1001 -> 1001
+   1010 -> 1010
+   1011 -> 1011
+   1100 -> 1100
+   1101 -> 1101
+   1110 -> 1110
+   1111 -> 1111
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":152:2:152:3|There are no possible illegal states for state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":223:2:223:3|There are no possible illegal states for state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:10] (in view: work.DIO8(dio8_arch))
+original code -> new code
+   00000000001 -> 00000000001
+   00000000010 -> 00000000010
+   00000000100 -> 00000000100
+   00000001000 -> 00000001000
+   00000010000 -> 00000010000
+   00000100000 -> 00000100000
+   00001000000 -> 00001000000
+   00010000000 -> 00010000000
+   00100000000 -> 00100000000
+   01000000000 -> 01000000000
+   10000000000 -> 10000000000
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 182MB peak: 182MB)
+
+
+Finished constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 184MB peak: 184MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 97MB peak: 185MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:02s cputime
+# Tue Feb 28 16:27:14 2023
+
+###########################################################]
+Map & Optimize Report
+
+# Tue Feb 28 16:27:15 2023
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M-SP1
+Install: C:\Microchip\Libero_SoC_v2022.2\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DGS-P3660
+
+Implementation : synthesis
+Synopsys Microchip Technology Mapper, Version map202109actsp1, Build 056R, Built Jun 14 2022 13:56:21, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 120MB peak: 120MB)
+
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF667 |Clock conversion disabled. (Command "set_option -fix_gated_and_generated_clocks 0" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 122MB peak: 133MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 122MB peak: 133MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 124MB peak: 133MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 126MB peak: 133MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 168MB peak: 168MB)
+
+
+#### START OF SSF LOG MESSAGES ####
+
+#### END OF SSF LOG MESSAGES ####
+@W: FA239 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\databuffer.vhd":214:2:214:5|ROM ModuleSelect[3:0] (in view: work.DataBuffer(databuffer_arch)) mapped in logic. To map to a technology ROM, apply attribute syn_romstyle on this instance.
+@N: MO106 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\databuffer.vhd":214:2:214:5|Found ROM ModuleSelect[3:0] (in view: work.DataBuffer(databuffer_arch)) with 10 words by 4 bits.
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 176MB peak: 176MB)
+
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\latencycounter.vhd":50:2:50:3|Found counter in view:work.Top(top_arch) instance LatCnt_1.LatencyCounter[31:0] 
+Encoding state machine State[0:5] (in view: work.MDTTopSimp(mdttopsimp_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   110 -> 010001
+   111 -> 100001
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":349:2:349:3|Found counter in view:work.MDTTopSimp(mdttopsimp_arch) instance CountRA[17:0] 
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\mdttopsimp.vhd":288:2:288:3|Found counter in view:work.MDTTopSimp(mdttopsimp_arch) instance Delay[11:0] 
+@N: FX493 |Applying initial value "0" on instance State_i[5].
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found counter in view:work.SSITop(ssitop_arch) instance DelayCounter[15:0] 
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found counter in view:work.SSITop(ssitop_arch) instance ShiftCounter[5:0] 
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":159:2:159:3|Found counter in view:work.SSITop(ssitop_arch) instance CycleCounter[5:0] 
+@N: MF179 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ssitop.vhd":175:6:175:38|Found 16 by 16 bit equality operator ('==') un11_delaycounter (in view: work.SSITop(ssitop_arch))
+Encoding state machine State[0:4] (in view: work.ControlIO(controlio_arch))
+original code -> new code
+   000 -> 00001
+   001 -> 00010
+   011 -> 00100
+   110 -> 01000
+   111 -> 10000
+Encoding state machine State[0:5] (in view: work.DiscoverControlID(discovercontrolid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+@N: FX493 |Applying initial value "0" on instance State_i[5].
+Encoding state machine State[0:5] (in view: work.DiscoverExpansionID(discoverexpansionid_arch))
+original code -> new code
+   000 -> 000000
+   001 -> 000011
+   010 -> 000101
+   011 -> 001001
+   100 -> 010001
+   101 -> 100001
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":129:2:129:3|Found counter in view:work.DiscoverExpansionID(discoverexpansionid_arch) instance Count[5:0] 
+@N: FX493 |Applying initial value "0" on instance State_i[5].
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\watchdogtimer.vhd":105:2:105:3|Found counter in view:work.WDT(wdt_arch) instance WDTCounter[21:0] 
+Encoding state machine State[0:7] (in view: work.StateMachine(statemachine_arch))
+original code -> new code
+   000 -> 00000000
+   001 -> 00000011
+   010 -> 00000101
+   011 -> 00001001
+   100 -> 00010001
+   101 -> 00100001
+   110 -> 01000001
+   111 -> 10000001
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\statemachine.vhd":210:2:210:3|Found counter in view:work.StateMachine(statemachine_arch) instance InterConversionDelayCNTR[10:0] 
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\statemachine.vhd":210:2:210:3|Found counter in view:work.StateMachine(statemachine_arch) instance CycleCounter[4:0] 
+@N: FX493 |Applying initial value "0" on instance State_i[7].
+@W: FX107 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":45:8:45:10|RAM RAM_2.ram[15:0] (in view: work.DataBuffer(databuffer_arch)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@W: FX107 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":45:8:45:10|RAM RAM_1.ram[15:0] (in view: work.DataBuffer(databuffer_arch)) does not have a read/write conflict check. Possible simulation mismatch. To resolve a read/write conflict, either set syn_ramstyle = rw_check, or enable the "Read Write Check on RAM" Implementation Option. For more information, search for "read/write conflict check" in Online Help.
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[0] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[1] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[2] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[3] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[4] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[5] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_2.read_a[6] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[0] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[1] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[2] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[3] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[4] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[5] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\ram128x16bits.vhd":51:2:51:3|Boundary register RAM_1.read_a[6] (in view: work.DataBuffer(databuffer_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+Encoding state machine StateMachine[0:12] (in view: work.SerialMemoryInterface(serialmemoryinterface_arch))
+original code -> new code
+   0000000000001 -> 0000000000000
+   0000000000010 -> 0000000000011
+   0000000000100 -> 0000000000101
+   0000000001000 -> 0000000001001
+   0000000010000 -> 0000000010001
+   0000000100000 -> 0000000100001
+   0000001000000 -> 0000001000001
+   0000010000000 -> 0000010000001
+   0000100000000 -> 0000100000001
+   0001000000000 -> 0001000000001
+   0010000000000 -> 0010000000001
+   0100000000000 -> 0100000000001
+   1000000000000 -> 1000000000001
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\serial_mem.vhd":156:1:156:2|Found counter in view:work.SerialMemoryInterface(serialmemoryinterface_arch) instance SerialMemoryClockEnableCounter[4:0] 
+@N: FX493 |Applying initial value "0" on instance StateMachine_i[12].
+@N: MO230 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":301:2:301:3|Found up-down counter in view:work.QuadXface(quadxface_arch) instance QuadCount[15:0]  
+@W: MO160 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":457:2:457:3|Register bit IndexReg3 (in view view:work.QuadXface(quadxface_arch)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":390:2:390:3|Register bit IndexEdgeDetected (in view view:work.QuadXface(quadxface_arch)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":431:2:431:3|Register bit intLearnModeDone (in view view:work.QuadXface(quadxface_arch)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":431:2:431:3|Sequential instance Quad_1.QuadXface_4.clrLearnModeDone is reduced to a combinational gate by constant propagation. 
+@W: MO171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":431:2:431:3|Sequential instance Quad_1.QuadXface_3.clrLearnModeDone is reduced to a combinational gate by constant propagation. 
+@W: MO171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":431:2:431:3|Sequential instance Quad_1.QuadXface_2.clrLearnModeDone is reduced to a combinational gate by constant propagation. 
+@W: MO171 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":431:2:431:3|Sequential instance Quad_1.QuadXface_1.clrLearnModeDone is reduced to a combinational gate by constant propagation. 
+@W: MO160 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":457:2:457:3|Register bit IndexLat (in view view:work.QuadXface(quadxface_arch)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@N: BN362 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":409:2:409:3|Removing sequential instance intEdgeMode (in view: work.QuadXface(quadxface_arch)) because it does not drive other instances.
+@A: BN291 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":409:2:409:3|Boundary register intEdgeMode (in view: work.QuadXface(quadxface_arch)) is packed into a complex cell. To disable register packing, set syn_keep=1 on the net between the register and the complex cell. 
+@N: MO230 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":301:2:301:3|Found up-down counter in view:work.QuadXface_1(quadxface_arch) instance QuadCount[15:0]  
+@N: MO230 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\quadxface.vhd":301:2:301:3|Found up-down counter in view:work.QuadXface_0(quadxface_arch) instance QuadCount[15:0]  
+Encoding state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   0000 -> 0000
+   0001 -> 0001
+   0010 -> 0010
+   0011 -> 0011
+   0100 -> 0100
+   0101 -> 0101
+   0110 -> 0110
+   0111 -> 0111
+   1000 -> 1000
+   1001 -> 1001
+   1010 -> 1010
+   1011 -> 1011
+   1100 -> 1100
+   1101 -> 1101
+   1110 -> 1110
+   1111 -> 1111
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":152:2:152:3|There are no possible illegal states for state machine intExpLEDSelect[0:15] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch))
+original code -> new code
+   00 -> 00
+   01 -> 01
+   10 -> 10
+   11 -> 11
+@N: MO225 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\expmoduleled.vhd":223:2:223:3|There are no possible illegal states for state machine State[0:3] (in view: work.ExpModuleLED(expmoduleled_arch)); safe FSM implementation is not required.
+Encoding state machine State[0:10] (in view: work.DIO8(dio8_arch))
+original code -> new code
+   00000000001 -> 00000000001
+   00000000010 -> 00000000010
+   00000000100 -> 00000000100
+   00000001000 -> 00000001000
+   00000010000 -> 00000010000
+   00000100000 -> 00000100000
+   00001000000 -> 00001000000
+   00010000000 -> 00010000000
+   00100000000 -> 00100000000
+   01000000000 -> 01000000000
+   10000000000 -> 10000000000
+@N: MO231 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\controloutput.vhd":151:2:151:3|Found counter in view:work.ControlOutput(controloutput_arch) instance Count[4:0] 
+
+Starting factoring (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 183MB peak: 183MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 222MB peak: 222MB)
+
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 222MB peak: 258MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 223MB peak: 258MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 224MB peak: 258MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:08s; Memory used current: 224MB peak: 258MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:08s; Memory used current: 219MB peak: 258MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:09s; Memory used current: 265MB peak: 265MB)
+
+Pass		 CPU time		Worst Slack		Luts / Registers
+------------------------------------------------------------
+   1		0h:00m:10s		   -11.71ns		3198 /      2349
+   2		0h:00m:10s		   -11.71ns		3173 /      2349
+   3		0h:00m:10s		   -10.27ns		3173 /      2349
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[9] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[9] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[9] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[15] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[15] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[12] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[12] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[15] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[12] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+Timing driven replication report
+Added 9 Registers via timing driven replication
+Added 0 LUTs via timing driven replication
+
+   4		0h:00m:10s		    -9.08ns		3180 /      2358
+   5		0h:00m:10s		    -8.50ns		3186 /      2358
+   6		0h:00m:10s		    -8.25ns		3189 /      2358
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[11] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[14] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[11] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[14] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[14] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[12] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[11] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[11] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[15] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[10] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[9] (in view: work.Top(top_arch)) with 5 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[13] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[14] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[8] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID3_1[8] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[8] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[8] (in view: work.Top(top_arch)) with 4 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[13] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID0_1[10] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[10] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[10] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID1_1[13] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+@N: FX271 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\hdl\discoverexpansionid.vhd":151:3:151:4|Replicating instance DiscID_1.DiscExpID_1.ExpansionID2_1[13] (in view: work.Top(top_arch)) with 6 loads 1 time to improve timing.
+Timing driven replication report
+Added 23 Registers via timing driven replication
+Added 0 LUTs via timing driven replication
+
+
+   7		0h:00m:10s		    -7.94ns		3184 /      2381
+@N: FP130 |Promoting Net H1_CLKWR_c on CLKINT  I_1604 
+@N: FP130 |Promoting Net SysRESET_arst on CLKINT  I_1605 
+@N: FP130 |Promoting Net RESET_arst on CLKINT  I_1606 
+
+Added 0 Buffers
+Added 0 Cells via replication
+	Added 0 Sequential Cells via replication
+	Added 0 Combinational Cells via replication
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 267MB peak: 267MB)
+
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 267MB peak: 268MB)
+
+
+
+@S |Clock Optimization Summary
+
+
+#### START OF CLOCK OPTIMIZATION REPORT #####[
+
+Clock optimization not enabled
+1 non-gated/non-generated clock tree(s) driving 483 clock pin(s) of sequential element(s)
+3 gated/generated clock tree(s) driving 1911 clock pin(s) of sequential element(s)
+0 instances converted, 1911 sequential instances remain driven by gated/generated clocks
+
+=============================== Non-Gated/Non-Generated Clocks ================================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance        
+-----------------------------------------------------------------------------------------------
+@K:CKID0004       H1_CLKWR            port                   483        CtrlOut_1.DataBuffer[2]
+===============================================================================================
+=============================================================================== Gated/Generated Clocks ===============================================================================
+Clock Tree ID     Driving Element                          Drive Element Type     Fanout     Sample Instance                   Explanation                                            
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST     CCC                    1670       ClkCtrl_1.DLL_Rst_ShiftReg[0]     No gated clock conversion method for cell cell:ACG4.SLE
+@K:CKID0002       ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST     CCC                    229        TickSync_1.LatchedTickSync60      No gated clock conversion method for cell cell:ACG4.SLE
+@K:CKID0003       ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST     CCC                    12         MDTTop_2.RisingB[1]               No gated clock conversion method for cell cell:ACG4.SLE
+======================================================================================================================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######]
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 223MB peak: 268MB)
+
+Writing Analyst data base C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 262MB peak: 268MB)
+
+Writing Verilog Simulation files
+@N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
+@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
+@W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
+@W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
+@W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
+@W: BW156 :|Option "-name" of set_clock_groups cannot be forward-annotated; there is no equivalent option in your place-and-route tool.
+
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:12s; Memory used current: 263MB peak: 268MB)
+
+
+Finished Writing Netlists (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 263MB peak: 268MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 256MB peak: 268MB)
+
+@W: MT246 :"c:\rmc70\programmable\cpu\rmc75e\fpga\mainline\component\work\clock_gen\clock_gen_0\clock_gen_clock_gen_0_fccc.vhd":128:4:128:11|Blackbox CCC is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
+@W: MT420 |Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net ClkCtrl_1.clk_1.Clock_Gen_0.GL2_net.
+@W: MT420 |Found inferred clock Top|H1_CLKWR with period 10.00ns. Please declare a user-defined clock on port H1_CLKWR.
+@W: MT420 |Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net ClkCtrl_1.clk_1.Clock_Gen_0.GL0_net.
+@W: MT420 |Found inferred clock Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock with period 10.00ns. Please declare a user-defined clock on net ClkCtrl_1.clk_1.Clock_Gen_0.GL1_net.
+
+
+##### START OF TIMING REPORT #####[
+# Timing report written on Tue Feb 28 16:27:28 2023
+#
+
+
+Top view:               Top
+Requested Frequency:    100.0 MHz
+Wire load mode:         top
+Paths requested:        5
+Constraint File(s):    C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\designer\Top\synthesis.fdc
+                       
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+
+
+
+Performance Summary
+*******************
+
+
+Worst slack in design: 1.623
+
+                                                      Requested     Estimated      Requested     Estimated               Clock        Clock          
+Starting Clock                                        Frequency     Frequency      Period        Period        Slack     Type         Group          
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     100.0 MHz     247.8 MHz      10.000        4.035         4.409     inferred     (multiple)     
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     100.0 MHz     1691.2 MHz     10.000        0.591         9.409     inferred     (multiple)     
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     100.0 MHz     123.5 MHz      10.000        8.099         1.623     inferred     (multiple)     
+Top|H1_CLKWR                                          100.0 MHz     250.7 MHz      10.000        3.989         6.011     inferred     (multiple)     
+System                                                100.0 MHz     1984.9 MHz     10.000        0.504         9.496     system       system_clkgroup
+=====================================================================================================================================================
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks                                                                                                |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Starting                                           Ending                                             |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                             Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  |  10.000      9.496  |  No paths    -      |  No paths    -      |  No paths    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  |  10.000      1.901  |  10.000      8.027  |  5.000       2.410  |  5.000       1.623
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  Top|H1_CLKWR                                       |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  |  Diff grp    -      |  No paths    -      |  Diff grp    -      |  No paths    -    
+Top|H1_CLKWR                                       Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
+Top|H1_CLKWR                                       Top|H1_CLKWR                                       |  10.000      6.011  |  No paths    -      |  No paths    -      |  No paths    -    
+Top|H1_CLKWR                                       Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  Top|H1_CLKWR                                       |  Diff grp    -      |  No paths    -      |  No paths    -      |  No paths    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  |  10.000      5.965  |  10.000      7.880  |  No paths    -      |  5.000       4.409
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock  |  Diff grp    -      |  No paths    -      |  No paths    -      |  Diff grp    -    
+Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock  Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock  |  10.000      9.409  |  10.000      9.409  |  No paths    -      |  No paths    -    
+============================================================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+
+====================================
+Detailed Report for Clock: Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                     Starting                                                                                       Arrival          
+Instance                             Reference                                             Type     Pin     Net                     Time        Slack
+                                     Clock                                                                                                           
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+MDTTop_1.FallingA[3]                 Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       FallingA[3]             0.087       4.409
+MDTTop_2.FallingA[3]                 Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       FallingA[3]             0.087       4.409
+MDTTop_2.RisingACountEnableLatch     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       CountRAe                0.108       5.965
+MDTTop_1.RisingACountEnableLatch     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       CountRAe                0.108       6.005
+MDTTop_2.PWMMagnetFaultLatch         Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       PWMMagnetFaultLatch     0.108       6.038
+MDTTop_1.PWMMagnetFaultLatch         Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       PWMMagnetFaultLatch     0.108       6.038
+MDTTop_2.Delay[0]                    Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       Delay[0]                0.087       6.544
+MDTTop_1.Delay[0]                    Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       Delay[0]                0.087       6.544
+TickSync_1.LatchedTickSync60         Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       SynchedTick60           0.108       6.718
+MDTTop_1.Delay[7]                    Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      Q       Delay[7]                0.108       6.765
+=====================================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                      Starting                                                                                                Required          
+Instance                              Reference                                             Type     Pin     Net                              Time         Slack
+                                      Clock                                                                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+MDTTop_2.Edge[1]                      Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       FallingA[3]                      4.745        4.409
+MDTTop_1.Edge[1]                      Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       FallingA[3]                      4.745        4.409
+MDTTop_2.State_i[5]                   Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       N_103_i                          9.745        5.965
+MDTTop_1.State_i[5]                   Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       N_103_i                          9.745        6.005
+MDTTop_2.CounterOverFlowRetrigger     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      EN      CounterOverFlowRetrigger_RNO     9.662        6.061
+MDTTop_1.CounterOverFlowRetrigger     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      EN      N_42_i                           9.662        6.314
+MDTTop_2.State[2]                     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       N_97_i                           9.745        6.400
+MDTTop_1.intCounterOverFlow           Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      EN      intCounterOverFlowce             9.662        6.437
+MDTTop_1.State[2]                     Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       N_97_i                           9.745        6.441
+MDTTop_2.intCounterOverFlow           Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock     SLE      D       intCounterOverFlow_2             9.745        6.524
+================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      5.000
+    - Setup time:                            0.255
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         4.745
+
+    - Propagation time:                      0.336
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 4.409
+
+    Number of logic level(s):                0
+    Starting point:                          MDTTop_1.FallingA[3] / Q
+    Ending point:                            MDTTop_1.Edge[1] / D
+    The start point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock [falling] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    The end   point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL0_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                    Pin      Pin               Arrival     No. of    
+Name                     Type     Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------
+MDTTop_1.FallingA[3]     SLE      Q        Out     0.087     0.087 r     -         
+FallingA[3]              Net      -        -       0.248     -           1         
+MDTTop_1.Edge[1]         SLE      D        In      -         0.336 r     -         
+===================================================================================
+Total path delay (propagation time + setup) of 0.591 is 0.343(58.0%) logic and 0.248(42.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                         Starting                                                                               Arrival          
+Instance                 Reference                                             Type     Pin     Net             Time        Slack
+                         Clock                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------
+MDTTop_2.FallingB[1]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       FallingB[1]     0.087       9.409
+MDTTop_1.FallingB[1]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       FallingB[1]     0.087       9.409
+MDTTop_2.FallingB[2]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       FallingB[2]     0.087       9.409
+MDTTop_1.FallingB[2]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       FallingB[2]     0.087       9.409
+MDTTop_2.RisingB[1]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       RisingB[1]      0.087       9.409
+MDTTop_1.RisingB[1]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       RisingB[1]      0.087       9.409
+MDTTop_2.RisingB[2]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       RisingB[2]      0.087       9.409
+MDTTop_1.RisingB[2]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      Q       RisingB[2]      0.087       9.409
+=================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                         Starting                                                                               Required          
+Instance                 Reference                                             Type     Pin     Net             Time         Slack
+                         Clock                                                                                                    
+----------------------------------------------------------------------------------------------------------------------------------
+MDTTop_2.FallingB[2]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       FallingB[1]     9.745        9.409
+MDTTop_1.FallingB[2]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       FallingB[1]     9.745        9.409
+MDTTop_2.FallingB[3]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       FallingB[2]     9.745        9.409
+MDTTop_1.FallingB[3]     Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       FallingB[2]     9.745        9.409
+MDTTop_2.RisingB[2]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       RisingB[1]      9.745        9.409
+MDTTop_1.RisingB[2]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       RisingB[1]      9.745        9.409
+MDTTop_2.RisingB[3]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       RisingB[2]      9.745        9.409
+MDTTop_1.RisingB[3]      Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock     SLE      D       RisingB[2]      9.745        9.409
+==================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.000
+    - Setup time:                            0.255
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.745
+
+    - Propagation time:                      0.336
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 9.409
+
+    Number of logic level(s):                0
+    Starting point:                          MDTTop_2.FallingB[1] / Q
+    Ending point:                            MDTTop_2.FallingB[2] / D
+    The start point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock [falling] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    The end   point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL1_net_inferred_clock [falling] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                    Pin      Pin               Arrival     No. of    
+Name                     Type     Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------
+MDTTop_2.FallingB[1]     SLE      Q        Out     0.087     0.087 r     -         
+FallingB[1]              Net      -        -       0.248     -           1         
+MDTTop_2.FallingB[2]     SLE      D        In      -         0.336 r     -         
+===================================================================================
+Total path delay (propagation time + setup) of 0.591 is 0.343(58.0%) logic and 0.248(42.0%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                                 Starting                                                                                           Arrival          
+Instance                                         Reference                                             Type     Pin     Net                         Time        Slack
+                                                 Clock                                                                                                               
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Quad_1.QuadXface_6.Direction                     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       Direction                   0.108       1.623
+Quad_1.QuadXface_5.Direction                     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       Direction                   0.108       1.643
+DiscID_1.DiscExpID_1.ExpansionID2_1_fast[9]      Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID2_1_fast[9]      0.087       1.901
+DiscID_1.DiscExpID_1.ExpansionID3_1_fast[12]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID3_1_fast[12]     0.087       1.967
+DiscID_1.DiscExpID_1.ExpansionID3_1[15]          Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID3[15]            0.108       1.973
+DiscID_1.DiscExpID_1.ExpansionID2_1_fast[14]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID2_1_fast[14]     0.108       1.975
+DiscID_1.DiscExpID_1.ExpansionID2_1_fast[12]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID2_1_fast[12]     0.087       1.984
+DiscID_1.DiscExpID_1.ExpansionID3_1_fast[10]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID3_1_fast[10]     0.087       1.989
+DiscID_1.DiscExpID_1.ExpansionID2_1_fast[15]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID2_1_fast[15]     0.087       2.027
+DiscID_1.DiscExpID_1.ExpansionID3_1_fast[13]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      Q       ExpansionID3_1_fast[13]     0.087       2.049
+=====================================================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                  Starting                                                                                                      Required          
+Instance                          Reference                                             Type     Pin     Net                                    Time         Slack
+                                  Clock                                                                                                                           
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Quad_1.QuadXface_6.intHomeLat     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      D       intHomeLat_1_3                         4.745        1.623
+Quad_1.QuadXface_5.intHomeLat     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      D       intHomeLat_1_4                         4.745        1.643
+DIO8_1.OutputShiftRegister[0]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[1]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[2]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[3]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[4]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[5]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[6]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+DIO8_1.OutputShiftRegister[7]     Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock     SLE      EN      un1_OutputShiftRegister_0_sqmuxa_0     9.662        1.901
+==================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      5.000
+    - Setup time:                            0.255
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         4.745
+
+    - Propagation time:                      3.122
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     1.623
+
+    Number of logic level(s):                4
+    Starting point:                          Quad_1.QuadXface_6.Direction / Q
+    Ending point:                            Quad_1.QuadXface_6.intHomeLat / D
+    The start point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock [falling] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    The end   point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                                             Pin      Pin               Arrival     No. of    
+Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------
+Quad_1.QuadXface_6.Direction                      SLE      Q        Out     0.108     0.108 f     -         
+Direction                                         Net      -        -       0.745     -           3         
+Quad_1.QuadXface_6.IndexEdgeDetected_1_0_m2       CFG4     C        In      -         0.854 f     -         
+Quad_1.QuadXface_6.IndexEdgeDetected_1_0_m2       CFG4     Y        Out     0.226     1.079 f     -         
+N_1322                                            Net      -        -       0.497     -           2         
+Quad_1.QuadXface_6.un3_capturehomecounts_0_a2     CFG4     C        In      -         1.576 f     -         
+Quad_1.QuadXface_6.un3_capturehomecounts_0_a2     CFG4     Y        Out     0.223     1.799 r     -         
+N_1894                                            Net      -        -       0.248     -           1         
+Quad_1.QuadXface_6.un3_capturehomecounts_0_o2     CFG4     B        In      -         2.048 r     -         
+Quad_1.QuadXface_6.un3_capturehomecounts_0_o2     CFG4     Y        Out     0.165     2.212 r     -         
+un3_capturehomecounts_0_o2_0                      Net      -        -       0.497     -           2         
+Quad_1.QuadXface_6.intHomeLat_1                   CFG3     B        In      -         2.709 r     -         
+Quad_1.QuadXface_6.intHomeLat_1                   CFG3     Y        Out     0.165     2.874 r     -         
+intHomeLat_1_3                                    Net      -        -       0.248     -           1         
+Quad_1.QuadXface_6.intHomeLat                     SLE      D        In      -         3.122 r     -         
+============================================================================================================
+Total path delay (propagation time + setup) of 3.377 is 1.141(33.8%) logic and 2.236(66.2%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: Top|H1_CLKWR
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                      Starting                                             Arrival          
+Instance                              Reference        Type     Pin     Net                Time        Slack
+                                      Clock                                                                 
+------------------------------------------------------------------------------------------------------------
+WDT_1.FirstKey                        Top|H1_CLKWR     SLE      Q       FirstKey           0.108       6.011
+WDT_1.Res_OS                          Top|H1_CLKWR     SLE      Q       Res_OS             0.108       7.308
+WDT_1.ClearKey                        Top|H1_CLKWR     SLE      Q       ClearKey           0.108       7.639
+WDT_1.PUReg[10]                       Top|H1_CLKWR     SLE      Q       PUReg[10]          0.108       7.670
+Analog_1.DataBuf_1.ReadPointer[0]     Top|H1_CLKWR     SLE      Q       ReadPointer[0]     0.108       7.764
+WDT_1.PUReg[14]                       Top|H1_CLKWR     SLE      Q       PUReg[14]          0.108       7.765
+WDT_1.PUReg[12]                       Top|H1_CLKWR     SLE      Q       PUReg[12]          0.108       7.771
+WDT_1.PUReg[8]                        Top|H1_CLKWR     SLE      Q       PUReg[8]           0.108       7.819
+WDT_1.PUReg[16]                       Top|H1_CLKWR     SLE      Q       PUReg[16]          0.108       7.839
+WDT_1.PUReg[18]                       Top|H1_CLKWR     SLE      Q       PUReg[18]          0.108       7.888
+============================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                      Starting                                                   Required          
+Instance              Reference        Type     Pin     Net                      Time         Slack
+                      Clock                                                                        
+---------------------------------------------------------------------------------------------------
+WDT_1.FPGA_RstReq     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[0]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[1]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[2]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[3]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[4]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[5]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[6]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[7]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+WDT_1.WDTDelay[8]     Top|H1_CLKWR     SLE      EN      FPGA_RstReq_0_sqmuxa     9.662        6.011
+===================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.000
+    - Setup time:                            0.338
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.662
+
+    - Propagation time:                      3.652
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 6.011
+
+    Number of logic level(s):                3
+    Starting point:                          WDT_1.FirstKey / Q
+    Ending point:                            WDT_1.FPGA_RstReq / EN
+    The start point is clocked by            Top|H1_CLKWR [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+    The end   point is clocked by            Top|H1_CLKWR [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                          Pin      Pin               Arrival     No. of    
+Name                           Type     Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------
+WDT_1.FirstKey                 SLE      Q        Out     0.108     0.108 f     -         
+FirstKey                       Net      -        -       0.745     -           3         
+WDT_1.accesskey_0_a2_4         CFG4     B        In      -         0.854 f     -         
+WDT_1.accesskey_0_a2_4         CFG4     Y        Out     0.164     1.018 f     -         
+accesskey_i_4                  Net      -        -       0.497     -           2         
+WDT_1.accesskey_0_a2           CFG3     B        In      -         1.515 f     -         
+WDT_1.accesskey_0_a2           CFG3     Y        Out     0.164     1.679 f     -         
+accesskey                      Net      -        -       0.745     -           3         
+WDT_1.FPGA_RstReq_0_sqmuxa     CFG2     A        In      -         2.424 f     -         
+WDT_1.FPGA_RstReq_0_sqmuxa     CFG2     Y        Out     0.087     2.511 f     -         
+FPGA_RstReq_0_sqmuxa           Net      -        -       1.140     -           17        
+WDT_1.FPGA_RstReq              SLE      EN       In      -         3.652 f     -         
+=========================================================================================
+Total path delay (propagation time + setup) of 3.989 is 0.861(21.6%) logic and 3.128(78.4%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+
+====================================
+Detailed Report for Clock: System
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                         Starting                                       Arrival          
+Instance                                 Reference     Type     Pin      Net            Time        Slack
+                                         Clock                                                           
+---------------------------------------------------------------------------------------------------------
+ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST     System        CCC      LOCK     DLLQ1_LOCK     0.000       9.496
+=========================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                   Starting                                      Required          
+Instance                           Reference     Type     Pin     Net            Time         Slack
+                                   Clock                                                           
+---------------------------------------------------------------------------------------------------
+ClkCtrl_1.DLL_Lock_ShiftReg[0]     System        SLE      D       DLLQ1_LOCK     9.745        9.496
+===================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.000
+    - Setup time:                            0.255
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         9.745
+
+    - Propagation time:                      0.248
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 9.496
+
+    Number of logic level(s):                0
+    Starting point:                          ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST / LOCK
+    Ending point:                            ClkCtrl_1.DLL_Lock_ShiftReg[0] / D
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            Clock_Gen_Clock_Gen_0_FCCC|GL2_net_inferred_clock [rising] (rise=0.000 fall=5.000 period=10.000) on pin CLK
+
+Instance / Net                                    Pin      Pin               Arrival     No. of    
+Name                                     Type     Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------------------
+ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST     CCC      LOCK     Out     0.000     0.000 r     -         
+DLLQ1_LOCK                               Net      -        -       0.248     -           1         
+ClkCtrl_1.DLL_Lock_ShiftReg[0]           SLE      D        In      -         0.248 r     -         
+===================================================================================================
+Total path delay (propagation time + setup) of 0.504 is 0.255(50.7%) logic and 0.248(49.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+##### END OF TIMING REPORT #####]
+
+Timing exceptions that could not be applied
+
+Finished final timing analysis (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:13s; Memory used current: 258MB peak: 268MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 258MB peak: 268MB)
+
+---------------------------------------
+Resource Usage Report for Top 
+
+Mapping to part: m2gl005vf400std
+Cell usage:
+CCC             1 use
+CLKINT          6 uses
+CFG1           42 uses
+CFG2           411 uses
+CFG3           626 uses
+CFG4           1604 uses
+
+Carry cells:
+ARI1            352 uses - used for arithmetic functions
+ARI1            194 uses - used for Wide-Mux implementation
+Total ARI1      546 uses
+
+
+Sequential Cells: 
+SLE            2382 uses
+
+DSP Blocks:    0 of 11 (0%)
+
+I/O ports: 128
+I/O primitives: 128
+BIBUF          54 uses
+INBUF          37 uses
+OUTBUF         30 uses
+TRIBUFF        7 uses
+
+
+Global Clock Buffers: 6
+
+RAM/ROM usage summary
+Total Block RAMs (RAM64x18) : 4 of 11 (36%)
+
+Total LUTs:    3229
+
+Extra resources required for RAM and MACC interface logic during P&R:
+
+RAM64x18 Interface Logic : SLEs = 144; LUTs = 144;
+RAM1K18  Interface Logic : SLEs = 0; LUTs = 0;
+MACC     Interface Logic : SLEs = 0; LUTs = 0;
+
+Total number of SLEs after P&R:  2382 + 144 + 0 + 0 = 2526;
+Total number of LUTs after P&R:  3229 + 144 + 0 + 0 = 3373;
+
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 79MB peak: 268MB)
+
+Process took 0h:00m:14s realtime, 0h:00m:14s cputime
+# Tue Feb 28 16:27:29 2023
+
+###########################################################]

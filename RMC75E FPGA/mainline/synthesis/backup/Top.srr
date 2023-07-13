@@ -1,0 +1,118 @@
+#Build: Synplify Pro (R) S-2021.09M, Build 223R, Feb 23 2022
+#install: C:\Microsemi\Libero_SoC_v2022.1\SynplifyPro
+#OS: Windows 8 6.2
+#Hostname: DSHROYER-T3620
+
+# Wed Apr 13 16:47:48 2022
+
+#Implementation: synthesis
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M
+Install: C:\Microsemi\Libero_SoC_v2022.1\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DSHROYER-T3620
+
+Implementation : synthesis
+Synopsys HDL Compiler, Version comp202109synp1, Build 219R, Built Feb 23 2022 09:27:03, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: S-2021.09M
+Install: C:\Microsemi\Libero_SoC_v2022.1\SynplifyPro
+OS: Windows 6.2
+
+Hostname: DSHROYER-T3620
+
+Implementation : synthesis
+Synopsys VHDL Compiler, Version comp202109synp1, Build 219R, Built Feb 23 2022 09:27:03, @
+
+@N|Running in 64-bit mode
+@N:"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":10:7:10:9|Top entity is set to Top.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ram128x16bits.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial2parallel.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\statemachine.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\CPUConfig.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\cpuled.vhd'.
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd'.
+@E: CD242 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":174:4:174:12|Expecting ;
+@E: CD430 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd":174:4:174:12|Expecting library unit
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\clockcontrol.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controlio.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\controloutput.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DIO8.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\decode.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverControlID.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\DiscoverExpansionID.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpModuleLED.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ExpansionSigRoute.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\LatencyCounter.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\mdssiroute.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\MDTTopSimp.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\QuadXface.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\rtdexpidled.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ssi_controller.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ssi_controller.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ssi_xface.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ssi_xface.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\start_delay.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\start_delay.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\serial_mem.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\ticksync.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\WatchDogTimer.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\profibus.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\profibus.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\databuffer.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\analog.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\discovercontrol.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\Quad.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd'.
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\SSITop.vhd
+@N: CD140 :	| Using the VHDL 2008 Standard for file 'C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd'.
+@W: CD645 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":7:8:7:13|Ignoring undefined library unisim
+@W: CD642 :"C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd":8:26:8:26|Ignoring use clause - library unisim not found ...
+2 errors parsing file C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\hdl\top.vhd
+@E: Parse errors encountered - exiting
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Wed Apr 13 16:47:49 2022
+
+###########################################################]
+@END
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Wed Apr 13 16:47:49 2022
+
+###########################################################]
