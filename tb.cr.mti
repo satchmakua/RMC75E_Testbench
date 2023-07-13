@@ -101,6 +101,16 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Compiling entity tb_analog
 -- Compiling architecture tb of tb_analog
 
+} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd
+Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity LatencyCounter
+-- Compiling architecture LT_ARCH of LatencyCounter
+
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ticksync.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ticksync.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STANDARD
@@ -123,16 +133,6 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Compiling entity tb_top
 -- Compiling architecture tb of tb_top
 
-} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/LatencyCounter.vhd
-Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity LatencyCounter
--- Compiling architecture LT_ARCH of LatencyCounter
-
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_disccontID.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_disccontID.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STANDARD
@@ -153,17 +153,6 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity SSITop
 -- Compiling architecture SSITop_arch of SSITop
-
-} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd {2 {vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd
-Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
-** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd(50): (vcom-1615) Existing entity 'tb_StateMachine' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd(50) will be overwritten.
--- Compiling entity tb_StateMachine
-** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd(53): (vcom-1615) Existing architecture 'tb_StateMachine(tb_arch)' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd(53) will be overwritten.
--- Compiling architecture tb_arch of tb_StateMachine
 
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/SRC/ram128x16bits.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
@@ -490,17 +479,6 @@ Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity RtdExpIDLED
 -- Compiling architecture RtdExpIDLED_arch of RtdExpIDLED
-
-} {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd
-Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
-** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd(50): (vcom-1615) Existing entity 'tb_StateMachine' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd(50) will be overwritten.
--- Compiling entity tb_StateMachine
-** Warning: C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine.vhd(53): (vcom-1615) Existing architecture 'tb_StateMachine(tb_arch)' at C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_statemachine_v2.vhd(53) will be overwritten.
--- Compiling architecture tb_arch of tb_StateMachine
 
 } {} {}} C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_Serial2Parallel_v2.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/Test_Bench_RMC75E/TEST/tb_Serial2Parallel_v2.vhd
 Model Technology ModelSim Microsemi Pro vcom 2022.2 Compiler 2022.04 Apr 26 2022

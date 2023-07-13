@@ -118,8 +118,8 @@ architecture Analog_arch of Analog is
 
 begin
 
-	ExpA_CS_L <= '0';
-	ExpA_CLK <= '0';
+	-- ExpA_CS_L <= '0';
+	-- ExpA_CLK <= '0';
 	
 	SignExtend <=	DataOut(15) & DataOut(15) & DataOut(15) & DataOut(15) &
 					DataOut(15) & DataOut(15) & DataOut(15) & DataOut(15) &

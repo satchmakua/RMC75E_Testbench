@@ -1,7 +1,0 @@
-C:\Microchip\Libero_SoC_v2022.2\SynplifyPro\bin64\syn_nfilter.exe  -link  -top  work.Top  -multisrs  C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_comp.srs  -osyn  C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synwork\Top_mult.srs  -log  C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\synthesis\synlog\Top_multi_srs_gen.srr 
-relcom:..\..\..\..\..\..\..\..\Microchip\Libero_SoC_v2022.2\SynplifyPro\bin64\syn_nfilter.exe -link -top work.Top -multisrs ..\synwork\Top_comp.srs -osyn ..\synwork\Top_mult.srs -log ..\synlog\Top_multi_srs_gen.srr
-rc:0 success:1 runtime:0
-file:..\synwork\Top_comp.srs|io:i|time:1677630429|size:142568|exec:0|csum:177299D805AE2C0CD20E065ECD445F63
-file:..\synwork\Top_mult.srs|io:o|time:1677630431|size:29742|exec:0|csum:
-file:..\synlog\Top_multi_srs_gen.srr|io:o|time:1677630431|size:1165|exec:0|csum:
-file:..\..\..\..\..\..\..\..\Microchip\Libero_SoC_v2022.2\SynplifyPro\bin64\syn_nfilter.exe|io:i|time:1655988517|size:8737280|exec:1|csum:90AAFAB6F06AE2C85D8574E6DB8CBB07

@@ -1,5 +1,5 @@
 add wave -position insertpoint \
-    -radix binary \
+	-radix binary \
 	/tb_quad/QuadA0DataOut \
 	/tb_quad/QA0CountRead \
 	/tb_quad/QA0LEDStatusRead \

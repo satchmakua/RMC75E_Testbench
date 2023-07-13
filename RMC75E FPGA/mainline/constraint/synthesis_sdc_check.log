@@ -1,2 +1,0 @@
-Error: SDC0023: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\constraint\user.sdc:23: Invalid max delay constraint: the -to value [get_pins { MDTTop_1/FallingA[1]/D U7/FallingB[1]/D U7/RisingA[1]/D U7/RisingB[1]/D }] is incorrect.
-Error: SDC0023: C:\RMC70\Programmable\CPU\RMC75E\FPGA\mainline\constraint\user.sdc:24: Invalid max delay constraint: the -to value [get_pins { MDTTop_2/FallingA[1]/D U8/FallingB[1]/D U8/RisingA[1]/D U8/RisingB[1]/D }] is incorrect.

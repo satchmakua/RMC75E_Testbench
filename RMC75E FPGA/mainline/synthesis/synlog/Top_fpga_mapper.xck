@@ -1,4 +1,0 @@
-CKID0001:@|S:ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST@|E:ClkCtrl_1.DLL_Rst_ShiftReg[0]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
-CKID0002:@|S:ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST@|E:TickSync_1.LatchedTickSync60@|F:@syn_sample_clock_path1==CKID0002@|M:ClockId0002 
-CKID0003:@|S:ClkCtrl_1.clk_1.Clock_Gen_0.CCC_INST@|E:MDTTop_2.RisingB[1]@|F:@syn_sample_clock_path2==CKID0003@|M:ClockId0003 
-CKID0004:@|S:H1_CLKWR@|E:CtrlOut_1.DataBuffer[2]@|F:@syn_sample_clock_path==CKID0004@|M:ClockId0004 
