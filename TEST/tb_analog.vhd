@@ -99,8 +99,8 @@ architecture tb of tb_analog is
     signal ExpA2ReadCh1        : std_logic := '0';
     signal ExpA3ReadCh0        : std_logic := '0';
     signal ExpA3ReadCh1        : std_logic := '0';
-    signal ExpA_CS_L           : std_logic;
-    signal ExpA_CLK            : std_logic;
+    signal ExpA_CS_L           : std_logic := '0';
+    signal ExpA_CLK            : std_logic := '0';
     signal CtrlAxisData        : std_logic_vector (1 downto 0) := (others => '0');
     signal ExpA_DATA           : std_logic_vector (7 downto 0) := (others => '0');
 
@@ -151,9 +151,9 @@ begin
     SlowEnable_process : process
     begin
         SlowEnable <= '0';
-        wait for 8 * SysClk_period;
+        wait for 7 * SysClk_period;
         SlowEnable <= '1';
-        wait for 8 * SysClk_period;
+        wait for SysClk_period;
     end process;
 
     -- System initialization
@@ -171,7 +171,7 @@ begin
         wait for SysClk_period/2;
         SynchedTick <= '0';
 				
-        wait for 128 us;
+        wait for 125 us;
 
         SynchedTick60 <= '1';
         SynchedTick <= '1';
@@ -196,7 +196,7 @@ begin
         wait for 5 us;
         ExpA1ReadCh1 <= '0';
 
-        wait for 10 us;
+        wait for 1000 us;
 
     end process system_init;
 end tb;

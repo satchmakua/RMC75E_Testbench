@@ -214,7 +214,7 @@ begin  -- internal architecure logic description
 				EndDelay <= '1';
 			end if;
 
-			if ((State = SampleHoldState or State = ConvertState) and CycleCounter < "10110") then --(26 clocks)
+			if ((State = SampleHoldState or State = ConvertState) and CycleCounter < "10110") then --(22 clocks)
 				ExpA_CLK_EN <= '1';
 			else
 				ExpA_CLK_EN <= '0';

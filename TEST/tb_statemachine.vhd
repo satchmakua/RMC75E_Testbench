@@ -31,13 +31,13 @@ architecture tb of tb_StateMachine is
 	signal SysReset        		: std_logic := '1';
 	signal SysClk          		: std_logic := '0';
 	signal SlowEnable     		: std_logic := '0';
-	signal SynchedTick      	: std_logic;
+	signal SynchedTick      	: std_logic := '0';
 	signal LoopTime        		: std_logic_vector(2 downto 0) := "000";
-	signal ExpA_CS_L        	: std_logic;
-	signal ExpA_CLK        		: std_logic;
-	signal Serial2ParallelEN	: std_logic;
-	signal Serial2ParallelCLR	: std_logic;
-	signal WriteConversion		: std_logic;
+	signal ExpA_CS_L        	: std_logic := '0';
+	signal ExpA_CLK        		: std_logic := '0';
+	signal Serial2ParallelEN	: std_logic := '0';
+	signal Serial2ParallelCLR	: std_logic := '0';
+	signal WriteConversion		: std_logic := '0';
 
 	begin
 	-- Instantiate the DUT
@@ -66,11 +66,11 @@ architecture tb of tb_StateMachine is
 	SlowEnable_process : process
 	begin
 			SlowEnable <= '0';
-			wait for 8 * SysClk_period;
+			wait for 7 * SysClk_period;
 			SlowEnable <= '1';
-			wait for 8 * SysClk_period;
+			wait for SysClk_period;
 	end process;
-		
+	
 	-- Stimulus process
 	stim_proc: process
 	begin
@@ -78,17 +78,19 @@ architecture tb of tb_StateMachine is
 			SysReset <= '0';
 			LoopTime <= "000";
 			
-			wait for 1 us;
+			wait for 10 us;
+			wait until rising_edge(SysClk);
 			SynchedTick <= '1';
 			wait for SysClk_period;
 			SynchedTick <= '0';
 			
 			wait for 125 us;
+			wait until rising_edge(SysClk);
 			SynchedTick <= '1';
 			wait for SysClk_period;
 			SynchedTick <= '0';
 			
-			wait for 125 us;
+			wait for 1000 us;
 			
 	end process stim_proc;
 end architecture tb;
