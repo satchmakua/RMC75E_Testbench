@@ -95,52 +95,61 @@ begin
       Exp3Mux => Exp3Mux
     );
 
-  -- Add necessary test stimuli, assertions, and wait statements here
+		SysClk_process : process
+    begin
+        SysClk <= '0';
+        wait for CLK_PERIOD/2;
+        SysClk <= '1';
+        wait for CLK_PERIOD/2;
+    end process;
+
+    -- SlowEnable signal process definition
+    SlowEnable_process : process
+    begin
+        SlowEnable <= '0';
+        wait for 7 * CLK_PERIOD;
+        SlowEnable <= '1';
+        wait for CLK_PERIOD;
+    end process;
 
   -- Test bench process
   tb_process: process
   begin
     -- Initialize signals
-    RESET <= '1';
-    SysClk <= '0';
-    SlowEnable <= '0';
+		wait for 10 ns;
+    RESET <= '0';
     FPGAIDRead <= '0';
     ControlCardIDRead <= '0';
-    Expansion1IDRead <= '0';
-    Expansion2IDRead <= '0';
-    Expansion3IDRead <= '0';
-    Expansion4IDRead <= '0';
+		
+		wait for 10 us;
+		
+    Expansion1IDRead <= '1';
+		wait for 1 us;
+		Expansion1IDRead <= '0';
+		
+		Expansion2IDRead <= '1';
+		wait for 1 us;
+		Expansion2IDRead <= '0';
+		
+		Expansion3IDRead <= '1';
+		wait for 1 us;
+		Expansion3IDRead <= '0';
+		
+		Expansion4IDRead <= '1';
+		wait for 1 us;
+		Expansion4IDRead <= '0';
+		
     M_Card_ID_DATA <= '0';
     Exp_ID_DATA <= '0';
     MDTPresent <= '0';
     ANLGPresent <= '0';
     QUADPresent <= '0';
-    DiscoveryComplete <= '0';
+		
     Exp0Mux <= (others => '0');
     Exp1Mux <= (others => '0');
     Exp2Mux <= (others => '0');
     Exp3Mux <= (others => '0');
 
-    -- Wait for half a period before reset
-    wait for CLK_PERIOD / 2;
-    RESET <= '0';
-
-    -- Generate clock
-    loop
-      wait for CLK_PERIOD / 2;
-      SysClk <= not SysClk;
-    end loop;
-
-    -- Add test stimuli, assertions, and wait statements here
-
-    -- End simulation after a certain time
-    wait for 100 * CLK_PERIOD;
-    if Now > 200 * CLK_PERIOD then
-      assert false report "Simulation time expired" severity failure;
-    end if;
-
-    -- Stop the clock
-    SysClk <= '0';
     wait;
   end process tb_process;
 

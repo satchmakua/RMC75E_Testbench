@@ -58,7 +58,7 @@ architecture tb_arch of tb_Serial2Parallel_v2 is
     signal S2P_Addr: std_logic_vector(3 downto 0) := (others => '0');
     signal S2P_Data: std_logic_vector(15 downto 0);
     
-    constant CLK_PERIOD : time := 10 ns;
+    constant CLK_PERIOD : time := 33.3333 ns;
 
 begin
     DUT: entity work.Serial2Parallel
@@ -76,7 +76,7 @@ begin
     -- Clock generator process
     clk_gen_proc: process
     begin
-        while now < 1000 ns loop
+        while now < 1000 us loop
             SysClk <= '0';
             wait for CLK_PERIOD/2;
             SysClk <= '1';

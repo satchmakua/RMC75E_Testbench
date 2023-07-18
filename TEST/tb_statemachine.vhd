@@ -65,9 +65,9 @@ architecture tb of tb_StateMachine is
 
 	SlowEnable_process : process
 	begin
-			SlowEnable <= '0';
+			SlowEnable <= '0'; -- SlowEnable inactive for seven ticks
 			wait for 7 * SysClk_period;
-			SlowEnable <= '1';
+			SlowEnable <= '1'; -- Active every 8th tick
 			wait for SysClk_period;
 	end process;
 	

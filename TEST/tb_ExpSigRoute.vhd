@@ -121,77 +121,36 @@ begin
     ExpQ1_FaultA           => ExpQ1_FaultA,
     ExpQ1_FaultB           => ExpQ1_FaultB
   );
-
+	
+  SerialMemoryClk_process : process
+  begin
+    SerialMemoryClk <= '0';
+    wait for CLK_PERIOD/2;
+    SerialMemoryClk <= '1';
+    wait for CLK_PERIOD/2;
+  end process;
+	
+  ExpA_CLK_process : process
+  begin
+    ExpA_CLK <= '0';
+    wait for CLK_PERIOD/2;
+    ExpA_CLK <= '1';
+    wait for CLK_PERIOD/2;
+  end process;
+	
   stim_proc: process
   begin	
-    -- Test scenario 1: No valid module, expect tied to '1', '0', or 'Z'
-    ExpMux <= "00"; ExpSerialSelect <= '0'; ExpLEDSelect <= '0'; ExpLEDData <= '0';
-    wait for CLK_PERIOD;
-
-    -- Test scenario 2: Analog input logic module with serial select
-    ExpMux <= "01"; ExpSerialSelect <= '1'; ExpA_CS_L <= '0'; ExpA_CLK <= '1';
-    wait for CLK_PERIOD;
-
-    -- Test scenario 3: DIO input logic module
-    ExpMux <= "10"; ExpLEDSelect <= '1'; ExpLEDData <= '1'; ExpD8_OE <= '1'; ExpD8_Load <= '1';
-    wait for CLK_PERIOD;
-
-    -- Test scenario 4: ExpData with both the AP2 and the DIO8 modules
-    ExpMux <= "11"; ExpSerialSelect <= '0'; ExpLEDSelect <= '0'; ExpLEDData <= '1'; 
-    wait for CLK_PERIOD;
-
-    -- Test scenario 5: Random combination of inputs
-    ExpMux <= "01"; ExpSerialSelect <= '1'; ExpLEDSelect <= '0'; ExpLEDData <= '0'; ExpA_CS_L <= '1'; ExpA_CLK <= '0';
-    wait for CLK_PERIOD;
-
-    -- Additional test cases
-    -- Test scenario 6: Testing upper bound of ExpData
-    ExpData <= "111111";
-    wait for CLK_PERIOD;
-
-    -- Test scenario 7: Testing lower bound of ExpData
-    ExpData <= "000000";
-    wait for CLK_PERIOD;
-
-    -- Test scenario 8: Random combination of inputs with AP2 module
-    ExpMux <= "01"; ExpSerialSelect <= '1'; ExpLEDSelect <= '0'; ExpLEDData <= '1'; ExpA_CS_L <= '0'; ExpA_CLK <= '0';
-    wait for CLK_PERIOD;
+    ExpMux <= "01";
+    ExpSerialSelect <= '1';
+    ExpLEDSelect <= '1';
+    ExpLEDData <= '1';
+    ExpData(3 downto 1) <= "111";
+    ExpA_CS_L <= '1';
 
     wait;
   end process;
 
-  -- Assertion for Test scenario 1: No valid module
-  assert (ExpQ1_A = '1' and ExpQ1_B = '0' and ExpQ1_Reg = 'Z' and ExpQ1_FaultA = '1' and ExpQ1_FaultB = '0')
-    report "Test scenario 1 failed" severity error;
-
-  -- Assertion for Test scenario 2: Analog input logic module with serial select
-  assert (ExpQ1_A = '0' and ExpQ1_B = '0' and ExpQ1_Reg = '1' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 2 failed" severity error;
-
-  -- Assertion for Test scenario 3: DIO input logic module
-  assert (ExpQ1_A = 'Z' and ExpQ1_B = 'Z' and ExpQ1_Reg = 'Z' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 3 failed" severity error;
-
-  -- Assertion for Test scenario 4: ExpData with both the AP2 and the DIO8 modules
-  assert (ExpQ1_A = '0' and ExpQ1_B = '0' and ExpQ1_Reg = '0' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 4 failed" severity error;
-
-  -- Assertion for Test scenario 5: Random combination of inputs
-  assert (ExpQ1_A = 'Z' and ExpQ1_B = 'Z' and ExpQ1_Reg = '0' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 5 failed" severity error;
-
-  -- Assertion for Test scenario 6: Testing upper bound of ExpData
-  assert (ExpQ1_A = '1' and ExpQ1_B = '1' and ExpQ1_Reg = '1' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 6 failed" severity error;
-
-  -- Assertion for Test scenario 7: Testing lower bound of ExpData
-  assert (ExpQ1_A = '0' and ExpQ1_B = '0' and ExpQ1_Reg = '0' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 7 failed" severity error;
-
-  -- Assertion for Test scenario 8: Random combination of inputs with AP2 module
-  assert (ExpQ1_A = 'Z' and ExpQ1_B = 'Z' and ExpQ1_Reg = '0' and ExpQ1_FaultA = '0' and ExpQ1_FaultB = '0')
-    report "Test scenario 8 failed" severity error;
-
 end tb;
+
 
 

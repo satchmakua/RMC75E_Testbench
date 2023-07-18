@@ -96,8 +96,8 @@ architecture tb of tb_ExpModuleLED is
   signal ExpLEDSelect    : std_logic_vector (3 downto 0);
 
   -- Clock period definitions
-  constant SysClk_period : time := 10 ns;
-  constant H1_CLKWR_period : time := 20 ns;
+  constant SysClk_period : time := 16.6667 ns;
+  constant H1_CLK_period : time := 33.3334 ns;
 
 begin
   -- Instantiate the unit under test (UUT)
@@ -143,22 +143,31 @@ begin
     ExpOldAP2       => ExpOldAP2
   );
 
-  -- Clock process definitions
-  clk_process: process
-  begin
-    SysClk <= '0';
-    wait for SysClk_period/2;
-    SysClk <= '1';
-    wait for SysClk_period/2;
-  end process;
+	-- Clock process definitions
+	H1_CLKWR_process : process
+	begin
+			H1_CLKWR <= '0';
+			wait for H1_CLK_period/2;
+			H1_CLKWR <= '1';
+			wait for H1_CLK_period/2;
+	end process;
 
-  H1_CLKWR_process: process
-  begin
-    H1_CLKWR <= '0';
-    wait for H1_CLKWR_period/2;
-    H1_CLKWR <= '1';
-    wait for H1_CLKWR_period/2;
-  end process;
+	SysClk_process : process
+	begin
+			SysClk <= '0';
+			wait for SysClk_period/2;
+			SysClk <= '1';
+			wait for SysClk_period/2;
+	end process;
+
+	-- SlowEnable signal process definition
+	SlowEnable_process : process
+	begin
+			SlowEnable <= '0';
+			wait for 7 * SysClk_period;
+			SlowEnable <= '1';
+			wait for SysClk_period;
+	end process;
 
   -- Stimulus process
   stim_proc: process
@@ -171,7 +180,20 @@ begin
     -- Wait for discovery completion
     wait for 50 ns;
     DiscoveryComplete <= '1';
+		
+		wait for 1 us;
+				
 
+		SynchedTick <= '1';
+		wait for SysClk_period;
+		SynchedTick <= '0';
+		
+		wait for 10 us;
+
+		SynchedTick <= '1';
+		wait for SysClk_period;
+		SynchedTick <= '0';
+				
     -- Enable LED writes and provide data
     Exp0LEDWrite <= '1';
     Exp0LED0Write <= '1';
@@ -206,7 +228,7 @@ begin
     Exp3LEDRead <= '0';
     Exp3LED0Read <= '0';
     Exp3LED1Read <= '0';
-    intDATA <= "11000000000000000000000000000000";
+    intDATA <= "11011000000000000000000000000000";
     wait for 10 ns;
 
     -- Wait for some time

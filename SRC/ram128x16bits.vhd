@@ -86,7 +86,7 @@ end RAM128x16;
 architecture RAM128x16_arch of RAM128x16 is
 
 	type ram_type is array (127 downto 0) of std_logic_vector (15 downto 0); 
-	signal RAM		: ram_type;	-- := (others => (others => '0')); 
+	signal RAM		: ram_type:= (others => (others => '0')); 
 	signal read_a	: std_logic_vector (6 downto 0);	-- := (others => '0');
 	
 begin 

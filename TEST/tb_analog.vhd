@@ -23,14 +23,9 @@
 	-- and "DataBuffer" to handle different functionalities of the analog processing.
 
 	-- Test Bench:
-	-- The test bench, named "tb_analog," is responsible for verifying
-	-- the functionality of the DUT. It instantiates the DUT and provides
+	-- The test bench instantiates the DUT and provides
 	-- stimulus signals to simulate different scenarios and test cases.
-	-- The test bench initializes the signals to default values and
-	-- generates test stimuli to stimulate the DUT. It includes assertions
-	-- to check the expected behavior of the DUT and reports errors if any mismatches occur.
-	-- The test bench also ensures that all signals are defined after running the simulation
-	-- by checking certain signals' values at the end of the simulation duration.
+	
 --
 --
 --	Revision: 1.1
@@ -76,6 +71,29 @@ architecture tb of tb_analog is
         );
     end component Analog;
 
+	component DataBuffer is
+		port (
+			H1_CLKWR			: in std_logic;
+			SysClk				: in std_logic;
+			SynchedTick			: in std_logic;
+			SynchedTick60		: in std_logic;
+			AnlgPositionRead0	: in std_logic;
+			AnlgPositionRead1	: in std_logic;
+			ExpA0ReadCh0		: in std_logic;
+			ExpA0ReadCh1		: in std_logic;
+			ExpA1ReadCh0		: in std_logic;
+			ExpA1ReadCh1		: in std_logic;
+			ExpA2ReadCh0		: in std_logic;
+			ExpA2ReadCh1		: in std_logic;
+			ExpA3ReadCh0		: in std_logic;
+			ExpA3ReadCh1		: in std_logic;
+			WriteConversion		: in std_logic;
+			S2P_Addr			: inout std_logic_vector (3 downto 0);
+			S2P_Data			: in std_logic_vector (15 downto 0);
+			DataOut				: out std_logic_vector (15 downto 0)
+		);
+	end component;
+	
     -- Clock period definitions
     constant H1_CLK_period : time := 16.6667 ns;
     constant SysClk_period : time := 33.3333 ns;
@@ -88,7 +106,7 @@ architecture tb of tb_analog is
     signal SynchedTick         : std_logic := '0';
     signal SynchedTick60       : std_logic := '0';
     signal LoopTime            : std_logic_vector (2 downto 0) := (others => '0');
-    signal AnlgDATA            : std_logic_vector (31 downto 0);
+    signal AnlgDATA            : std_logic_vector (31 downto 0) := (others => '0');
     signal AnlgPositionRead0   : std_logic := '0';
     signal AnlgPositionRead1   : std_logic := '0';
     signal ExpA0ReadCh0        : std_logic := '0';
@@ -103,7 +121,7 @@ architecture tb of tb_analog is
     signal ExpA_CLK            : std_logic := '0';
     signal CtrlAxisData        : std_logic_vector (1 downto 0) := (others => '0');
     signal ExpA_DATA           : std_logic_vector (7 downto 0) := (others => '0');
-
+		
 begin
     DUT: Analog port map(
         SysReset            => SysReset,
@@ -179,15 +197,27 @@ begin
         SynchedTick60 <= '0';
         wait for SysClk_period/2;
         SynchedTick <= '0';
-
-        AnlgPositionRead0 <= '1';
-        wait for 5 us;
-        AnlgPositionRead0 <= '0';
-
-        AnlgPositionRead1 <= '1';
-        wait for 5 us;
-        AnlgPositionRead1 <= '0';
-
+				
+				CtrlAxisData <= "00";
+				
+				AnlgPositionRead0 <= '1';
+				for i in 0 to 7 loop
+						wait until falling_edge(ExpA_CLK);
+						wait for 2 ns;
+						ExpA_DATA(i) <= '1';
+				end loop;
+				AnlgPositionRead0 <= '0';
+				
+				AnlgPositionRead1 <= '1';
+				for i in 0 to 7 loop
+						wait until falling_edge(ExpA_CLK);
+						wait for 2 ns;
+						ExpA_DATA(i) <= '1';
+				end loop;
+				AnlgPositionRead1 <= '0';
+				
+				wait for 5 us;
+				
         ExpA1ReadCh0 <= '1';
         wait for 5 us;
         ExpA1ReadCh0 <= '0';

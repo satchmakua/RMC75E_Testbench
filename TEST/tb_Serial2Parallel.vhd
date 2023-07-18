@@ -58,7 +58,7 @@ architecture tb_arch of tb_Serial2Parallel is
     signal S2P_Addr: std_logic_vector(3 downto 0) := (others => '0');
     signal S2P_Data: std_logic_vector(15 downto 0);
     
-    constant CLK_PERIOD : time := 16.6667 ns;
+    constant CLK_PERIOD : time := 33.3333 ns;
 
 begin
     DUT: entity work.Serial2Parallel
@@ -73,23 +73,21 @@ begin
         S2P_Data => S2P_Data
     );
 
-    -- Clock generator process
-    clk_gen_proc: process
+    SysClk_process : process
     begin
-        while true loop
-            wait for CLK_PERIOD / 2;
-            SysClk <= not SysClk;
-        end loop;
-    end process clk_gen_proc;
+        SysClk <= '0';
+        wait for CLK_PERIOD/2;
+        SysClk <= '1';
+        wait for CLK_PERIOD/2;
+    end process;
 
     stim_proc: process
     begin
-        -- Wait for initial reset period
-        wait for 2 * CLK_PERIOD;
+				wait for 5 us;
         
         -- Set SynchedTick high for 1 us
         SynchedTick <= '1';
-        wait for 1 us;
+        wait for CLK_PERIOD;
         SynchedTick <= '0';
         
         -- Wait for 7 us
@@ -97,9 +95,27 @@ begin
         
         -- Set SynchedTick high again for 1 us
         SynchedTick <= '1';
-        wait for 1 us;
+        wait for CLK_PERIOD;
         SynchedTick <= '0';
         
+				Serial2ParallelCLR <= '1';
+				wait for CLK_PERIOD;
+				Serial2ParallelCLR <= '0';
+				
+				Serial2ParallelEN <= '1';
+				wait for CLK_PERIOD;
+				Serial2ParallelEN <= '0';
+				
+				ExpA_DATA(3 downto 1) <= "111";
+				
+				CtrlAxisData <= "01";
+				wait for 1 us;
+				CtrlAxisData <= "11";
+				wait for 1 us;
+				CtrlAxisData <= "10";
+				wait for 1 us;
+				CtrlAxisData <= "00";
+				
         -- End simulation
         wait;
     end process stim_proc;

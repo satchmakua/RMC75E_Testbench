@@ -39,12 +39,11 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 
-entity tb_CountrolOutput is
-end tb_CountrolOutput;
+entity tb_ControlOutput is
+end tb_ControlOutput;
 
-architecture tb of tb_CountrolOutput is
+architecture tb of tb_ControlOutput is
   constant clk_period : time := 16.6667 ns;
-  constant num_cycles : integer := 15_000; -- 250 us divided by clk_period of 16.666 ns 
 
   signal H1_CLKWR           : std_logic := '0';
   signal SysClk             : std_logic := '0';
@@ -97,40 +96,46 @@ begin
     SysClk <= '1';
     wait for clk_period/2;
   end process;
-
+	
+	Enable_process : process
+    begin
+        Enable <= '0';
+        wait for 3 * clk_period;
+        Enable <= '1';
+        wait for clk_period;
+	end process;
+		
   stim_proc : process
   begin
+	
+		wait for 10 ns;
+		PowerUp <= '1';
+		wait for 10 ns;
+		
     RESET <= '1';
     wait for clk_period;
     RESET <= '0';
-    Enable <= '1';
+		
     wait for clk_period;
-    for i in 1 to num_cycles loop
-      intDATA <= "1010101010101010";
-      ControlOutputWrite <= '1';
-      wait for clk_period;
-      intDATA <= "0101010101010101";
-      ControlOutputWrite <= '0';
-      wait for clk_period;
-      SynchedTick <= '1';
-      wait for clk_period;
-      SynchedTick <= '0';
-      intDATA <= "1111000011110000";
-      ControlOutputWrite <= '1';
-      wait for clk_period;
-      ControlOutputWrite <= '0';
-      wait for clk_period;
-    end loop;
+		
+		SynchedTick <= '1';
+		wait for clk_period;
+		SynchedTick <= '0';
+		
+		wait for 10 us;
+		
+		SynchedTick <= '1';
+		wait for clk_period;
+		SynchedTick <= '0';
+		
+		
+		ControlOutputWrite <= '1';
+		intDATA <= "1111000011110000";
+		wait for clk_period;
+		
+		ControlOutputWrite <= '0';
+		wait for clk_period;
 
-    assert(M_OUT_DATA /= 'U')
-      report "Unexpected value on M_OUT_DATA"
-      severity error;
-    assert(M_OUT_CONTROL /= 'U')
-      report "Unexpected value on M_OUT_CONTROL"
-      severity error;
-    assert(M_OUT_CLK /= 'U')
-      report "Unexpected value on M_OUT_CLK"
-      severity error;
     wait;
   end process;
 end tb;

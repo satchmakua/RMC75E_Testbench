@@ -75,7 +75,7 @@ architecture DataBuffer_arch of DataBuffer is
 	signal	BankSelect,
 			WriteEnable,
 			WriteBank0,
-			WriteBank1				: std_logic;	-- := '0';
+			WriteBank1				: std_logic:= '0';
 	signal	DetectRead,
 			DecrementReadPointer	: std_logic;	-- := '0';
 	signal	ReadPointer,

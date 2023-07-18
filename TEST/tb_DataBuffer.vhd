@@ -45,8 +45,9 @@ end tb_DataBuffer;
 
 architecture test of tb_DataBuffer is
 
-    constant PERIOD : time := 16.6667 ns; -- this is the period of the clock
-    constant NUM_CYCLES : natural := 100; -- number of cycles to run the test bench
+    -- Clock period definitions
+    constant H1_CLK_period : time := 16.6667 ns;
+    constant SysClk_period : time := 33.3333 ns;
 
     signal H1_CLKWR: std_logic := '0';
     signal SysClk: std_logic := '0';
@@ -63,9 +64,15 @@ architecture test of tb_DataBuffer is
     signal ExpA3ReadCh0: std_logic := '0';
     signal ExpA3ReadCh1: std_logic := '0';
     signal WriteConversion: std_logic := '0';
-    signal S2P_Addr: std_logic_vector(3 downto 0);
-    signal S2P_Data: std_logic_vector(15 downto 0);
-    signal DataOut: std_logic_vector(15 downto 0);
+    signal S2P_Addr: std_logic_vector(3 downto 0):= (others => '0');
+    signal S2P_Data: std_logic_vector(15 downto 0):= (others => '0');
+		signal DataOut: std_logic_vector(15 downto 0):= (others => '0');
+		
+		signal clk: std_logic := '0';
+    signal we: std_logic := '0';
+    signal a: std_logic_vector(6 downto 0) := (others => '0');
+    signal d: std_logic_vector(15 downto 0) := (others => '0');
+    signal o: std_logic_vector(15 downto 0);
 
 begin
     uut: entity work.DataBuffer
@@ -90,63 +97,87 @@ begin
         DataOut => DataOut
     );
 
-    clk_gen: process
-    begin
-        while true loop
-            H1_CLKWR <= not H1_CLKWR;
-            wait for PERIOD/2;
-        end loop;
-    end process clk_gen;
+		uut_ram: entity work.RAM128x16
+		port map (
+				clk => clk,
+				we => we,
+				a => a,
+				d => d,
+				o => o
+		);
 
     SysClk_proc: process
     begin
         while true loop
             SysClk <= not SysClk;
-            wait for PERIOD;
+            wait for SysClk_PERIOD;
         end loop;
     end process SysClk_proc;
 
+		Clk_proc: process
+		begin
+				while true loop
+						Clk <= not SysClk;
+						wait for SysClk_PERIOD;
+				end loop;
+		end process Clk_proc;
+		
+		H1_CLKWR_process : process
+    begin
+        H1_CLKWR <= '0';
+        wait for H1_CLK_period/2;
+        H1_CLKWR <= '1';
+        wait for H1_CLK_period/2;
+    end process;
+		
 	stimulus: process
 	begin
-			-- Initial conditions
-			SynchedTick <= '0';
+			SynchedTick60 <= '1';
+			SynchedTick <= '1';
+			wait for SysClk_period/2;
 			SynchedTick60 <= '0';
+			wait for SysClk_period/2;
+			SynchedTick <= '0';
+			
+			wait for 125 us;
+
+			SynchedTick60 <= '1';
+			SynchedTick <= '1';
+			wait for SysClk_period/2;
+			SynchedTick60 <= '0';
+			wait for SysClk_period/2;
+			SynchedTick <= '0';
+			
+			AnlgPositionRead0 <= '1';
+			for i in 0 to 15 loop
+					wait until falling_edge(H1_CLKWR);
+					wait for 2 ns;
+					S2P_Data(i) <= '1';
+			end loop;
+			AnlgPositionRead0 <= '1';
+			wait for 5 us;
 			AnlgPositionRead0 <= '0';
+			
+			AnlgPositionRead1 <= '1';
+			for i in 0 to 15 loop
+					wait until falling_edge(H1_CLKWR);
+					wait for 5 us;
+					S2P_Data(i) <= '1';
+			end loop;
 			AnlgPositionRead1 <= '0';
-			ExpA0ReadCh0 <= '0';
-			ExpA0ReadCh1 <= '0';
+			
+			wait for 5 us;
+			
+			ExpA1ReadCh0 <= '1';
+			wait for 5 us;
 			ExpA1ReadCh0 <= '0';
+
+			ExpA1ReadCh1 <= '1';
+			wait for 5 us;
 			ExpA1ReadCh1 <= '0';
-			ExpA2ReadCh0 <= '0';
-			ExpA2ReadCh1 <= '0';
-			ExpA3ReadCh0 <= '0';
-			ExpA3ReadCh1 <= '0';
-			WriteConversion <= '0';
-			S2P_Addr <= "0000";
-			S2P_Data <= "0000000000000000";
 
-			-- Start of test scenarios, add test logic here
-
-			-- Test case: Writing to the RAM128x16 module
-			SynchedTick <= '1'; -- Set SynchedTick high to enable write operation
-			WriteConversion <= '1'; -- Assert WriteConversion to trigger the write operation
-			S2P_Data <= "0101010101010101"; -- Set the desired data to be written
-			wait for 1 us; -- Wait for 1 us to allow the write operation to complete
-			SynchedTick <= '0'; -- De-assert SynchedTick to complete the write operation
-			wait for 8 us; -- Wait for additional 8 us to ensure the write operation has finished
-
-			-- Ensure S2P_Addr becomes defined
-			S2P_Addr <= "1111";
-
-			-- Ensure DataOut becomes defined
-			DataOut <= (others => '0');
-
-			-- Ensure all signals become defined
-			wait for NUM_CYCLES * PERIOD;
-
-			-- Repeat for more test cases
-
-			wait;
+			wait for 1000 us;
+			
 	end process stimulus;
 
 end test;
