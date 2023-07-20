@@ -32,8 +32,8 @@ entity tb_ControlIO is
 end tb_ControlIO;
 
 architecture tb of tb_ControlIO is
-  constant H1_CLK_PERIOD: time := 16.67 ns; -- 60MHz clock period
-  constant SYS_CLK_PERIOD: time := 33.33 ns; -- 30MHz clock period
+  constant H1_CLK_PERIOD: time := 16.6667 ns; -- 60MHz clock period
+  constant SYS_CLK_PERIOD: time := 33.3333 ns; -- 30MHz clock period
 
   signal RESET: std_logic := '1';
   signal H1_CLKWR: std_logic := '0';
@@ -54,13 +54,13 @@ architecture tb of tb_ControlIO is
   signal M_IO_LATCH: std_logic;
   signal M_IO_CLK: std_logic;
   signal M_IO_DATAOut: std_logic;
-  signal M_IO_DATAIn: std_logic;
+  signal M_IO_DATAIn: std_logic:= '0';
   signal M_ENABLE: std_logic_vector (1 downto 0);
-  signal M_FAULT: std_logic_vector (1 downto 0);
+  signal M_FAULT: std_logic_vector (1 downto 0) := (others => '0');
   signal PowerUp: std_logic := '0'; -- Set PowerUp to a specific value
-  signal QUADPresent: std_logic;
-  signal QA0AxisFault: std_logic_vector (2 downto 0);
-  signal QA1AxisFault: std_logic_vector (2 downto 0);
+  signal QUADPresent: std_logic:= '0';
+  signal QA0AxisFault: std_logic_vector (2 downto 0):= (others => '0');
+  signal QA1AxisFault: std_logic_vector (2 downto 0):= (others => '0');
   signal controlIoDataOut: std_logic_vector (31 downto 0); -- Define controlIoDataOut signal
 
   -- Clock signals based on H1_CLKWR
@@ -132,40 +132,44 @@ begin
   begin
     while true loop
       H1_CLK_30 <= not H1_CLK_30;
-      wait for H1_CLK_PERIOD * 2;
+      wait for SYS_CLK_PERIOD;
     end loop;
   end process H1_CLK_30_proc;
-
+	
+	Enable_process : process
+    begin
+        Enable <= '0';
+        wait for 3 * SYS_CLK_PERIOD;
+        Enable <= '1';
+        wait for SYS_CLK_PERIOD;
+	end process;
+	
   -- Stimulus process
   stimulus_proc: process
   begin
     -- Reset signal sequence
-    RESET <= '1';
-    wait for H1_CLK_PERIOD;
-    RESET <= '0';
+		wait for 1 us;
+		
+		PowerUp <= '1';
+    
+		RESET <= '1';
+    wait for SYS_CLK_PERIOD;
+		RESET <= '0';
+		
+		wait for 1 us;
+		SynchedTick <= '1';
+		wait for SYS_CLK_PERIOD;
+		SynchedTick <= '0';
 
-    -- Wait for one 30MHz clock cycle
-    wait for H1_CLK_PERIOD * 2;
-
-    -- Generate SynchedTick pulses
-    while true loop
-      SynchedTick <= '1';
-      wait for H1_CLK_PERIOD;
-      SynchedTick <= '0';
-      wait for H1_CLK_PERIOD;
-    end loop;
-
-    -- Continue simulation
-    wait;
+		wait for 10 us;
+		SynchedTick <= '1';
+		wait for SYS_CLK_PERIOD;
+		SynchedTick <= '0';
+		
+		M_IO_DATAIn <= '1';
+		
+		wait for 100 us;
   end process stimulus_proc;
-
-  -- Assertion process
-  assert_proc: process
-  begin
-    -- Add your assertions here
-
-    wait;
-  end process assert_proc;
 
 end tb;
 

@@ -14,12 +14,13 @@
 --
 --	Description: 
 
+	-- Note that ShiftOn can be intialized to either 1 / 0, 
+	-- but must be given an initial value within the source code in order to
+	-- avoid undefined behavior.
+	
 	-- This module serves as the test bench for the SSITop module.
 	-- It provides a platform to verify the functionality of the SSITop module
 	-- by simulating various input scenarios and monitoring the corresponding output signals.
-
-	-- Note that ShiftOn can be intialized to either 1 / 0, 
-	-- but must be given an initial value within the source code.
 	
 --	Revision: 1.0
 --

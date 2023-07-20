@@ -14,10 +14,13 @@
 --
 --	Description: 
 
+	-- Note that the RAM signal should have a value initialization to avoid
+	-- undefined behavior in the analog module. It can be set to either 1 or 0, as long as it is not
+	-- left undefined when intialized.
+	
 	-- Creates a 128x16 (128 words x 16 bits per word) synchronous write synchronous read, single-port RAM.
 
-	-- The RAM128x16 module is a component of the source code for the RMC75E modular motion controller.
-	-- It serves as a 128x16-bit random access memory (RAM) module, capable
+	-- The RAM128x16 module serves as a 128x16-bit random access memory (RAM) module, capable
 	-- of storing and retrieving data based on provided address and control signals.
 
 	-- Components:
@@ -32,7 +35,6 @@
 	-- o: The data output signal that provides the 16-bit data read from the specified memory location.
 
 	-- Architecture:
-
 	-- The architecture of the RAM128x16 module, named RAM128x16_arch, consists of the following components:
 
 	-- ram_type: This is a defined type representing an array of 128 elements,
@@ -60,9 +62,10 @@
 	-- making it an integral component for various motion control operations.
 
 --
---	Revision: 1.1
+--	Revision: 1.2
 --
 --	File history:
+--    Rev 1.2 : 7/19/2023  :	Added initial value for RAM signal
 --		Rev 1.1 : 05/30/2022 :	Updated formatting
 --
 --------------------------------------------------------------------------------
@@ -86,7 +89,7 @@ end RAM128x16;
 architecture RAM128x16_arch of RAM128x16 is
 
 	type ram_type is array (127 downto 0) of std_logic_vector (15 downto 0); 
-	signal RAM		: ram_type:= (others => (others => '0')); 
+	signal RAM		: ram_type:= (others => (others => '1')); 
 	signal read_a	: std_logic_vector (6 downto 0);	-- := (others => '0');
 	
 begin 

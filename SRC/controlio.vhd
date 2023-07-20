@@ -17,14 +17,16 @@
 --	Control Board IO and LED Interface - The LED information is
 --	clocked out to 74HCT595 devices and is locked on the rising edge of the clock.
 
-	-- The module ControlIO is an entity in VHDL that describes the interface and behavior
-	-- of a control module responsible for managing IO operations and LED status for two axes (Axis0 and Axis1).
+	-- ControlIO is a control module responsible for managing IO 
+	-- operations and LED status for two axes (Axis0 and Axis1).
+	
 	-- The module takes various input signals such as RESET, H1_CLKWR, SysClk,
 	-- Enable, SynchedTick, intDATA, and several control signals for Axis0 and Axis1,
 	-- and provides output signals for control and communication with other modules.
 
 	-- The primary purpose of the ControlIO module is to control the communication and
 	-- configuration of LEDs and IO operations for Axis0 and Axis1.
+	
 	-- It includes a state machine that orchestrates the shifting of data in and out of shift registers,
 	-- controls the timing and sequencing of operations, and manages the LED status and IO control signals.
 

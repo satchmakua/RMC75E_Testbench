@@ -13,13 +13,19 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
+	-- Note that ShiftOn can be intialized to either 1 / 0, 
+	-- but must be given an initial value within the source code in order to
+	-- avoid undefined behavior in the system.
+	
 --		SSI Interface
 --		The SSI Interface will provide a signal interface to 
 --		Synchronous Serial Interface type linear and rotary transducers. 
 --
---	Revision: 1.2
+--	Revision: 1.3
 --
 --	File history:
+--		Rev 1.3 : 7/19/2023  :	Added initial value for ShiftOn signal
 --		Rev 1.2 : 11/14/2022 :	Consolidated three sub-components into this entity
 --		Rev 1.1 : 06/10/2022 :	Updated formatting
 --

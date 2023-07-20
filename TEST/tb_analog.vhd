@@ -20,7 +20,7 @@
 	-- The DUT has several input and output ports, including control signals,
 	-- clock signals, data signals, and various read and write signals.
 	-- It includes internal components like "StateMachine," "Serial2Parallel,"
-	-- and "DataBuffer" to handle different functionalities of the analog processing.
+	-- and "DataBuffer" to handle different functionalities of the ADC processing.
 
 	-- Test Bench:
 	-- The test bench instantiates the DUT and provides
@@ -71,28 +71,28 @@ architecture tb of tb_analog is
         );
     end component Analog;
 
-	component DataBuffer is
-		port (
-			H1_CLKWR			: in std_logic;
-			SysClk				: in std_logic;
-			SynchedTick			: in std_logic;
-			SynchedTick60		: in std_logic;
-			AnlgPositionRead0	: in std_logic;
-			AnlgPositionRead1	: in std_logic;
-			ExpA0ReadCh0		: in std_logic;
-			ExpA0ReadCh1		: in std_logic;
-			ExpA1ReadCh0		: in std_logic;
-			ExpA1ReadCh1		: in std_logic;
-			ExpA2ReadCh0		: in std_logic;
-			ExpA2ReadCh1		: in std_logic;
-			ExpA3ReadCh0		: in std_logic;
-			ExpA3ReadCh1		: in std_logic;
-			WriteConversion		: in std_logic;
-			S2P_Addr			: inout std_logic_vector (3 downto 0);
-			S2P_Data			: in std_logic_vector (15 downto 0);
-			DataOut				: out std_logic_vector (15 downto 0)
-		);
-	end component;
+		component DataBuffer is
+			port (
+				H1_CLKWR			: in std_logic;
+				SysClk				: in std_logic;
+				SynchedTick			: in std_logic;
+				SynchedTick60		: in std_logic;
+				AnlgPositionRead0	: in std_logic;
+				AnlgPositionRead1	: in std_logic;
+				ExpA0ReadCh0		: in std_logic;
+				ExpA0ReadCh1		: in std_logic;
+				ExpA1ReadCh0		: in std_logic;
+				ExpA1ReadCh1		: in std_logic;
+				ExpA2ReadCh0		: in std_logic;
+				ExpA2ReadCh1		: in std_logic;
+				ExpA3ReadCh0		: in std_logic;
+				ExpA3ReadCh1		: in std_logic;
+				WriteConversion		: in std_logic;
+				S2P_Addr			: inout std_logic_vector (3 downto 0);
+				S2P_Data			: in std_logic_vector (15 downto 0);
+				DataOut				: out std_logic_vector (15 downto 0)
+			);
+		end component;
 	
     -- Clock period definitions
     constant H1_CLK_period : time := 16.6667 ns;
@@ -122,7 +122,7 @@ architecture tb of tb_analog is
     signal CtrlAxisData        : std_logic_vector (1 downto 0) := (others => '0');
     signal ExpA_DATA           : std_logic_vector (7 downto 0) := (others => '0');
 		
-begin
+		begin
     DUT: Analog port map(
         SysReset            => SysReset,
         H1_CLKWR            => H1_CLKWR,
@@ -179,7 +179,6 @@ begin
     begin
         wait for 1 us;
         SysReset <= '0';
-
         wait for 1 us;
 				
         SynchedTick60 <= '1';
@@ -197,8 +196,6 @@ begin
         SynchedTick60 <= '0';
         wait for SysClk_period/2;
         SynchedTick <= '0';
-				
-				CtrlAxisData <= "00";
 				
 				AnlgPositionRead0 <= '1';
 				for i in 0 to 7 loop

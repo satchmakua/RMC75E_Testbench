@@ -15,7 +15,7 @@
 --	Description: 
 
 	-- The DUT (Device Under Test) here is the DIO8 module which is a
-	-- Digital Input/Output (DIO) device with 8-bit interfaces.
+	-- Discrete Input/Output (DIO) device with 8-bit interfaces.
 	-- It has a wide array of input and output signals for configuration and data interaction.
 	-- It also includes signals for clock, reset, and enable operations.
 
@@ -84,45 +84,48 @@ component DIO8 is
     );
 end component;
 
--- Declare inputs
-signal RESET				: std_logic := '0';
-signal H1_CLKWR				: std_logic := '0';
-signal SysClk				: std_logic := '0';
-signal SlowEnable			: std_logic := '0';
-signal SynchedTick			: std_logic := '0';
-signal intDATA				: std_logic_vector(31 downto 0) := (others => '0');
-signal ExpDIO8ConfigRead	: std_logic_vector(3 downto 0) := (others => '0');
-signal ExpDIO8ConfigWrite	: std_logic_vector(3 downto 0) := (others => '0');
-signal ExpDIO8DinRead		: std_logic_vector(3 downto 0) := (others => '0');
-signal Exp0D8_DataIn		: std_logic := '0';
-signal Exp1D8_DataIn		: std_logic := '0';
-signal Exp2D8_DataIn		: std_logic := '0';
-signal Exp3D8_DataIn		: std_logic := '0';
+    -- Clock period definitions
+    constant H1_CLK_period : time := 16.6667 ns;
+    constant SysClk_period : time := 33.3333 ns;
+		-- Declare inputs
+		signal RESET				: std_logic := '0';
+		signal H1_CLKWR				: std_logic := '0';
+		signal SysClk				: std_logic := '0';
+		signal SlowEnable			: std_logic := '0';
+		signal SynchedTick			: std_logic := '0';
+		signal intDATA				: std_logic_vector(31 downto 0) := (others => '0');
+		signal ExpDIO8ConfigRead	: std_logic_vector(3 downto 0) := (others => '0');
+		signal ExpDIO8ConfigWrite	: std_logic_vector(3 downto 0) := (others => '0');
+		signal ExpDIO8DinRead		: std_logic_vector(3 downto 0) := (others => '0');
+		signal Exp0D8_DataIn		: std_logic := '0';
+		signal Exp1D8_DataIn		: std_logic := '0';
+		signal Exp2D8_DataIn		: std_logic := '0';
+		signal Exp3D8_DataIn		: std_logic := '0';
 
--- Declare outputs
-signal d8DataOut			: std_logic_vector(31 downto 0);
-signal Exp0D8_Clk			: std_logic;
-signal Exp0D8_DataOut		: std_logic;
-signal Exp0D8_OE			: std_logic;
-signal Exp0D8_Load			: std_logic;
-signal Exp0D8_Latch			: std_logic;
-signal Exp1D8_Clk			: std_logic;
-signal Exp1D8_DataOut		: std_logic;
-signal Exp1D8_OE			: std_logic;
-signal Exp1D8_Load			: std_logic;
-signal Exp1D8_Latch			: std_logic;
-signal Exp2D8_Clk			: std_logic;
-signal Exp2D8_DataOut		: std_logic;
-signal Exp2D8_OE			: std_logic;
-signal Exp2D8_Load			: std_logic;
-signal Exp2D8_Latch			: std_logic;
-signal Exp3D8_Clk			: std_logic;
-signal Exp3D8_DataOut		: std_logic;
-signal Exp3D8_OE			: std_logic;
-signal Exp3D8_Load			: std_logic;
-signal Exp3D8_Latch			: std_logic;
+		-- Declare outputs
+		signal d8DataOut			: std_logic_vector(31 downto 0);
+		signal Exp0D8_Clk			: std_logic;
+		signal Exp0D8_DataOut		: std_logic;
+		signal Exp0D8_OE			: std_logic;
+		signal Exp0D8_Load			: std_logic;
+		signal Exp0D8_Latch			: std_logic;
+		signal Exp1D8_Clk			: std_logic;
+		signal Exp1D8_DataOut		: std_logic;
+		signal Exp1D8_OE			: std_logic;
+		signal Exp1D8_Load			: std_logic;
+		signal Exp1D8_Latch			: std_logic;
+		signal Exp2D8_Clk			: std_logic;
+		signal Exp2D8_DataOut		: std_logic;
+		signal Exp2D8_OE			: std_logic;
+		signal Exp2D8_Load			: std_logic;
+		signal Exp2D8_Latch			: std_logic;
+		signal Exp3D8_Clk			: std_logic;
+		signal Exp3D8_DataOut		: std_logic;
+		signal Exp3D8_OE			: std_logic;
+		signal Exp3D8_Load			: std_logic;
+		signal Exp3D8_Latch			: std_logic;
 
-begin
+		begin
     -- Instantiate the Device Under Test (DUT)
     DUT: DIO8 port map (
         RESET				=> RESET,
@@ -161,46 +164,61 @@ begin
         Exp3D8_Latch		=> Exp3D8_Latch
     );
 
-stim_proc: process
-    -- Define SysClock period
-    constant SysClk_period : time := 16.6667 ns; -- 60 MHz
-    constant pulse_delay : time := 1 us;
-    constant pulse_delay_2 : time := 8 us;
-begin
-    -- Generate SysClock
-    SysClk <= '0';
-    wait for SysClk_period/2;
-    SysClk <= '1';
-    wait for SysClk_period/2;
+    -- Clock process definitions
+    H1_CLKWR_process : process
+    begin
+        H1_CLKWR <= '0';
+        wait for H1_CLK_period/2;
+        H1_CLKWR <= '1';
+        wait for H1_CLK_period/2;
+    end process;
 
-    -- hold reset state for 100 ns.
-    RESET <= '1';
-    wait for 100 ns;  
+    SysClk_process : process
+    begin
+        SysClk <= '0';
+        wait for SysClk_period/2;
+        SysClk <= '1';
+        wait for SysClk_period/2;
+    end process;
 
-    RESET <= '0';
+    -- SlowEnable signal process definition
+    SlowEnable_process : process
+    begin
+        SlowEnable <= '0';
+        wait for 7 * SysClk_period;
+        SlowEnable <= '1';
+        wait for SysClk_period;
+    end process;
+		
+		stim_proc: process
+		begin
+				RESET <= '1';
+				wait for 100 ns;
+				RESET <= '0';
 
-    -- SynchedTick pulses
-    wait for pulse_delay; -- Wait for 1us
-    SynchedTick <= '1'; -- Start of first pulse
-    wait for SysClk_period;
-    SynchedTick <= '0'; -- End of first pulse
+				wait for 1 us;
+				SynchedTick <= '1';
+				wait for SysClk_period;
+				SynchedTick <= '0';
 
-    wait for pulse_delay_2 - SysClk_period; -- Wait for 8us - one clock period
-    SynchedTick <= '1'; -- Start of second pulse
-    wait for SysClk_period;
-    SynchedTick <= '0'; -- End of second pulse
+				wait for 10 us;
+				SynchedTick <= '1';
+				wait for SysClk_period;
+				SynchedTick <= '0';
 
-    -- insert your stimulus here 
-    wait for 100 ns;
+				wait for 5 us;
 
-    -- Test case 1: Test ExpDIO8ConfigRead and ExpDIO8ConfigWrite signals
-    -- Write data to ExpDIO8ConfigWrite
-    ExpDIO8ConfigWrite <= "1010";
-    wait for 100 ns;
+				ExpDIO8DinRead  <= "1111";
+				ExpDIO8ConfigWrite <= "0000";
+				Exp0D8_DataIn <= '1';
 
-    -- Enable ExpDIO8ConfigRead
-    ExpDIO8ConfigRead <= "0001";
-    wait for 100 ns;
-end process stim_proc;
+				-- Stimulate the clock and data inputs
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp0D8_Clk);
+						wait for 2 ns;
+						intDATA(i) <= '1';
+				end loop;
 
+				wait for 1000 us;
+		end process stim_proc;		
 end tb;

@@ -15,6 +15,9 @@
 --	Description: 
 --		Serial EEPROM Interface
 --
+--    Note that to avoid undefined behavior, the SerialDataInput Signal
+--		should be initialized to some value, as it is now.
+
 --		Data is clocked into the Serial EEPROM device on the positive edge
 --		Data is clocked out of the Serial EEPROM device on the negative edge
 --
@@ -99,33 +102,33 @@ architecture SerialMemoryInterface_arch of SerialMemoryInterface is
 			FLAG_CLR,
 			intFLAG_CLR,
 			FLAG_CLR_LAT,
-			ReadFlag						: std_logic;	-- :='0';
-	signal	SerialDataCounter				: std_logic_vector (2 downto 0);	-- :="000";
-	signal	SerialMemoryClockEnableCounter	: std_logic_vector (4 downto 0);	-- := "00000";
+			ReadFlag						: std_logic; --:='0';
+	signal	SerialDataCounter				: std_logic_vector (2 downto 0); --:="000";
+	signal	SerialMemoryClockEnableCounter	: std_logic_vector (4 downto 0); --:= "00000";
 	signal	SerialMemoryClockEnable,
 			SerialDataInputEnable			: std_logic;	-- :='0';
 	signal	intSerialMemoryDataIn,
 			StartStopBit,
 			ACK								: std_logic;	-- :='0';
-	signal	MemoryAddress					: std_logic_vector (5 downto 0);	-- :="000000";
-	signal	intModuleAddress				: std_logic_vector (2 downto 0);	-- :="000";
-	signal	DataBuffer						: std_logic_vector (7 downto 0);	-- :="00000000";
+	signal	MemoryAddress					: std_logic_vector (5 downto 0); --:="000000";
+	signal	intModuleAddress				: std_logic_vector (2 downto 0); --:="000";
+	signal	DataBuffer						: std_logic_vector (7 downto 0); --:="00000000";
 	signal	intSerialMemoryClock,
 			ShiftEnable,
-			intSerialMemoryDataControl		: std_logic;	-- := '0';
-	signal	intSerialMemoryDataOut			: std_logic;	-- := '0';
-	signal	SerialMemoryClockFallingEdge	: std_logic;	-- := '0';
+			intSerialMemoryDataControl		: std_logic; --:= '0';
+	signal	intSerialMemoryDataOut			: std_logic; --:= '0';
+	signal	SerialMemoryClockFallingEdge	: std_logic; --:= '0';
 	signal	SerialMemoryMidClockEnable,
 			intEEPROMAccessFlag,
-			ControlSerialSelect				: std_logic;	-- := '0';
-	signal	SerialDataInput					: std_logic_vector (7 downto 0);	-- := X"00";
+			ControlSerialSelect				: std_logic; --:= '0';
+	signal	SerialDataInput					: std_logic_vector (7 downto 0):= X"00";
 	signal	SerialDataOutputMux,
-			SerialDataOutput				: std_logic_vector (7 downto 0);	-- := X"00";
+			SerialDataOutput				: std_logic_vector (7 downto 0); --:= X"00";
 	signal	IncOperationFaultCount,
 			OperationFaultFlag,
 			OperationFaultFlagInput,
 			intOperationFaultFlagInput		: std_logic;	-- := '0';
-	signal	OperationFaultCount				: std_logic_vector (1 downto 0);	-- := "00";
+	signal	OperationFaultCount				: std_logic_vector (1 downto 0); --:= "00";
 
 begin
 
