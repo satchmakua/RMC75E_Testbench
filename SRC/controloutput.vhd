@@ -13,6 +13,10 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
+-- 		Note: ControlOutputWriteLatched1 and ControlOutputWriteLatched2 need to 
+--		be assigned an initial value (1/0) in order to be defined during simulation.
+
 --		Analog Control Output Interface
 --		a 16-bit word of control output data is loaded into a parallel load/serial out 
 --		shift register for the axis.  
@@ -54,18 +58,18 @@ end ControlOutput;
 
 architecture ControlOutput_arch of ControlOutput is
 
-	signal	ShiftRegister			: std_logic_vector (15 downto 0);	-- := X"0000";
+	signal	ShiftRegister			: std_logic_vector (15 downto 0); --:= X"0000";
 	signal	DataBuffer,
-			DataBufferOut			: std_logic_vector (15 downto 0);	-- := X"0000";
+			DataBufferOut			: std_logic_vector (15 downto 0); --:= X"1111";
 	signal	Count					: std_logic_vector (4 downto 0);	-- := "00000";
 	signal	ControlOutputWriteLatched0,
 			ControlOutputWriteLatched1,
-			ControlOutputWriteLatched2	: std_logic;	-- := '0';
+			ControlOutputWriteLatched2	: std_logic:= '0';
 	signal	ControlOutputOneShot		: std_logic;	-- := '0';
 	signal	OutputClock,
 			ShiftEnable,
 			ShiftComplete				: std_logic;	-- := '0';
-	signal	ShiftDataOutput				: std_logic;	-- := '0';
+	signal	ShiftDataOutput				: std_logic; --:= '0';
 
 	---- State Encoding
 	constant s0: std_logic := '0';

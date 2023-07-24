@@ -43,7 +43,10 @@ entity tb_ControlOutput is
 end tb_ControlOutput;
 
 architecture tb of tb_ControlOutput is
-  constant clk_period : time := 16.6667 ns;
+
+	-- Clock period definitions
+	constant H1_CLK_period : time := 16.6667 ns;
+	constant SysClk_period : time := 33.3333 ns;
 
   signal H1_CLKWR           : std_logic := '0';
   signal SysClk             : std_logic := '0';
@@ -73,7 +76,7 @@ architecture tb of tb_ControlOutput is
     );
   end component;
 
-begin
+	begin
   DUT: ControlOutput
     port map (
       H1_CLKWR           => H1_CLKWR,
@@ -92,52 +95,72 @@ begin
   clk_proc : process
   begin
     SysClk <= '0';
-    wait for clk_period/2;
+    wait for SysClk_period/2;
     SysClk <= '1';
-    wait for clk_period/2;
+    wait for SysClk_period/2;
   end process;
 	
+	H1_CLKWR_process : process
+  begin
+        H1_CLKWR <= '0';
+        wait for H1_CLK_period/2;
+        H1_CLKWR <= '1';
+        wait for H1_CLK_period/2;
+  end process;
+		
 	Enable_process : process
     begin
         Enable <= '0';
-        wait for 3 * clk_period;
+        wait for 3 * SysClk_period;
         Enable <= '1';
-        wait for clk_period;
+        wait for SysClk_period;
 	end process;
 		
   stim_proc : process
   begin
 	
-		wait for 10 ns;
+		wait for 1 us;
+		
 		PowerUp <= '1';
-		wait for 10 ns;
+		wait for SysClk_period;
+		PowerUp <= '0';
 		
     RESET <= '1';
-    wait for clk_period;
+    wait for SysClk_period;
     RESET <= '0';
 		
-    wait for clk_period;
+    wait for 2 us;
 		
 		SynchedTick <= '1';
-		wait for clk_period;
+		wait for SysClk_period;
 		SynchedTick <= '0';
 		
-		wait for 10 us;
-		
-		SynchedTick <= '1';
-		wait for clk_period;
-		SynchedTick <= '0';
-		
+		wait for 1 us;
 		
 		ControlOutputWrite <= '1';
-		intDATA <= "1111000011110000";
-		wait for clk_period;
-		
+		wait for SysClk_period;
 		ControlOutputWrite <= '0';
-		wait for clk_period;
+		
+		intData <= "1010111010101010";
+		
+		wait for 60 us;
+		
+		SynchedTick <= '1';
+		wait for SysClk_period;
+		SynchedTick <= '0';
+		
+		wait for 1 us;
+		
+		ControlOutputWrite <= '1';
+		wait for SysClk_period;
+		ControlOutputWrite <= '0';
+		
+		
+		wait for 50 us;
 
     wait;
   end process;
+	
 end tb;
 
 

@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_analog
---	File				tb_analog.vhd
+--	File					tb_analog.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -19,13 +19,9 @@
 	-- It represents a digital circuit that performs analog data processing.
 	-- The DUT has several input and output ports, including control signals,
 	-- clock signals, data signals, and various read and write signals.
-	-- It includes internal components like "StateMachine," "Serial2Parallel,"
+	-- It includes internal components such as "StateMachine," "Serial2Parallel,"
 	-- and "DataBuffer" to handle different functionalities of the ADC processing.
 
-	-- Test Bench:
-	-- The test bench instantiates the DUT and provides
-	-- stimulus signals to simulate different scenarios and test cases.
-	
 --
 --
 --	Revision: 1.1

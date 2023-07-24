@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		tb_DIO8
---	File					tb_DIO8.vhd
+--	Entity Name		tb_DIO8_v2
+--	File					tb_DIO8_v2.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -40,10 +40,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity tb_DIO8 is
-end tb_DIO8;
+entity tb_DIO8_v2 is
+end tb_DIO8_v2;
 
-architecture tb of tb_DIO8 is 
+architecture tb of tb_DIO8_v2 is 
 
 component DIO8 is
     Port (
@@ -192,7 +192,7 @@ end component;
 		
 		stim_proc: process
 		begin
-				RESET <= '1';
+							RESET <= '1';
 				wait for 100 ns;
 				RESET <= '0';
 
@@ -208,6 +208,7 @@ end component;
 
 				ExpDIO8ConfigRead <= "0001";
 				-- ExpDIO8DinRead  <= "0001";
+				Exp0D8_DataIn <= '1';
 				
 				intData <= X"AA55AA55";
 				
@@ -215,14 +216,13 @@ end component;
 						wait until falling_edge(Exp0D8_Clk);
 						wait for 2 ns;
 						Exp0D8_DataIn <= '1';
-						wait for 7*SysClk_period;
+						wait for 50 ns;
 						Exp0D8_DataIn <= '0';
 				end loop;
 				
 				wait for 5 us;
-				ExpDIO8ConfigWrite <= "0000";
-
-				wait for 1000 us;
+				ExpDIO8ConfigWrite <= "0001";
+	
 		end process stim_proc;		
 		
 end tb;
