@@ -77,7 +77,7 @@ begin
       Enable => Enable,
       SynchedTick => SynchedTick,
       intDATA => intDATA,
-      controlIoDataOut => controlIoDataOut, -- Connect controlIoDataOut signal
+      controlIoDataOut => controlIoDataOut,
       Axis0LEDStatusRead => Axis0LEDStatusRead,
       Axis0LEDConfigWrite => Axis0LEDConfigWrite,
       Axis0IORead => Axis0IORead,
@@ -136,6 +136,7 @@ begin
     end loop;
   end process H1_CLK_30_proc;
 	
+	-- Enable process active on every 4th tick of system clock
 	Enable_process : process
     begin
         Enable <= '0';
@@ -166,7 +167,44 @@ begin
 		wait for SYS_CLK_PERIOD;
 		SynchedTick <= '0';
 		
+		QUADPresent <= '1';
 		M_IO_DATAIn <= '1';
+		intDATA	 <= X"FFFFFFFF";
+		
+		wait for 5 us;
+		Axis0LEDConfigWrite <= '1';
+		wait for SYS_CLK_PERIOD;
+		Axis0LEDConfigWrite <= '0';
+		
+		Axis0IOWrite <= '1';
+		wait for SYS_CLK_PERIOD;
+		Axis0IOWrite <= '0';
+		
+		Axis0LEDStatusRead <= '1';
+		wait for 5 us;
+		Axis0LEDStatusRead <= '0';
+		
+		Axis0IORead <= '1';
+		wait for 5 us;
+		Axis0IORead <= '0';
+		
+		
+		Axis1LEDConfigWrite <= '1';
+		wait for SYS_CLK_PERIOD;
+		Axis1LEDConfigWrite <= '0';
+		
+		Axis1IOWrite <= '1';
+		wait for SYS_CLK_PERIOD;
+		Axis1IOWrite <= '0';
+		
+		Axis1LEDStatusRead <= '1';
+		wait for 5 us;
+		Axis1LEDStatusRead <= '0';
+		
+		Axis1IORead <= '1';
+		wait for 5 us;
+		Axis1IORead <= '0';
+		wait for 5 us;
 		
 		wait for 100 us;
   end process stimulus_proc;

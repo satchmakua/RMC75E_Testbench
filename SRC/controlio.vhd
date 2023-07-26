@@ -123,7 +123,7 @@ end ControlIO;
 architecture ControlIO_arch of ControlIO is
 
 	signal	ShiftOutRegister		: std_logic_vector (9 downto 0);	-- := "0000000000";
-	signal	ShiftInRegister			: std_logic_vector (7 downto 0);	-- := "00000000";
+	signal	ShiftInRegister			: std_logic_vector (7 downto 0):= "00000000";
 	signal	DataBufferOut			: std_logic_vector (9 downto 0);	-- := "0000000000";
 	signal	DataBufferIn			: std_logic_vector (7 downto 2);	-- := "000000";
 	signal	Count					: std_logic_vector (3 downto 0);	-- := X"0";

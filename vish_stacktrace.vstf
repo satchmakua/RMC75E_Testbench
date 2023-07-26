@@ -1,0 +1,16 @@
+# Current time Wed Jul 26 14:02:50 2023
+# ModelSim Microsemi Pro Stack Trace
+# Program = vish
+# Id = "2022.2"
+# Version = "2022.04"
+# Date = "Apr 26 2022"
+# Platform = win32acoem
+
+Exception c0000005 has occurred at address 005bb530. Traceback:
+# 0    0x005bb530: 'Mtirpc_Init + 0x83490'
+# 1    0x005bb382: 'Mtirpc_Init + 0x832e2'
+# 2    0x00574590: 'Mtirpc_Init + 0x3c4f0'
+# 3    0x73cf39f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
