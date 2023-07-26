@@ -151,7 +151,6 @@ begin
 --							D8OutputReg3(31 downto 0) when ExpDIO8ConfigRead(3)='1' else
 							-- debug only
 							--X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
-							--X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
 --							X"0000_0000";
 
 	d8DataOut(31 downto 0) <= 	X"0000_00" & D8InputReg0(7 downto 0) when ExpDIO8DinRead(0)='1' else 
@@ -230,7 +229,6 @@ begin
 
 	ExpD8_DataOut <= OutputShiftRegister(15);
 
-	-- This mapping was required when the LED bit interface was changed to make it easier to read
 	IntDoutMap(15 downto 0) <=	IntDout(19) & IntDout(27) & 
 								IntDout(18) & IntDout(26) & 
 								IntDout(17) & IntDout(25) & 

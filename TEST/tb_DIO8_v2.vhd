@@ -83,7 +83,11 @@ component DIO8 is
         Exp3D8_Latch		: out std_logic
     );
 end component;
-
+		
+		-- Input values
+		constant shift_register_input : std_logic_vector(31 downto 0) := "11100011100010101110001110001010";
+		constant shift_register_input_2 : std_logic_vector(31 downto 0) := X"FF00FF00";
+		
     -- Clock period definitions
     constant H1_CLK_period : time := 16.6667 ns;
     constant SysClk_period : time := 33.3333 ns;
@@ -192,7 +196,7 @@ end component;
 		
 		stim_proc: process
 		begin
-							RESET <= '1';
+				RESET <= '1';
 				wait for 100 ns;
 				RESET <= '0';
 
@@ -200,29 +204,120 @@ end component;
 				SynchedTick <= '1';
 				wait for SysClk_period;
 				SynchedTick <= '0';
-
+				
+				intData <= X"AA55AA55";
+				
+				ExpDIO8ConfigWrite <= "0001";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0010";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0100";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "1000";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0000";
+				
 				wait for 125 us;
 				SynchedTick <= '1';
 				wait for SysClk_period;
 				SynchedTick <= '0';
-
-				ExpDIO8ConfigRead <= "0001";
-				-- ExpDIO8DinRead  <= "0001";
-				Exp0D8_DataIn <= '1';
-				
-				intData <= X"AA55AA55";
 				
 				for i in 0 to 31 loop
 						wait until falling_edge(Exp0D8_Clk);
-						wait for 2 ns;
-						Exp0D8_DataIn <= '1';
-						wait for 50 ns;
-						Exp0D8_DataIn <= '0';
+						Exp0D8_DataIn <= shift_register_input(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp1D8_Clk);
+						Exp1D8_DataIn <= shift_register_input(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp2D8_Clk);
+						Exp2D8_DataIn <= shift_register_input(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp3D8_Clk);
+						Exp3D8_DataIn <= shift_register_input(i);
 				end loop;
 				
 				wait for 5 us;
+				
+				ExpDIO8ConfigRead <= "0001";
+				ExpDIO8DinRead <= "0001";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0010";
+				ExpDIO8DinRead <= "0010";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0100";
+				ExpDIO8DinRead <= "0100";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "1000";
+				ExpDIO8DinRead <= "1000";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0000";
+				ExpDIO8DinRead <= "0000";
+				wait for 5 us;
+
+				wait for 100 us;
+				
+				intData <= X"39D7CEBF";
+				
 				ExpDIO8ConfigWrite <= "0001";
-	
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0010";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0100";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "1000";
+				wait for H1_CLK_period;
+				ExpDIO8ConfigWrite <= "0000";
+				
+				wait for 125 us;
+				SynchedTick <= '1';
+				wait for SysClk_period;
+				SynchedTick <= '0';
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp0D8_Clk);
+						Exp0D8_DataIn <= shift_register_input_2(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp1D8_Clk);
+						Exp1D8_DataIn <= shift_register_input_2(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp2D8_Clk);
+						Exp2D8_DataIn <= shift_register_input_2(i);
+				end loop;
+				
+				for i in 0 to 31 loop
+						wait until falling_edge(Exp3D8_Clk);
+						Exp3D8_DataIn <= shift_register_input_2(i);
+				end loop;
+				
+				wait for 5 us;
+				
+				ExpDIO8ConfigRead <= "0001";
+				ExpDIO8DinRead <= "0001";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0010";
+				ExpDIO8DinRead <= "0010";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0100";
+				ExpDIO8DinRead <= "0100";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "1000";
+				ExpDIO8DinRead <= "1000";
+				wait for 5 us;
+				ExpDIO8ConfigRead <= "0000";
+				ExpDIO8DinRead <= "0000";
+				wait for 5 us;
+
+				wait for 100 us;
 		end process stim_proc;		
 		
 end tb;
