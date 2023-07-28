@@ -13,7 +13,7 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		After reset, quary ID information from Expansion modules.
+--		After reset, querry ID information from Expansion modules.
 --
 --	Revision: 1.2
 --

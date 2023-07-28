@@ -30,7 +30,10 @@ architecture tb_arch of tb_SerialMemoryInterface is
         M_SPROM_DATA            : inout std_logic
     );
     end component;
-
+		
+		-- Input data
+		constant shift_register_input_0		: std_logic_vector(31 downto 0) := X"FF00FF00";
+		
     -- Signals
     signal SysReset, H1_CLK, SysClk, SlowEnable, SerialMemXfaceWrite, SerialMemoryDataIn : std_logic;
     signal SerialMemoryDataOut, SerialMemoryDataControl, SerialMemoryClk : std_logic;
@@ -97,14 +100,35 @@ begin
     process
     begin
         -- Initialize inputs
+				SysReset <= '1';
 				wait for 1 us;
         SysReset <= '0';
-				wait for 1 us;
-				SerialMemXfaceWrite <= '1';
+				
+				wait for 2 us;
+				
+				intDATA(31 downto 25) <= "1010000"; -- device address
+				intDATA(24 downto 22) <= "100"; -- module address
+				intDATA(21 downto 16) <= "000001"; -- memory address
+				intDATA(15) 					<= '1'; -- write operation
+				intDATA(14) 					<= '0'; -- read operation
+				intDATA(13 downto 8) 	<= "010101"; -- data
+				intDATA(7 downto 0) 	<= "00000000"; -- data buffer
+				
 				SerialMemoryDataIn <= '1';
-        intDATA <= "10101011110011010001001101010101";
-				wait for 100 us;
-        wait;
+				
+				SerialMemXfaceWrite <= '1';
+				wait for SysClk_period;
+				SerialMemXfaceWrite <= '0';
+				
+				wait for 320 us;
+				
+				intDATA(24 downto 22) <= "000";
+				
+				SerialMemXfaceWrite <= '1';
+				wait for SysClk_period;
+				SerialMemXfaceWrite <= '0';
+				
+				wait for 1000 us;
     end process;
 
 end tb_arch;

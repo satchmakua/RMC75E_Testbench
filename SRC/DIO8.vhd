@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		DIO8
---	File					DIO8.vhd
+--	File			DIO8.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -29,11 +29,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
--- Uncomment the following lines to use the declarations that are
--- provided for instantiating Xilinx primitive components.
-
--- library UNISIM;
--- use UNISIM.VComponents.all;
+--  Uncomment the following lines to use the declarations that are
+--  provided for instantiating Xilinx primitive components.
+--library UNISIM;
+--use UNISIM.VComponents.all;
 
 entity DIO8 is
 	Port (
@@ -140,7 +139,8 @@ begin
 	Exp3D8_Load		<= ExpD8_Load     when ExpSlot(1 downto 0)="11" else '0';
 	Exp3D8_Latch	<= ExpD8_Latch    when ExpSlot(1 downto 0)="11" else '1';
 
---	d8DataOut(31 downto 0) <= 	X"0101_01" & D8InputReg0(7 downto 0) when ExpDIO8DinRead(0)='1' else 
+							-- padded values are debug only
+--d8DataOut(31 downto 0) <= 	X"0101_01" & D8InputReg0(7 downto 0) when ExpDIO8DinRead(0)='1' else 
 --							X"1111_11" & D8InputReg1(7 downto 0) when ExpDIO8DinRead(1)='1' else 
 --							X"2222_22" & D8InputReg2(7 downto 0) when ExpDIO8DinRead(2)='1' else 
 --							X"3333_33" & D8InputReg3(7 downto 0) when ExpDIO8DinRead(3)='1' else 
@@ -148,9 +148,8 @@ begin
 --							D8OutputReg1(31 downto 0) when ExpDIO8ConfigRead(1)='1' else
 --							D8OutputReg2(31 downto 0) when ExpDIO8ConfigRead(2)='1' else
 --							D8OutputReg3(31 downto 0) when ExpDIO8ConfigRead(3)='1' else
-
 							-- debug only
-							-- X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
+							--X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
 --							X"0000_0000";
 
 	d8DataOut(31 downto 0) <= 	X"0000_00" & D8InputReg0(7 downto 0) when ExpDIO8DinRead(0)='1' else 
@@ -162,7 +161,7 @@ begin
 								D8OutputReg2(31 downto 0) when ExpDIO8ConfigRead(2)='1' else
 								D8OutputReg3(31 downto 0) when ExpDIO8ConfigRead(3)='1' else
 								-- debug only
-								-- X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
+								--X"FFFF_4567" when ExpDIO8ConfigRead(3)='1' else
 								X"0000_0000";
 
 	-- The individual register banks correspond to -D8 module positions in the Expansion slot stackup
@@ -229,6 +228,8 @@ begin
 
 	ExpD8_DataOut <= OutputShiftRegister(15);
 
+	-- This mapping was required when the LED bit interface was changed to make it easy on the 
+	-- software weenies
 	IntDoutMap(15 downto 0) <=	IntDout(19) & IntDout(27) & 
 								IntDout(18) & IntDout(26) & 
 								IntDout(17) & IntDout(25) & 
