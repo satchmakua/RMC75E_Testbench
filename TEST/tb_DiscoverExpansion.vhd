@@ -22,7 +22,7 @@
 	-- machine that controls the write sequence to the LED driver, allowing for the serial communication of expansion ID data.
 
 	-- Test Bench:
-	-- The test bench, tb_DiscoverExpansionID, is designed to verify the functionality of the DiscoverExpansionID
+	-- This test unit is designed to verify the functionality of the DiscoverExpansionID
 	-- component in the RMC75E modular motion controller. It instantiates the DiscoverExpansionID component and
 	-- connects the necessary signals. The test bench includes stimulus generation processes to simulate different
 	-- scenarios and test cases. It provides appropriate input stimuli to the DUT and observes its output signals.
@@ -39,13 +39,16 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity tb_DiscoverExpansionID is
 end tb_DiscoverExpansionID;
 
 architecture tb of tb_DiscoverExpansionID is
-  constant CLK_PERIOD : time := 16.6667 ns; -- For 60 MHz clock
-  constant SLOW_CLK_PERIOD : time := 2*CLK_PERIOD; -- For 30 MHz clock
+
+	-- Clock period definition
+	constant SysClk_period : time := 33.3333 ns;
+	constant Slow_period: time := 200 ns;
 
   signal RESET           : std_logic := '0';
   signal SysClk          : std_logic := '0';
@@ -76,35 +79,66 @@ begin
       Exp_ID_LOAD => Exp_ID_LOAD
     );
 
-  -- Clock generation for SysClk
-  clk_process: process
-  begin
-    wait for CLK_PERIOD / 2;
-    SysClk <= not SysClk;
-  end process;
+	SysClk_process : process
+	begin
+			SysClk <= '0';
+			wait for SysClk_period/2;
+			SysClk <= '1';
+			wait for SysClk_period/2;
+	end process;
 
-  -- Clock generation for SlowEnable
-  slow_clk_process: process
-  begin
-    wait for SLOW_CLK_PERIOD / 2;
-    SlowEnable <= not SlowEnable;
-  end process;
-
+	-- SlowEnable signal process definition
+	-- SlowEnable_process : process
+	-- begin
+			-- SlowEnable <= '0';
+			-- wait for Slow_period/2;
+			-- SlowEnable <= '1';
+			-- wait for Slow_period/2;
+	-- end process;
+	
+	SlowEnable_process : process
+	begin
+			SlowEnable <= '0';
+			wait for 7 * SysClk_period;
+			SlowEnable <= '1';
+			wait for SysClk_period;
+	end process;
+		
   -- Test bench process
   tb_process: process
   begin
     -- Reset sequence
+		wait for 20 us;
+		
     RESET <= '1';
-    wait for CLK_PERIOD;
+    wait for SysClk_period;
     RESET <= '0';
+		
+    wait for 20 us;
 
-    -- Define your own test sequences with appropriate timing
+    -- Test 1: Test basic operation with Exp_ID_DATA = '1'
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
+
+    -- Test 2: Test different Exp_ID_DATA values
+    Exp_ID_DATA <= '0';
+
+    -- Test 3: Test Shift Complete
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 66; -- Wait for 66 clock cycles to complete one full shift (64 + 1)
+
+    -- Test 4: Test writing different data values
+    Exp_ID_DATA <= '0';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
+
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
 
     -- End of testbench
     assert false report "End of testbench" severity note;
-    wait;
+		
+    wait for 20 us;
+		
   end process tb_process;
 
 end tb;
-
-

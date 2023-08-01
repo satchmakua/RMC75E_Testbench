@@ -23,7 +23,7 @@
 	
 --	Revision: 1.0
 --
---	File history:
+--	File history: 
 --	
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -35,7 +35,8 @@ entity tb_DiscoverControlID is
 end tb_DiscoverControlID;
 
 architecture tb of tb_DiscoverControlID is
-  constant CLK_PERIOD : time := 16.6667 ns; -- For 60 MHz clock
+  constant SysClk_period : time := 33.3333 ns; -- 30 MHz clock
+	constant Slow_period: time := 200 ns; -- 5 MHz slow enable
 
   signal RESET          : std_logic := '0';
   signal SysClk         : std_logic := '0';
@@ -46,7 +47,7 @@ architecture tb of tb_DiscoverControlID is
   signal M_Card_ID_LATCH: std_logic;
   signal M_Card_ID_LOAD : std_logic;
 
-begin
+	begin
   -- Instantiate the unit under test (DUT)
   DUT: entity work.DiscoverControlID
     port map (
@@ -60,12 +61,30 @@ begin
       M_Card_ID_LOAD => M_Card_ID_LOAD
     );
 
-  -- Clock generation
-  clk_stimulus: process
-  begin
-    wait for CLK_PERIOD / 2;
-    SysClk <= not SysClk;
-  end process;
+	SysClk_process : process
+	begin
+			SysClk <= '0';
+			wait for SysClk_period/2;
+			SysClk <= '1';
+			wait for SysClk_period/2;
+	end process;
+
+	-- SlowEnable signal process definition
+	-- SlowEnable_process : process
+	-- begin
+			-- SlowEnable <= '0';
+			-- wait for Slow_period/2;
+			-- SlowEnable <= '1';
+			-- wait for Slow_period/2;
+	-- end process;
+
+	SlowEnable_process : process
+	begin
+			SlowEnable <= '0';
+			wait for 7 * SysClk_period;
+			SlowEnable <= '1';
+			wait for SysClk_period;
+	end process;
 
   -- Test bench process
   tb_process: process
@@ -76,11 +95,6 @@ begin
     RESET <= '0';
     wait for 50 ns;
 
-    -- Test sequence 1: SlowEnable is 1
-    SlowEnable <= '1';
-    wait for 100 ns;
-
-    -- Test sequence 2: Feed in random data
     M_Card_ID_DATA <= '1';
     wait for 100 ns;
     M_Card_ID_DATA <= '0';
@@ -88,10 +102,6 @@ begin
     M_Card_ID_DATA <= '1';
     wait for 100 ns;
     M_Card_ID_DATA <= '1';
-    wait for 100 ns;
-
-    -- Test sequence 3: SlowEnable is 0
-    SlowEnable <= '0';
     wait for 100 ns;
 
     -- End of testbench

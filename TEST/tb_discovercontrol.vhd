@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		tb_DiscoverID
---	File			tb_DiscoverID.vhd
+--	Entity Name		tb_DiscoverControl
+--	File			tb_DiscoverControl.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -41,11 +41,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity tb_DiscoverID is
-end tb_DiscoverID;
+entity tb_DiscoverControl is
+end tb_DiscoverControl;
 
-architecture tb of tb_DiscoverID is
-  constant CLK_PERIOD : time := 16.6667 ns; -- For 60 MHz clock
+architecture tb of tb_DiscoverControl is
+  constant CLK_PERIOD : time := 33.33333 ns; -- For 60 MHz clock
 
   signal RESET          : std_logic;
   signal SysClk         : std_logic;
@@ -71,7 +71,6 @@ architecture tb of tb_DiscoverID is
 
 begin
   -- Instantiate the unit under test (DUT)
-  -- Update the component name and port mappings according to your design
   DUT: entity work.DiscoverID
     port map (
       RESET => RESET,

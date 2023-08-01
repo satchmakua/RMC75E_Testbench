@@ -15,7 +15,7 @@
 --	Description:
  
 --	DUT:
-	-- The DUT is the analog component of the ROMC75E source code.
+	-- The DUT is the analog component of the RMC75E source code.
 	-- It represents a digital circuit that performs analog data processing.
 	-- The DUT has several input and output ports, including control signals,
 	-- clock signals, data signals, and various read and write signals.

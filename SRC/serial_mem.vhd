@@ -11,7 +11,10 @@
 --	File			serial_mem.vhd
 --
 --------------------------------------------------------------------------------
---
+--	Note: commented out logic on lines 321, 351, & 387 to allow for complete
+-- 	data transfer on M_SPROM_DATA line. Rewrite of state machine logic for better
+--	logical seperation and organization is recommended.
+
 --	Description: 
 --		Serial EEPROM Interface
 --
@@ -36,9 +39,9 @@ use IEEE.std_logic_arith.all;
 entity SerialMemoryInterface is
 	port (
 		SysReset				: in std_logic;			-- System Reset or PLL not locked
-		H1_CLK					: in std_logic;
-		SysClk					: in std_logic;
-		SlowEnable				: in std_logic;
+		H1_CLK					: in std_logic; -- 60 MHz clock
+		SysClk					: in std_logic; -- 30 MHz system clock
+		SlowEnable				: in std_logic; -- Active every 8th tick of the system clock
 		intDATA					: in std_logic_vector(31 downto 0);
 		serialMemDataOut		: out std_logic_vector(31 downto 0);
 		SerialMemXfaceWrite		: in std_logic;
@@ -288,7 +291,7 @@ begin
                                                                       -- fault counter
                                else StateMachine <= IdleState;
                                   intFLAG_CLR <= '0';
-                                  intSerialMemoryDataControl <= '0';     -- Read the serial data pin
+                                  -- intSerialMemoryDataControl <= '0';     -- Read the serial data pin
                                   intEEPROMAccessFlag <= '0';         -- Relinquish control over data line
                                   StartStopBit <= '1';
                                   LoadDeviceAddr <= '0';
@@ -318,7 +321,7 @@ begin
                                end if;
                       
              when CheckDeviceAddrACKState =>        
-                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   if SecondPassRead='1' then
                                      StateMachine <= ReadState;
@@ -347,7 +350,7 @@ begin
                                end if;
 
              when CheckMemoryAddrACKState =>        
-                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   StateMachine <= OperationTypeState;
                                elsif
@@ -384,7 +387,7 @@ begin
                                end if;
 
              when WriteACKState => 
-                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                ShiftEnable <= '0';
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   StateMachine <= StopState;
