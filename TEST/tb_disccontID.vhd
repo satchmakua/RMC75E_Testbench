@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_DiscoverControlID
---	File			tb_disccontID.vhd	
+--	File					tb_disccontID.vhd	
 --
 --------------------------------------------------------------------------------
 --
@@ -18,8 +18,6 @@
 	-- Each sequence represents a state transition in the FSM of DiscoverControlID. After the reset sequence,
 	-- the SlowEnable signal is asserted and then random data is fed to the DiscoverControlID module.
 
-	-- We will probably want to feed more complex sequences
-	-- of data to the module and check if ControlID is updated as expected.
 	
 --	Revision: 1.0
 --
@@ -48,6 +46,7 @@ architecture tb of tb_DiscoverControlID is
   signal M_Card_ID_LOAD : std_logic;
 
 	begin
+	
   -- Instantiate the unit under test (DUT)
   DUT: entity work.DiscoverControlID
     port map (
@@ -69,15 +68,6 @@ architecture tb of tb_DiscoverControlID is
 			wait for SysClk_period/2;
 	end process;
 
-	-- SlowEnable signal process definition
-	-- SlowEnable_process : process
-	-- begin
-			-- SlowEnable <= '0';
-			-- wait for Slow_period/2;
-			-- SlowEnable <= '1';
-			-- wait for Slow_period/2;
-	-- end process;
-
 	SlowEnable_process : process
 	begin
 			SlowEnable <= '0';
@@ -89,24 +79,24 @@ architecture tb of tb_DiscoverControlID is
   -- Test bench process
   tb_process: process
   begin
-    -- Reset sequence
-    RESET <= '1';
-    wait for 50 ns;
-    RESET <= '0';
-    wait for 50 ns;
+			-- Reset sequence
+			RESET <= '1';
+			wait for 50 ns;
+			RESET <= '0';
+			wait for 50 ns;
 
-    M_Card_ID_DATA <= '1';
-    wait for 100 ns;
-    M_Card_ID_DATA <= '0';
-    wait for 100 ns;
-    M_Card_ID_DATA <= '1';
-    wait for 100 ns;
-    M_Card_ID_DATA <= '1';
-    wait for 100 ns;
+			M_Card_ID_DATA <= '1';
+			wait for 100 ns;
+			M_Card_ID_DATA <= '0';
+			wait for 100 ns;
+			M_Card_ID_DATA <= '1';
+			wait for 100 ns;
+			M_Card_ID_DATA <= '1';
+			wait for 100 ns;
 
-    -- End of testbench
-    assert false report "End of testbench" severity note;
-    wait;
+			-- End of testbench
+			assert false report "End of testbench" severity note;
+			wait;
   end process tb_process;
 
 end tb;

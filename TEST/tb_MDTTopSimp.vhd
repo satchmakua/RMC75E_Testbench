@@ -52,6 +52,9 @@ architecture testbench of tb_MDTTopSimp is
     );
   end component;
 
+	constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
+  constant num_cycles    : integer := 100; -- This gives a simulation time of around 1000us.
+	
   signal SysReset_tb       : std_logic := '1';
   signal H1_CLK_tb         : std_logic := '0';
   signal H1_CLKWR_tb       : std_logic := '0';
@@ -66,11 +69,8 @@ architecture testbench of tb_MDTTopSimp is
   signal M_RET_DATA_tb     : std_logic := '0';
   signal SSI_DATA_tb       : std_logic;
   signal SSISelect_tb      : std_logic := '0';
-  
-  constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
-  constant num_cycles    : integer := 100; -- This gives a simulation time of around 1000us.
-  
-begin
+
+	begin
   dut: MDTTopSimp
     Port map (
       SysReset       => SysReset_tb,

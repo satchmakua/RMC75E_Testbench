@@ -8,11 +8,12 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_RAM128x16
---	File			tb_RAM128x16.vhd
+--	File					tb_RAM128x16.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
 --  This test bench writes to each memory location with its address as data, then reads
 --	back and checks if the data read matches the address, ensuring each memory
 --	location can be written and read correctly. 
@@ -44,8 +45,8 @@ architecture tb of tb_RAM128x16 is
     signal a: std_logic_vector(6 downto 0) := (others => '0');
     signal d: std_logic_vector(15 downto 0) := (others => '0');
     signal o: std_logic_vector(15 downto 0);
-begin
-
+		
+		begin
     DUT: entity work.RAM128x16
     port map (
         clk => clk,

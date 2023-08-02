@@ -1,3 +1,29 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		tb_FCCC
+--	File					tb_FCCC.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description:
+
+--	Test unit for the auto-generated Clock_Gen_Clock_Gen_0_FCCC module.
+--
+--	Revision: 1.1
+--
+--	File history:
+--
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_textio.all;
@@ -6,8 +32,8 @@ use std.textio.all;
 -- library smartfusion2;
 -- use smartfusion2.all;
 
-entity tb_FCCC is
 -- This testbench doesn't need any ports as it interacts with the UUT (Unit Under Test) internally
+entity tb_FCCC is
 end tb_FCCC;
 
 architecture test of tb_FCCC is
@@ -78,8 +104,6 @@ begin
         -- Test Case 7: Deassert PLL_POWERDOWN_N
         PLL_POWERDOWN_N <= '0';
         wait for 100 ns;
-
-        -- Add more test cases as needed
 
         -- Stop the simulation
         wait;

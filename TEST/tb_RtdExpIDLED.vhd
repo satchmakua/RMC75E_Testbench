@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_LatencyCounter
---	File			tb_LatencyCounter.vhd
+--	File					tb_LatencyCounter.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -19,7 +19,7 @@
 --  Exp_Mxd_ID_CLK, Exp_Mxd_ID_LATCH, Exp_Mxd_ID_LOAD based on the DiscoveryComplete signal.
 --  If DiscoveryComplete is '0', the first set is chosen, else, the second set is chosen.
 	
---	his test bench covers the two possible states of DiscoveryComplete.
+--	This test bench covers the two possible states of DiscoveryComplete.
 --	Each state is tested separately, with relevant signals set to '1' and checking if the output
 --	signals match the expected values. If not, the test bench reports a failure.
 
@@ -45,8 +45,8 @@ architecture tb of tb_RtdExpIDLED is
     signal Exp_ID_CLK, Exp_ID_LATCH, Exp_ID_LOAD : std_logic := '0';
     signal ExpLEDOE, ExpLEDLatch, ExpLEDClk : std_logic := '0';
     signal Exp_Mxd_ID_CLK, Exp_Mxd_ID_LATCH, Exp_Mxd_ID_LOAD : std_logic;
-begin
-
+		
+		begin
     DUT: entity work.RtdExpIDLED
     port map (
         DiscoveryComplete => DiscoveryComplete,

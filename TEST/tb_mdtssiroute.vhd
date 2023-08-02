@@ -13,12 +13,15 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
-
+	
+	-- Test unit for the MDTSSIRoute module.
 	-- The MDTSSIRoute module describes the interface and behavior of the routing module
 	-- for the Magnetostrictive Displacement Transducer (MDT) and Synchronous Serial Interface
 	-- (SSI) clocks in the RMC75E modular motion controller.
+	
 	-- The module takes input signals related to the SSI select, internal MDT clock,
 	-- SSI clock, and MDT interrupt, and provides output signals for the internal clocks of Axis0 and Axis1.
+	
 	-- The purpose of the MDTSSIRoute module is to control the routing of clock
 	-- signals for the MDT and SSI based on the SSI select signal.
 	-- It selects either the MDT internal clock or the SSI clock

@@ -8,11 +8,12 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_ExpSigRoute
---	File			tb_ExpSigRoute.vhd
+--	File					tb_ExpSigRoute.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description:
+
 --		ExpSigRoute routes signals based on the value of the ExpMux signal.
 --		Depending on ExpMux, different signals are mapped to the ExpData vector,
 --		and others are set from ExpData. This includes controlling signals for analog input,
@@ -156,7 +157,6 @@ begin
 		ExpSerialSelect <= '1';
 		ExpA_CS_L <= '1';
 		
-		
 		-- Testing D8 module
 		wait for 5 us;
 		ExpMux <= "10";
@@ -171,7 +171,6 @@ begin
 		ExpD8_OE <= '0';
 		ExpD8_Load <= '0';
 		ExpD8_Latch <= '0';
-		
 		
 		-- Testing LED module
 		wait for 5 us;

@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_Serial2Parallel
---	File			tb_Serial2Parallel.vhd
+--	File					tb_Serial2Parallel.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -52,15 +52,16 @@ entity tb_Serial2Parallel is
 end tb_Serial2Parallel;
 
 architecture tb_arch of tb_Serial2Parallel is
+
+		constant CLK_PERIOD : time := 33.3333 ns;
+		
     signal SysClk, SynchedTick, Serial2ParallelEN, Serial2ParallelCLR: std_logic := '0';
     signal CtrlAxisData: std_logic_vector(1 downto 0) := (others => '0');
     signal ExpA_DATA: std_logic_vector(7 downto 0) := (others => '0');
     signal S2P_Addr: std_logic_vector(3 downto 0) := (others => '0');
     signal S2P_Data: std_logic_vector(15 downto 0);
-    
-    constant CLK_PERIOD : time := 33.3333 ns;
 
-begin
+		begin
     DUT: entity work.Serial2Parallel
     port map (
         SysClk => SysClk,

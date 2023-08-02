@@ -59,7 +59,7 @@ architecture tb of tb_SSITop is
     signal ssiDataOut_tb : std_logic_vector(31 downto 0);
     signal SlowEnable_tb : std_logic := '0';
 
-begin
+		begin
 
     uut: entity work.SSITop
     port map (

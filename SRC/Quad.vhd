@@ -8,12 +8,16 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		Quad
---	File			Quad.vhd
+--	File					Quad.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
-
+			
+	-- The Quad module serves as a wrapper for multiple QuadXface components,
+	-- enabling the processing of quadrature signals and generating output data for multiple
+	-- quadrature interfaces and axes in the RMC75E motion controller.
+	
 	-- Inputs:
 	-- H1_CLKWR: Clock signal.
 	-- SysClk: System clock signal.
@@ -82,13 +86,10 @@
 	-- LineFault: 3-bit signal representing the line fault status.
 	-- A, B: Signals representing the quadrature input signals.
 	-- Index: Signal representing the quadrature index signal.
+	
 	-- The QuadXface components are instantiated for each quadrature interface and axis,
 	-- and their ports are connected to the corresponding signals from the Quad entity.
 	-- The instantiation maps the signals to the appropriate inputs and outputs of the QuadXface components.
-
-	-- Overall, the Quad module serves as a wrapper for multiple QuadXface components,
-	-- enabling the processing of quadrature signals and generating output data for multiple
-	-- quadrature interfaces and axes in the RMC75E motion controller.
 
 --		
 --

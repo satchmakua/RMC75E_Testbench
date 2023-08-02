@@ -28,7 +28,6 @@
 --		clock and the data lines. (The clock has more and therefore may be late
 --		if the data is clocked at the end of the data bit)
 --
---	Revision: 1.3
 --
 -- File history:
 
@@ -126,7 +125,7 @@ architecture ExpModuleLED_arch of ExpModuleLED is
 	constant TerminalCountValue : bit_vector := B"1000";
 	constant TerminalCount : std_logic_vector (3 downto 0) := To_StdLogicVector(TerminalCountValue);
 
-begin
+	begin
 
 	ExpLEDOE <= intExpLEDOE;
 

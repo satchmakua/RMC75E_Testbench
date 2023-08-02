@@ -1,12 +1,12 @@
 ------------------------------------------------------------------------------
---  © 2022 Delta Computer Systems, Inc.
+--  © 2023 Delta Computer Systems, Inc.
 --  Author: Satchel Hamilton
 --
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---  Entity Name     SerialMemoryInterface
---  File            serial_mem.vhd
+--  Entity Name     tb_SerialMemoryInterface
+--  File            tb_serial_mem.vhd
 --
 ------------------------------------------------------------------------------
 

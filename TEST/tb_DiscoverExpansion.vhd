@@ -13,13 +13,15 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
 	-- DUT:
-	-- The DUT in question is the DiscoverExpansionID component, which is a part of the RMC75E modular motion controller.
-	-- The DiscoverExpansionID component is responsible for managing the expansion ID information in the controller.
+	-- The DUT in question is the DiscoverExpansionID component.
+	-- This component is responsible for managing the expansion ID information in the controller.
 	-- It receives input signals such as RESET, SysClk, SlowEnable, and Exp_ID_DATA.
 	-- It provides output signals ExpansionID0, ExpansionID1, ExpansionID2, ExpansionID3, 
 	-- Exp_ID_CLK, Exp_ID_LATCH, and Exp_ID_LOAD. The component operates based on a state
-	-- machine that controls the write sequence to the LED driver, allowing for the serial communication of expansion ID data.
+	-- machine that controls the write sequence to the LED driver,
+	-- allowing for the serial communication of expansion ID data.
 
 	-- Test Bench:
 	-- This test unit is designed to verify the functionality of the DiscoverExpansionID

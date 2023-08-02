@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_LatencyCounter
---	File			tb_LatencyCounter.vhd
+--	File					tb_LatencyCounter.vhd
 --
 --------------------------------------------------------------------------------
 --

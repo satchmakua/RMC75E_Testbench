@@ -14,8 +14,8 @@
 --
 --	Description: 
 
--- The test bench, "DiscoverID_TB," is responsible for verifying the functionality
--- of the Design Under Test (DUT) named "DiscoverID." It provides stimulus signals,
+-- This test unit is responsible for verifying the functionality
+-- of the Design Under Test (DUT) "DiscoverID." It provides stimulus signals,
 -- monitors the DUT's behavior, and checks for expected results.
 -- The test bench initializes signals, generates a clock,
 -- and applies test stimuli to the DUT's inputs.

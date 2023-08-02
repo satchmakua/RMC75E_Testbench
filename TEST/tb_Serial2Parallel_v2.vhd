@@ -8,13 +8,14 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_Serial2Parallel_v2
---	File			tb_Serial2Parallel_v2.vhd
+--	File					tb_Serial2Parallel_v2.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
 
 	-- DUT (Serial2Parallel):
+	
 	-- The Serial2Parallel module is a synchronous serial-to-parallel data converter.
 	-- It takes in 8-bit serial data streams and converts them into 16-bit parallel
 	-- data based on the enabled channel. Each channel receives 2 bits of data,
@@ -25,6 +26,7 @@
 	-- The conversion process is enabled when the Serial2ParallelEN signal is high.
 
 	-- Test Bench:
+	
 	-- The test bench (tb_Serial2Parallel_v2) is designed to verify the
 	-- functionality of the Serial2Parallel module.
 	-- It provides stimuli to the DUT by applying different input values and
@@ -87,7 +89,6 @@ begin
 
     stim_proc: process
     begin
-        -- Initial values
         wait for 10 ns;
         
         -- Test Clear function

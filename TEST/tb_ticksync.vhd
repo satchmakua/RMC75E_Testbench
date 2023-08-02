@@ -7,9 +7,9 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		tb_TickSync
---	File			tb_TickSync.vhd
---	File			tb_TickSync.vhd
+--	Entity Name			tb_TickSync
+--	File						tb_TickSync.vhd
+
 --
 --------------------------------------------------------------------------------
 --
@@ -17,9 +17,10 @@
 
 	-- This testbench provides a comprehensive set of tests for the TickSync module.
 	-- It tests for different lengths of the LOOPTICK signal from 1 to 4 cycles,
-	-- including testing the behavior of the module when a system reset (SysReset) is issued while LOOPTICK is active.
+	-- including testing the behavior of the module when a system reset
+	-- (SysReset) is issued while LOOPTICK is active.
 	
---	Revision: 1.2
+--	Revision: 1.1
 --
 --	File history:
 --	Rev 1.1 : 06/12/2023 :	Added the VHDL 'report' statements to act as test labels.
@@ -34,6 +35,8 @@ entity tb_TickSync is
 end tb_TickSync;
 
 architecture testbench of tb_TickSync is
+    constant H1_CLK_period : time := 16.6667 ns;
+    constant SysClk_period : time := 33.3333 ns;
     signal SysReset, SysClk, H1_CLK, LOOPTICK: std_logic := '0';
     signal SynchedTick, SynchedTick60: std_logic := '0';
 begin
@@ -50,15 +53,15 @@ begin
 
     clk_stimulus: process
     begin
-        wait for 16.6667 ns; SysClk <= not SysClk; 
+        wait for SysClk_period; SysClk <= not SysClk; 
     end process;
     
     clk60_stimulus: process
     begin
-        wait for 8.3334 ns; H1_CLK <= not H1_CLK;
+        wait for H1_CLK_period; H1_CLK <= not H1_CLK;
     end process;
     
-	    process
+		process
     begin
         -- Reset sequence
         SysReset <= '1'; 

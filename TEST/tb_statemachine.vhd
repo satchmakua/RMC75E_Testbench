@@ -1,3 +1,31 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--
+--	Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name			tb_statemachine
+--	File						tb_statemachine.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description:
+
+		-- Test unit for the state machine module.
+
+--
+--
+--	Revision: 1.1
+--
+--	File history:
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

@@ -1,4 +1,54 @@
+------------------------------------------------------------------------------
+--  © 2023 Delta Computer Systems, Inc.
+--  Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--  Entity Name     tb_SerialMemoryInterface_v2
+--  File            tb_serial_mem.vhd
+--
+------------------------------------------------------------------------------
 
+--  Note:commented out logic on lines 321, 351, & 387 to allow for complete
+--  data transfer on M_SPROM_DATA line during simulation.
+--
+--  DUT: Serial EEPROM Interface - facilitates communication with Serial EEPROM device for read and write operations.
+
+-- 			The module supports clocking data into and out of the Serial EEPROM device on specific edges of the clock signal.
+
+-- 			Key Features and Functionalities:
+-- 			Serial EEPROM Communication: The module enables the communication with a Serial EEPROM device
+-- 			through the SerialMemoryDataIn and SerialMemoryDataOut signals.
+
+-- 			Clock Control: The module generates and controls the serial interface clock (SerialMemoryClk) that is used for timing the data transfer.
+-- 			System Reset: The module has a reset signal (SysReset) to reset the state machine and various logic control signals during system initialization.
+-- 			Write and Read Operations: The module supports both write and read operations to the Serial EEPROM device.
+
+-- 			It determines the type of operation (write or read) based on the input signal SerialMemXfaceWrite.
+
+-- 			State Machine: The module utilizes a state machine to handle the different stages of the read and write operations.
+
+-- 			It sequentially processes the data communication with the Serial EEPROM device.
+-- 			Data Transfer: The module handles data transfer between the processor (CPU) and the Serial EEPROM device
+-- 			using various control signals and the serial data pins.
+
+-- 			Error Handling: The module includes logic to handle cases where the Serial EEPROM device does not acknowledge communication attempts.
+
+-- 			It keeps track of NO ACK responses and sets an "Operation Fault" flag if multiple failures occur.
+-- 			Control Signals: The module has several control signals, such as
+-- 			LoadDeviceAddr, LoadMemAddr, LoadWriteData, ShiftDone, and others, to manage the data transfer process.
+
+-- 			Serial Data I/O: The module buffers data being transmitted to and received from the Serial EEPROM device, allowing seamless data transfer.
+-- 	
+--
+--  Revision: 1.2
+--
+--  File history:
+
+--
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -32,9 +82,6 @@ architecture tb_arch of tb_SerialMemoryInterface_v2 is
         M_SPROM_DATA            : inout std_logic
     );
     end component;
-		
-		-- Input data
-		-- constant shift_register_input_0		: std_logic_vector(31 downto 0) := X"FF00FF00";
 		
     -- Signals
     signal SysReset, H1_CLK, SysClk, SlowEnable, SerialMemXfaceWrite, SerialMemoryDataIn : std_logic;

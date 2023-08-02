@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		tb_ControlIO
---	File			tb_ControlIO.vhd
+--	File					tb_ControlIO.vhd
 --
 --------------------------------------------------------------------------------
 --

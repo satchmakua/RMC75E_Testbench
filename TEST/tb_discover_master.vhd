@@ -1,3 +1,30 @@
+-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		tb_DiscoverExpansionID
+--	File			tb_DiscoverExpansion.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
+
+		-- This test unit tests the controlID and expansion discovery module concurrently
+		-- with the wrapper module that instantiates those two modules. In doing so it
+		-- tests the entire discovery mechanism in one unit.
+	
+--	Revision: 1.0
+--
+--	File history:
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -5,6 +32,7 @@ entity tb_DiscoverModules is
 end tb_DiscoverModules;
 
 architecture tb of tb_DiscoverModules is
+
   -- Constants for clock and slow enable
   constant SysClk_period : time := 33.3333 ns; -- 30 MHz clock
   constant Slow_period : time := 200 ns;       -- 5 MHz slow enable

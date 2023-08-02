@@ -1,3 +1,31 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		tb_ControlIO
+--	File					tb_ControlIO.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
+
+--	This rather lengthy test unit tests the logic contained in both the
+--	quad wrapper and the QuadXface modules that it instantiates.
+
+--	See documentation for more information.
+
+--	Revision: 1.0
+--
+--	File history:
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -236,6 +264,8 @@ architecture tb of tb_quad is
     signal Index               : std_logic:= '0';
 		
 		begin
+		
+		-- Instantiate the QuadXface module(s)
 		uut_xf: QuadXface
         port map (
             H1_CLKWR        => H1_CLKWR,
@@ -696,6 +726,7 @@ architecture tb of tb_quad is
  ----------------------------------------------------------------------------------------------------------------------------------
  
      -- Exp2 Stimulus process
+		 
 		process
 		begin
 
@@ -764,6 +795,7 @@ architecture tb of tb_quad is
 ----------------------------------------------------------------------------------------------------------------------------------
 
     -- Exp3 Stimulus process
+		
 		process
 		begin
 
@@ -831,6 +863,7 @@ architecture tb of tb_quad is
 ----------------------------------------------------------------------------------------------------------------------------------
 
 		-- QA0 Stimulus process
+		
 		process
 		begin
 
@@ -907,6 +940,7 @@ architecture tb of tb_quad is
 ----------------------------------------------------------------------------------------------------------------------------------
 
 		-- QA1 Stimulus process
+		
 		process
 		begin
 

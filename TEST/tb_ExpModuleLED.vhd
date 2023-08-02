@@ -1,3 +1,44 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--
+--	© 2023 Delta Computer Systems, Inc.
+--	Author: Satchel Hamilton
+--
+--  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
+--  Board:          RMC75E Rev 3.0
+--
+--	Entity Name		tb_ExpModuleLED
+--	File					tb_ExpModuleLED.vhd
+--
+--------------------------------------------------------------------------------
+--
+--	Description: 
+
+		-- Testbench for the 'ExpModuleLED' component.
+		-- The 'ExpModuleLED' component interfaces with an external module and controls the LED states.
+		-- It processes a variety of input signals to manage the status of the LEDs, including reading 
+		-- and writing operations to individual LEDs. These operations are typically used in the context of 
+		-- system discovery, EEPROM access, and synchronous system ticks.
+
+		-- The testbench stimulates the 'ExpModuleLED' by providing signals mimicking real-life scenarios,
+		-- such as system reset, discovery completion, LED writes, and LED reads. Two clock processes are 
+		-- defined, 'H1_CLKWR_process' and 'SysClk_process', that mimic the behavior of the actual clock
+		-- signals in the system.
+
+		-- The simulation involves providing initial states, running sequences of LED read and write operations,
+		-- and checking the outputs against the expected behavior.
+
+		-- This testbench is designed to validate the functionality of the 'ExpModuleLED' component and ensure 
+		-- it behaves as expected under different conditions, providing a reliable environment to test and debug 
+		-- the design.
+
+--	Revision: 1.0
+--
+--	File history:
+--	
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
@@ -7,6 +48,7 @@ entity tb_ExpModuleLED is
 end tb_ExpModuleLED;
 
 architecture tb of tb_ExpModuleLED is
+
   -- Component declaration
   component ExpModuleLED is
     port (
@@ -99,7 +141,8 @@ architecture tb of tb_ExpModuleLED is
   constant SysClk_period : time := 16.6667 ns;
   constant H1_CLK_period : time := 33.3334 ns;
 
-begin
+	begin
+	
   -- Instantiate the unit under test (UUT)
   uut: ExpModuleLED port map (
     Reset           => Reset,
@@ -183,7 +226,6 @@ begin
 		
 		wait for 1 us;
 				
-
 		SynchedTick <= '1';
 		wait for SysClk_period;
 		SynchedTick <= '0';
