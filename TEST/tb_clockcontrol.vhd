@@ -35,6 +35,7 @@
 	-- The test bench tb_ClockControl is designed to verify the functionality and
 	-- behavior of the ClockControl component. It instantiates the ClockControl
 	-- component and provides stimulus to its inputs to observe the expected behavior of the DUT.
+	
 	-- The test bench includes a stimulus process that applies various test cases and
 	-- stimuli to the DUT inputs. It also includes assertions to
 	-- check the correctness of the DUT outputs and behavior.
@@ -55,6 +56,7 @@ entity tb_ClockControl is
 end tb_ClockControl;
 
 architecture tb of tb_ClockControl is 
+
     -- Component Declaration for the Unit Under Test (UUT)
     component ClockControl
     port(
@@ -91,9 +93,9 @@ architecture tb of tb_ClockControl is
 
     -- Clock period definitions
     constant H1_CLK_PERIOD : time := 16.6667 ns; -- 60 MHz
-    constant num_cycles    : integer := 6000; -- This gives a simulation time of around 100us.
 
-begin
+		begin
+
     -- Instantiate the Unit Under Test (UUT)
     uut: ClockControl port map (
         H1_PRIMARY => H1_PRIMARY,
@@ -126,23 +128,23 @@ begin
 	end process;
 
   -- Stimulus process
-    stim_proc: process
-    begin   
-        -- Test 1: Reset application and release
-        wait for 100 ns;  
-        RESET <= '1';  -- Applying reset
-        wait for 100 ns;
-        RESET <= '0';  -- Releasing reset
-        assert (SysRESET = '1') report "Test 1 failed: SysRESET not asserted after RESET" severity error;
+	stim_proc: process
+	begin   
+			-- Test 1: Reset application and release
+			wait for 100 ns;  
+			RESET <= '1';  -- Applying reset
+			wait for 100 ns;
+			RESET <= '0';  -- Releasing reset
+			assert (SysRESET = '1') report "Test 1 failed: SysRESET not asserted after RESET" severity error;
 
-        -- Test 2: Verify no signals are undefined
-        wait for 200 ns;
-        assert (H1_CLK /= 'U' and H1_CLK90 /= 'U' and SysClk /= 'U' and DLL_LOCK /= 'U' and 
-                SysRESET /= 'U' and PowerUp /= 'U' and Enable /= 'U' and SlowEnable /= 'U') 
-                report "Test 3 failed: One or more signals are undefined" severity error;
-        
-        wait;
-    end process;
+			-- Test 2: Verify no signals are undefined
+			wait for 200 ns;
+			assert (H1_CLK /= 'U' and H1_CLK90 /= 'U' and SysClk /= 'U' and DLL_LOCK /= 'U' and 
+							SysRESET /= 'U' and PowerUp /= 'U' and Enable /= 'U' and SlowEnable /= 'U') 
+							report "Test 2 failed: One or more signals are undefined" severity error;
+			
+			wait;
+	end process;
 
 end tb;
 

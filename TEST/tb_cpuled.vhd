@@ -36,7 +36,7 @@ entity tb_CPULED is
 end tb_CPULED;
 
 architecture testbench of tb_CPULED is
-    constant H1_PRIMARY_clk_period : time := 16.6667 ns; -- ~60MHz
+    constant H1_PRIMARY_clk_period : time := 16.6667 ns; -- 60MHz
     constant num_cycles : integer := 6_000; -- 100 us divided by clk_period of 16.6667 ns 
 
     signal RESET, H1_CLKWR, CPULEDWrite : std_logic := '0';

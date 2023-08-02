@@ -64,7 +64,8 @@ architecture test of tb_Clock_Gen is
     signal GL2             : std_logic;
     signal LOCK            : std_logic;
 
-begin
+		begin
+		
     UUT: Clock_Gen
     port map(
         CLK1_PAD        => CLK1_PAD,
@@ -77,65 +78,62 @@ begin
     );
 
     Stimulus_Process : process
-begin
-    -- Test Case 1: Default state
-    wait for 100 ns;
-    assert LOCK = '0'
-        report "Test Case 1: Lock is not '0' at start. Actual value: " & to_string(LOCK)
-        severity error;
+				begin
+				-- Test Case 1: Default state
+				wait for 100 ns;
+				assert LOCK = '0'
+						report "Test Case 1: Lock is not '0' at start. Actual value: " & to_string(LOCK)
+						severity error;
 
-    -- Test Case 2: Assert PLL_ARST_N
-    PLL_ARST_N <= '1';
-    wait for 100 ns;
-    assert LOCK = '0'
-        report "Test Case 2: Lock is not '0' when PLL_ARST_N is asserted. Actual value: " & to_string(LOCK)
-        severity error;
+				-- Test Case 2: Assert PLL_ARST_N
+				PLL_ARST_N <= '1';
+				wait for 100 ns;
+				assert LOCK = '0'
+						report "Test Case 2: Lock is not '0' when PLL_ARST_N is asserted. Actual value: " & to_string(LOCK)
+						severity error;
 
-    -- Test Case 3: Deassert PLL_ARST_N
-    PLL_ARST_N <= '0';
-    wait for 100 ns;
+				-- Test Case 3: Deassert PLL_ARST_N
+				PLL_ARST_N <= '0';
+				wait for 100 ns;
 
-    -- Test Case 4: Assert CLK1_PAD
-    CLK1_PAD <= '1';
-    wait for 100 ns;
+				-- Test Case 4: Assert CLK1_PAD
+				CLK1_PAD <= '1';
+				wait for 100 ns;
 
-    -- Test Case 5: Deassert CLK1_PAD
-    CLK1_PAD <= '0';
-    wait for 100 ns;
+				-- Test Case 5: Deassert CLK1_PAD
+				CLK1_PAD <= '0';
+				wait for 100 ns;
 
-    -- Test Case 6: Assert PLL_POWERDOWN_N
-    PLL_POWERDOWN_N <= '1';
-    wait for 100 ns;
-    assert LOCK = '0'
-        report "Test Case 6: Lock is not '0' when PLL_POWERDOWN_N is asserted. Actual value: " & to_string(LOCK)
-        severity error;
+				-- Test Case 6: Assert PLL_POWERDOWN_N
+				PLL_POWERDOWN_N <= '1';
+				wait for 100 ns;
+				assert LOCK = '0'
+						report "Test Case 6: Lock is not '0' when PLL_POWERDOWN_N is asserted. Actual value: " & to_string(LOCK)
+						severity error;
 
-    -- Test Case 7: Deassert PLL_POWERDOWN_N
-    PLL_POWERDOWN_N <= '0';
-    wait for 100 ns;
+				-- Test Case 7: Deassert PLL_POWERDOWN_N
+				PLL_POWERDOWN_N <= '0';
+				wait for 100 ns;
 
-    -- Additional test cases with signal toggling
-    -- Test Case 8: Toggling CLK1_PAD
-    CLK1_PAD <= '1';
-    wait for 50 ns;
-    CLK1_PAD <= '0';
-    wait for 50 ns;
-    CLK1_PAD <= '1';
-    wait for 50 ns;
+				-- Test Case 8: Toggling CLK1_PAD
+				CLK1_PAD <= '1';
+				wait for 50 ns;
+				CLK1_PAD <= '0';
+				wait for 50 ns;
+				CLK1_PAD <= '1';
+				wait for 50 ns;
 
-    -- Test Case 9: Toggling PLL_ARST_N and PLL_POWERDOWN_N
-    PLL_ARST_N <= '1';
-    PLL_POWERDOWN_N <= '1';
-    wait for 50 ns;
-    PLL_ARST_N <= '0';
-    PLL_POWERDOWN_N <= '0';
-    wait for 50 ns;
+				-- Test Case 9: Toggling PLL_ARST_N and PLL_POWERDOWN_N
+				PLL_ARST_N <= '1';
+				PLL_POWERDOWN_N <= '1';
+				wait for 50 ns;
+				PLL_ARST_N <= '0';
+				PLL_POWERDOWN_N <= '0';
+				wait for 50 ns;
 
-    -- Stop the simulation
-    report "Simulation complete" severity note;
-    wait;
-end process Stimulus_Process;
-
-
+				-- Stop the simulation
+				report "Simulation complete" severity note;
+				wait;
+		end process Stimulus_Process;
 end test;
 

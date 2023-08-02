@@ -13,7 +13,10 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+
+	-- Module contains multiple RAM blocks to store data and handles read and write
+	-- operations based on control signals. The module has various input signals
+	-- for controlling read and write operations, as well as data input and output ports.
 --
 --	Revision: 1.1
 --

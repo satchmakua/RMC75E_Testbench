@@ -18,7 +18,6 @@
 	 -- The process block applies sequences of inputs to the CPUConfig module and
 	 -- the outputs are observed on the cpuConfigDataOut, M_DRV_EN_L, DLL_RST, and LoopTime signals.
 	 -- The clock signals (H1_CLKWR and H1_PRIMARY) are driven by a simple clock driver process.
-	 -- The testbench tests when CPUConfigWrite is asserted and not.
 	 
 --	Revision: 1.0
 --

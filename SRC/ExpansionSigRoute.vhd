@@ -13,10 +13,8 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		The entity "ExpSigRoute" represents a module in the source code
---		for the RMC75E modular motion controller.
---		The module is implemented in the VHDL language and is responsible
---		for routing various signals within the expansion module.
+--		This module is responsible for routing various signals
+--		to and from the expansion modules and other parts of the system.
 --
 --	Revision: 1.1
 --

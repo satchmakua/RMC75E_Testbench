@@ -113,7 +113,7 @@ begin
 				intDATA(21 downto 16) <= "000001"; -- memory address
 				intDATA(15) 					<= '1'; -- write operation
 				intDATA(14) 					<= '0'; -- read operation
-				intDATA(13 downto 8) 	<= "000000"; -- data
+				intDATA(13 downto 8) 	<= "000000"; -- unused
 				intDATA(7 downto 0) 	<= "11100101"; -- data buffer
 				
 				SerialMemoryDataIn <= '1';

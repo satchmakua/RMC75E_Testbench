@@ -13,14 +13,17 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
-
+	-- DUT:
+	-- The module "Decode" is responsible for generating WRITE control lines
+	-- and READ control lines based on the input address and control signals.
+	-- It is a decoder module for interfacing with various peripheral devices.
+	
 	-- Test bench is used to verify the functionality of the Decode module.
 	-- It provides stimulus signals to the module and monitors the output signals to ensure correct behavior.
 	-- Stimulus signals are initialized and applied to the Decode module inputs, and the corresponding
 	-- outputs are observed. The testbench includes response verification blocks that compare
 	-- the output signals against expected values and report errors if they do not match.
 
-	-- The testbench can be extended with additional stimuli and response verification blocks as needed.
 
 --	Revision: 1.0
 --
@@ -68,6 +71,7 @@ architecture tb of tb_decode is
     -- Test outputs
     signal FPGAAccess, ANLGAccess, FPGAIDRead, CPUConfigRead, CPUConfigWrite: std_logic;
     signal CPUsuccessfulBoot, WatchdogTriggeredReset, ANLGRead, ANLGWrite, MDTPresenceRead: std_logic;
+		
     -- Adding test signals for expanded outputs
     signal ExpA0ReadCh0, ExpA0ReadCh1, ExpA0LED0Read, ExpA0LED0Write, ExpA0LED1Read, ExpA0LED1Write: std_logic;
     signal ExpA1ReadCh0, ExpA1ReadCh1, ExpA1LED0Read, ExpA1LED0Write, ExpA1LED1Read, ExpA1LED1Write: std_logic;

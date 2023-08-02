@@ -19,7 +19,7 @@
 --		a 16-bit word of control output data is loaded into a parallel load/serial out 
 --		shift register for the axis.  
 --
---		Drive data is initially written to the DATA_BUF registers.  This information is
+--		Drive data is initially written to the DATA_BUF registers. This information is
 --		then transferred to the SHIFT_REG to be serially clocked out to the DAC
 --		The DAC information is clocked out MSB first.
 --		
@@ -154,7 +154,6 @@ architecture tb of tb_ControlOutput is
 		ControlOutputWrite <= '1';
 		wait for SysClk_period;
 		ControlOutputWrite <= '0';
-		
 		
 		wait for 50 us;
 

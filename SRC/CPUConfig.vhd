@@ -13,7 +13,15 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+
+-- The module serves as the CPU configuration manager within a RMC75E design. 
+-- It is responsible for handling the system states by interpreting input signals 
+-- such as reset, clock, data, and control signals, and generating corresponding 
+-- output signals. Special care has been taken to protect sensitive operations like 
+-- drive enable and DLL reset by incorporating safety measures such as detecting power dips
+-- and preventing glitches. The design helps to maintain and control the overall system behavior
+-- effectively in different operational states and conditions. 
+
 --
 --	Revision: 1.1
 --

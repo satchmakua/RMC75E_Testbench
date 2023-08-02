@@ -13,7 +13,12 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		
+
+--		The DIO8 module is an 8-bit digital input/output (DIO) interface
+--		designed to work with multiple expansion slots. It provides access to
+--    four DIO8 modules, each containing eight bidirectional digital I/O channels.
+--		The module operates on a clocked architecture and includes a
+--		state machine that controls the read and write sequences to the DIO8 modules.
 --
 --	Revision: 1.2
 --
@@ -29,10 +34,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
---  Uncomment the following lines to use the declarations that are
+-- Uncomment the following lines to use the declarations that are
 --  provided for instantiating Xilinx primitive components.
---library UNISIM;
---use UNISIM.VComponents.all;
+
+-- library UNISIM;
+-- use UNISIM.VComponents.all;
 
 entity DIO8 is
 	Port (

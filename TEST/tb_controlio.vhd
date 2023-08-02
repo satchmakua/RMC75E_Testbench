@@ -12,9 +12,19 @@
 --
 --------------------------------------------------------------------------------
 --
---	Description: 
+--	Description: This is a test bench for the ControlIO module which governs the Control Board IO and LED Interface. 
+--	This test bench exercises the ControlIO module with a sequence of input stimuli. 
 
---	Test bench for the module that governs Control Board IO and LED Interface.
+--	The test bench simulates a 60MHz H1 clock signal, a 30MHz system clock signal, and an enable signal that 
+--	becomes active every 4th tick of the system clock. It also includes a reset sequence and a stimuli process
+--	that applies various signals to the ControlIO module to emulate different states and conditions. 
+
+--	The test bench includes fault, enable, and IO signals for two axes (Axis0 and Axis1). The IO signals include 
+--	write and read commands for both the LEDs and the IOs. The simulation includes sequences for writing to and 
+--	reading from the LED configurations and IOs for both axes.
+
+--	The test bench generates both clock signals (H1_CLKWR and SysClk) and simulates the toggling of data signals,
+--	enabling the testing of ControlIO's functionality under various data conditions.
 
 --	Revision: 1.0
 --
@@ -67,7 +77,7 @@ architecture tb of tb_ControlIO is
   signal H1_CLK: std_logic := '0';
   signal H1_CLK_30: std_logic := '0';
 
-begin
+	begin
   -- Instantiate the ControlIO module
   DUT: entity work.ControlIO
     port map (

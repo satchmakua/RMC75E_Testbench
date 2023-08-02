@@ -16,7 +16,13 @@
 --	logical seperation and organization is recommended.
 
 --	Description: 
---		Serial EEPROM Interface
+--		Serial memory interface for the RMC75E modular motion controller.
+--		The module provides communication with an external serial EEPROM, specifically the AT24C01A device.
+--		The SerialMemoryInterface component converts data from parallel to
+--		serial format before sending it to the EEPROM (Electrically Erasable Programmable Read-Only Memory).
+--		This conversion is necessary because many EEPROM devices communicate
+--		using a serial protocol, which means they expect data to be sent one bit at a time.
+
 --
 --		Data is clocked into the Serial EEPROM device on the positive edge
 --		Data is clocked out of the Serial EEPROM device on the negative edge
@@ -39,9 +45,9 @@ use IEEE.std_logic_arith.all;
 entity SerialMemoryInterface is
 	port (
 		SysReset				: in std_logic;			-- System Reset or PLL not locked
-		H1_CLK					: in std_logic; -- 60 MHz clock
-		SysClk					: in std_logic; -- 30 MHz system clock
-		SlowEnable				: in std_logic; -- Active every 8th tick of the system clock
+		H1_CLK					: in std_logic; 		-- 60 MHz clock
+		SysClk					: in std_logic; 		-- 30 MHz system clock
+		SlowEnable				: in std_logic; 	-- Active every 8th tick of the system clock
 		intDATA					: in std_logic_vector(31 downto 0);
 		serialMemDataOut		: out std_logic_vector(31 downto 0);
 		SerialMemXfaceWrite		: in std_logic;

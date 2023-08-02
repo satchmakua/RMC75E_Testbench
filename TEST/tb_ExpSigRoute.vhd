@@ -34,6 +34,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
+use IEEE.numeric_std.all;
 
 entity tb_ExpSigRoute is
 end tb_ExpSigRoute;
@@ -67,7 +68,9 @@ architecture tb of tb_ExpSigRoute is
       ExpQ1_FaultB           : out std_logic
     );
   end component;
-
+  
+  constant CLK_PERIOD : time := 33.3333 ns;
+  
   signal ExpMux                : std_logic_vector (1 downto 0) := (others => '0');
   signal ExpSerialSelect       : std_logic := '0';
   signal ExpLEDSelect          : std_logic := '0';
@@ -91,8 +94,6 @@ architecture tb of tb_ExpSigRoute is
   signal ExpQ1_Reg             : std_logic := '0';
   signal ExpQ1_FaultA          : std_logic := '0';
   signal ExpQ1_FaultB          : std_logic := '0';
-
-  constant CLK_PERIOD : time := 16.6667 ns;
 
 begin
 
@@ -121,36 +122,76 @@ begin
     ExpQ1_FaultA           => ExpQ1_FaultA,
     ExpQ1_FaultB           => ExpQ1_FaultB
   );
-	
-  SerialMemoryClk_process : process
+  
+  Clock_process : process
   begin
     SerialMemoryClk <= '0';
-    wait for CLK_PERIOD/2;
-    SerialMemoryClk <= '1';
-    wait for CLK_PERIOD/2;
-  end process;
-	
-  ExpA_CLK_process : process
-  begin
     ExpA_CLK <= '0';
     wait for CLK_PERIOD/2;
+    SerialMemoryClk <= '1';
     ExpA_CLK <= '1';
     wait for CLK_PERIOD/2;
-  end process;
+  end process Clock_process;
+
+  Test_Process : process
+  begin
 	
-  stim_proc: process
-  begin	
-    ExpMux <= "01";
-    ExpSerialSelect <= '1';
-    ExpLEDSelect <= '1';
-    ExpLEDData <= '1';
-    ExpData(3 downto 1) <= "111";
-    ExpA_CS_L <= '1';
-
-    wait;
-  end process;
-
+    -- Initialize the signals
+    ExpMux <= "00";
+    ExpSerialSelect <= '0';
+    ExpLEDSelect <= '0';
+    ExpLEDData <= '0';
+    ExpA_CS_L <= '0';
+    SerialMemoryDataControl <= '0';
+		SerialMemoryDataOut <= '0';
+    ExpD8_OE <= '0';
+    ExpD8_Load <= '0';
+    ExpD8_Latch <= '0';
+		
+		-- Testing Ax module
+		wait for 5 us;
+		ExpMux <= "01";
+		SerialMemoryDataControl <= '1';
+		SerialMemoryDataOut <= '1';
+		ExpSerialSelect <= '1';
+		ExpA_CS_L <= '1';
+		
+		
+		-- Testing D8 module
+		wait for 5 us;
+		ExpMux <= "10";
+		ExpD8_DataOut <= '1';
+		ExpD8_OE <= '1';
+		ExpD8_Load <= '1';
+		ExpD8_Latch <= '1';
+		
+		wait for 5 us;
+		ExpMux <= "01";
+		ExpD8_DataOut <= '0';
+		ExpD8_OE <= '0';
+		ExpD8_Load <= '0';
+		ExpD8_Latch <= '0';
+		
+		
+		-- Testing LED module
+		wait for 5 us;
+		SerialMemoryDataControl <= '0';
+		SerialMemoryDataOut <= '0';
+		ExpSerialSelect <= '0';
+		ExpLEDSelect <= '1';
+		
+		-- Testing Q1 module
+		wait for 5 us;
+		ExpMux <= "10";
+		ExpLEDSelect <= '0';
+		
+		wait for 500 us;
+		
+  end process Test_Process;
+  
 end tb;
+   
+
 
 
 

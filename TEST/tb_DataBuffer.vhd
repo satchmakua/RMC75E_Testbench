@@ -15,15 +15,13 @@
 --	Description: 
 	
 	-- DUT (DataBuffer):
-	-- The DataBuffer is a VHDL entity that represents a data buffer module.
-	-- It contains multiple RAM blocks to store data and handles read and write
+	-- Module contains multiple RAM blocks to store data and handles read and write
 	-- operations based on control signals. The module has various input signals
 	-- for controlling read and write operations, as well as data input and output ports.
 
 	-- Test Bench (tb_DataBuffer):
-	-- The tb_DataBuffer is a test bench written in VHDL to verify
-	-- the functionality of the DataBuffer module.
-	-- It instantiates the DataBuffer module and provides stimulus
+	
+	-- Test bench instantiates the DataBuffer module and provides stimulus
 	-- to its input signals while monitoring the output signals.
 	-- The test bench generates clock signals, applies test
 	-- cases to different input signals, and verifies

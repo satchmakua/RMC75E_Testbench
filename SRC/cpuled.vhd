@@ -13,10 +13,10 @@
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		The cpu led implementation is extremely straight forward
---		the bits are latched and drived out of the FPGA.
+--		The CPU LED implementation is extremely straightforward.
+--		The bits are latched and driven out of the FPGA.
 --		If modulation is required, then that can be implemented 
---		in this module as well
+--		in this module as well.
 --
 --	Revision: 1.2
 --
