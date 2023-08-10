@@ -8,22 +8,18 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		SerialMemoryInterface
---	File			serial_mem.vhd
+--	File					serial_mem.vhd
 --
 --------------------------------------------------------------------------------
---	Note: commented out logic on lines 321, 351, & 387 to allow for complete
--- 	data transfer on M_SPROM_DATA line. Rewrite of state machine logic for better
---	logical seperation and organization is recommended.
 
 --	Description: 
 --		Serial memory interface for the RMC75E modular motion controller.
 --		The module provides communication with an external serial EEPROM, specifically the AT24C01A device.
 --		The SerialMemoryInterface component converts data from parallel to
 --		serial format before sending it to the EEPROM (Electrically Erasable Programmable Read-Only Memory).
---		This conversion is necessary because many EEPROM devices communicate
---		using a serial protocol, which means they expect data to be sent one bit at a time.
+--		This conversion is necessary because the AT24C01A EEPROM devices communicate
+--		using the I2C serial protocol, which means it expects data to be sent one bit at a time.
 
---
 --		Data is clocked into the Serial EEPROM device on the positive edge
 --		Data is clocked out of the Serial EEPROM device on the negative edge
 --
@@ -90,7 +86,7 @@ architecture SerialMemoryInterface_arch of SerialMemoryInterface is
 	constant Exp3SelectAddr : std_logic_vector(2 downto 0) := To_StdLogicVector(Exp3SelectValue);
 	constant ControlModuleSelectAddr : std_logic_vector(2 downto 0) := To_StdLogicVector(ControlModuleSelectValue);
 
-	-- state encoding --
+	-- state encoding
 	type STATE_TYPE is (  IdleState, SignalStartState, DeviceAddrState, CheckDeviceAddrACKState, MemAddrState, 
 						  CheckMemoryAddrACKState, OperationTypeState, WriteState, WriteAckState,
 						  ReadState, ReadNoACKState, StopState, ClearState);
@@ -279,11 +275,11 @@ begin
 			ShiftEnable <= '0';
 			LoadMemAddr <= '0';
 			LoadWriteData <= '0';
-			intSerialMemoryDataControl <= '0';     -- Read the serial data pin
+			intSerialMemoryDataControl <= '0';  -- Read the serial data pin
 			intEEPROMAccessFlag <= '0';         -- Relinquish control over data line
 			StartStopBit <= '1';
 			LoadDeviceAddr <= '0';
-			SecondPassRead <= '0';              -- Used by the Read operation to loop through the 
+			SecondPassRead <= '0';              -- Used by the Read operation to loop through the data
 			IncOperationFaultCount <= '0';      -- If any operation restarts are required, then increment
 		elsif SerialMemXfaceWrite = '1' then
 			StateMachine <= IdleState;
@@ -297,7 +293,7 @@ begin
                                                                       -- fault counter
                                else StateMachine <= IdleState;
                                   intFLAG_CLR <= '0';
-                                  -- intSerialMemoryDataControl <= '0';     -- Read the serial data pin
+                                  intSerialMemoryDataControl <= '0';     -- Read the serial data pin
                                   intEEPROMAccessFlag <= '0';         -- Relinquish control over data line
                                   StartStopBit <= '1';
                                   LoadDeviceAddr <= '0';
@@ -327,7 +323,7 @@ begin
                                end if;
                       
              when CheckDeviceAddrACKState =>        
-                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   if SecondPassRead='1' then
                                      StateMachine <= ReadState;
@@ -356,7 +352,7 @@ begin
                                end if;
 
              when CheckMemoryAddrACKState =>        
-                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   StateMachine <= OperationTypeState;
                                elsif
@@ -370,7 +366,7 @@ begin
                                end if;
 
              when OperationTypeState =>
-                               intSerialMemoryDataControl <= '1';        -- Write the serial data pin
+                               intSerialMemoryDataControl <= '1';     -- Write the serial data pin
                                if WriteFlag='1' then                  -- Do WRITE function
                                   LoadWriteData <= '1';               -- Load the data to write to the EEPROM
                                   StateMachine <= WriteState;         -- ADDR sent OK, now send DATA
@@ -393,7 +389,7 @@ begin
                                end if;
 
              when WriteACKState => 
-                               -- intSerialMemoryDataControl <= '0';        -- Read the serial data pin
+                               intSerialMemoryDataControl <= '0';        -- Read the serial data pin
                                ShiftEnable <= '0';
                                if SerialMemoryClockFallingEdge='1' and ACK='1' then 
                                   StateMachine <= StopState;
@@ -412,7 +408,7 @@ begin
                                end if;
 
              when ReadNoACKState => 
-                               intSerialMemoryDataControl <= '1';        -- Write to the serial data pin
+                               intSerialMemoryDataControl <= '1';     -- Write to the serial data pin
                                ShiftEnable <= '0';
                                StartStopBit <= '1';                   -- Ouput a 1
                                if SerialMemoryClockFallingEdge='1' then 
@@ -460,7 +456,7 @@ FLAG_CLR <= '1' when FLAG_CLR_LAT='1' and intFLAG_CLR='0' else '0';
 
 
 -- The following logic feeds the SerialDataOutput shift register
--- The SecondPassRead Variable is used to signal a read operation
+-- The SecondPassRead variable is used to signal a read operation
 -- It will be low for writes and the first part of a read operation
 SerialDataOutputMux <= (DeviceAddress & SecondPassRead) when LoadDeviceAddr='1' else
                         (DataBuffer) when LoadWriteData='1' else

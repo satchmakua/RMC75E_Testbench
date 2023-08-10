@@ -67,9 +67,7 @@ architecture tb of tb_DiscoverControl is
   signal Exp2Mux        : std_logic_vector(1 downto 0);
   signal Exp3Mux        : std_logic_vector(1 downto 0);
 
-  -- Add necessary component declarations and signal mappings here
-
-begin
+	begin
   -- Instantiate the unit under test (DUT)
   DUT: entity work.DiscoverID
     port map (
