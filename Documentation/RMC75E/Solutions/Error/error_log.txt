@@ -1,0 +1,349 @@
+# Reading C:/Microsemi/Libero_SoC_v12.4/ModelSim/tcl/vsim/pref.tcl
+# Loading project cm
+# Compile of analog.vhd was successful.
+# Compile of clockcontrol.vhd failed with 8 errors.
+# Compile of controlio.vhd failed with 4 errors.
+# Compile of controloutput.vhd failed with 4 errors.
+# Compile of CPUConfig.vhd failed with 3 errors.
+# Compile of cpuled.vhd failed with 2 errors.
+# Compile of databuffer.vhd was successful.
+# Compile of decode.vhd was successful.
+# Compile of DIO8.vhd failed with 3 errors.
+# Compile of discovercontrol.vhd was successful.
+# Compile of DiscoverControlID.vhd failed with 2 errors.
+# Compile of DiscoverExpansionID.vhd failed with 1 errors.
+# Compile of ExpansionSigRoute.vhd was successful.
+# Compile of ExpModuleLED.vhd failed with 4 errors.
+# Compile of LatencyCounter.vhd was successful.
+# Compile of mdssiroute.vhd was successful.
+# Compile of MDTTopSimp.vhd failed with 22 errors.
+# Compile of Quad.vhd was successful.
+# Compile of QuadXface.vhd failed with 31 errors.
+# Compile of ram128x16bits.vhd was successful.
+# Compile of rtdexpidled.vhd was successful.
+# Compile of serial_mem.vhd was successful.
+# Compile of serial2parallel.vhd was successful.
+# Compile of SSITop.vhd failed with 26 errors.
+# Compile of statemachine.vhd was successful.
+# Compile of ticksync.vhd failed with 4 errors.
+# Compile of top.vhd was successful.
+# Compile of WatchDogTimer.vhd failed with 20 errors.
+# 28 compiles, 14 failed with 134 errors.
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package VITAL_Timing
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ClockControl
+-- Compiling architecture clockcontrol_arch of ClockControl
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(172): (vcom-1436) Actual expression (prefix expression) of formal "PLL_ARST_N" is not globally static.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(185): Cannot read output "SysClk".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(187): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(199): Cannot read output "SysClk".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(199): Cannot read output "SysClk".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(209): Signal "DLL_RST_sync" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(213): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(220): Cannot read output "SysRESET".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/clockcontrol.vhd(266): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControlIO
+-- Compiling architecture ControlIO_arch of ControlIO
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd(123): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd(167): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd(184): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd(249): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/controlio.vhd(334): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControlOutput
+-- Compiling architecture ControlOutput_arch of ControlOutput
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd(86): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd(173): Signal "ControlOutputOneShot" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd(175): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error (suppressible): C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd(124): (vcom-1339) Case statement choices cover only 2 out of 9 cases.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/controloutput.vhd(187): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/CPUConfig.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CPUConfig
+-- Compiling architecture CPUConfig_arch of CPUConfig
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/CPUConfig.vhd(68): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/CPUConfig.vhd(88): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/CPUConfig.vhd(95): Type error resolving prefix expression "not" as type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/CPUConfig.vhd(115): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/cpuled.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CPULED
+-- Compiling architecture CPULED_arch of CPULED
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/cpuled.vhd(58): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/cpuled.vhd(61): Signal [mode IN port] "CPULEDWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/cpuled.vhd(84): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/DIO8.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DIO8
+-- Compiling architecture DIO8_arch of DIO8
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DIO8.vhd(170): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DIO8.vhd(253): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DIO8.vhd(260): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/DIO8.vhd(379): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverControlID.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DiscoverControlID
+-- Compiling architecture DiscoverControlID_arch of DiscoverControlID
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverControlID.vhd(78): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverControlID.vhd(126): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverControlID.vhd(161): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverExpansionID.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DiscoverExpansionID
+-- Compiling architecture DiscoverExpansionID_arch of DiscoverExpansionID
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverExpansionID.vhd(80): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/DiscoverExpansionID.vhd(168): VHDL Compiler exiting
+
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ExpModuleLED
+-- Compiling architecture ExpModuleLED_arch of ExpModuleLED
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd(152): Signal [mode IN port] "Reset" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd(223): Signal [mode IN port] "Reset" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd(292): Signal [mode IN port] "Reset" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error (suppressible): C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd(234): (vcom-1339) Case statement choices cover only 4 out of 81 cases.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/ExpModuleLED.vhd(359): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDTTopSimp
+-- Compiling architecture MDTTopSimp_arch of MDTTopSimp
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(150): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(152): Signal "SetDataValid" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(157): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(159): Signal [mode IN port] "SynchedTick60" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(163): Signal [mode IN port] "SynchedTick60" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(167): Signal "intCounterOverFlow" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(169): Signal [mode IN port] "SynchedTick60" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(179): Signal [mode IN port] "SysReset" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(181): Signal [mode IN port] "ParamWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(197): Signal [mode IN port] "SysReset" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(210): Signal "StartInterrogation" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(235): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(240): Signal "RetPulseDelayDone" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(251): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(253): Signal [mode IN port] "SynchedTick60" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(275): Signal "ClearCounter" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(277): Signal "SendInterrogationPulse" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(279): Signal "DelayDone" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(289): Signal "ClearCounter" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(291): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(350): Signal "ClearCounter" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(352): Signal "RisingACountEnableLatch" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/MDTTopSimp.vhd(441): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity QuadXface
+-- Compiling architecture QuadXface_arch of QuadXface
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(194): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(203): Signal "intHomeLat" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(205): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(210): Signal "intLatch0Lat" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(212): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(217): Signal "intLatch1Lat" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(219): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(224): Signal "clrLearnModeDone" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(226): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(280): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(302): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(304): Signal "LatchedInc" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(307): Signal "LatchedDec" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(320): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(334): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(348): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(410): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(412): Signal "clrLearnModeDone" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(421): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(423): Signal [mode IN port] "LEDStatusWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(461): Signal "CaptureHomeCountsLat" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(472): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(477): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(480): Signal "CaptureHomeCounts" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(510): Signal "CaptureLatch0Counts" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(515): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(518): Signal "CaptureLatch0Counts" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(549): Signal "CaptureLatch1Counts" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(554): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(558): Signal "CaptureLatch1Counts" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(562): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/QuadXface.vhd(572): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity SSITop
+-- Compiling architecture SSITop_arch of SSITop
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(111): Cannot read output "SSISelect".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(112): Cannot read output "SSISelect".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(118): Signal [mode IN port] "ParamWrite1" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(126): Signal [mode IN port] "ParamWrite2" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(137): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(145): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(147): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(161): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(161): Cannot read output "SSISelect".
+	VHDL 2008 allows reading outputs.
+	This facility is enabled by compiling with -2008.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(163): Signal "StartRead" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(170): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(183): Signal [mode IN port] "SynchedTick" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(187): Signal "Shift" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(191): Signal "SSIGrayAnalog" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(200): Signal "CheckDataHi" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(205): Signal "CheckDataLo" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(217): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(219): Signal "TurnShiftOff" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(227): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(229): Signal [mode IN port] "Enable" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(235): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(242): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(244): Signal "Shift" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(249): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(251): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(260): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/SSITop.vhd(286): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity TickSync
+-- Compiling architecture ticksync_arch of TickSync
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd(57): Signal [mode IN port] "LOOPTICK" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd(60): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd(73): Signal [mode IN port] "LOOPTICK" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd(76): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/ticksync.vhd(86): VHDL Compiler exiting
+
+vcom -work work -2002 -explicit -stats=none C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd
+Model Technology ModelSim Microsemi vcom 2019.4 Compiler 2019.10 Oct 16 2019
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity WDT
+-- Compiling architecture WDT_ARCH of WDT
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(105): Signal [mode IN port] "SysRESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(112): Signal [mode IN port] "SlowEnable" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(128): Signal "WDTCounterLoad" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(157): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(167): Signal "Res_OS" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(169): Signal "RegAAAAA" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(178): Signal "WDTTerminalCount" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(187): Signal [mode IN port] "RESET" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(197): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(203): Type error resolving infix expression "or" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(205): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(210): Type error resolving prefix expression "not" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(212): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(216): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(222): Signal "ClearKey" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(224): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(235): Signal "ClearKey" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(244): Signal "AccessKey" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(246): Signal "LoadWDTCount" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Error: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(252): Signal [mode IN port] "FPGAProgrammedWrite" is type ieee.std_logic_1164.STD_LOGIC; expecting type std.STANDARD.BOOLEAN.
+** Note: C:/Users/SHAMILTON/Desktop/compile_tb/WatchDogTimer.vhd(262): VHDL Compiler exiting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
