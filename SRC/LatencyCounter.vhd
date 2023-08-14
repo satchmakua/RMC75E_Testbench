@@ -7,12 +7,13 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		LatencyCounter
---	File			LatencyCounter.vhd
+--	Entity Name			LatencyCounter
+--	File						LatencyCounter.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
+
 	-- LatencyCounter is responsible for receiving clock and control signals, 
 	-- and providing an output data based on its internal latency calculations.
 	-- The module accepts three inputs: a 60MHz clock signal (H1_CLK), a control signal to 
@@ -59,6 +60,5 @@ begin
 			end if;
 		end if;
 	end process;
-
 
 end LT_ARCH;

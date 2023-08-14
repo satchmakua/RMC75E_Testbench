@@ -32,34 +32,6 @@
 	-- based on the DLL lock status and system reset conditions.
 	-- It coordinates the generation and distribution of the
 	-- clock signals to different components within the system.
-	
-	-- Note on the commented out sections:
-	
-	-- This code refers to a previous implementation that is no longer used
-	-- in the current design with the Microchip Igloo 2 FPGA.
-	
-	-- It implements a state machine (StateMachine) that monitors the status of the DLL
-	-- (Delay-Locked Loop) and performs certain actions depending on its state.
-	-- Here's a breakdown of the commented out code:
-
-	-- The state machine (StateMachine) is a process that is sensitive
-	-- to rising edges of the H1_CLKWR signal and the system reset (RESET) signal.
-
-	-- The state machine has four states defined as follows:
-
-	-- s0_idle: Initial state after reset, where the PLL reset signal is kept low.
-	-- s1_locked: Monitors the DLL lock status and transitions to the next state if the DLL is not locked.
-	-- s2_reset: Resets the DLL for a minimum of three clock cycles.
-	-- s3_delay: Waits until the DLL is locked or a delay of 1 millisecond (at 60 MHz) is reached.
-
-	-- Inside the state machine, there are conditions and actions associated with each state:
-
-	-- In the s0_idle state, if the DLL is not locked (DLLQ1_LOCK = '0'), a reset pulse is generated to the DLL.
-	-- In the s1_locked state, if the DLL is not locked, a reset pulse is generated to the DLL.
-	-- In the s2_reset state, the state machine waits for three clock cycles before transitioning to the s3_delay state.
-	-- In the s3_delay state, the state machine waits for either the DLL to lock or a delay of 1 millisecond is reached.
-	-- If the delay expires and the DLL is still not locked, it transitions back to the s2_reset state.
-	-- If the DLL is locked, it transitions to the s1_locked state.
 
 --
 --	Revision: 1.3
@@ -145,6 +117,34 @@ architecture clockcontrol_arch of ClockControl is
 
 begin
 
+	-- Note on the commented out sections:
+	
+	-- This code refers to a previous implementation that is no longer used
+	-- in the current design with the Microchip Igloo 2 FPGA.
+	
+	-- It implements a state machine (StateMachine) that monitors the status of the DLL
+	-- (Delay-Locked Loop) and performs certain actions depending on its state.
+	-- Here's a breakdown of the commented out code:
+
+	-- The state machine (StateMachine) is a process that is sensitive
+	-- to rising edges of the H1_CLKWR signal and the system reset (RESET) signal.
+
+	-- The state machine has four states defined as follows:
+
+	-- s0_idle: Initial state after reset, where the PLL reset signal is kept low.
+	-- s1_locked: Monitors the DLL lock status and transitions to the next state if the DLL is not locked.
+	-- s2_reset: Resets the DLL for a minimum of three clock cycles.
+	-- s3_delay: Waits until the DLL is locked or a delay of 1 millisecond (at 60 MHz) is reached.
+
+	-- Inside the state machine, there are conditions and actions associated with each state:
+
+	-- In the s0_idle state, if the DLL is not locked (DLLQ1_LOCK = '0'), a reset pulse is generated to the DLL.
+	-- In the s1_locked state, if the DLL is not locked, a reset pulse is generated to the DLL.
+	-- In the s2_reset state, the state machine waits for three clock cycles before transitioning to the s3_delay state.
+	-- In the s3_delay state, the state machine waits for either the DLL to lock or a delay of 1 millisecond is reached.
+	-- If the delay expires and the DLL is still not locked, it transitions back to the s2_reset state.
+	-- If the DLL is locked, it transitions to the s1_locked state.
+	
 --	-- Monitor PLL for lock. If PLL is not locked, give it a reset signal to attempt to get it to lock.
 --	StateMachine : process(H1_CLKWR, RESET)
 --	begin

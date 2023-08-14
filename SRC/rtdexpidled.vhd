@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		RtdExpIDLED
---	File			rtdexpidled.vhd
+--	Entity Name			RtdExpIDLED
+--	File						rtdexpidled.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -26,20 +26,6 @@
 	-- the clock, latch, and load signals for an external LED module based on the state of the DiscoveryComplete signal.
 
 	-- Components:
-
-	-- Inputs:
-	-- DiscoveryComplete: A control signal indicating the completion of the device discovery process.
-	-- Exp_ID_CLK: The clock signal for the internal ID module.
-	-- Exp_ID_LATCH: The latch signal for the internal ID module.
-	-- Exp_ID_LOAD: The load signal for the internal ID module.
-	-- ExpLEDOE: The output enable signal from the external LED module.
-	-- ExpLEDLatch: The latch signal from the external LED module.
-	-- ExpLEDClk: The clock signal from the external LED module.
-
-	-- Outputs:
-	-- Exp_Mxd_ID_CLK: The selected clock signal for the ID module.
-	-- Exp_Mxd_ID_LATCH: The selected latch signal for the ID module.
-	-- Exp_Mxd_ID_LOAD: The selected load signal for the ID module.
 
 	-- Architecture:
 	-- The architecture of the RtdExpIDLED module, named RtdExpIDLED_arch, consists of a process block
@@ -73,19 +59,20 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity RtdExpIDLED is
 	Port ( 
-	 	DiscoveryComplete	: in std_logic;
-		Exp_ID_CLK			: in std_logic;
-		Exp_ID_LATCH		: in std_logic;
-		Exp_ID_LOAD			: in std_logic;
+	 	DiscoveryComplete	: in std_logic; -- A control signal indicating the completion of the device discovery process
+		Exp_ID_CLK			: in std_logic; -- The clock signal for the internal ID module
+		Exp_ID_LATCH		: in std_logic; -- The latch signal for the internal ID module
+		Exp_ID_LOAD			: in std_logic; -- The load signal for the internal ID module
 
-		ExpLEDOE			: in std_logic;
-		ExpLEDLatch			: in std_logic;
-		ExpLEDClk			: in std_logic;
+		ExpLEDOE			: in std_logic; -- The output enable signal from the external LED module
+		ExpLEDLatch			: in std_logic; -- The latch signal from the external LED module
+		ExpLEDClk			: in std_logic; -- The clock signal from the external LED module
 
-		Exp_Mxd_ID_CLK		: out std_logic;
-		Exp_Mxd_ID_LATCH	: out std_logic;
-		Exp_Mxd_ID_LOAD		: out std_logic
+		Exp_Mxd_ID_CLK		: out std_logic; -- The selected clock signal for the ID module
+		Exp_Mxd_ID_LATCH	: out std_logic; -- The selected latch signal for the ID module
+		Exp_Mxd_ID_LOAD		: out std_logic	 -- The selected load signal for the ID module
 	);
+	
 end RtdExpIDLED;
 
 architecture RtdExpIDLED_arch of RtdExpIDLED is

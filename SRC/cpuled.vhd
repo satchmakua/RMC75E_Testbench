@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		CPULED
---	File			cpuled.vhd
+--	File					cpuled.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -23,7 +23,7 @@
 --	File history:
 --		Rev 1.2 : 08/31/2022 :	Condensed CPUStatLEDDrive logic.
 --		Rev 1.1 : 06/07/2022 :	Updated formatting
---								Changed how RESET is used
+--														Changed how RESET is used
 --
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

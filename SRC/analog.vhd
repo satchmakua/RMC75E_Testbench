@@ -30,9 +30,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Analog is
 	port (
 		SysReset			: in std_logic;			-- System Reset or PLL not locked
-		H1_CLKWR			: in std_logic;
-		SysClk				: in std_logic;
-		SlowEnable			: in std_logic;
+		H1_CLKWR			: in std_logic; -- 60 Mhz
+		SysClk				: in std_logic; -- 30MHz
+		SlowEnable			: in std_logic; -- 7.5 MHz
 		SynchedTick			: in std_logic;
 		SynchedTick60		: in std_logic;
 		LoopTime			: in std_logic_vector (2 downto 0);

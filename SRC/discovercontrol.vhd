@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		DiscoverID
---	File			discovercontrol.vhd
+--	File					discovercontrol.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -35,12 +35,14 @@
 --		Rev 1.6 : 11/23/2022 :	Updated minor rev to 0F (15)
 --		Rev 1.5 : 11/14/2022 :	Updated minor rev to 0E (14)
 --		Rev 1.4 : 11/11/2022 :	Updated minor rev to 0D (13)
---		Rev 1.3 : 11/01/2022 :	Cleaned up constanst
---								Updated minor rev through 0C (12)
+--		Rev 1.3 : 11/01/2022 :	Cleaned up constants
+--														Updated minor rev through 0C (12)
+
 --		Rev 1.2 : 10/18/2022 :	Many changes throughout
---								Updated minor rev to 04 and then 05
+--														Updated minor rev to 04 and then 05
+
 --		Rev 1.1 : 06/10/2022 :	Updated formatting
---								Added ID vaule for Igloo2
+--														Added ID vaule for Igloo2
 --
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

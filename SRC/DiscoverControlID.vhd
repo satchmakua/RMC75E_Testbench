@@ -8,13 +8,13 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		DiscoverControlID
---	File			DiscoverControlID.vhd
+--	File					DiscoverControlID.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		The entity "DiscoverControlID" module is responsible for
---		controlling the discovery of the control ID for the motion controller.
+--		This module is responsible for controlling the 
+--		discovery of the control ID for the motion controller.
 --
 --	Revision: 1.3
 --
@@ -33,8 +33,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 --  Uncomment the following lines to use the declarations that are
 --  provided for instantiating Xilinx primitive components.
---library UNISIM;
---use UNISIM.VComponents.all;
+
+-- library UNISIM;
+-- use UNISIM.VComponents.all;
 
 entity DiscoverControlID is
 	Port (

@@ -7,26 +7,27 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		StateMachine
---	File			stateMachine.vhd
+--	Entity Name			StateMachine
+--	File						stateMachine.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		The state machine controls the sampling of the data from the A2D converter
+--		The state machine controls the sampling of the data from the ADC
 --
 --		In this particular implementation there will be four samples taken each
 --		sample time. Two samples from channel 0 and two samples from channel 1.
 --		The spacing (time) between sample groups will be controlled by the 
 --		LoopTimeFlag signal. 
 --
---		Conversion sequence is as follows ch0 & ch1, ch0 & ch1 wait(1 or 2), ch0 & ch1, ch0 & ch1 wait....
+--		Conversion sequence is as follows ch0 & ch1, ch0 & ch1 wait(1 or 2), ch0 & ch1, ch0 & ch1 wait...
 --
 --	Revision: 1.2
 --
 --	File history:
 --		Rev 1.2 : 02/07/2023 :	Initialized signals, added comments, cleaned up
---								Made ExpA_CLK and output
+--														Made ExpA_CLK and output
+
 --		Rev 1.1 : 06/06/2022 :	Updated formatting
 --
 --------------------------------------------------------------------------------

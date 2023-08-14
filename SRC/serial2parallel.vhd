@@ -14,23 +14,11 @@
 --
 --	Description: 
 
-	-- The Serial2Parallel module is a component of the source code for the RMC75E modular motion controller.
-	-- It serves as a serial-to-parallel converter and data distributor for various input signals.
+	-- The Serial2Parallel module serves as a serial-to-parallel converter 
+	-- and data distributor for various input signals.
 	-- The module takes serial input data and converts it into parallel
 	-- format for multiple output channels based on the control signals.
 
-	-- Components:
-
-	-- Inputs:
-	-- SysClk: The system clock signal.
-	-- SynchedTick: The synchronized tick signal.
-	-- CtrlAxisData: Two-bit control axis data input.
-	-- ExpA_DATA: Eight-bit data input for expansion module A.
-	-- Serial2ParallelEN: The enable signal for the Serial2Parallel module.
-	-- Serial2ParallelCLR: The clear signal for resetting the internal data registers.
-	-- S2P_Addr: Four-bit address input for selecting the output channel.
-	-- Outputs:
-	-- S2P_Data: Sixteen-bit parallel data output.
 	-- Architecture:
 
 	-- The architecture of the Serial2Parallel module, named Serial2Parallel_arch, consists of internal
@@ -78,14 +66,14 @@ use IEEE.std_logic_unsigned.all;
 
 entity Serial2Parallel is
 	port (
-		SysClk				: in std_logic;
-		SynchedTick			: in std_logic;
-		CtrlAxisData		: in std_logic_vector (1 downto 0);
-		ExpA_DATA			: in std_logic_vector (7 downto 0);
-		Serial2ParallelEN	: in std_logic;
-		Serial2ParallelCLR	: in std_logic;
-		S2P_Addr			: in std_logic_vector (3 downto 0);
-		S2P_Data			: out std_logic_vector (15 downto 0)
+		SysClk				: in std_logic; 											-- 30MHz system clock signal
+		SynchedTick			: in std_logic; 										-- The synchronized tick signal
+		CtrlAxisData		: in std_logic_vector (1 downto 0); -- Two-bit control axis data input
+		ExpA_DATA			: in std_logic_vector (7 downto 0); 	-- Eight-bit data input for expansion module A
+		Serial2ParallelEN	: in std_logic;										-- The enable signal for the Serial2Parallel module
+		Serial2ParallelCLR	: in std_logic;									-- The clear signal for resetting the internal data registers
+		S2P_Addr			: in std_logic_vector (3 downto 0); 	-- Four-bit address input for selecting the output channel
+		S2P_Data			: out std_logic_vector (15 downto 0) 	-- Sixteen-bit parallel data output
 	);
 end Serial2Parallel;
 
@@ -107,6 +95,7 @@ begin
 	-- The shift register to converts incoming data from serial to parallel.
 	-- This S2P converter will convert eight serial bit streams into 
 	-- 16-bit parallel words. 
+	
 	S2P_Data(15 downto 0) <=	S2P_CtrlAxis0_Data(15 downto 0) when S2P_Addr(3 downto 0) = X"0" else
 								S2P_CtrlAxis1_Data(15 downto 0) when S2P_Addr(3 downto 0) = X"1" else
 								S2P_M0Ch0_Data(15 downto 0) when S2P_Addr(3 downto 0)= X"2" else

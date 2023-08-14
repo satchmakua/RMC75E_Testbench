@@ -12,7 +12,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		Clock_Gen_Clock_Gen_0_FCCC
---	File			Clock_Gen_Clock_Gen_0_FCCC.vhd
+--	File					Clock_Gen_Clock_Gen_0_FCCC.vhd
 --
 --------------------------------------------------------------------------------
 --

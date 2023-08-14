@@ -8,12 +8,12 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		DiscoverExpansionID
---	File			DiscoverExpansionID.vhd
+--	File					DiscoverExpansionID.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
---		After reset, querry ID information from Expansion modules.
+--		After reset, query ID information from Expansion module(s).
 --
 --	Revision: 1.2
 --
@@ -31,8 +31,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 --  Uncomment the following lines to use the declarations that are
 --  provided for instantiating Xilinx primitive components.
---library UNISIM;
---use UNISIM.VComponents.all;
+
+-- library UNISIM;
+-- use UNISIM.VComponents.all;
 
 entity DiscoverExpansionID is
 	Port ( 

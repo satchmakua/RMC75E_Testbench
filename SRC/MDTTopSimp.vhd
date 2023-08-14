@@ -30,26 +30,6 @@
 	-- allowing each clock to drive a counter when a start signal is received.
 	-- At the end of the count cycle, the counters are added together.
 
-	-- The entity MDTTopSimp has the following ports:
-	
-	-- Inputs:
-	-- SysReset: Main system reset signal.
-	-- H1_CLK: 60MHz clock for the MDT interface.
-	-- H1_CLKWR: CPU clock for reads and writes.
-	-- H1_CLK90: 60MHz clock with a 90-degree phase shift for MDT counters.
-	-- SynchedTick60: Synchronized tick signal at 60MHz.
-	-- intDATA: Input data signal (32 bits).
-	-- PositionRead: Signal indicating a position read operation.
-	-- StatusRead: Signal indicating a status read operation.
-	-- ParamWrite: Signal indicating a parameter write operation.
-	-- M_RET_DATA: Input data signal for M_RET_DATA.
-	-- SSISelect: Signal indicating the selection of SSI transducer.
-	
-	-- Outputs:
-	-- mdtSimpDataOut: Output data signal from the MDT (32 bits).
-	-- M_INT_CLK: Output internal clock signal.
-	-- SSI_DATA: Output SSI data signal.
-
 	-- The architecture MDTTopSimp_arch defines the internal implementation of the MDTTopSimp module.
 	-- It includes various signals and processes to control the MDT interface.
 
@@ -94,19 +74,20 @@ use IEEE.std_logic_unsigned.all;
 entity MDTTopSimp is
 	Port (
 		SysReset		: in std_logic;		-- Main system Reset signal
-		H1_CLK			: in std_logic;		-- 60 MHz clock for MDT interface
+		H1_CLK			: in std_logic;		-- 60MHz clock for MDT interface
 		H1_CLKWR		: in std_logic;		-- CPU clock for read and writes
-		H1_CLK90		: in std_logic;		-- 60 MHz clock with 90 degree phase shift for MDT count
-		SynchedTick60	: in std_logic;
-		intDATA			: in std_logic_vector(31 downto 0);
-		mdtSimpDataOut	: out std_logic_vector(31 downto 0);
-		PositionRead	: in std_logic;
-		StatusRead		: in std_logic;
-		ParamWrite		: in std_logic;
-		M_INT_CLK		: out std_logic;
-		M_RET_DATA		: in std_logic;
-		SSI_DATA		: out std_logic;
-		SSISelect		: in std_logic
+		H1_CLK90		: in std_logic;		-- 60MHz clock with 90 degree phase shift for MDT count
+		SynchedTick60	: in std_logic;	-- Synchronized tick signal at 60MHz
+		intDATA			: in std_logic_vector(31 downto 0); -- Input data signal (32 bits)
+		mdtSimpDataOut	: out std_logic_vector(31 downto 0); 	-- Output data signal from the MDT (32 bits)
+		PositionRead	: in std_logic; -- Signal indicating a position read operation
+		StatusRead		: in std_logic; -- Signal indicating a status read operation
+		ParamWrite		: in std_logic; -- Signal indicating a parameter write operation
+
+		M_INT_CLK		: out std_logic; -- Output internal clock signa
+		M_RET_DATA		: in std_logic; -- Input data signal for M_RET_DATA
+		SSI_DATA		: out std_logic; -- Output SSI data signal
+		SSISelect		: in std_logic -- Signal indicating the selection of SSI transducer
 	);
 end MDTTopSimp;
 
@@ -266,7 +247,7 @@ begin
 						SetDataValid <= '0';
 						RetPulseDelayEnable <= '0';
 						SendInterrogationPulse <= '0';
-						CounterOverFlowRetrigger <= '0';       -- This signal is used to restart the state machine on counter overflow failure
+						CounterOverFlowRetrigger <= '0';-- This signal is used to restart the state machine on counter overflow failure
 
 					when s1 =>
 						ClearCounter <= '0';
@@ -468,8 +449,8 @@ begin
 		end if;
 	end process;
 
-	-- Transfer level of return signal captured on other 3 edges of A/B clocks to the the rising
-	--   edge of the main clock.
+	-- Transfer level of return signal captured on other 3 edges of A/B clocks to 
+	-- the rising edge of the main clock.
 	XfrToH1_CLK : process(H1_CLK)
 	begin
 		if rising_edge(H1_CLK) then

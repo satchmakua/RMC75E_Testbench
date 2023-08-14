@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		Decode
---	File			decode.vhd
+--	File					decode.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -18,9 +18,11 @@
 --	Revision: 1.2
 --
 --	File history:
---		Rev 1.2 : 10/27/2022 :	Added register at address 007 for CPU to write and read
---								 in order to detect FPGA exists and is programmed
---								Removed unnecessary Bit Vector constants
+--		Rev 1.2 : 10/27/2022 :	- Added register at address 007 for CPU to write and read
+--								 						in order to detect FPGA exists and is programmed
+
+--														- Removed unnecessary Bit Vector constants
+
 --		Rev 1.1 : 05/30/2022 :	Updated formatting
 --
 --------------------------------------------------------------------------------

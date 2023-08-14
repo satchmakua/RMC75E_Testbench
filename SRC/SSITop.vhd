@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		SSITop
---	File			SSITop.vhd
+--	Entity Name			SSITop
+--	File						SSITop.vhd
 --
 --------------------------------------------------------------------------------
 --

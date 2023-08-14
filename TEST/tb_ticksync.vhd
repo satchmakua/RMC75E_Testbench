@@ -2,28 +2,24 @@
 --------------------------------------------------------------------------------
 --
 --	© 2023 Delta Computer Systems, Inc.
---	Author: Satchel Hamilton
+--	Author: Satchel_Hamilton
 --
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name			tb_TickSync
---	File						tb_TickSync.vhd
-
+--	File						tb_ticksync.vhd
 --
 --------------------------------------------------------------------------------
 --
 --	Description: 
-
-	-- This testbench provides a comprehensive set of tests for the TickSync module.
-	-- It tests for different lengths of the LOOPTICK signal from 1 to 4 cycles,
-	-- including testing the behavior of the module when a system reset
-	-- (SysReset) is issued while LOOPTICK is active.
-	
---	Revision: 1.1
+--		
+--		ticksync synchronizes the incoming control loop clock tick with the internal clock to make
+--		it synchronous and usable by the internal logic.
 --
---	File history:
---	Rev 1.1 : 06/12/2023 :	Added the VHDL 'report' statements to act as test labels.
+--		The SynchedTick pulse is output immediately after syncing up to the incoming tick pulse.
+--
+--
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
@@ -35,8 +31,9 @@ entity tb_TickSync is
 end tb_TickSync;
 
 architecture testbench of tb_TickSync is
-    constant H1_CLK_period : time := 16.6667 ns;
-    constant SysClk_period : time := 33.3333 ns;
+    constant CLK_PERIOD : time := 16.6667 ns;
+    constant NUM_CYCLES : integer := 15000; -- 250 us / (16.6667 ns)
+
     signal SysReset, SysClk, H1_CLK, LOOPTICK: std_logic := '0';
     signal SynchedTick, SynchedTick60: std_logic := '0';
 begin
@@ -53,22 +50,28 @@ begin
 
     clk_stimulus: process
     begin
-        wait for SysClk_period; SysClk <= not SysClk; 
+        while true loop
+            wait for CLK_PERIOD / 2;
+            SysClk <= not SysClk;
+        end loop;
     end process;
     
     clk60_stimulus: process
     begin
-        wait for H1_CLK_period; H1_CLK <= not H1_CLK;
+        while true loop
+            wait for CLK_PERIOD;
+            H1_CLK <= not H1_CLK;
+        end loop;
     end process;
     
-		process
+    stimulus_process: process
     begin
         -- Reset sequence
         SysReset <= '1'; 
         LOOPTICK <= '0';
-        wait for 50 ns;
+        wait for CLK_PERIOD;
         SysReset <= '0'; 
-        wait for 50 ns;
+        wait for CLK_PERIOD;
         
         -- Test sequence 1: LOOPTICK pulse
         report "Test 1: LOOPTICK pulse";
@@ -77,23 +80,35 @@ begin
         wait until rising_edge(SysClk);
         LOOPTICK <= '0';
         wait until rising_edge(SysClk);
-        assert SynchedTick = '0' report "Test 1 failed: SynchedTick is not '0'" severity error;
-        wait for 200 ns;
+        assert SynchedTick = '1' report "Test 1 failed: SynchedTick is not '1'" severity error;
+        wait for 4 * CLK_PERIOD;
         
         -- Test sequence 2: Reset during LOOPTICK
         report "Test 2: Reset during LOOPTICK";
         wait until rising_edge(SysClk);
         LOOPTICK <= '1';
-        wait for 20 ns; 
+        wait for CLK_PERIOD / 2; 
         SysReset <= '1';
-        wait for 20 ns;
+        wait for CLK_PERIOD / 2;
         assert SynchedTick = '0' report "Test 2 failed: SynchedTick is not '0'" severity error;
         SysReset <= '0';
         LOOPTICK <= '0';
         wait;
         
+        -- Test sequence 3: Testing SynchedTick60
+        report "Test 3: Testing SynchedTick60";
+        wait until rising_edge(SysClk);
+        LOOPTICK <= '1';
+        wait until rising_edge(H1_CLK);
+        LOOPTICK <= '0';
+        wait until rising_edge(H1_CLK);
+        wait until rising_edge(H1_CLK);
+        -- Modify the assertion to check SynchedTick60
+        assert SynchedTick60 = '1' report "Test 3 failed: SynchedTick60 is not '1'" severity error;
+        wait;
+        
+        -- End simulation after specified number of cycles
+        wait for NUM_CYCLES * CLK_PERIOD;
+        assert false report "End of Test" severity note;
     end process;
 end testbench;
-
-
-

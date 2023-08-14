@@ -7,8 +7,8 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		ExpSigRoute
---	File			ExpansionSigRoute.vhd
+--	Entity Name			ExpSigRoute
+--	File						ExpansionSigRoute.vhd
 --
 --------------------------------------------------------------------------------
 --

@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		MDTSSIRoute
---	File			mdtssiroute.vhd
+--	File					mdtssiroute.vhd
 --
 --------------------------------------------------------------------------------
 --
@@ -25,21 +25,6 @@
 	-- The purpose of the MDTSSIRoute module is to control the routing of clock signals
 	-- for the MDT and SSI based on the SSI select signal. It selects either the MDT internal
 	-- clock or the SSI clock for each axis based on the value of the SSI select signal.
-
-	-- The module contains the following ports:
-
-	-- Inputs:
-
-	-- SSISelect: 2-bit signal that selects the clock source for each axis.
-	-- '00' selects the MDT internal clock, and '01' selects the SSI clock.
-	-- M_AX0_SSI_CLK: Input SSI clock signal for Axis0.
-	-- M_AX1_SSI_CLK: Input SSI clock signal for Axis1.
-	-- M_AX0_MDT_INT: Input MDT interrupt signal for Axis0.
-	-- M_AX1_MDT_INT: Input MDT interrupt signal for Axis1.
-	-- Outputs:
-
-	-- M_AX0_INT_CLK: Output internal clock signal for Axis0.
-	-- M_AX1_INT_CLK: Output internal clock signal for Axis1.
 	
 	-- The architecture MDTSSIRoute_arch describes the internal implementation of the MDTSSIRoute module.
 	-- It includes two assignments that control the routing of clock signals based on the SSI select signal.
@@ -68,13 +53,13 @@ use IEEE.std_logic_unsigned.all;
 
 entity MDTSSIRoute is
 	port (
-		SSISelect		: in std_logic_vector (1 downto 0);
-		M_AX0_INT_CLK	: out std_logic;
-		M_AX1_INT_CLK	: out std_logic;
-		M_AX0_SSI_CLK	: in std_logic;
-		M_AX1_SSI_CLK	: in std_logic;
-		M_AX0_MDT_INT	: in std_logic; 
-		M_AX1_MDT_INT	: in std_logic 
+		SSISelect		: in std_logic_vector (1 downto 0); -- 2-bit signal that selects the clock source for each axis
+		M_AX0_INT_CLK	: out std_logic; -- '00' selects the MDT internal clock, and '01' selects the SSI clock
+		M_AX1_INT_CLK	: out std_logic; -- Output internal clock signal for Axis0
+		M_AX0_SSI_CLK	: in std_logic; -- Input SSI clock signal for Axis0
+		M_AX1_SSI_CLK	: in std_logic; -- Input SSI clock signal for Axis1
+		M_AX0_MDT_INT	: in std_logic; -- Input MDT interrupt signal for Axis0
+		M_AX1_MDT_INT	: in std_logic 	-- Input MDT interrupt signal for Axis1
 	);
 end MDTSSIRoute;
 

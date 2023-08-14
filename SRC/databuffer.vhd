@@ -8,7 +8,7 @@
 --  Board:          RMC75E Rev 3.0
 --
 --	Entity Name		DataBuffer
---	File			dataBuffer.vhd
+--	File					dataBuffer.vhd
 --
 --------------------------------------------------------------------------------
 --

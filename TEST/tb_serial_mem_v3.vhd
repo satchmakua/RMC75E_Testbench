@@ -5,7 +5,7 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---  Entity Name     tb_SerialMemoryInterface
+--  Entity Name     tb_SerialMemoryInterface_v3
 --  File            tb_serial_mem.vhd
 --
 ------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.numeric_std_unsigned.all;
 
-entity tb_SerialMemoryInterface is
-end tb_SerialMemoryInterface;
+entity tb_SerialMemoryInterface_v3 is
+end tb_SerialMemoryInterface_v3;
 
-architecture tb_arch of tb_SerialMemoryInterface is
+architecture tb_arch of tb_SerialMemoryInterface_v3 is
 
     component SerialMemoryInterface
     port (

@@ -30,31 +30,6 @@
 	-- It includes a state machine that orchestrates the shifting of data in and out of shift registers,
 	-- controls the timing and sequencing of operations, and manages the LED status and IO control signals.
 
-	-- The module contains the following ports:
-
-	-- Inputs:
-	-- RESET: Asynchronous reset signal.
-	-- H1_CLKWR: Clock signal for the module.
-	-- SysClk: System clock signal.
-	-- Enable: Enable signal for the module.
-	-- SynchedTick: Synchronous tick signal.
-	-- intDATA: Data input for IO operations.
-	-- Control signals for Axis0 and Axis1: These signals include signals
-	-- for LED status read/write, IO read/write, and fault signals.
-
-	-- Outputs:
-	-- controlIoDataOut: Data output for control IO operations.
-	-- M_IO_OE: Output enable signal for the shift register controlling LEDs on axis modules.
-	-- M_IO_LOAD: Control signal to select input latch or shift register for IO operations.
-	-- M_IO_LATCH: Control signal to transfer data from shift register to outputs and latch inputs.
-	-- M_IO_CLK: Clock signal for input and output data through shift registers.
-	-- M_IO_DATAOut: Data output for IO operations.
-	-- M_ENABLE: Enable signals for Axis0 and Axis1.
-	-- QA0AxisFault: Output signals for Axis0 fault status.
-	-- QA1AxisFault: Output signals for Axis1 fault status.
-	-- The architecture ControlIO_arch describes the internal implementation of the ControlIO module.
-	-- It includes several internal signals and components to manage the IO operations and LED status.
-
 	-- Key architecture components and processes:
 	-- ShiftOutRegister and ShiftInRegister are internal signals used to
 	-- store the data being shifted in and out of the shift registers.
@@ -90,33 +65,33 @@ use IEEE.std_logic_unsigned.all;
 
 entity ControlIO is
 	port (
-		RESET				: in std_logic;
-		H1_CLKWR			: in std_logic;
-		SysClk				: in std_logic;
-		Enable				: in std_logic;
+		RESET				: in std_logic; -- Asynchronous reset signal
+		H1_CLKWR			: in std_logic; -- 60 MHz clock
+		SysClk				: in std_logic; -- 30 MHz clock
+		Enable				: in std_logic; -- 7.5 MHz enable signal
 		SynchedTick			: in std_logic;
-		intDATA				: in std_logic_vector (31 downto 0);
-		controlIoDataOut	: out std_logic_vector (31 downto 0);
+		intDATA				: in std_logic_vector (31 downto 0); -- Data input for IO operations.
+		controlIoDataOut	: out std_logic_vector (31 downto 0); -- Data output for control IO operations
 		Axis0LEDStatusRead	: in std_logic;
 		Axis0LEDConfigWrite	: in std_logic;
-		Axis0IORead			: in std_logic;
-		Axis0IOWrite		: in std_logic;
+		Axis0IORead			: in std_logic; -- IO read/write
+		Axis0IOWrite		: in std_logic; 
 		Axis1LEDStatusRead	: in std_logic;
 		Axis1LEDConfigWrite	: in std_logic;
-		Axis1IORead			: in std_logic;
+		Axis1IORead			: in std_logic; -- for LED status read/write
 		Axis1IOWrite		: in std_logic;
 		M_IO_OE				: out std_logic;	-- Enable outputs on shift register that controls LEDs on axis modules
 		M_IO_LOAD			: out std_logic;	-- 0 = enable input latch, 1 = enable input shift register
 		M_IO_LATCH			: out std_logic;	-- Transfer data from shift register to outputs and latch inputs
 		M_IO_CLK			: out std_logic;	-- Clock input and output data through shift registers
-		M_IO_DATAOut		: out std_logic;
+		M_IO_DATAOut		: out std_logic; -- Data output for IO operations
 		M_IO_DATAIn			: in std_logic;
-		M_ENABLE			: out std_logic_vector (1 downto 0);
+		M_ENABLE			: out std_logic_vector (1 downto 0); -- Enable signals for Axis0 and Axis1
 		M_FAULT				: in std_logic_vector (1 downto 0);
 		PowerUp				: in std_logic;
 		QUADPresent			: in std_logic;
-		QA0AxisFault		: out std_logic_vector (2 downto 0);
-		QA1AxisFault		: out std_logic_vector (2 downto 0)
+		QA0AxisFault		: out std_logic_vector (2 downto 0); 	-- Control signals for Axis0 and Axis1
+		QA1AxisFault		: out std_logic_vector (2 downto 0) 
 	);
 end ControlIO;
 

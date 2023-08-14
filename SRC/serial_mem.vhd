@@ -7,12 +7,13 @@
 --  Design:         RMC75E Rev 3.n (Replace Xilinx with Microchip)
 --  Board:          RMC75E Rev 3.0
 --
---	Entity Name		SerialMemoryInterface
---	File					serial_mem.vhd
+--	Entity Name			SerialMemoryInterface
+--	File						serial_mem.vhd
 --
 --------------------------------------------------------------------------------
 
 --	Description: 
+
 --		Serial memory interface for the RMC75E modular motion controller.
 --		The module provides communication with an external serial EEPROM, specifically the AT24C01A device.
 --		The SerialMemoryInterface component converts data from parallel to
@@ -27,7 +28,8 @@
 --
 --	File history:
 --		Rev 1.2 : 02/28/2023 :	Add SysReset to reset state machine and various logic
---								  control signals.
+--								  					control signals.
+
 --		Rev 1.1 : 06/02/2022 :	Updated formatting
 --
 --------------------------------------------------------------------------------

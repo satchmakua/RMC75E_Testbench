@@ -14,46 +14,11 @@
 --
 --	Description: 
 			
-	-- The Quad module serves as a wrapper for multiple QuadXface components,
+	-- The Quad module serves as a wrapper for multiple QuadXface components
 	-- enabling the processing of quadrature signals and generating output data for multiple
 	-- quadrature interfaces and axes in the RMC75E motion controller.
 	
-	-- Inputs:
-	-- H1_CLKWR: Clock signal.
-	-- SysClk: System clock signal.
-	-- SynchedTick: Synchronized tick signal.
-	-- intDATA: 32-bit input data signal.
-	-- Exp0QuadCountRead, Exp1QuadCountRead, Exp2QuadCountRead, Exp3QuadCountRead:
-	-- Signals to initiate the count read operation for each respective quadrature interface.
-	-- Exp0QuadLEDStatusRead, Exp1QuadLEDStatusRead, Exp2QuadLEDStatusRead, Exp3QuadLEDStatusRead:
-	-- Signals to read the LED status for each respective quadrature interface.
-	-- Exp0QuadLEDStatusWrite, Exp1QuadLEDStatusWrite, Exp2QuadLEDStatusWrite, Exp3QuadLEDStatusWrite:
-	-- Signals to write the LED status for each respective quadrature interface.
-	-- Exp0QuadInputRead, Exp1QuadInputRead, Exp2QuadInputRead, Exp3QuadInputRead:
-	-- Signals to read the input for each respective quadrature interface.
-	-- Exp0QuadHomeRead, Exp1QuadHomeRead, Exp2QuadHomeRead, Exp3QuadHomeRead:
-	-- Signals to read the home position for each respective quadrature interface.
-	-- Exp0QuadLatch0Read, Exp0QuadLatch1Read, Exp1QuadLatch0Read, Exp1QuadLatch1Read,
-	-- Exp2QuadLatch0Read, Exp2QuadLatch1Read, Exp3QuadLatch0Read, Exp3QuadLatch1Read:
-	-- Signals to read the latch values for each respective quadrature interface.
-	-- Exp0Quad_A, Exp0Quad_B, Exp1Quad_A, Exp1Quad_B, Exp2Quad_A, Exp2Quad_B,
-	-- Exp3Quad_A, Exp3Quad_B: Signals representing the quadrature input signals for each respective quadrature interface.
-	-- Exp0Quad_Reg, Exp1Quad_Reg, Exp2Quad_Reg, Exp3Quad_Reg:
-	-- Signals representing the quadrature home position for each respective quadrature interface.
-	-- Exp0Quad_FaultA, Exp0Quad_FaultB, Exp1Quad_FaultA, Exp1Quad_FaultB, Exp2Quad_FaultA, Exp2Quad_FaultB,
-	-- Exp3Quad_FaultA, Exp3Quad_FaultB: Signals representing the fault status for each respective quadrature interface.
-	-- QA0CountRead, QA1CountRead: Signals to initiate the count read operation for each respective axis.
-	-- QA0LEDStatusRead, QA1LEDStatusRead: Signals to read the LED status for each respective axis.
-	-- QA0LEDStatusWrite, QA1LEDStatusWrite: Signals to write the LED status for each respective axis.
-	-- QA0InputRead, QA1InputRead: Signals to read the input for each respective axis.
-	-- QA0HomeRead, QA1HomeRead: Signals to read the home position for each respective axis.
-	-- QA0Latch0Read, QA0Latch1Read, QA1Latch0Read, QA1Latch1Read: 
-	-- Signals to read the latch values for each respective axis.
-	-- QA0_SigA, QA0_SigB, QA0_SigZ, QA0_Home, QA0_RegX_PosLmt, QA1_SigA,
-	-- QA1_SigB, QA1_SigZ, QA1_Home, QA1_RegX_PosLmt, QA1_RegY_NegLmt:
-	-- Signals representing various control and status signals for each respective axis.
-	-- QA0AxisFault, QA1AxisFault:
-	-- 3-bit signals representing the fault status for each respective axis.
+
 
 	-- Outputs:
 	-- Exp0QuadDataOut, Exp1QuadDataOut, Exp2QuadDataOut, Exp3QuadDataOut: 32-bit output data signals for each respective quadrature interface.
@@ -108,10 +73,10 @@ use IEEE.STD_LOGIC_SIGNED.ALL;
 
 entity Quad is
 	Port (
-		H1_CLKWR				: in std_logic;
-		SysClk					: in std_logic;
-		SynchedTick				: in std_logic;
-		intDATA					: in std_logic_vector(31 downto 0);
+		H1_CLKWR				: in std_logic; -- 60 MHz Clock signal
+		SysClk					: in std_logic; -- 30MHz System clock signal
+		SynchedTick				: in std_logic; -- Synchronized tick signal
+		intDATA					: in std_logic_vector(31 downto 0); -- 32-bit input data signal
 		Exp0QuadDataOut			: out std_logic_vector(31 downto 0);
 		Exp1QuadDataOut			: out std_logic_vector(31 downto 0);
 		Exp2QuadDataOut			: out std_logic_vector(31 downto 0);
@@ -122,12 +87,12 @@ entity Quad is
 --		Exp1Mux					: in std_logic_vector (1 downto 0);
 --		Exp2Mux					: in std_logic_vector (1 downto 0);
 --		Exp3Mux					: in std_logic_vector (1 downto 0);
-		Exp0QuadCountRead		: in std_logic;
-		Exp0QuadLEDStatusRead	: in std_logic;
-		Exp0QuadLEDStatusWrite	: in std_logic;
-		Exp0QuadInputRead		: in std_logic;
-		Exp0QuadHomeRead		: in std_logic;
-		Exp0QuadLatch0Read		: in std_logic;
+		Exp0QuadCountRead		: in std_logic; -- Initiates the count read operation for respective quadrature interface
+		Exp0QuadLEDStatusRead	: in std_logic; -- Signal to read the LED status for respective quadrature interface (Exp0)
+		Exp0QuadLEDStatusWrite	: in std_logic; -- Writes the LED status for respective quadrature interface
+		Exp0QuadInputRead		: in std_logic; -- Signal to read the input for respective quadrature interface
+		Exp0QuadHomeRead		: in std_logic; 	-- Signal to read the home position for respective quadrature interface
+		Exp0QuadLatch0Read		: in std_logic; 	-- Signals to read the latch value for respective quadrature interface
 		Exp0QuadLatch1Read		: in std_logic;
 		Exp1QuadCountRead		: in std_logic;
 		Exp1QuadLEDStatusRead	: in std_logic;
@@ -149,11 +114,11 @@ entity Quad is
 		Exp3QuadInputRead		: in std_logic;
 		Exp3QuadHomeRead		: in std_logic;
 		Exp3QuadLatch0Read		: in std_logic;
-		Exp3QuadLatch1Read		: in std_logic;
-		Exp0Quad_A				: in std_logic;
+		Exp3QuadLatch1Read		: in std_logic; 
+		Exp0Quad_A				: in std_logic; -- Signals representing the quadrature input signals for respective quadrature interface
 		Exp0Quad_B				: in std_logic;
-		Exp0Quad_Reg			: in std_logic;
-		Exp0Quad_FaultA			: in std_logic;
+		Exp0Quad_Reg			: in std_logic; -- Signal representing the quadrature home position for respective quadrature interface
+		Exp0Quad_FaultA			: in std_logic; -- Signal representing the fault status for respective quadrature interface
 		Exp0Quad_FaultB			: in std_logic;
 		Exp1Quad_A				: in std_logic;
 		Exp1Quad_B				: in std_logic;
@@ -172,8 +137,8 @@ entity Quad is
 		Exp3Quad_FaultB			: in std_logic;
 
 		QA0CountRead			: in std_logic;
-		QA0LEDStatusRead		: in std_logic;
-		QA0LEDStatusWrite		: in std_logic;
+		QA0LEDStatusRead		: in std_logic; -- Signal to read the LED status for respective axis
+		QA0LEDStatusWrite		: in std_logic; -- Signal to write the LED status for respective axis
 		QA0InputRead			: in std_logic;
 		QA0HomeRead				: in std_logic;
 		QA0Latch0Read			: in std_logic;
@@ -193,13 +158,13 @@ entity Quad is
 		QA0_Home				: in std_logic;
 		QA0_RegX_PosLmt			: in std_logic;
 		QA0_RegY_NegLmt			: in std_logic;
-		QA1_SigA				: in std_logic;
-		QA1_SigB				: in std_logic;
+		QA1_SigA				: in std_logic; 	-- QA1_SigB, QA1_SigZ, QA1_Home, QA1_RegX_PosLmt, QA1_RegY_NegLmt:
+		QA1_SigB				: in std_logic;		-- Signals representing control and status signals for respective axis
 		QA1_SigZ				: in std_logic;
 		QA1_Home				: in std_logic;
 		QA1_RegX_PosLmt			: in std_logic;
 		QA1_RegY_NegLmt			: in std_logic;
-		QA0AxisFault			: in std_logic_vector(2 downto 0);
+		QA0AxisFault			: in std_logic_vector(2 downto 0); -- 3-bit signal fo fault status
 		QA1AxisFault			: in std_logic_vector(2 downto 0)
 	);
 end Quad;
