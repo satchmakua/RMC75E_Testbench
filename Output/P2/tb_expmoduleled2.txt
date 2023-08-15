@@ -1,0 +1,42 @@
+run 50 ns
+run 50000 ns
+# ** Error: Test case 1 failed: Unexpected expLedDataOut value
+#    Time: 300 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 2 failed: Unexpected expLedDataOut value
+#    Time: 400 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 3 failed: Unexpected expLedDataOut value
+#    Time: 500 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 4 failed: Unexpected expLedDataOut value
+#    Time: 600 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 5 failed: Unexpected expLedDataOut value
+#    Time: 700 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 6 failed: Unexpected expLedDataOut value
+#    Time: 800 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 7 failed: Unexpected expLedDataOut value
+#    Time: 900 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 8 failed: Unexpected expLedDataOut value
+#    Time: 1 us  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 9 failed: Unexpected expLedDataOut value
+#    Time: 1100 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 10 failed: Unexpected expLedDataOut value
+#    Time: 1200 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 11 failed: Unexpected expLedDataOut value
+#    Time: 1300 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 12 failed: Unexpected expLedDataOut value
+#    Time: 1400 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 13 failed: Unexpected expLedDataOut value
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 14 failed: Unexpected expLedDataOut value
+#    Time: 1600 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 15 failed: Unexpected expLedDataOut value
+#    Time: 1700 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 16 failed: Unexpected expLedDataOut value
+#    Time: 1800 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 17 failed: Unexpected expLedDataOut value
+#    Time: 1900 ns  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 18 failed: Unexpected expLedDataOut value
+#    Time: 2 us  Iteration: 0  Instance: /tb_expmoduleled
+# ** Error: Test case 19 failed: Unexpected expLedDataOut value
+#    Time: 2100 ns  Iteration: 0  Instance: /tb_expmoduleled
+
+

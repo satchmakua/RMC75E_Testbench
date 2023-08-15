@@ -41,10 +41,9 @@ architecture tb_arch of tb_SerialMemoryInterface_v2 is
 
     constant H1_CLK_period : time := 16.6667 ns;
     constant SysClk_period : time := 33.3333 ns;
+		signal pulseCounter : std_logic_vector(7 downto 0) := "00000000";
 
 begin
-
-    M_SPROM_DATA <= M_SPROM_DATA_tb when (M_SPROM_DATA_tb /= 'Z') else M_SPROM_DATA_DUT;
 
     DUT : SerialMemoryInterface
     port map (
@@ -65,7 +64,7 @@ begin
         Exp3SerialSelect => Exp3SerialSelect,
         EEPROMAccessFlag => EEPROMAccessFlag,
         M_SPROM_CLK => M_SPROM_CLK,
-        M_SPROM_DATA => M_SPROM_DATA_DUT
+        M_SPROM_DATA => M_SPROM_DATA
     );
 
     H1_CLK_process : process
@@ -93,32 +92,35 @@ begin
     end process;
 
     process
-        variable pulseCounter : natural := 0;
-    begin
-        wait until falling_edge(M_SPROM_CLK);
-        pulseCounter := pulseCounter + 1;
+				begin
+        wait until rising_edge(M_SPROM_CLK) or falling_edge(M_SPROM_CLK);
+        pulseCounter <= pulseCounter + 1;
 
         case pulseCounter is
-            when 9 | 18 =>
+            when X"12" | X"26" =>
+                M_SPROM_DATA_tb <= '0' when M_SPROM_CLK = '1' else 'Z';
+								M_SPROM_DATA <= '0' when M_SPROM_CLK = '1' else 'Z';
+            when X"38" =>  
                 M_SPROM_DATA_tb <= '0';
-                wait until falling_edge(M_SPROM_CLK);
-            when 27 =>  
-                M_SPROM_DATA_tb <= '0';
-                pulseCounter := 0;
+								M_SPROM_DATA <= '0';
+                pulseCounter <= (others => '0');
             when others =>
                 M_SPROM_DATA_tb <= 'Z';
+								M_SPROM_DATA <= 'Z';
         end case;
     end process;
 
     process
     begin
+        -- Reset the module
         SysReset <= '1';
         wait for 1 us;
         SysReset <= '0';
-
-        SerialMemoryDataIn <= '0';
+				
+				SerialMemoryDataIn <= '0';
         wait for 2 us;
 
+        -- Test Case 1: Write operation
         intDATA(31 downto 25) <= "1010000";
         intDATA(24 downto 22) <= "100";
         intDATA(21 downto 16) <= "000001";
@@ -129,14 +131,30 @@ begin
         SerialMemXfaceWrite <= '1';
         wait for SysClk_period;
 				SerialMemXfaceWrite <= '0';
-        wait for 300 us;
-				
-				intDATA(24 downto 22) <= "000";
-				SerialMemXfaceWrite <= '1';
+        wait for 2 * SysClk_period;
+
+        -- Test Case 2: Read operation
+        intDATA <= (others => '0');  -- Clear data
+        intDATA(31 downto 25) <= "1010000";  -- Device address
+        intDATA(24 downto 22) <= "100";     -- Module address
+        intDATA(21 downto 16) <= "000001";  -- Memory address
+        intDATA(14) <= '1';
+				intDATA(15) <= '0';
+        SerialMemXfaceWrite <= '1';
         wait for SysClk_period;
-				SerialMemXfaceWrite <= '0';
-        
+        SerialMemXfaceWrite <= '0';
+        wait for 2 * SysClk_period;
+
+        -- Test Case 3: Clear operation
+        intDATA <= (others => '0');  -- Clear data
+        intDATA(24 downto 22) <= "100";     -- Module address
+        intDATA(14 downto 8) <= "0000000";   -- Clear operation
+        SerialMemXfaceWrite <= '1';
+        wait for SysClk_period;
+        SerialMemXfaceWrite <= '0';
+        wait for 2 * SysClk_period;
+
         wait;
     end process;
-
 end tb_arch;
+
