@@ -1,1 +1,0 @@
-These outputs were generated using the drop-in clock module (CLK_GEN_NEW.vhd) and not the original clock generator modules.

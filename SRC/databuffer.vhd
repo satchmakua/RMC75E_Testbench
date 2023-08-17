@@ -80,7 +80,7 @@ architecture DataBuffer_arch of DataBuffer is
 			WriteBank0,
 			WriteBank1				: std_logic:= '0';
 	signal	DetectRead,
-			DecrementReadPointer	: std_logic;	-- := '0';
+			DecrementReadPointer	: std_logic:= '0';
 	signal	ReadPointer,
 			WritePointer			: std_logic_vector (2 downto 0);	-- := "000";
 	signal	ReadEnableEncode		: std_logic_vector (9 downto 0);	-- := "0000000000";

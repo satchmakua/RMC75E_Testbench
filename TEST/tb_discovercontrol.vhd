@@ -45,7 +45,7 @@ entity tb_DiscoverControl is
 end tb_DiscoverControl;
 
 architecture tb of tb_DiscoverControl is
-  constant CLK_PERIOD : time := 33.33333 ns; -- For 60 MHz clock
+  constant SysClk_period : time := 33.33333 ns; -- For 60 MHz clock
 
   signal RESET          : std_logic;
   signal SysClk         : std_logic;
@@ -95,32 +95,48 @@ architecture tb of tb_DiscoverControl is
 		SysClk_process : process
     begin
         SysClk <= '0';
-        wait for CLK_PERIOD/2;
+        wait for SysClk_period/2;
         SysClk <= '1';
-        wait for CLK_PERIOD/2;
+        wait for SysClk_period/2;
     end process;
 
     -- SlowEnable signal process definition
     SlowEnable_process : process
     begin
         SlowEnable <= '0';
-        wait for 7 * CLK_PERIOD;
+        wait for 7 * SysClk_period;
         SlowEnable <= '1';
-        wait for CLK_PERIOD;
+        wait for SysClk_period;
     end process;
 
   -- Test bench process
   tb_process: process
   begin
     -- Initialize signals
-		wait for 10 ns;
-    RESET <= '0';
-    FPGAIDRead <= '0';
+		
+		Expansion1IDRead <= '0';
+		Expansion2IDRead <= '0';
+		Expansion3IDRead <= '0';
+		Expansion4IDRead <= '0';
+		FPGAIDRead <= '0';
     ControlCardIDRead <= '0';
+		M_Card_ID_DATA <= '0';
 		
-		wait for 10 us;
+		RESET <= '1';
+		wait for 50 ns;
+    RESET <= '0';
+		wait for 50 ns;
 		
-    Expansion1IDRead <= '1';
+		M_Card_ID_DATA <= '1';
+		wait for 100 ns;
+		M_Card_ID_DATA <= '0';
+		wait for 100 ns;
+		M_Card_ID_DATA <= '1';
+		wait for 100 ns;
+		M_Card_ID_DATA <= '1';
+		wait for 100 ns;
+		
+		Expansion1IDRead <= '1';
 		wait for 1 us;
 		Expansion1IDRead <= '0';
 		
@@ -136,12 +152,6 @@ architecture tb of tb_DiscoverControl is
 		wait for 1 us;
 		Expansion4IDRead <= '0';
 		
-    M_Card_ID_DATA <= '0';
-    Exp_ID_DATA <= '0';
-    MDTPresent <= '0';
-    ANLGPresent <= '0';
-    QUADPresent <= '0';
-		
     Exp0Mux <= (others => '0');
     Exp1Mux <= (others => '0');
     Exp2Mux <= (others => '0');
@@ -149,6 +159,38 @@ architecture tb of tb_DiscoverControl is
 
     wait;
   end process tb_process;
+	
+	
+	tb_exp_process: process
+  begin
+    -- Reset sequence
+		Exp_ID_DATA <= '0';
+		
+		wait for 1 us;
 
+    -- Test 1: Test basic operation with Exp_ID_DATA = '1'
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
+
+    -- Test 2: Test different Exp_ID_DATA values
+    Exp_ID_DATA <= '0';
+
+    -- Test 3: Test Shift Complete
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 66; -- Wait for 66 clock cycles to complete one full shift (64 + 1)
+
+    -- Test 4: Test writing different data values
+    Exp_ID_DATA <= '0';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
+
+    Exp_ID_DATA <= '1';
+    wait for SysClk_period * 20; -- Wait for 20 clock cycles
+
+    -- End of testbench
+    assert false report "End of testbench" severity note;
+		
+    wait;
+		
+  end process tb_exp_process;
 end tb;
 

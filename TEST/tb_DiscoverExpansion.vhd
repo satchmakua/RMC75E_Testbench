@@ -88,15 +88,6 @@ begin
 			SysClk <= '1';
 			wait for SysClk_period/2;
 	end process;
-
-	-- SlowEnable signal process definition
-	-- SlowEnable_process : process
-	-- begin
-			-- SlowEnable <= '0';
-			-- wait for Slow_period/2;
-			-- SlowEnable <= '1';
-			-- wait for Slow_period/2;
-	-- end process;
 	
 	SlowEnable_process : process
 	begin

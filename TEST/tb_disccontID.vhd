@@ -39,7 +39,7 @@ architecture tb of tb_DiscoverControlID is
   signal RESET          : std_logic := '0';
   signal SysClk         : std_logic := '0';
   signal SlowEnable     : std_logic := '0';
-  signal ControlID      : std_logic_vector(16 downto 0) := (others => '0');
+  signal ControlID      : std_logic_vector(16 downto 0);
   signal M_Card_ID_CLK  : std_logic;
   signal M_Card_ID_DATA : std_logic := '0';
   signal M_Card_ID_LATCH: std_logic;
